@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>발송건수 분석(실패) | AXon SMS</title>
+	<!-- SMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sms.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sms.js"></script>
+	<!-- //SMS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sms">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>발송건수 분석(실패)</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				
+				<form>
+					<fieldset>
+						<legend>조회 및 목록</legend>
+
+						<!-- 조회// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조회</h3>
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label>연락처</label>
+										<div class="list-item">
+											<input type="text" placeholder="연락처를 입력해주세요.">
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조회 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big fullgreen">검색</button>
+							<button type="button" class="btn big">초기화</button>
+						</div>
+						<!-- //btn-wrap -->
+
+						<!-- 목록// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">목록</h3>
+							</div>
+
+							<div class="grid-area">
+								<div class="table-scroll" style="max-height:800px;">
+									<table class="grid">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:50%;">
+											<col style="width:auto;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">발송상태</th>
+												<th scope="col">연락처</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- 데이터가 있을 경우// -->
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<tr>
+												<td>실패</td>
+												<td>010-1234-5678</td>
+											</tr>
+											<!-- //데이터가 있을 경우 -->
+						
+											<!-- 데이터가 없을 경우// -->
+											<tr>
+												<td colspan="2" class="no_data">등록된 내용이 없습니다.</td>
+											</tr>
+											<!-- //데이터가 없을 경우 -->
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- //목록 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big">목록</button>
+						</div>
+						<!-- //btn-wrap -->
+							
+					</fieldset>
+				</form>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

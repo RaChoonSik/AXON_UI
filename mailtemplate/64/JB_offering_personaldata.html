@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=800">
+    <title>JB금융지주 그룹 내 고객정보 제공내역 안내</title>
+    <style>
+        /******** reset css ********/
+        html,body,div,p,h1,h2,h3,h4,h5,h6,strong,span,label,legend, ul,ol,li,dl,dt,dd,table,thead,tbody,tr,th,td,tfoot,img,a,button,footer,section{padding:0;margin:0;}
+        ul,ol,li{list-style:none;}
+        button{background:transparent;cursor:pointer;}
+        img{max-width:100%;vertical-align:top;}
+        img,button,fieldset,table, tfoot{border:0;}
+        address{font-style:normal;}
+        label,a{display:inline-block;}
+        h2,h3,strong,em{font-weight:600;}
+        input,select,label,button,textarea{border-radius:0;-webkit-border-radius:0;background-color:transparent;color:#111;font-size:14px;line-height:normal;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;vertical-align:middle;}
+        table{width:100%;border-spacing:0;}
+        a{border:0;color:#444;text-decoration:none;}
+        a:hover{color:#0070D2;text-decoration:none;}
+        *, *:before, *:after{box-sizing:border-box;}
+        *:focus{outline:0;}
+        html,body{height:100%;}
+        legend, .hidden, .hide{position:absolute !important;top:0 !important;left:0 !important;padding:0 !important;border:0 !important;overflow:hidden !important;width:0 !important;height:0 !important;line-height:0 !important;}
+        body{width:800px;margin:0 auto;padding:30px 16px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;font-weight:400;color:#3a3a3a;line-height:normal;box-sizing:border-box;letter-spacing:-0.07em; }
+        html, table, th, td{
+            /* Prevent font scaling in landscape */
+            -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+            -moz-text-size-adjust: none; /*Firefox*/
+            -ms-text-size-adjust: none;  /*Ie*/
+            -o-text-size-adjust: none; /*old versions of Opera*/
+        }
+
+        /******** common css ********/
+        /* section */
+        .tal{text-align:left !important;}
+        .tac{text-align:center !important;}
+        .tar{text-align:right !important;}
+        .clear:after{content:'';display:block;clear:both;}
+        .txt-black{color:#111111 !important;margin:0 !important}
+        .txt-gray{font-size:14px;color:#999999;}
+        .bold-blue{color:#0070D2 !important;font-weight:600 !important;font-size:20px !important;}
+        .title-desc{margin-bottom:50px;font-size:16px;}
+        .cont-head h1{width:173px;height:34px;text-indent:-9999px;background:url('../img/pc_logo.png') no-repeat;background-position: 0 0;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            .cont-head h1{width:173px;height:34px;background:url('../img/mb_logo.png') no-repeat cover;background-position: 0 0;}
+        }
+        .cont-head h2{margin-top:26px;font-size:33px;color:#1F1A60;}
+        .cont-body h3{position:relative;margin-bottom:20px;padding-bottom:10px;font-size:20px;color:#111; border-bottom:1px solid #CCCCCC;}
+        .cont-body h3 ~ h3{margin-top:30px;}
+        .cont-body h3:after{content:'';display:block;position:absolute;top:12px;right:10px;width:12px;height:8px; background:url('../img/arrow.png') no-repeat 0 0;}
+        .cont-body h3 .info-unit{position:absolute;top:3px;right:36px;font-size:14px;font-weight:400;color:#999;}
+        .cont-body h3 .bold-blue{top:0px;}
+        .cont-body h4{margin-bottom:10px;color:#111;font-size:16px;}
+        .cont-body h4 ~ h4{margin-top:20px;}
+        .cont-body h4 + ul {margin-bottom:20px;}
+        .cont-body ul{font-size:14px;}
+        .cont-body ol{font-size:14px;}
+        .cont-body .list-dot{margin-bottom:20px;}
+        .cont-body .list-dot li{position:relative;padding-left:10px;list-style-position:inside;font-size:14px;}
+        .cont-body .list-dot li:before{content:'•';display: inline-block;position:absolute;top:0;left:0;}
+        .cont-body .bluebox{width:100%;height:auto;margin-bottom:20px;padding:15px;background:#EFF8FF;font-size:14px;box-sizing:border-box;}
+        .cont-body .bluebox h4{position:relative;margin-bottom:10px;padding-left:20px;font-size:16px;font-weight:600;color:#111;}
+        .cont-body .bluebox h4:before{content:'';display:block;position:absolute;top:5px;left:0px; width:16px;height:16px;padding-right:5px;background:url('../img/ico_info.png') no-repeat;}
+        .cont-body .bluebox strong{font-size:16px;color:#4D4D4D;}
+        .cont-body .bluebox strong.dot{display:inline-block;margin-bottom:10px;color:#111;}
+        .cont-body .bluebox strong.dot:before{content:'•';display:inline-block;padding-right:6px;}
+        .cont-body .bluebox strong.check{position:relative;font-weight:600;color:#0070D2;}
+        .cont-body .bluebox strong.check:before{content:'';display: inline-block;}
+
+        .tab-menu{height:40px;margin-top:30px;margin-bottom:50px;}
+        .tab-menu > button{display:block;float:left;min-width:160px;height:40px;margin-left:4px;background:#EFEFEF;font-size:16px;color:#4d4d4d;text-align:center;line-height:40px;}
+        .tab-menu > button:first-child{margin-left:0;}
+        .tab-menu > button.active,
+        .tab-menu > button:hover{background:#0070D2;color:#fff;font-weight:600;}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;}
+
+        table{margin-bottom:30px;}
+        table tr:first-child th, table tr:first-child td{border-top:1px solid #DADADA;}
+        table tr > th:first-child{border-left:0}
+        table th{padding:5px;background:#CCE9FF;font-size:12px;font-weight:600;border-bottom:1px solid #DADADA;border-left:1px solid #DADADA;}
+        table td{padding:5px 10px;background:#fff;font-size: 12px;text-align:center;border-bottom: 1px solid #DADADA;border-left:1px solid #DADADA;}
+        .tab ul + table{margin-bottom:20px;}
+        .tab .table-title{margin-bottom:10px;font-size:14px;}
+        .tab .total-bold{font-weight:600;color:#4d4d4d;}
+        .tab .image-box {overflow:hidden;}
+        .tab .image-box img{width:100%;}
+
+        /* 파란배경이 없는 테이블의 경우 .table-white 클래스 사용*/
+        .table-white th{background:#fff;text-align:left;border:0;}
+        .table-white td{background:#fff;text-align:left;border:0;}
+        .table-white tr:first-child th, .tab .table-white tr:first-child td{border-top:0;}
+        .tab .caution ul {color:#999; list-style:none !important;text-indent:0;margin-bottom:0;padding-left:14px;}
+        .tab .caution ul li:before {content:"\2022";color:#dadada !important;font-weight:bold;display:inline-block;width:1em;margin-left:-1em;}
+        .tab .caution p{color:#999;font-size:14px;}
+
+        /* 푸터 */
+        footer{padding-top:80px;padding-bottom:30px;color:#9A9A9A;}
+        footer dl{display: table;}
+        footer dt,footer dd{display: table-cell;}
+        footer .footer-logo{width:126px;height:26px;text-indent:-9999px;background:url('../img/pc_logogray.png') no-repeat;background-size:contain;background-position: 0 0;}
+        footer dd{padding-left:36px;}
+        footer p{padding-top:10px;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            footer .footer-logo{background:url('../img/mb_logogray.png') no-repeat cover; background-position: 0 0;}
+        }
+    </style>
+    <script>
+            'use strict';
+
+            window.onload = function(){
+            // IE11 support
+            if (window.NodeList && !NodeList.prototype.forEach) {
+                NodeList.prototype.forEach = Array.prototype.forEach;
+            }
+
+            function findParent(el, className){
+                var check = el.parentNode.classList.contains(className);
+            
+                if(check === true){
+                    return el.parentNode;
+                }else{
+                    return findParent(el.parentNode, className);
+                }
+            }
+
+            function bindingTabEvent(wrap){
+                var wrapEl = document.querySelectorAll(wrap);
+            
+                wrapEl.forEach(function(tabArea){
+                    var btn = tabArea.querySelectorAll('.tab-link');
+                    
+                    btn.forEach(function(item){
+                        item.addEventListener('click', function(){
+                            var parent = findParent(this, 'tab');
+                            var idx = this.dataset['idx'];
+                            var depth = this.dataset['depth'];
+                            var btnArr = parent.querySelectorAll('.tab-link[data-depth="'+ depth +'"]');
+                            var contentArr = parent.querySelectorAll('.tab-content[data-depth="'+ depth +'"]');
+                            
+                            btnArr.forEach(function(btn){ btn.classList.remove('active'); });
+                            this.classList.add('active');
+                            contentArr.forEach(function(content){ content.classList.remove('active'); });
+                            parent.querySelector('.tab-content[data-idx="'+ idx +'"][data-depth="'+ depth +'"]').classList.add('active');
+                        });
+                    });
+                });
+            }
+
+            bindingTabEvent('.tab-wrap');
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">
+            <section class="cont-head"> 
+                <h1>광주은행</h1>
+                <h2 style="margin-bottom:30px;">JB금융지주 그룹 내 고객정보 제공내역 안내</h2>
+                <p class="title-desc">
+                    광주은행은 금융지주회사법령에 의해 그룹사간 고객정보의 제공 및 이용이 가능하게 되어 있으며, 고객정보를
+                    제공하는 경우, 그 제공내역을 고객에게 통지하여야 합니다. 이에 광주은행에서 JB금융지주 그룹 내 고객정보를
+                    제공한 내역에 대하여 아래와 같이 안내해 드립니다.<br>
+                    <span style="color:#0070D2;font-weight:600;">&#8251; 법령상 고객님의 동의없이 제공 가능한 최소한의 고객정보로써 마케팅 등 영업목적은 제외</span>
+                </p>
+            </section>
+            <section class="cont-body">
+
+                <h3>정보제공 관련법정</h3>
+                <h4 style="color:#0070D2;font-size:14px;">금융지주회사법 제 48조의2(고객정보의 제공 및 관리)</h4>
+                <ol>
+                    <li style="margin-bottom:20px;">
+                        ① 금융지주회사 등은 「금융실명거래 및 비밀보장에 관한 법률」제4조 제1항 및 「신용정보의 이용 및 보호에 관한 법률」제4조에
+                        따른 금융거래의 내용에 관한 정보 또는 자료 및 「신용정보의 이용 및 보호에 관한 법률」 제32조제1항에 따른 개인신용정보를 다음
+                        각 호의 사항에 관하여 금융위원회가 정하는 방법과 절차에 따라 그가 속하는 금융지주회사 등에게 신용위험관리 등 대통령령으로
+                        정하는 내부 경영관리상 이용하게 할 목적으로 제공할 수 있다.&nbsp;&#10092;중략&#10093;	
+                    </li>
+                    <li style="margin-bottom:20px;">
+                        ② 금융지주회사의 자회사 등인 「자본시장과 금융투자업에 관한 법률」에 따른 투자매매업자 또는 투자중개업자는 해당 투자매매업자
+                        또는 투자중개업자를 통하여 증권을 매매하거나 매매하고자 하는 위탁자가 예탁한 금전 또는 증권에 관한 정보 중 다음 각 호의 어느
+                        하나에 해당하는 정보(이하 "증권총액정보 등"이라 한다)를 고객정보제공 절차에 따라 그가 속하는 금융지주회사 등에게
+                        신용위험관리 등 대통령령으로 정하는 내부 경영관리상 이용하게 할 목적으로 제공할 수 있다.
+                    </li>
+                    <li style="margin-bottom:20px;">
+                        ③ 제1항 및 제2항에 따라 자회사 등이 금융거래정보·개인신용정보 및 증권총액정보 등(이하 "고객정보"라 한다)을 제공하는 경우에는
+                        「신용정보의 이용 및 보호에 관한 법률」제32조 제10항을 적용하지 아니한다.
+                    </li>
+                    <li>
+                        ④ 제1항 및 제2항에 따라 고객정보를 그가 속하는 금융지주회사 등에게 제공하는 경우에는 그 제공내역을 고객에게 통지하여야 한다.<br>
+                        다만, 연락처 등 통지할 수 있는 개인정보를 수집하지 아니한 경우에는 그러하지 아니하다.
+                    </li>
+                </ol>
+
+                <h3>고객정보 제공내용 <span class="info-unit">대상기간 2019년 01월 01일 ~ 2019년 12월 31일</span></h3>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width: 12%;">
+                        <col style="width: 12%;">
+                        <col style="width: 38%;">
+                        <col style="width: auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">제공하는 자</th>
+                            <th scope="col">제공받는 자</th>
+                            <th scope="col">제공목적</th>
+                            <th scope="col">제공항목</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">광주은행</td>
+                            <td>JB금융지주</td>
+                            <td>신용위험관리 등 위험관리와 내부통제</td>
+                            <td>고객번호, 인격코드, 국적 등</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="txt-gray" style="margin-bottom:30px;">&#8251; 고유식별정보는 제공하지 않습니다.</p>
+
+                <p style="margin-bottom:10px;color:#0070D2;font-size:16px;font-weight:600;">&#9642;고객정보는 금융지주회사법 제48조의2 및 동법 시행령 제27조의2에 의거하여 내부경영 관리목적에 따라 제공되며 내역은 다음과 같습니다.</p>
+                <ol style="margin-bottom:30px;">
+                    <li>1. 신용위험관리 등 위험관리와 내부통제</li>
+                    <li>2. 업무 및 재산상태에 대한 검사</li>
+                    <li>3. 고객분석과 상품 및 서비스의 개발</li>
+                    <li>4. 성과 관리</li>
+                    <li>
+                        5. 위탁업무 수행
+                        <ul>
+                            <li>
+                                &#8251; 향후에도 해당 목적 범위 내에서 고객정보가 제공될 예정이며, 관련 법령에 의거하여 이후 통지를 생략할 수 있음을 안내해 드립니다.<br>
+                                (금융지주회사법 시행력 제27조의 제4항)
+                            </li>
+                            <li>
+                                &#8251; 제공내역은 언제든지 홈페이지 조회시스템에 접속하여 조회하실 수 있습니다.<br>
+                                단, 금융지주 회사법 내 인터넷 홈페이지 조회서비스 시행일인 2016년 3월 12일 이후 제공 건부터 홈페이지에서 조회가 가능합니다.<br>
+                                [광주은행 홈페이지 > KJB서비스 > 고객센터 > KJB보안센터 > 개인정보 보호안내 그룹사간 고객정보 제공내역 조회]
+                            </li>
+                            <li>&#8251; 문의 : 광주은행 고객센터 ☎1600-4000, 1588-3388</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p style="padding:10px 0;border-top: 1px solid #CCCCCC;border-bottom: 1px solid #CCCCCC;">
+                    JB금융그룹은 그룹사간 고객정보의 제공 및 이용을 허용한 것이 금융서비스의 질을 높이고, 나아가 우리나라 금융산업을
+                    선진화시키기 위한 조치임을 명심하고 고객정보의 교류를 토대로 고객님께 보다 편리하고 질 높은 금융서비스를 제공할 것을
+                    약속드리며, 고객님의 고객정보 보호 및 엄격한 관리를 위해 최선을 다할 것입니다.
+                </p>
+
+            </section>
+
+            <footer>
+                <dl >
+                    <dt class="footer-logo">광주</dt>
+                    <dd>
+                        <address>㈜광주은행, 광주광역시 동구 제봉로 225</address>
+                        대표전화 <a href="tel:062-239-5000" style="color:#0070D2;text-decoration:underline;">062-239-5000</a> | 고객센터 <a href="tel:1600-4000" style="color:#0070D2;text-decoration:underline;">1600-4000</a>, <a href="tel:1588-3388" style="color:#0070D2;text-decoration:underline;">1588-3388</a> 
+                    </dd>
+                </dl>
+                <p>Copyright 2021 KWANGJU BANK</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

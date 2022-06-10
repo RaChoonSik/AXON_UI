@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>UMS SMS INDEX</title>
+    <style>
+      body{margin:0;padding:0;font-family:Malgun Gothic, "맑은 고딕", Dotum, "돋움", sans-serif;}
+      .guideindex{padding:20px 10px 40px;background:#fff;color:#000;}
+      .guideindex .guideh1{margin:0;color:#1EC89A;font-size:26px;font-weight:600;text-align:center;}
+      .guideindex .guideh2{margin:30px 0 10px;font-size:16px;font-weight:600;}
+      .guideindex .guidedesc{margin-left:10px;color:#f00;font-size:13px;}
+      .guideindex .guide_tbl {width:100%;margin:0;text-align:center;border-top:2px #1EC89A solid;border-collapse:collapse;border-right:1px #dedede solid;}
+      .guideindex .guide_tbl tr > th,
+      .guideindex .guide_tbl tr > td {padding:10px 8px;border-left:1px #dedede solid;border-top:1px #dedede solid;vertical-align:top;}
+      .guideindex .guide_tbl thead tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > td {border-top:none;}
+      .guideindex .guide_tbl thead tr > th {background:#eee;font-size:13px;vertical-align:middle;}
+      .guideindex .guide_tbl tbody tr > td {vertical-align:top;}
+      .guideindex .guide_tbl thead tr > th {color:#000;font-weight:bold;}
+      .guideindex .guide_tbl tbody {font-size:13px;border-bottom:1px #ccc solid;border-top:1px #ccc solid;}
+      .guideindex .guide_tbl .alC {text-align:center !important;}
+      .guideindex .guide_tbl .alL {text-align:left !important;}
+      .guideindex .guide_tbl .alR {text-align:right !important;}
+      .guideindex .guide_tbl{min-width:980px;margin:0 auto;box-sizing: border-box;}
+      .guideindex .guide_tbl a{color:#222;text-decoration:none;}
+      .guideindex .guide_tbl a:hover{color:#1EC89A;}
+      .guideindex .guide_tbl .chk th,
+      .guideindex .guide_tbl .chk td{color: blue !important;}
+      .guideindex .guide_tbl tbody.add th,
+      .guideindex .guide_tbl tbody.add td{color:#00a383 !important;}
+      .guideindex .guide_tbl tbody.add2 th,
+      .guideindex .guide_tbl tbody.add2 td{color:#a38300 !important;}
+      .guideindex .guide_tbl .caution{color:#f00;font-size:12px;text-align:left;}
+      .guideindex .guide_tbl .complete{background-color:#ccc;}
+      .guideindex .guide_tbl .remove{background-color:#fdeaea;}
+      .guideindex .guide_tbl .graytxt{color:#888;font-size:12px;}
+      .guideindex .guide_tbl .color-blue{color:#5668F0;}
+      .guideindex .guide_tbl .del {background:#ddd !important;}
+      .guideindex .guide_tbl .del * {text-decoration:line-through;}
+      .guideindex .guide_tbl .del .caution {text-decoration:none;}
+      .guideindex .btn_top{margin-bottom:20px;}
+      .guideindex .btn_top a{display:inline-block;height:32px;line-height:30px;padding:0 10px;background:#444;color:#fff;font-size:13px;font-weight:500;text-align:center;vertical-align:middle;border-radius:6px;border:1px solid #E1E1E1;text-decoration:none;}
+  </style>
+  
+	<script src="js/jquery_2.1.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".num").each(function(index){
+        index+=1;
+        $(this).text(index);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="guideindex">
+    <div class="btn_top">
+      <a href="index.html">EMS INDEX 바로가기</a>
+      <a href="index_rns.html">RNS INDEX 바로가기</a>
+      <a href="index_sms.html">SMS INDEX 바로가기</a>
+      <a href="index_push.html">PUSH INDEX 바로가기</a>
+      <a href="index_sys.html">공통설정 INDEX 바로가기</a>
+    </div>
+    <h1 class="guideh1">UMS SMS INDEX</h1>
+    <h2 class="guideh2">폴더구조</h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">시스템</th>
+          <th scope="col">분류</th>
+          <th scope="col" colspan="2">폴더명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="alL" rowspan="10">publish/</td>
+          <td class="alL" rowspan="5">/html_sms</td>
+          <td class="alL">/common</td>
+          <td class="alL">SMS 공통, SMS 팝업</td>
+        </tr>
+        <tr>
+          <td class="alL">/smshistory</td>
+          <td class="alL">발송일정</td>
+        </tr>
+        <tr>
+          <td class="alL">/smssend</td>
+          <td class="alL">발송</td>
+        </tr>
+        <tr>
+          <td class="alL">/smsmanage</td>
+          <td class="alL">SMS관리</td>
+        </tr>
+        <tr>
+          <td class="alL">/statistics</td>
+          <td class="alL">발송통계</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/css</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/js</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/font</td>
+        </tr>
+        <tr>
+          <td class="alL" rowspan="2">/img</td>
+          <td class="alL">/common</td>
+          <td class="alL">공통 이미지</td>
+        </tr>
+        <tr>
+          <td class="alL">/sms</td>
+          <td class="alL">sms 이미지</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="guideh2">SMS <span class="guidedesc">(개발에 공유할 경우, 완료일에 공유한 날짜를 기입한다.)</span></h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:5%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:9%" />
+        <col style="width:7%" />
+        <col style="width:auto" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">1Depth</th>
+          <th scope="col">2Depth</th>
+          <th scope="col">3Depth</th>
+          <th scope="col">파일명</th>
+          <th scope="col">완료일</th>
+          <th scope="col">작업자</th>
+          <th scope="col">비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff4f4;">
+          <th scope="row">※</th>
+          <td class="alL">공통</td>
+          <td class="alL">레이아웃 샘플</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/layout_sample.html" target="_blank">layout_sample.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-11-24 신규발송 팝업 전체 수정<br>
+            2021-12-21 팝업 내 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="2">발송일정</td>
+          <td class="alL">주간일정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/smshistory/smshistory_week.html" target="_blank">smshistory_week.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-07 발송현황 아이콘 추가 및 수정<br>
+            2021-12-21 '문자 → 메시지' 명칭 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">월간일정<span class="graytxt">(팝업 : 일간팝업)</span></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/smshistory/smshistory_month.html" target="_blank">smshistory_month.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-07 발송현황 아이콘 추가 및 수정<br>
+            2021-12-21 '문자 → 메시지' 명칭 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">발송</td>
+          <td class="alL" rowspan="3">메시지발송</td>
+          <td class="alL">메시지 발송목록</td>
+          <td class="alL"><a href="html_sms/smssend/list_default.html" target="_blank">list_default.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-07 '전송상태 → 전송유형' 명칭 수정<br>
+            2021-12-21 '문자 → 메시지' 명칭 수정 / '전송상태 → 전송유형' 명칭 수정 / 조회 > 상태와 발송상태 순서변경<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">메시지발송 신규등록</td>
+          <td class="alL"><a href="html_sms/smssend/enroll_default.html" target="_blank">enroll_default.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-07 조건 순서 수정, '전송상태 → 전송유형' 명칭 수정, 수신대상자 순서 수정, 버튼텍스트 수정<br>
+            2021-10-27 첨부파일 개수 2개 -> 3개 변경, 메시지 미리보기화면 img 변경, 수신대상자 박스 및 textarea 높이 수정<br>
+            2021-10-29 수신대상자박스 Total 숫자 부분 태그 변경 : em -> input type="text" readonly <br>
+            2021-11-01 조건박스 머지입력 -> 함수입력 변경 / sms,mms박스 제목용 input 삭제 / 수신대상자박스 수신자그룹 위치 -> 조건박스로 변경/ 
+            수신자 등록 박스 textarea -> div.add-num 변경 <br>
+            2021-11-24 용어변경 :: 수신대상자 &#8594; 추가 수신자 목록<br>
+            2021-12-21 '문자 → 메시지' 명칭 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">메시지발송 정보수정</td>
+          <td class="alL"><a href="html_sms/smssend/edit_default.html" target="_blank">edit_default.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-07 조건 순서 수정, '전송상태 → 전송유형' 명칭 수정, 수신대상자 순서 수정, 버튼텍스트 수정, 버튼 클래스 추가<br>
+            2021-10-27 첨부파일 개수 2개 -> 3개 변경, 메시지 미리보기화면 img 변경,div.preview-txt 높이 수정 및 수신대상자 박스 및 textarea 높이 수정<br>
+            2021-10-29 수신대상자박스 Total 숫자 부분 태그 변경 : em -> input type="text" readonly<br>
+            2021-11-01 조건박스 머지입력 -> 함수입력 변경 / sms, mms박스 제목용 input 및 파일선택 button 삭제 / 수신대상자박스 수신자그룹 위치 -> 조건박스로 변경 / 
+            수신자 등록 박스 textarea -> div.add-num 변경 <br>
+            2021-11-24 용어변경 :: 수신대상자 &#8594; 추가 수신자 목록<br>
+            2021-12-21 '문자 → 메시지' 명칭 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">카카오알림톡발송</td>
+          <td class="alL">알림톡 발송목록</td>
+          <td class="alL"><a href="html_sms/smssend/list_default_kakao.html" target="_blank">list_default_kakao.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">알림톡 신규등록</td>
+          <td class="alL"><a href="html_sms/smssend/enroll_default_kakao.html" target="_blank">enroll_default_kakao.html</a></td>
+          <td>2021-11-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-12-09 미리보기 영역의 메시지박스 p태그 -> textarea태그로 변경<br>
+            2021-12-21 캠페인명에 필수표시 클래스추가 / 캠페인명, 수신자그룹의 선택 버튼 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">알림톡 정보수정</td>
+          <td class="alL"><a href="html_sms/smssend/edit_default_kakao.html" target="_blank">edit_default_kakao.html</a></td>
+          <td>2021-11-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-12-09 미리보기 영역의 메시지박스 p태그 -> textarea태그로 변경<br>
+            2021-12-21 캠페인명에 필수표시 클래스추가 / 캠페인명, 수신자그룹의 선택 버튼 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="9">SMS관리</td>
+          <td class="alL" rowspan="4">캠페인관리</td>
+          <td class="alL">캠페인 목록</td>
+          <td class="alL"><a href="html_sms/smsmanage/list_campaign.html" target="_blank">list_campaign.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-21 '발송문자 → 발송건수' 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 신규등록</td>
+          <td class="alL"><a href="html_sms/smsmanage/enroll_campaign.html" target="_blank">enroll_campaign.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 정보수정</td>
+          <td class="alL"><a href="html_sms/smsmanage/edit_campaign.html" target="_blank">edit_campaign.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인별 메시지발송목록</td>
+          <td class="alL"><a href="html_sms/smsmanage/list_campaignsms.html" target="_blank">list_campaignsms.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-21 '문자명 → 메시지명' 명칭 수정
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="5">수신자그룹관리</td>
+          <td class="alL">수신자그룹 목록</td>
+          <td class="alL"><a href="html_sms/smsmanage/list_receivergroup.html" target="_blank">list_receivergroup.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 신규등록</td>
+          <td class="alL"><a href="html_sms/smsmanage/tab_groupenroll.html" target="_blank">tab_groupenroll.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(파일연동)</td>
+          <td class="alL"><a href="html_sms/smsmanage/editreceiver_filelinked.html" target="_blank">editreceiver_filelinked.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(추출조건)</td>
+          <td class="alL"><a href="html_sms/smsmanage/editreceiver_extraction.html" target="_blank">editreceiver_extraction.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(직접SQL)</td>
+          <td class="alL"><a href="html_sms/smsmanage/editreceiver_sql.html" target="_blank">editreceiver_sql.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">발송통계</td>
+          <td class="alL" rowspan="4">메시지통계</td>
+          <td class="alL">메시지 발송목록</td>
+          <td class="alL"><a href="html_sms/statistics/list_default.html" target="_blank">list_default.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-07 '전송상태 → 전송유형' 명칭 수정<br>
+            2021-11-24 '문자발송 목록'으로 대제목 수정<br>
+            2021-12-21 '문자 → 메시지' 명칭 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">메시지 통계분석</td>
+          <td class="alL"><a href="html_sms/statistics/stats.html" target="_blank">stats.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-21 '문자 → 메시지' 명칭 수정
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">발송건수 분석(성공)</td>
+          <td class="alL"><a href="html_sms/statistics/list_success.html" target="_blank">list_success.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">발송건수 분석(실패)</td>
+          <td class="alL"><a href="html_sms/statistics/list_fail.html" target="_blank">list_fail.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="2">카카오알림톡 통계</td>
+          <td class="alL">알림톡 발송목록</td>
+          <td class="alL"><a href="html_sms/statistics/list_noticetalk.html" target="_blank">list_noticetalk.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">알림톡 통계분석</td>
+          <td class="alL"><a href="html_sms/statistics/stats_noticetalk.html" target="_blank">stats_noticetalk.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;border-top:2px solid #555;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="9">팝업</td>
+          <td class="alL">파일 등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_fileenroll.html" target="_blank">pop_fileenroll.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-09 fileReset 함수 추가
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 미리보기</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_previewreceiver.html" target="_blank">pop_previewreceiver.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">메시지발송 상세보기</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_smssend.html" target="_blank">pop_smssend.html</a></td>
+          <td>2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-21 팝업 타이틀 문구 수정
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">테스트알림톡 발송</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_testnoticetalk.html" target="_blank">pop_testnoticetalk.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">발송건수 분석(성공)</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_sendsuccess.html" target="_blank">pop_sendsuccess.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">발송건수 분석(실패)</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_sendfail.html" target="_blank">pop_sendfail.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">알림톡발송 상세보기</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_previewtemplate.html" target="_blank">pop_previewtemplate.html</a></td>
+          <td>2021-11-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-09 미리보기 영역의 메시지박스 p태그 -> textarea태그로 변경<br>
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 선택</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_selectcampaign.html" target="_blank">pop_selectcampaign.html</a></td>
+          <td>2021-12-21</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 선택</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sms/common/pop_listreceiver.html" target="_blank">pop_listreceiver.html</a></td>
+          <td>2021-12-21</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

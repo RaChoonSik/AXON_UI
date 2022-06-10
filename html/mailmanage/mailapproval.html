@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>메일발송결재 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>메일발송결재</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<div class="approvemail-wrap">
+					<form>
+						<fieldset>
+							<legend>조건 및 메일 내용</legend>
+
+							<!-- 결재// -->
+							<div class="approvebox">
+								<div>
+									<table>
+										<caption>결재</caption>
+										<colgroup>
+											<col style="width:120px">
+											<col style="width:120px">
+											<col style="width:120px">
+											<col style="width:120px">
+										</colgroup> 
+										<tbody>
+											<tr>
+												<th>
+													영업관리부
+													<strong>관리자A</strong>
+												</th>
+												<th>
+													영업관리부
+													<strong>관리자B</strong>
+												</th>
+												<th>
+													영업관리부
+													<strong>슈퍼관리자</strong>
+												</th>
+												<th>
+													영업관리부
+													<strong>심의관리자</strong>
+												</th>
+											</tr>
+											<tr>
+												<td>
+													<strong>승인</strong>
+													2020.07.10
+												</td>
+												<td>
+													<strong>승인</strong>
+													2020.07.10
+												</td>
+												<td>
+													<button type="button" class="btn fullblue">결제</button>
+													<button type="button" class="btn">반려</button>
+												</td>
+												<td></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- //결재 -->
+						
+							<!-- 조건// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">조건</h3>
+								</div>
+	
+								<div class="table-area">
+									<table>
+										<caption>조건</caption>
+										<colgroup>
+											<col style="width:120px">
+											<col style="width:calc(100% - 120px)">
+											<col style="width:120px">
+											<col style="width:auto">
+										</colgroup> 
+										<tbody>
+											<tr>
+												<th>예약일시</th>
+												<td>2021년 7월 20일 15시 00분</td>
+												<th>정기발송 주기</th>
+												<td>1주 2022.01.26 종료</td>
+											</tr>
+	
+											<tr>
+												<th>
+													수신확인 추적기간
+												</th>
+												<td>발송일 기준 1일까지 추적</td>
+												<th>캠페인명</th>
+												<td>든든카드 캠페인</td>
+											</tr>
+											<tr>
+												<th>캠페인목적</th>
+												<td>판매 유치</td>
+												<th>템플릿명</th>
+												<td></td>
+											</tr>
+											<tr>
+												<th>수신자그룹</th>
+												<td>
+													<p class="inline-txt">이벤트대상자</p>
+													<button type="button" class="btn fullblue" style="margin-left:20px;">미리보기</button>
+												</td>
+												<th>사용자그룹</th>
+												<td>영업관리부</td>
+											</tr>
+											<tr>
+												<th>사용자명</th>
+												<td>관리자A</td>
+												<th>발송자명</th>
+												<td>관리자A</td>
+											</tr>
+											<tr>
+												<th>발송자 이메일</th>
+												<td>admin@test.co.kr</td>
+												<th>수신여부</th>
+												<td>
+													<label for="chk_02"><input type="checkbox" id="chk_02" disabled><span>수신확인</span></label>
+
+													<label for="chk_03"><input type="checkbox" id="chk_03"><span>마케팅 수신 동의유형 : 카드</span></label>
+												</td>
+											</tr>
+											<tr>
+												<th>메일명</th>
+												<td colspan="3">[광고]테스트 광고입니다. 이벤트혜택</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- //조건 -->
+	
+							<!-- 메일 내용// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">메일 내용</h3>
+	
+									<!-- 버튼// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn">테스트발송</button>
+									</div>
+									<!-- //버튼 -->
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li class="col-full">
+											<label>메일 제목</label>
+											<div class="list-item">
+												<p class="inline-txt">[광고]테스트 광고입니다.이메일</p>
+											</div>
+										</li>
+										<li class="col-full">
+											<!-- 미리보기 영역// -->
+											<div class="previewbox"></div>
+											<!-- //미리보기 영역 -->
+										</li>
+										<li class="col-full">
+											<label class="vt">첨부 파일</label>
+											<div class="list-item">
+
+												<ul class="filelist">
+													<li>
+														<a href="javascript:;" class="link">이벤트 이미지.png</a>
+														<em>5MB</em>
+													</li>
+													<li>
+														<a href="javascript:;" class="link">이벤트 이미지22.png</a>
+														<em>5MB</em>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //메일 내용 -->
+	
+							<!-- btn-wrap// -->
+							<div class="btn-wrap">
+								<button type="button" class="btn big">목록</button>
+							</div>
+							<!-- //btn-wrap -->
+							
+							<!-- 결재 샘플// -->
+							<div class="approval-sample">
+
+								<div class="approvebox">
+									<div>
+										<table>
+											<caption>결재</caption>
+											<colgroup>
+												<col style="width:120px">
+												<col style="width:120px">
+												<col style="width:120px">
+												<col style="width:120px">
+											</colgroup> 
+											<tbody>
+												<tr>
+													<th>
+														영업관리부
+														<strong>관리자A</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>관리자B</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>슈퍼관리자</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>심의관리자</strong>
+													</th>
+												</tr>
+												<tr>
+													<td>
+														<strong>승인</strong>
+														2020.07.10
+													</td>
+													<td>
+														<strong>승인</strong>
+														2020.07.10
+													</td>
+													<td>
+														<strong>
+															<a href="javascript:;" class="color-red">반려</a>
+														</strong>
+														2020.07.10
+													</td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="approvebox">
+									<div>
+										<table>
+											<caption>결재</caption>
+											<colgroup>
+												<col style="width:120px">
+												<col style="width:120px">
+												<col style="width:120px">
+												<col style="width:120px">
+											</colgroup> 
+											<tbody>
+												<tr>
+													<th>
+														영업관리부
+														<strong>관리자A</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>관리자B</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>슈퍼관리자</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>심의관리자</strong>
+													</th>
+												</tr>
+												<tr>
+													<td>
+														<strong>승인</strong>
+														2020.07.10
+													</td>
+													<td>
+														<strong class="txt-gray">예정</strong>
+													</td>
+													<td></td>
+													<td></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+								<div class="approvebox">
+									<div>
+										<table>
+											<caption>결재</caption>
+											<colgroup>
+												<col style="width:120px">
+												<col style="width:120px">
+												<col style="width:120px">
+												<col style="width:120px">
+											</colgroup> 
+											<tbody>
+												<tr>
+													<th>
+														영업관리부
+														<strong>관리자A</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>관리자B</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>슈퍼관리자</strong>
+													</th>
+													<th>
+														영업관리부
+														<strong>심의관리자</strong>
+													</th>
+												</tr>
+												<tr>
+													<td>
+														<strong>승인</strong>
+														2020.07.10
+													</td>
+													<td>
+														<strong>승인</strong>
+														2020.07.10
+													</td>
+													<td>
+														<strong>승인</strong>
+														2020.07.10
+													</td>
+													<td>
+														<strong>승인</strong>
+														2020.07.10
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+
+							</div>
+							<!-- //결재 샘플 -->
+
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

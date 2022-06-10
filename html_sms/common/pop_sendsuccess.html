@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>발송건수 분석(성공) 팝업 | AXon SMS</title>
+	<!-- SMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sms.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sms.js"></script>
+	<!-- //SMS source -->
+
+	<script>
+		$(document).ready(function(){
+			fn.popupOpen('#popup_sendsuccess');
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="sms">
+		<div style="padding:30px;">
+
+			<!-- 팝업 확인용 버튼// -->
+			<button type="button" class="btn big fullgreen
+			" onclick="fn.popupOpen('#popup_sendsuccess');">팝업 열기</button>
+			<!-- //팝업 확인용 버튼 -->
+
+		</div>
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_sendsuccess" class="poplayer popsendsuccess"><!-- id값 수정 가능 -->
+		<div class="inner">
+			<header>
+				<h2>발송건수 분석(성공)</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+					<!-- 조회// -->
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">조회</h3>
+						</div>
+						
+						<div class="list-area">
+							<ul>
+								<li class="col-full">
+									<label>연락처</label>
+									<div class="list-item">
+										<input type="text" placeholder="연락처를 입력해주세요." style="width:470px;">
+										<button type="button" class="btn fullgreen mgl10" style="width:68px;">검색</button>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- //조회 -->
+
+					<!-- 조회 결과// -->
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">조회 결과</h3>
+						</div>
+
+						<div class="grid-area">
+							<div class="table-scroll" style="max-height:295px;">
+								<table class="grid">
+									<caption>그리드 정보</caption>
+									<colgroup>
+										<col style="width:50%;">
+										<col style="width:auto;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">발송상태</th>
+											<th scope="col">연락처</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- 데이터가 있을 경우// -->
+										<tr>
+											<td>성공</td>
+											<td>010-1234-5678</td>
+										</tr>
+										<tr>
+											<td>성공</td>
+											<td>010-1234-5678</td>
+										</tr>
+										<tr>
+											<td>성공</td>
+											<td>010-1234-5678</td>
+										</tr>
+										<tr>
+											<td>성공</td>
+											<td>010-1234-5678</td>
+										</tr>
+										<tr>
+											<td>성공</td>
+											<td>010-1234-5678</td>
+										</tr>
+										<!-- //데이터가 있을 경우 -->
+					
+										<!-- 데이터가 없을 경우// -->
+										<tr>
+											<td colspan="2" class="no_data">등록된 내용이 없습니다.</td>
+										</tr>
+										<!-- //데이터가 없을 경우 -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+					<!-- //조회 결과 -->
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_sendsuccess');"><span class="hidden">팝업닫기</span></button>
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_sendsuccess');"></span>
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

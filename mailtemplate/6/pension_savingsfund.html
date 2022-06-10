@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=800">
+    <title>연금저축펀드수익률 보고서</title>
+    <style>
+        /******** reset css ********/
+        html,body,div,p,h1,h2,h3,h4,h5,h6,strong,span,label,legend, ul,ol,li,dl,dt,dd,table,thead,tbody,tr,th,td,tfoot,img,a,button,footer,section{padding:0;margin:0;}
+        ul,ol,li{list-style:none;}
+        button{background:transparent;cursor:pointer;}
+        img{max-width:100%;vertical-align:top;}
+        img,button,fieldset,table, tfoot{border:0;}
+        address{font-style:normal;}
+        label,a{display:inline-block;}
+        h2,h3,strong,em{font-weight:600;}
+        input,select,label,button,textarea{border-radius:0;-webkit-border-radius:0;background-color:transparent;color:#111;font-size:14px;line-height:normal;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;vertical-align:middle;}
+        table{width:100%;border-spacing:0;}
+        a{border:0;color:#444;text-decoration:none;}
+        a:hover{color:#0070D2;text-decoration:none;}
+        *, *:before, *:after{box-sizing:border-box;}
+        *:focus{outline:0;}
+        html,body{height:100%;}
+        legend, .hidden, .hide{position:absolute !important;top:0 !important;left:0 !important;padding:0 !important;border:0 !important;overflow:hidden !important;width:0 !important;height:0 !important;line-height:0 !important;}
+        body{width:800px;margin:0 auto;padding:30px 16px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;font-weight:400;color:#3a3a3a;line-height:normal;box-sizing:border-box;letter-spacing:-0.07em; }
+        html, table, th, td{
+            /* Prevent font scaling in landscape */
+            -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+            -moz-text-size-adjust: none; /*Firefox*/
+            -ms-text-size-adjust: none;  /*Ie*/
+            -o-text-size-adjust: none; /*old versions of Opera*/
+        }
+
+        /******** common css ********/
+        /* section */
+        .tal{text-align:left !important;}
+        .tac{text-align:center !important;}
+        .tar{text-align:right !important;}
+        .clear:after{content:'';display:block;clear:both;}
+        .txt-black{color:#111111 !important;margin:0 !important}
+        .txt-gray{font-size:14px;color:#999999;}
+        .bold-blue{color:#0070D2 !important;font-weight:600 !important;font-size:20px !important;}
+        .title-desc{margin-bottom:50px;font-size:16px;}
+        .cont-head h1{width:173px;height:34px;text-indent:-9999px;background:url('../img/pc_logo.png') no-repeat;background-position: 0 0;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            .cont-head h1{width:173px;height:34px;background:url('../img/mb_logo.png') no-repeat cover;background-position: 0 0;}
+        }
+        .cont-head h2{margin-top:26px;font-size:33px;color:#1F1A60;}
+        .cont-body h3{position:relative;margin-bottom:20px;padding-bottom:10px;font-size:20px;color:#111; border-bottom:1px solid #CCCCCC;}
+        .cont-body h3 ~ h3{margin-top:30px;}
+        .cont-body h3:after{content:'';display:block;position:absolute;top:12px;right:10px;width:12px;height:8px; background:url('../img/arrow.png') no-repeat 0 0;}
+        .cont-body h3 .info-unit{position:absolute;top:3px;right:36px;font-size:14px;font-weight:400;color:#999;}
+        .cont-body h3 .bold-blue{top:0px;}
+        .cont-body h4{margin-bottom:10px;color:#111;font-size:16px;}
+        .cont-body h4 ~ h4{margin-top:20px;}
+        .cont-body h4 + ul {margin-bottom:20px;}
+        .cont-body ul{font-size:14px;}
+        .cont-body ol{font-size:14px;}
+        .cont-body .list-dot{margin-bottom:20px;}
+        .cont-body .list-dot li{position:relative;padding-left:10px;list-style-position:inside;font-size:14px;}
+        .cont-body .list-dot li:before{content:'•';display: inline-block;position:absolute;top:0;left:0;}
+        .cont-body .bluebox{width:100%;height:auto;margin-bottom:20px;padding:15px;background:#EFF8FF;font-size:14px;box-sizing:border-box;}
+        .cont-body .bluebox h4{position:relative;margin-bottom:10px;padding-left:20px;font-size:16px;font-weight:600;color:#111;}
+        .cont-body .bluebox h4:before{content:'';display:block;position:absolute;top:5px;left:0px; width:16px;height:16px;padding-right:5px;background:url('../img/ico_info.png') no-repeat;}
+        .cont-body .bluebox strong{font-size:16px;color:#4D4D4D;}
+        .cont-body .bluebox strong.dot{display:inline-block;margin-bottom:10px;color:#111;}
+        .cont-body .bluebox strong.dot:before{content:'•';display:inline-block;padding-right:6px;}
+        .cont-body .bluebox strong.check{position:relative;font-weight:600;color:#0070D2;}
+        .cont-body .bluebox strong.check:before{content:'';display: inline-block;}
+
+        .tab-menu{height:40px;margin-top:30px;margin-bottom:50px;}
+        .tab-menu > button{display:block;float:left;min-width:160px;height:40px;margin-left:4px;background:#EFEFEF;font-size:16px;color:#4d4d4d;text-align:center;line-height:40px;}
+        .tab-menu > button:first-child{margin-left:0;}
+        .tab-menu > button.active,
+        .tab-menu > button:hover{background:#0070D2;color:#fff;font-weight:600;}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;}
+
+        table{margin-bottom:30px;}
+        table tr:first-child th, table tr:first-child td{border-top:1px solid #DADADA;}
+        table tr > th:first-child{border-left:0}
+        table th{padding:5px;background:#CCE9FF;font-size:12px;font-weight:600;border-bottom:1px solid #DADADA;border-left:1px solid #DADADA;}
+        table td{padding:5px 10px;background:#fff;font-size: 12px;text-align:center;border-bottom: 1px solid #DADADA;border-left:1px solid #DADADA;}
+        .tab ul + table{margin-bottom:20px;}
+        .tab .table-title{margin-bottom:10px;font-size:14px;}
+        .tab .total-bold{font-weight:600;color:#4d4d4d;}
+        .tab .image-box {overflow:hidden;}
+        .tab .image-box img{width:100%;}
+
+        /* 파란배경이 없는 테이블의 경우 .table-white 클래스 사용*/
+        .table-white th{background:#fff;text-align:left;border:0;}
+        .table-white td{background:#fff;text-align:left;border:0;}
+        .table-white tr:first-child th, .tab .table-white tr:first-child td{border-top:0;}
+        .tab .caution ul {color:#999; list-style:none !important;text-indent:0;margin-bottom:0;padding-left:14px;}
+        .tab .caution ul li:before {content:"\2022";color:#dadada !important;font-weight:bold;display:inline-block;width:1em;margin-left:-1em;}
+        .tab .caution p{color:#999;font-size:14px;}
+
+        /* 푸터 */
+        footer{padding-top:80px;padding-bottom:30px;color:#9A9A9A;}
+        footer dl{display: table;}
+        footer dt,footer dd{display: table-cell;}
+        footer .footer-logo{width:126px;height:26px;text-indent:-9999px;background:url('../img/pc_logogray.png') no-repeat;background-size:contain;background-position: 0 0;}
+        footer dd{padding-left:36px;}
+        footer p{padding-top:10px;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            footer .footer-logo{background:url('../img/mb_logogray.png') no-repeat cover; background-position: 0 0;}
+        }
+    </style>
+    <script>
+        'use strict';
+        window.onload = function(){
+
+            /* Function :: tab - inside tab */
+            // IE11 forEach support
+            if (window.NodeList && !NodeList.prototype.forEach) {
+                NodeList.prototype.forEach = Array.prototype.forEach;
+            }
+
+            function findParent(el, className){
+                var check = el.parentNode.classList.contains(className);
+            
+                if(check == true){
+                    return el.parentNode;
+                }else{
+                    return findParent(el.parentNode, className);
+                }
+            }
+
+            function bindingTab(container){
+                var containEl = document.querySelectorAll(container);
+            
+                containEl.forEach(function(tabArea){
+                    var tabLink = tabArea.querySelectorAll('.tab-link');
+                    
+                    tabLink.forEach(function(item){
+
+                        item.addEventListener('click', function(){
+                            // 변수설정
+                            var parent = findParent(this, 'tab');
+                            var idx = this.dataset['idx'];
+                            var depth = this.dataset['depth'];
+                            var tabLinkArr = parent.querySelectorAll('.tab-link[data-depth="'+ depth +'"]');
+                            var contentArr = parent.querySelectorAll('.tab-content[data-depth="'+ depth +'"]');
+                            
+                            // 활성화
+                            tabLinkArr.forEach(function(tabLink){ tabLink.classList.remove('active'); });
+                            this.classList.add('active');
+                            contentArr.forEach(function(content){ content.classList.remove('active'); });
+                            parent.querySelector('.tab-content[data-idx="'+ idx +'"][data-depth="'+ depth +'"]').classList.add('active');
+
+                        });
+                    });
+                });
+            }
+            bindingTab('.tab-wrap');
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">
+            <section class="cont-head">
+                <h1>광주은행</h1>
+                <h2>연금저축펀드수익률 보고서</h2>
+            </section>
+            <section class="cont-body">
+
+                <div class="tab-wrap tab">
+
+                    <div class="tab-menu clear">
+                        <button class="tab-link active" data-depth="0" data-idx="0">요약</button>
+                        <button class="tab-link" data-depth="0" data-idx="1">본문</button>
+                    </div>
+                    <!-- 요약정보// -->
+                    <div class="tab-content active" data-depth="0" data-idx="0">
+                        <p class="title-desc">이 운용보고서 요약은 고객님이 가입하신 상품의 비용, 실질수익률 등 주요정보를 제공하기 위한 것으로, 계약 관련 상세내용은 본문에서 확인하실 수 있습니다.</p>
+
+                        <h3>요약 기본정보 <span class="info-unit">작성기준일 2021년 08월 31일</span></h3>
+                        <table>
+                            <colgroup>
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">계약자명(고객명)</th>
+                                    <td>홍*동</td>
+                                    <th scope="row">계약일자</th>
+                                    <td>2021.08.15</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">상품명</th>
+                                    <td>연금저축</td>
+                                    <th scope="row">연금수령개시 가능일</th>
+                                    <td>2067.12.23(만 55세)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">계좌번호(증권번호)</th>
+                                    <td>032-123-***789</td>
+                                    <th scope="row">연금수령개시 예정일</th>
+                                    <td>2067.12.23(만 55세)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>주요정보</h3>
+                        <ul class="list-dot">
+                            <li>
+                                정보고지 시점 (2021년 06월 30일) 기준으로 고객님께서 가입하신 상품에 납부한 <strong>납입원금(투자원금) 합계액은 (① 1,666,167원)이며, 적립금(평가금액)은 (④ 172,655원), 누적수익률은 (⑤ 4.14%) 입니다.</strong>
+                            </li>
+                        </ul>
+                        <table style="margin-bottom:5px;">
+                            <colgroup>
+                                <col style="width:18%;">
+                                <col style="width:18%;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" colspan="2">① 납입원금(투자원금)</th>
+                                    <td class="tal">62,354,000 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="2">② 중도인출대금</th>
+                                    <td class="tal">(-) 3,333,333 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="2">③ 총 수수료 금액</th>
+                                    <td class="tal">(-) 0원</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="tal" style="border-left:0;">
+                                        자산운용사의 자산운용에 따른 운용수익과 납입원금(투자원금)[①]의 합계에서 중도인출대금[②] 및<br>
+                                        총 수수료 금액(펀드보수 등)[③]을 차감한 결과가 적립금(평가금액)[④]입니다.<br>
+                                        <span style="color:#999;">(세부 운영내역은 '자산운용보고서' 참조)</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="2">④ 적립금(평가금액)</th>
+                                    <td class="tal">52,020,000 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="2">⑤ 누적수익률(수수료 차감 후)</th>
+                                    <td class="tal">6.52%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" colspan="2">⑥ 연평균수익률</th>
+                                    <td class="tal">2.0%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" rowspan="2">⑦ 중도해지 환급금</th>
+                                    <th scope="row" style="font-weight:400;">세금 등 예상차감액</th>
+                                    <td class="tal">(-) 2,650 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="font-weight:400;">환급 예상금액</th>
+                                    <td class="tal">6,530,000 원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- //요약정보 -->
+
+                    <!-- 본문정보// -->
+                    <div class="tab-content" data-depth="0" data-idx="1">
+                        <p class="title-desc">연금저축펀드 수익률 등은 광주은행 홈페이지(<a href="https://www.kjbank.com" target="_blank">www.kjbank.com</a>)에서 확인하실 수 있습니다.</p>
+                        
+                        <h3>계약현황 <span class="info-unit">작성기준일 2021년 08월 31일</span></h3>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">계약자명(고객명)</th>
+                                    <td>홍*동</td>
+                                    <th scope="row" rowspan="2">계좌번호</th>
+                                    <td rowspan="2">032-123-***789</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">계약일자(신규일)</th>
+                                    <td>2021.08.31</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">납입만기일</th>
+                                    <td>2071.02.26(57년)</td>
+                                    <th rowspan="2">상품명</th>
+                                    <td rowspan="2">연금저축</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">연금수령개시 예정일(가입시 신청)</th>
+                                    <td>2071.02.26(57년)</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">연금수령개시 가능일</th>
+                                    <td>2071.02.26(57년)</td>
+                                    <th rowspan="2">상품유형(종류)</th>
+                                    <td rowspan="2">연금저축</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">연금수령 만기일</th>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 납입만기일 : 납입원본(투자원금)을 납입할 수 있는날의 말일을 의미합니다. (납입만기가 없는 경우 "-"를 기재)</li>
+                            <li>2. 상품명 : 연금저축펀드인 경우에는 '펀드명칭'이 기재되고, 연금저축펀드계좌인 경우에는 '연금저축계좌'로 기재됩니다.</li>
+                            <li>3. 상품유형(종류) : 주식형, 채권형 등 고객이 가입한 상품종류가 기재되며, 연금저축펀드계좌인 경우 '연금저축계좌'로 기재됩니다.</li>
+                            <li>4. 연금수령개시 예정일 : 고객이 상품가입 당시 연금수령을 하기로 신청한 날로 영업점 등을 통해  변경 가능합니다.</li>
+                            <li>5. 연금수령개시 가능일 : 고객이 5년(10년) 이상 납입하고 만 55세가 경과하여 연금수령 신청을 할 수 있는 날을 의미합니다.</li>
+                            <li>6. 연금수령 만기일 : 고객이 계좌개설시 신청한 연금수령 기간에 따라 연금을 수령할 수 있는 기간의 마지막 날로 영업점 등을 통해 변경 가능합니다. (만기가 지정되지 않은 경우 "-"로 표기됩니다.)</li>
+                        </ol>
+
+                        <h3>운용수익 및 운용비용 [세전기준, 계좌별(인별) 기준]</h3>
+                        <h4>가. 운용수익</h4>
+                        <p class="txt-gray" style="margin-bottom:20px;">
+                            ※ 적립금(평가금액) 및 누적수익률은 향후 운용성과에 따라 달라질 수 있으며, 중도인출대금 등을 포함하여 산정됨에 따라 실제 적립금 등과 다를 수 있습니다.<br>
+                            ※ "계좌이체 제도"에 따라 계좌를 이전받은 경우 이체받은 납입원금 등을 포함하여 운용수익을 산정하였습니다.<br>
+                            다만, 기존 회사의 납입원금 등 이체정보가 부족한 경우 당사로 계좌이체가 이루어진 이후의 수익률 등을 제시하였습니다.
+                        </p>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">납입원금(투자원금)</th>
+                                    <td>250,000 원</td>
+                                    <th scope="row" rowspan="2">누적수익률(%)</th>
+                                    <td rowspan="2">56.21%</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">중도인출대금</th>
+                                    <td>0 원</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">적립금(평가금액)</th>
+                                    <td>162,200 원</td>
+                                    <th scope="row">연평균수익률(%)</th>
+                                    <td>56.21%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 납입원금(투자원금) : 작성기준일 현재 연금저축펀드를 매수하기 위하여 판매사에 납입한 금액의 누계로 중도인출대금 차감 전 금액을 의미합니다.</li>
+                            <li>2. 중도인출대금 : 세금 차감 전 금액(누계)으로 중도인출한 금액, 연금지급액 등을 포함합니다.<br>
+                                (= 중도인출대금 실제 지급액 + 세금원천징수액)</li>
+                            <li>3. 적립금(평가금액) : 자산운용사의 자산운용에 따른 운용수익과 납입원금(투자원금)의 합계에서 중도인출대금 및 총 수수료 금액(펀드보수 등)을 차감한 결과가 적립금(평가금액)입니다.</li>
+                            <li>4. <strong>누적수익률</strong>은 아래와 같이 계산한 것입니다.<br>
+                                <strong>▶ 산식 = {적립금(평가금액) + 중도인출대금} / 납입원금(투자원금) -1</strong></li>
+                            <li>5. <strong>연평균수익률(기하평균)</strong>은 아래와 같이 계산한 것입니다.<br>
+                                (단, 운용기간이 1년 미만인 경우 연평균수익률을 표시하지 않습니다.)<br>
+                                <strong>▶ 산식 = (1+가입 이후 누적수익률)<sup>^(1/가입년수)</sup>-1</strong></li>
+                        </ol>
+
+                        <h4>나. 펀드별 기간수익률(%)</h4>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:17%;">
+                                <col style="width:17%;">
+                                <col style="width:17%;">
+                                <col style="width:17%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">펀드명</th>
+                                    <th scope="col">최근 3개월</th>
+                                    <th scope="col">최근 6개월</th>
+                                    <th scope="col">최근 9개월</th>
+                                    <th scope="col">최근 12개월</th>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">키움프런티어 개인MMF1호 C-P</td>
+                                    <td>1.5%</td>
+                                    <td>1.5%</td>
+                                    <td>1.5%</td>
+                                    <td>1.5%</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">키움 코리아인덱스[주식] C-P</td>
+                                    <td>1.5%</td>
+                                    <td>1.5%</td>
+                                    <td>1.5%</td>
+                                    <td>1.5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 연금저축펀드별(또는 연금저축계좌에 편입된 펀드별) 단순 기간수익률을 의미합니다.</li>
+                            <li>2. 펀드별 기간수익률 : 펀드 매입기간과 상관없이 작성기준일로부터 역산하여 3개월, 6개월, 12개월 기간의 펀드별 기간 수익률을 나타낸 것입니다.<br>
+                                ※ 연금저축펀드계좌의 경우도 매입기간과 상관없이 펀드계좌에 편입된 펀드별로 역산한 기간에 대한 펀드 기간수익률을 기재하였습니다.</li>
+                        </ol>
+
+                        <h4>다. 연금저축계좌 보유펀드 등 잔고 현황</h4>
+                        <p class="txt-gray" style="margin-bottom:20px;">
+                            ※ 연금저축펀드계좌에 한해 제공되는 정보입니다.<br>
+                            ※ 연금저축펀드, ETF, MMF, 예수금 등으로 각각 구분하여 각 행에 작성됩니다.
+                        </p>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:14%;">
+                                <col style="width:14%;">
+                                <col style="width:14%;">
+                                <col style="width:14%;">
+                                <col style="width:14%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">보유 상품명</th>
+                                    <th scope="col">펀드코드</th>
+                                    <th scope="col">매입기간</th>
+                                    <th scope="col">매입원금(원)</th>
+                                    <th scope="col">평가금액(원)</th>
+                                    <th scope="col">누적수익률(%)</th>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">키움프런티어 개인MMF1호 C-P</td>
+                                    <td>KRZ501016122</td>
+                                    <td>2681일</td>
+                                    <td>6</td>
+                                    <td>6</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">키움 코리아인덱스[주식] C-P</td>
+                                    <td>KRZ501354868</td>
+                                    <td>2681일</td>
+                                    <td>100,000</td>
+                                    <td>173,629</td>
+                                    <td>73.62%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 누적수익률(%) : 작성기준일 현재 연금저축펀드계좌에 편입되어 있는 개별 연금펀드 등에 대한 매입기간 중 수익률을 의미합니다.</li>
+                            <li>2. 작성기준일 현재 연금저축펀드계좌에서 매입한 펀드가 없는 경우 펀드잔고는 표기되지 않고 보유 상품명에 'MMF' 또는 "예수금"으로 기재되며, 평가금액에는 잔고만 표시됩니다.</li>
+                        </ol>
+
+                        <h4>라. 운용비용[납입원금 대비 총 수수료 금액]</h4>
+                        <p class="txt-gray" style="margin-bottom:20px;">
+                            ※ 연금저축펀드계좌의 경우 총 수수료 금액은 보유 상품별(펀드 등) 수수료 금액의 합계가 기재됩니다.<br>
+                            ※ 적립금(순자산가액)이 변동함에 따라 총 수수료 금액은 변동하며, 기타비용이 포함되지 않아 귀하가 실제 부담하는 총 수수료 금액과 차이가 있을 수 있습니다. (펀드의 경우 총 수수료 금액의 대부분이 "총 보수"이며, 기타비용이 차지하는 비중은 매우 작은 수준입니다.)
+                        </p>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:40%;">
+                                <col style="width:40%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">구분</th>
+                                    <th scope="col">총 수수료 금액(원)</th>
+                                    <th scope="col">총 수수료율(%)</th>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">당기</td>
+                                    <td>761 원</td>
+                                    <td>0.00%</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">누적</td>
+                                    <td>7,194 원</td>
+                                    <td>7.19%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 총 수수료 금액 : 일별 총 보수 금액(= 운용보수 + 판매보수 + 신탁보수 + 사무관리보수)의 작성기간 동안의 합계액입니다.</li>
+                            <li>2. 총 수수료율(납입원금 대비)은 아래와 같이 산출된 것입니다.<br>
+                                *총 수수료율 산정시 납입원금(투자원금)은 중도인출대금 차감 전 금액을 의미하며, 당기의 경우 당기 중 납입된 납입원금이 없는 경우 비율을 기재하지 않았습니다.<br>
+                                <strong>▶ 당기 = 당기(작성기준일이 속하는 연도의 1.1부터 작성기준일) 중 발생한 총 수수료 금액 ÷ 작성기준일 현재
+                                납입원금(투자원금) 잔액<br>
+                                ▶ 누적 = 누적기간(최초 가입일로부터 작성기준일까지의 기간) 중 발생한 총 수수료 금액 ÷ 누적기간 중 납입된
+                                납입원금(투자원금) 합계</strong></li>
+                            <li>3. 당기 : 작성기준일이 속하는 연도의 1.1부터 작성기준일까지의 기간(누적)을 의미합니다.<br>
+                                (예시) 작성기준일이 2018.09.30인 경우 2018.01.01 ~ 2018.09.30 기간이 당기에 해당합니다.</li>
+                            <li>4. 누적 : 최초 가입일로부터 작성기준일까지의 기간을 의미합니다. </li>
+                        </ol>
+
+                        <h4>&lt;&lt; 보유 상품별 총 보수율 &gt;&gt;</h4>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:15%;">
+                                <col style="width:15%;">
+                                <col style="width:15%;">
+                                <col style="width:15%;">
+                                <col style="width:15%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">보유 상품명</th>
+                                    <th scope="col">총 보수율(%)</th>
+                                    <th scope="col">운용보수(%)</th>
+                                    <th scope="col">판매보수(%)</th>
+                                    <th scope="col">신탁보수(%)</th>
+                                    <th scope="col">사무관리보수(%)</th>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">키움프런티어 개인MMF1호 C-P</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">키움 코리아인덱스[주식] C-P</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                    <td>0.4350%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 상품별 총 보수율은 작성기준일 현재 펀드별(연금저축펀드계좌의 경우 펀드계좌에 편입된 펀드별) 보수율(%)을 의미합니다.</li>
+                            <li>2. 총 보수율(%) = 운용보수(%) + 판매보수(%) + 신탁보수(%) + 사무관리보수(%)</li>
+                        </ol>
+
+                        <h3>예상 연금수령액[세전기준]</h3>
+                        <p class="txt-gray" style="margin-bottom:10px;">
+                            ※ 예상연금수령액은 향후 세금, 납입내역, 수익률, 연금수령방법 등에 따라 실제 연금수령액과 다를 수 있습니다.<br>
+                            ※ 실제로 연금을 수령하기 위해서는 연금수령 개시신청 가능일 이후에 영업점 방문 등을 통하여 "연금 수령개시 신청서" 및 "연금보험료 등 소득·세액공제 확인서"를 제출하여야 합니다. 
+                        </p>
+                        <table style="margin-bottom:10px;">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                                <col style="width:25%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">(가정) 예상 납입액(단위:원)</th>
+                                    <td>0 원</td>
+                                    <th scope="row">(가정) 예상 수익률(%)</th>
+                                    <td>2.5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                                <col style="width:10%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="col">연령(만)</th>
+                                    <th scope="row">55세</th>
+                                    <th scope="row">56세</th>
+                                    <th scope="row">57세</th>
+                                    <th scope="row">58세</th>
+                                    <th scope="row">59세</th>
+                                    <th scope="row">60세</th>
+                                    <th scope="row">61세</th>
+                                    <th scope="row">62세</th>
+                                    <th scope="row">63세</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">연도</th>
+                                    <td>2067</td>
+                                    <td>2068</td>
+                                    <td>2069</td>
+                                    <td>2070</td>
+                                    <td>2071</td>
+                                    <td>2072</td>
+                                    <td>2073</td>
+                                    <td>2074</td>
+                                    <td>2075</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">금액</th>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">연령(만)</th>
+                                    <th scope="row">64세</th>
+                                    <th scope="row">65세</th>
+                                    <th scope="row">66세</th>
+                                    <th scope="row">67세</th>
+                                    <th scope="row">68세</th>
+                                    <th scope="row">69세</th>
+                                    <th scope="row">70세</th>
+                                    <th scope="row">71세</th>
+                                    <th scope="row">72세</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">연도</th>
+                                    <td>2076</td>
+                                    <td>2077</td>
+                                    <td>2078</td>
+                                    <td>2079</td>
+                                    <td>2080</td>
+                                    <td>2081</td>
+                                    <td>2082</td>
+                                    <td>2083</td>
+                                    <td>2084</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">금액</th>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">연령(만)</th>
+                                    <th scope="row">73세</th>
+                                    <th scope="row">74세</th>
+                                    <th scope="row">75세</th>
+                                    <th scope="row">76세</th>
+                                    <th scope="row">77세</th>
+                                    <th scope="row">78세</th>
+                                    <th scope="row">79세</th>
+                                    <th scope="row">80세</th>
+                                    <th scope="row">81세</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">연도</th>
+                                    <td>2085</td>
+                                    <td>2086</td>
+                                    <td>2087</td>
+                                    <td>2088</td>
+                                    <td>2089</td>
+                                    <td>2090</td>
+                                    <td>2091</td>
+                                    <td>2092</td>
+                                    <td>2093</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">금액</th>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>24,506</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">연령(만)</th>
+                                    <th scope="row">82세</th>
+                                    <th scope="row">83세</th>
+                                    <th scope="row">84세</th>
+                                    <th scope="row">85세</th>
+                                    <th scope="row">86세</th>
+                                    <th scope="row">87세</th>
+                                    <th scope="row">88세</th>
+                                    <th scope="row">89세</th>
+                                    <th scope="row">90세</th>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">연도</th>
+                                    <td>2094</td>
+                                    <td>2095</td>
+                                    <td>2096</td>
+                                    <td>2097</td>
+                                    <td>2098</td>
+                                    <td>2099</td>
+                                    <td>2100</td>
+                                    <td>2101</td>
+                                    <td>2102</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="background:#fff;">금액</th>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                    <td>0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 예상 납입액 : 작성기준일로부터 역산한 직전 3년간의 월평균 납입액을 의미합니다.</li>
+                            <li>2. 예상 수익률 : ‘통합연금포털’ 예상연금액 산출시 적용되는 가정수익률을 적용하였으며,매년 변경될 수 있습니다.</li>
+                            <li>3. 예상 연금수령액 : ① 직전 3년간 월평균 납입액을 ② 고객이 지정한 기간 동안 납입하고, ③ 예상수익률이 향후 일정하다는 가정하에 ④ 고객이 신청한 연금수령개시 예정일로부터 ⑤ 고객의 연금수령 신청기간(기간이 없는 경우 20년 가정) 동안 연금을 수령하는 것을 가정하여 산출한 세금 차감 전 금액입니다.</li>
+                        </ol>
+                        
+                        <h3>중도해지 관련 유의사항 및 수령 예상금액 <span class="info-unit">중도해지 기준일 2021년 06월 30일</span></h3>
+                        <h4>가. 중도해지 관련 유의사항</h4>
+                        <ol>
+                            <li>1. 적립만기 전 또는 연금수령 전에 해지할 경우 [운용수익 + 소득(세액)공제 받은 금액]에 대해 기타소득세(16.5%, 지방소득세 포함)가 분리과세 됩니다. 다만, 당해 연도 납입액에 대해서는 세금부담 없이 출금 가능합니다.</li>
+                            <li>2. 중도해지시 "연금보험료 등 소득·세액공제 확인서"를 제출하면 과다 원천징수를 방지할 수 있습니다.</li>
+                            <li>3. 중도해지시 위 소득·세액공제 확인서를 제출하지 않을 경우 금융회사는 적립금(평가금액) 등에 대해 기타소득세율(16.5%)를 적용하여 원천징수할 수 있으며, 세액공제(소득공제) 받지 않은 금액이 있다면 계좌해지 전에 "과세제외 금액" 신청을 하여야 합니다.<br>
+                                ※ 향후 소득·세액공제 확인서를 지참하여 금융회사에 과다 원천징수액 환급을 요청할 수 있습니다.</li>
+                        </ol>
+
+                        <h4>나. 중도해지시 수령 예상금액</h4>
+                        <table style="margin-bottom:0;">
+                            <colgroup>
+                                <col style="width:auto;">
+                                <col style="width:13%;">
+                                <col style="width:13%;">
+                                <col style="width:13%;">
+                                <col style="width:13%;">
+                                <col style="width:13%;">
+                                <col style="width:13%;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="col" rowspan="2">구분</th>
+                                    <th scope="col" rowspan="2">납입원금<br>(투자원금)</th>
+                                    <th scope="col" rowspan="2">중도인출금액</th>
+                                    <th scope="col" rowspan="2">적립금<br>(평가금액)</th>
+                                    <th scope="col" colspan="2">세금</th>
+                                    <th scope="col" rowspan="2">수령 예상금액</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">기타소득세</th>
+                                    <th scope="col">그 외 세금</th>
+                                </tr>
+                                <tr>
+                                    <td style="border-left:0;">적립 만기 전 해지</td>
+                                    <td>100,000</td>
+                                    <td>0</td>
+                                    <td>173,635</td>
+                                    <td>28,640</td>
+                                    <td>0</td>
+                                    <td>144,995</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ol style="margin-top:10px;">
+                            <li>1. 납입원금(투자원금) : 중도해지 기준일 현재 고객님이 납부한 총액(누계액)을 의미합니다.</li>
+                            <li>2. 적립금(평가금액) = 납입원금(투자원금) 누계 - 중도인출금액 - 총 수수료 금액 + 운용수익</li>
+                            <li>3. 기타소득세 = [소득·세액공제 받은 금액 + 운용수익] X 16.5%</li>
+                            <li>4. 그 외 세금 : '기타소득세'를 제외한 세금차감액(이연퇴직소득세 등)이 있는 경우 기재됩니다.</li>
+                        </ol>
+
+                        <h3>'계좌이체' 제도 안내</h3>
+                        <p class="txt-gray">
+                            ※ 관련 세법 개정으로 계좌이체 제도 내용이 달라질 수 있음에 주의하시기 바랍니다.
+                        </p>
+                        <ol style="margin-top:10px;">
+                            <li>1. 계좌이체 제도는 소득세법 시행령 제40조의4(연금계좌의 이체)에 따라 기존 연금계좌에 있는 금액이 연금수령이 개시되기 전의 다른 연금계좌로 이체되는 경우 이를 인출로 보지 않고 계속 세액공제나 과세이연 혜택을 유지시키는 것을 의미합니다.</li>
+                            <li>2. 계좌이체에 따라 이체되는 금액은 상품별 약관에 따른 적립금(보험은 해지환급금)이 이전되며 일부 이전은 불가합니다.</li>
+                            <li>3. 아래의 경우는 '계좌이체'로 보지 않으므로 세제상 혜택을 받을 수 없습니다.
+                                <ul>
+                                    <li>1) 연금저축계좌와 퇴직연금계좌 상호 간에 이체되는 경우(연금저축계좌 ↔ 퇴직연금계좌)</li>
+                                    <li>2) 2013.3.1. 이후 가입한 연금계좌에서 2013.3.1. 이전에 가입한 연금계좌로 이체되는 경우</li>
+                                    <li>3) 퇴직연금계좌에 있는 일부 금액이 이체되는 경우</li>
+                                </ul>
+                            </li>
+                            <li>4. 연금저축계좌 상호 간의 계좌이체 시에는 이체받을 금융회사(신규 가입 금융회사)만 방문하시면 됩니다.</li>
+                        </ol>
+                        <div class="bluebox" style="margin-top:10px;margin-bottom:10px;">
+                            <ul>
+                                <li>1. 연금저축계좌(2013.3.1. 이후 가입계좌)에서 타 연금저축계좌(2013.3.1. 이후 가입계좌)로의 전액이체</li>
+                                <li>2. 연금저축계좌(2013.3.1. 이전 가입계좌)에서 타 연금저축계좌(2013.3.1. 이후 가입계좌)로의 전액이체</li>
+                                <li>3. 연령이 만 55세가 경과하고 연금계좌 불입기간이 5년이 경과한 연금저축계좌 가입자가 개인형퇴직연금계좌(개인형IRP)로 전액이체 (연금수령이 개시된 경우에도 가능함)</li>
+                                <li>4. 연령이 만 55세가 경과하고 연금계좌 불입기간이 5년을 경과한 개인형퇴직연금계좌(개인형IRP) 가입자가 연금저축계좌로 전액이체 (연금수령이 개시된 경우에도 가능함)</li>
+                            </ul>
+                        </div>
+                        <ul class="list-dot">
+                            <li>'통합연금포털(<a href="https://100lifeplan.fss.or.kr" target="_blank">https://100lifeplan.fss.or.kr</a>)'의 '퇴직연금 통합공시' 메뉴를 통해 퇴직연금사업자별 퇴직연금 수익률, 총비용부담률 등을 비교해 보실 수 있습니다.</li>
+                        </ul>
+                    </div>
+                    <!-- //본문정보 -->
+                    
+                </div>
+            </section>
+
+            <footer>
+                <dl >
+                    <dt class="footer-logo">광주</dt>
+                    <dd>
+                        <address>㈜광주은행, 광주광역시 동구 제봉로 225</address>
+                        대표전화 <a href="tel:062-239-5000" style="color:#0070D2;text-decoration:underline;">062-239-5000</a> | 고객센터 <a href="tel:1600-4000" style="color:#0070D2;text-decoration:underline;">1600-4000</a>, <a href="tel:1588-3388" style="color:#0070D2;text-decoration:underline;">1588-3388</a> 
+                    </dd>
+                </dl>
+                <p>Copyright 2021 KWANGJU BANK</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

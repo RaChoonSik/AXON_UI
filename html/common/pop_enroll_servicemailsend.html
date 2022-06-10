@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>서비스명 발송메일 등록 팝업 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+		$(document).ready(function(){
+			fn.popupOpen('#popup_enroll_servicemailsend');
+			//메일유형
+			$(document).on("click", "input[name='mail']", function(){
+				var index = $(this).closest("label").index();
+				if(index == 0){ //단기메일
+					$(".attr_disabled").attr("disabled",true);
+				}else{	//정기메일
+					$(".attr_disabled").removeAttr("disabled");
+				}
+			});
+			//예약일시 : datePicker
+			var date = new Date();
+			var firstday = new Date(date.getFullYear(), date.getMonth(), "01");
+			$(".datepickerrange.fromDate input").datepicker('setDate', firstday);
+			});
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+		<div style="padding:30px;">
+
+			<!-- 팝업 확인용 버튼// -->
+			<button type="button" class="btn big fullblue
+			" onclick="fn.popupOpen('#popup_enroll_servicemailsend');">팝업 열기</button>
+			<!-- //팝업 확인용 버튼 -->
+
+		</div>
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_enroll_servicemailsend" class="poplayer popservmail"><!-- id값 수정 가능 -->
+		<div class="inner large">
+			<header>
+				<h2>서비스명 발송메일 등록</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+					<form>
+						<fieldset>
+							<legend>수신자그룹 선택</legend>
+
+							<!-- 조건// -->
+							<div class="graybox mgt0">
+								<div class="title-area">
+									<h3 class="h3-title">발송 조건</h3>
+									<!-- 버튼// -->
+									<div class="btn-wrap">
+										<span class="required" style="margin-right:0;">*필수입력 항목</span>
+										<button type="button" class="btn">환경설정</button>
+									</div>
+									<!-- //버튼 -->
+								</div>
+								
+								<div class="list-area type-short">
+									<ul>
+										<li>
+											<label class="required">메일유형</label>
+											<div class="list-item">
+												<label for="rdo_01" name="rdo_01"><input type="radio" id="rdo_01" name="mail"><span>단기메일</span></label>
+												<label for="rdo_02" name="rdo_02"><input type="radio" id="rdo_02" name="mail" checked><span>정기메일</span></label>
+												<label for="rdo_03" name="rdo_03"><input type="radio" id="rdo_03" name="mail" checked><span>실시간메일</span></label>
+											</div>
+										</li>
+										<li>
+											<label>옵션</label>
+											<div class="list-item">
+												<label for="chk_02"><input type="checkbox" id="chk_02"><span>수신확인</span></label>
+												<div class="marketingbox">
+													<label for="chk_03"><input type="checkbox" id="chk_03"><span>마케팅 수신 동의유형</span></label>
+													<div class="select" style="width:140px;">
+														<select title="옵션 선택">
+															<option>마이데이터(은행)</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</li>
+
+										<li>
+											<label class="required">예약일시</label>
+											<div class="list-item">
+												<!-- datepickerrange// -->
+												<div class="datepickerrange fromDate" style="width:calc(50% - 18px);">
+													<label>
+														<input type="text" readonly>
+													</label>
+												</div>
+												<!-- //datepickerrange -->
+
+												<div class="select" style="width:26%;">
+													<select title="옵션 선택">
+														<option>15시</option>
+														<option>15시</option>
+													</select>
+												</div>
+												<div class="select" style="width:26%;">
+													<select title="옵션 선택">
+														<option>00분</option>
+														<option>00분</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label class="required">정기발송<br>주기</label>
+											<div class="list-item">
+												<div class="multibox">
+													<input type="text" placeholder="31" style="width:10%;">
+													<div class="select" style="display:inline-block;width:28%;">
+														<select title="옵션 선택" class="attr_disabled">
+															<option>선택</option>
+															<option>분</option>
+															<option>시</option>
+															<option>일</option>
+															<option>주</option>
+															<option>월</option>
+															<option>년</option>
+														</select>
+													</div>
+													<label>종료일</label>
+													<!-- datepickerrange// -->
+													<div class="datepickerrange fromDate" style="width:calc(50% - 1px);"><!-- 3월 28일 수정 -->
+														<label>
+															<input type="text" readonly>
+														</label>
+													</div>
+													<!-- //datepickerrange -->
+													
+												</div>
+											</div>
+										</li>
+										<!-- //정기메일의 경우 노출 -->
+									</ul>
+									<ul style="margin-top:10px;">
+										<li>
+											<label class="required">수신자<br>그룹</label>
+											<div class="list-item">
+												<div class="filebox">
+													<p class="label" style="width:calc(100% - 116px);">선택된 수신자그룹이 없습니다.</p><!-- 3월 28일 수정 -->
+													<button type="button" class="btn">선택</button>
+													<button type="button" class="btn fullblue">미리보기</button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>보안메일</label>
+											<div class="list-item">
+												<div class="filebox">
+													<p class="label" style="width:calc(100% - 152px);">보안메일 지정되지 않았습니다.</p><!-- 3월 28일 수정 -->
+													<div class="select" style="display:none;">
+														<select title="옵션 선택">
+															<option>첨부파일</option>
+															<option>본문삽입</option>
+														</select>
+													</div>
+													<div class="select" style="width:20%;">
+														<select title="옵션 선택">
+															<option>HTML</option>
+															<option>PDF</option>
+															<option>EXCEL</option>
+														</select>
+													</div>
+													<button type="button" class="btn fullblue">미리보기</button>
+												</div>
+											</div>
+										</li>
+										
+										<li>
+											<label class="required">발송자명</label>
+											<div class="list-item">
+												<p class="inline-txt">관리자A</p>
+											</div>
+										</li>
+										<li>
+											<label>외부연계<br>코드</label>
+											<div class="list-item">
+												<input type="text" placeholder="외부연계코드를 입력해주세요.">
+											</div>
+										</li>
+										<li><!-- 3월 28일 수정 클래스 제거 -->
+											<label class="required">메일명</label>
+											<div class="list-item">
+												<input type="text" placeholder="메일명을 입력해주세요.">
+											</div>
+										</li>
+										<li class="col-full">
+											<label class="vt">파일첨부</label>
+											<div class="list-item">
+												<ul class="filelist">
+													<li>
+														<span>이벤트 이미지.png</span>
+														<em>9MB</em>
+													</li>
+													<li>
+														<span>이벤트 이미지22.png</span>
+														<em>9MB</em>
+													</li>
+													<li>
+														<span>이벤트 이미지33.png</span>
+														<em>9MB</em>
+													</li>
+												</ul>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //조건 -->
+							
+							<!-- 메일 내용// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">메일 내용</h3>
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label class="required">메일 제목</label>
+											<div class="list-item">
+												<div class="filebox">
+													<p class="label">신규 고객유치 캠페인 발송</p>
+												</div>
+											</div>
+										</li>
+										<li class="col-full">
+											<!-- 에디터 영역// -->
+											<div class="editbox">
+												<table cellpadding="0" cellspacing="0" style="margin:0;padding:0;border-collapse:collapse;border-spacing:0;color:#3A3A3A;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;">
+													<tbody>
+														<tr>
+															<td align="center">
+																<table cellpadding="0" cellspacing="0" style="width:600px;padding-top:30px;padding-bottom:30px;padding-left:16px;padding-right:16px;background:#fff;box-sizing:border-box;">
+																	<tbody>
+																		<tr style="width:100%;">
+																			<td>
+																				<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+																					<tr>
+																						<td style="width:173px;">
+																							<img src="../img/mb_logo.png" alt="광주은행" width="173" height="34">
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<table align="left" border="0" cellpadding="0" cellspacing="0">
+																					<tr>
+																						<td style="padding-top:26px;padding-bottom:30px;">
+																							<strong style="font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:33px;color:#1F1A60;letter-spacing:-1px;-webkit-text-align:left;text-align:left;">
+																								수익증권 수시공시안내
+																							</strong>
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td style="padding-bottom:30px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:16px;">
+																				신탁계약서 및 (간이)투자설명서 <span style="color:#E23A3A;">변경안내</span>
+																			</td>
+																		</tr> 
+																		<tr>
+																			<td style="padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px;background:#EFF8FF;color:#4D4D4D;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:14px;letter-spacing: -0.8px;">
+																				삼성WTI원유특별자산투자신탁 1[WTI원유-파생형] 펀드의 투자설명서가 변경되어 다음과 같이 안내드립니다.
+																			</td>
+																		</tr>
+																		<tr>
+																			<td style="padding-top:10px;padding-bottom:10px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:14px;">
+																				&#9633; 대상펀드 : 삼성WTI원유특별자산투자신탁 1[WTI원유-파생형]<br>
+																				&#9633; 운용회사 : 삼성자산운용<br>
+																				&#9633; 변경내용 : 책임운용전문인력 변경
+																			</td>
+																		</tr>
+																		<tr>
+																			<td style="padding-bottom:10px;">
+																				<table border="0" cellpadding="0" cellspacing="0" style="width:100%;text-align:center;">
+																					<tr>
+																						<td style="width:50%;padding-top:5px;padding-bottom:5px;background:#CCE9FF;color:#4d4d4d;font-weight:600;border-top: 1px solid #dadada;border-bottom: 1px solid #dadada;">변경 전</td>
+																						<td style="width:50%;padding-top:5px;padding-bottom:5px;background:#CCE9FF;color:#4d4d4d;font-weight:600;border-top: 1px solid #dadada;border-bottom: 1px solid #dadada;border-left: 1px solid #dadada;">변경 후</td>
+																					</tr>
+																					<tr>
+																						<td style="width:50%;padding-top:5px;padding-bottom:5px;background:#fff;color:#4d4d4d;border-bottom: 1px solid #dadada;">김은홍</td>
+																						<td style="width:50%;padding-top:5px;padding-bottom:5px;background:#fff;color:#E23A3A;border-bottom: 1px solid #dadada;border-left: 1px solid #dadada;">이선미</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td style="padding-top:10px;padding-bottom:30px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:14px;border-bottom:1px solid #ccc;">
+																				&#9633; 변경일자 : 21.08.11
+																			</td>
+																		</tr>
+																		<tr>
+																			<td style="padding-top:15px;padding-bottom:10px;color:#0070D2;font-size:14px;font-weight:600;">&#8251; 펀드의 수시공시내역은 아래의 SITE에서도 확인 가능하십니다.</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				&#9654; 금융투자협회 전자공시 : <a href="http://dis.kofia.or.kr" style="color:#4D4D4D;text-decoration:none;">http://dis.kofia.or.kr</a><br>
+																				&#9654; 금융감독원 펀드공시 : <a href="http://dart.fss.or.kr" style="color:#4D4D4D;text-decoration:none;">http://dart.fss.or.kr</a><br>
+																				&#9654; 운용사홈페이지 : <a href="http://www.samsungfund.com" style="color:#4D4D4D;text-decoration:none;">http://www.samsungfund.com</a>
+																			</td>
+																		</tr>
+																		
+																		
+																		<tr style="width:100%;">
+																			<td style="padding-top:30px;padding-bottom:10px;">
+																				<table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+																					<tr>
+																						<td style="padding-right:40px;vertical-align:top;overflow:hidden;">
+																							<img src="../img/mb_logogray.png" alt="광주은행" width="126" height="26">
+																						</td>
+																						<td style="width:70%;color:#9a9a9a;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;">
+																							<span>㈜광주은행, 광주광역시 동구 제봉로 225</span><br>
+																							<span>대표전화 <a href="tel:062-239-5000" style="color:#0070D2;text-decoration:underline;">062-239-5000</a>&nbsp;|&nbsp;고객센터 <a href="tel:1600-4000" style="color:#0070D2;text-decoration:underline;">1600-4000</a>, <a href="tel:1588-3388" style="color:#0070D2;text-decoration:underline;">1588-3388</a><br></span>
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>
+																				<table>
+																					<tr>
+																						<td style="padding-bottom:10px;color:#9a9a9a;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;word-break:keep-all;">
+																							- 본 메일은 발신전용 메일로서 자세한 상담 및 문의사항은 고객센터(1588-3388, 1600-4000)로 연락주시기 바랍니다.<br>
+																							- 제 3자가 본인의 e-메일 주소를 잘못 입력할 경우 고객님께서 타인의 메일을 받아 보실 수 있습니다.
+																						</td>
+																					</tr>
+																					<tr>
+																						<td style="color:#9a9a9a;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;">
+																							Copyright 2021 KWANGJU BANK
+																						</td>
+																					</tr>
+																				</table>
+																			</td>
+																		</tr>
+																	</tbody>
+																</table>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<!-- //에디터 영역 -->
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //메일 내용 -->
+
+							<!-- btn-wrap// -->
+							<div class="btn-wrap">
+								<button type="button" class="btn big fullblue">확정</button>
+								<button type="button" class="btn big">취소</button>
+							</div>
+							<!-- //btn-wrap -->
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_enroll_servicemailsend');"><span class="hidden">팝업닫기</span></button>
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_enroll_servicemailsend');"></span>
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>UMS EMS INDEX</title>
+    <style>
+      body{margin:0;padding:0;font-family:Malgun Gothic, "맑은 고딕", Dotum, "돋움", sans-serif;}
+      .guideindex{padding:20px 10px 40px;background:#fff;color:#000;}
+      .guideindex .guideh1{margin:0;color:#5668F0;font-size:26px;font-weight:600;text-align:center;}
+      .guideindex .guideh2{margin:30px 0 10px;font-size:16px;font-weight:600;}
+      .guideindex .guidedesc{margin-left:10px;color:#f00;font-size:13px;}
+      .guideindex .guide_tbl {width:100%;margin:0;text-align:center;border-top:2px #5668F0 solid;border-collapse:collapse;border-right:1px #dedede solid;}
+      .guideindex .guide_tbl tr > th,
+      .guideindex .guide_tbl tr > td {padding:10px 8px;border-left:1px #dedede solid;border-top:1px #dedede solid;vertical-align:top;}
+      .guideindex .guide_tbl thead tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > td {border-top:none;}
+      .guideindex .guide_tbl thead tr > th {background:#eee;font-size:13px;vertical-align:middle;}
+      .guideindex .guide_tbl tbody tr > td {vertical-align:top;}
+      .guideindex .guide_tbl thead tr > th {color:#000;font-weight:bold;}
+      .guideindex .guide_tbl tbody {font-size:13px;border-bottom:1px #ccc solid;border-top:1px #ccc solid;}
+      .guideindex .guide_tbl .alC {text-align:center !important;}
+      .guideindex .guide_tbl .alL {text-align:left !important;}
+      .guideindex .guide_tbl .alR {text-align:right !important;}
+      .guideindex .guide_tbl{min-width:980px;margin:0 auto;box-sizing: border-box;}
+      .guideindex .guide_tbl a{color:#222;text-decoration:none;}
+      .guideindex .guide_tbl a:hover{color:#5668F0;}
+      .guideindex .guide_tbl .chk th,
+      .guideindex .guide_tbl .chk td{color: blue !important;}
+      .guideindex .guide_tbl tbody.add th,
+      .guideindex .guide_tbl tbody.add td{color:#00a383 !important;}
+      .guideindex .guide_tbl tbody.add2 th,
+      .guideindex .guide_tbl tbody.add2 td{color:#a38300 !important;}
+      .guideindex .guide_tbl .caution{color:#f00;font-size:12px;text-align:left;}
+      .guideindex .guide_tbl .complete{background-color:#ccc;}
+      .guideindex .guide_tbl .remove{background-color:#fdeaea;}
+      .guideindex .guide_tbl .graytxt{color:#888;font-size:12px;}
+      .guideindex .guide_tbl .color-blue{color:#5668F0;}
+      .guideindex .guide_tbl .del {background:#ddd !important;}
+      .guideindex .guide_tbl .del * {text-decoration:line-through;}
+      .guideindex .guide_tbl .del .caution {text-decoration:none;}
+      .guideindex .btn_top{margin-bottom:20px;}
+      .guideindex .btn_top a{display:inline-block;height:32px;line-height:30px;padding:0 10px;background:#444;color:#fff;font-size:13px;font-weight:500;text-align:center;vertical-align:middle;border-radius:6px;border:1px solid #E1E1E1;text-decoration:none;}
+      
+      .guideindex .btn_area{display:none;position:fixed;bottom:4%;right:50px;}
+      .guideindex .btn_area button{position:relative;display:block;width:50px;height:50px;margin:0;padding:0;background:#fff;color:#aaa;font-size:30px;text-align:center;border:2px solid #ccc;outline:none;box-sizing:border-box;border-radius:5px;box-shadow:0px 3px 6px rgba(0,0,0,0.16);cursor:pointer;transition:all 0.4s;}
+      .guideindex .btn_area button:before{display:block;position:absolute;top:50%;left:50%;margin-left:-8px; width:15px;height:15px;background:transparent;border-top:2px solid #aaa;border-left:2px solid #aaa;} 
+      .guideindex .btn_area button:hover{border:2px solid #5668F0;}
+      .guideindex .btn_area button:hover:before{border-top:2px solid #5668F0;border-left:2px solid #5668F0;}
+      .guideindex .btn_area .btn_up{margin-bottom:10px;}
+      .guideindex .btn_area .btn_up:before{content:'';margin-top:-3px; transform:rotate(45deg);}
+      .guideindex .btn_area .btn_down:before{content:'';margin-top:-10px;transform:rotate(-135deg)}
+  </style>
+  
+	<script src="js/jquery_2.1.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".num").each(function(index){
+        index+=1;
+        $(this).text(index);
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+          // console.log("a");
+          btnArea = document.getElementById("btnArea");
+          window.onscroll = function(){scrollFunction();};
+          function scrollFunction(){
+            if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
+              btnArea.style.display = 'block';
+            }else{
+              btnArea.style.display = 'none';
+            }
+          }
+    
+          var up = document.querySelector(".btn_up");
+          var down = document.querySelector(".btn_down");
+          up.addEventListener("click", function(){
+            document.documentElement.scrollTop = 0;
+          });
+          down.addEventListener("click", function(){
+            var el = document.querySelector('.guideindex');
+            document.documentElement.scrollTop = el.scrollHeight;
+          });
+      });
+    </script>
+</head>
+
+<body>
+  <div class="guideindex">
+    <div class="btn_top">
+      <a href="index.html">EMS INDEX 바로가기</a>
+      <a href="index_rns.html">RNS INDEX 바로가기</a>
+      <a href="index_sms.html">SMS INDEX 바로가기</a>
+      <a href="index_push.html">PUSH INDEX 바로가기</a>
+      <a href="index_sys.html">공통설정 INDEX 바로가기</a>
+    </div>
+    <h1 class="guideh1">UMS EMS INDEX</h1>
+    <h2 class="guideh2">폴더구조</h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">시스템</th>
+          <th scope="col">분류</th>
+          <th scope="col" colspan="2">폴더명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="alL" rowspan="10">publish/</td>
+          <td class="alL" rowspan="5">/html</td>
+          <td class="alL">/common</td>
+          <td class="alL">로그인, 전체서비스, EMS 공통, EMS 팝업</td>
+        </tr>
+        <tr>
+          <td class="alL">/mailhistory</td>
+          <td class="alL">발송일정</td>
+        </tr>
+        <tr>
+          <td class="alL">/mailsend</td>
+          <td class="alL">메일</td>
+        </tr>
+        <tr>
+          <td class="alL">/mailmanage</td>
+          <td class="alL">메일관리</td>
+        </tr>
+        <tr>
+          <td class="alL">/statistics</td>
+          <td class="alL">통계분석</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/css</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/js</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/font</td>
+        </tr>
+        <tr>
+          <td class="alL" rowspan="2">/img</td>
+          <td class="alL">/common</td>
+          <td class="alL">공통 이미지</td>
+        </tr>
+        <tr>
+          <td class="alL">/ems</td>
+          <td class="alL">ems 이미지</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="guideh2">EMS <span class="guidedesc">(개발에 공유할 경우, 완료일에 공유한 날짜를 기입한다.)</span></h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:5%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:9%" />
+        <col style="width:7%" />
+        <col style="width:auto" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">1Depth</th>
+          <th scope="col">2Depth</th>
+          <th scope="col">3Depth</th>
+          <th scope="col">파일명</th>
+          <th scope="col">완료일</th>
+          <th scope="col">작업자</th>
+          <th scope="col">비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff4f4;">
+          <th scope="row">※</th>
+          <td class="alL">공통</td>
+          <td class="alL">레이아웃 샘플 <span class="graytxt">(팝업 : EMS 신규 메일 발송)</span></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/layout_sample.html" target="_blank">layout_sample.html</a></td>
+          <td>2021-08-05</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-11 (공통) head의 css, js 수정<br>
+            2021-08-12 (공통) head의 css 경로, js 경로, body태그 내 이미지 경로 수정<br>(페이지가 많아 html 폴더구조 변경으로 경로 수정되었습니다.)<br>
+            2021-08-17 상단 헤더의 알림 추가<br>
+            2021-08-18 lnb 문구 수정<br>
+            2021-08-19 (공통) head의 style.css 삭제 / #wrap에 ems 클래스 추가<br>
+            2021-08-20 (공통) 팝업 내 '.popcont' 태그 추가<br>
+            2021-09-17 상단 헤더의 전체서비스 툴팁박스 추가, 발송결재 알림 영역 수정<br>
+            2021-10-12 lnb 명칭 및 경로 수정<br>
+            2021-10-19 로고이미지 alt값 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">UMS 로그인</td>
+          <td class="alL"></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/login.html" target="_blank">login.html</a></td>
+          <td>2021-08-05</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-10-15 div.#wrap 인라인 스타일 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">UMS 전체서비스</td>
+          <td class="alL"></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/service.html" target="_blank">service.html</a></td>
+          <td>2021-08-11</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-11 '바로가기' 체크박스 추가<br>
+            2021-09-10 로그아웃 버튼 추가<br>
+            2021-10-07 콘텐츠관리 버튼 추가<br>
+            2021-10-15 div.#wrap 인라인 스타일 추가<br>
+            2021-12-21 sms 영역 '문자메시지 → 메시지'로 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">접근권한 오류페이지</td>
+          <td class="alL"></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/inaccessible.html" target="_blank">inaccessible.html</a></td>
+          <td>2021-09-17</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-30 이미지 파일명 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">HTTP 404 오류페이지</td>
+          <td class="alL"></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/inaccessible_notfound.html" target="_blank">inaccessible_notfound.html</a></td>
+          <td>2021-09-30</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">HTTP 500 오류페이지</td>
+          <td class="alL"></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/inaccessible_internalerror.html" target="_blank">inaccessible_internalerror.html</a></td>
+          <td>2021-09-30</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL">UMS 사용자 정보수정</td>
+          <td class="alL"></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/edit_userinfo.html" target="_blank">edit_userinfo.html</a></td>
+          <td>2021-09-06</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-10 사용자 정보수정 매일문자셋 -> 메일문자셋 변경<br>
+            2021-09-16 페이지 삭제
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="2">발송일정</td>
+          <td class="alL">주간일정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/mailhistory/mailhistory_week.html" target="_blank">mailhistory_week.html</a></td>
+          <td>2021-08-05</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-02 날짜 영역 수정<br>
+            2021-09-10 결재 케이스 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">월간일정<span class="graytxt">(팝업 : 일간팝업)</span></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/mailhistory/mailhistory_month.html" target="_blank">mailhistory_month.html</a></td>
+          <td>2021-08-11</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-24 타이틀 수정, 공휴일표시 삭제<br>
+            2021-08-30 날짜 영역 수정<br>
+            2021-09-10 결재 케이스 추가 및 진행건 - (1/2)표시삭제 및 토요일날짜 class="color-blue" 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="16">메일</td>
+          <td class="alL" rowspan="6">메일발송</td>
+          <td class="alL">메일발송 등록현황</td>
+          <td class="alL"><a href="html/mailsend/mailsend_state.html" target="_blank">mailsend_state.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">메일발송 신규등록</td>
+          <td class="alL"><a href="html/mailsend/enroll_mailsend.html" target="_blank">enroll_mailsend.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">메일발송 정보수정</td>
+          <td class="alL"><a href="html/mailsend/edit_mailsend.html" target="_blank">edit_mailsend.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL">단기메일 발송목록</td>
+          <td class="alL"><a href="html/mailsend/list_default.html" target="_blank">list_default.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-19 조회 영역 : '수신자그룹 &rarr; 사용자그룹' 문구 수정<br>
+            2021-09-10 보안결제 -> 보안결재 문구수정 및 수신자그룹 내용(ex.이벤트동의자) 모두 클릭영역으로 수정
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL">신규등록</td>
+          <td class="alL"><a href="html/mailsend/enroll_default.html" target="_blank">enroll_default.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-19 발송자명 input을 텍스트로 변경 / 파일첨부 영역 수정<br>
+            2021-09-06 파일첨부 영역 수정<br>
+            2021-09-17 마케팅 수신 동의유형 추가<br>
+            2021-10-07 마케팅 수신 동의유형 인라인 스타일 css 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL">정보수정</td>
+          <td class="alL"><a href="html/mailsend/edit_default.html" target="_blank">edit_default.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-19 발송자명 input을 텍스트로 변경 / 파일첨부 영역 수정<br>
+            2021-09-06 파일첨부 영역 수정<br>
+            2021-09-17 마케팅 수신 동의유형 추가<br>
+            2021-10-07 마케팅 수신 동의유형 인라인 스타일 css 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL" rowspan="4">정기메일</td>
+          <td class="alL">등록현황</td>
+          <td class="alL"><a href="html/mailsend/list_regular_state.html" target="_blank">list_regular_state.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution">2021-08-19 조회 영역 : '수신자그룹 &rarr; 사용자그룹' 문구 수정</td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">정기메일 차수별 발송목록</td>
+          <td class="alL"><a href="html/mailsend/list_regular.html" target="_blank">list_regular.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-19 조회 영역 : 사용자그룹 추가<br>
+            2021-10-12 뒤로가기 버튼 추가 및 사용자그룹, 사용자명 조건 삭제<br>
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL">신규등록</td>
+          <td class="alL"><a href="html/mailsend/enroll_regular.html" target="_blank">enroll_regular.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-19 발송자명 input을 텍스트로 변경<br>
+            2021-09-06 파일첨부 영역 수정<br>
+            2021-09-17 마케팅 수신 동의유형 추가<br>
+            2021-10-07 마케팅 수신 동의유형 인라인 스타일 css 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL">정보수정</td>
+          <td class="alL"><a href="html/mailsend/edit_regular.html" target="_blank">edit_regular.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-19 발송자명 input을 텍스트로 변경<br>
+            2021-09-06 파일첨부 영역 수정<br>
+            2021-09-17 마케팅 수신 동의유형 추가<br>
+            2021-10-07 마케팅 수신 동의유형 인라인 스타일 css 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td class="alL" rowspan="5">캠페인 서비스 관리</td>
+          <td class="alL">캠페인 서비스 목록</td>
+          <td class="alL"><a href="html/mailsend/list_campaign_service.html" target="_blank">list_campaign_service.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td class="alL">캠페인 서비스 신규등록</td>
+          <td class="alL"><a href="html/mailsend/enroll_campaign_service.html" target="_blank">enroll_campaign_service.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td class="alL">캠페인 서비스 정보수정</td>
+          <td class="alL"><a href="html/mailsend/edit_campaign_service.html" target="_blank">edit_campaign_service.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td class="alL">캠페인 서비스 조회</td>
+          <td class="alL"><a href="html/mailsend/check_campaign_service.html" target="_blank">check_campaign_service.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+          <td class="alL">캠페인 서비스 메일발송 이력</td>
+          <td class="alL"><a href="html/mailsend/histroy_campaign_service.html" target="_blank">histroy_campaign_service.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">테스트메일</td>
+          <td class="alL">테스트메일 발송목록</td>
+          <td class="alL"><a href="html/mailsend/list_test.html" target="_blank">list_test.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-18 no_data의 colspan 개수 수정<br>
+            2021-08-20 grid-area th발송상태, td발송승인 목록삭제 및 colspan 개수 수정(1.4ver)<br>
+            2021-10-12 용어수정 : 단기/정기 -> 메일유형
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="15">메일관리</td>
+          <td class="alL" rowspan="4">캠페인관리</td>
+          <td class="alL">캠페인 목록</td>
+          <td class="alL"><a href="html/mailmanage/list_admincampaign.html" target="_blank">list_admincampaign.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 신규등록</td>
+          <td class="alL"><a href="html/mailmanage/enroll_campaign.html" target="_blank">enroll_campaign.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 정보수정</td>
+          <td class="alL"><a href="html/mailmanage/edit_campaign.html" target="_blank">edit_campaign.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인별 메일발송목록</td>
+          <td class="alL"><a href="html/mailmanage/list_campaignmail.html" target="_blank">list_campaignmail.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-10-12 용어수정 : 단기/정기 -> 메일유형
+          </td>
+        </tr>
+
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">수신자그룹관리</td>
+          <td class="alL">수신자그룹 목록</td>
+          <td class="alL"><a href="html/mailmanage/list_receivergroup.html" target="_blank">list_receivergroup.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-25 테이블에 layout-fixed클래스 추가 / 질의문 말줄임 추가<br>
+            2021-10-07 서비스유형 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL"><span class="color-blue">(Tab)</span> 수신자그룹 신규등록</td>
+          <td class="alL"><a href="html/mailmanage/tab_groupenroll.html" target="_blank">tab_groupenroll.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-25 직접sql > 테이블 정보 영역 UI 수정<br>
+            2021-10-07 서비스유형 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(파일연동)</td>
+          <td class="alL"><a href="html/mailmanage/editreceiver_filelinked.html" target="_blank">editreceiver_filelinked.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-06 사용중지, 삭제 버튼 추가<br>
+            2021-09-10 샘플버튼 -> 다운로드 버튼으로 변경<br>
+            2021-10-07 서비스유형 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(추출조건)</td>
+          <td class="alL"><a href="html/mailmanage/editreceiver_extraction.html" target="_blank">editreceiver_extraction.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-06 사용중지, 삭제 버튼 추가<br>
+            2021-10-07 서비스유형 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(직접SQL)</td>
+          <td class="alL"><a href="html/mailmanage/editreceiver_sql.html" target="_blank">editreceiver_sql.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-25 테이블 정보 영역 UI 수정<br>
+            2021-09-06 사용중지, 삭제 버튼 추가<br>
+            2021-10-07 서비스유형 추가
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(리타게팅)</td>
+          <td class="alL"><a href="html/mailmanage/editreceiver_retargeting.html" target="_blank">editreceiver_retargeting.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-06 사용중지, 삭제 버튼 추가
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL"rowspan="3">템플릿관리</td>
+          <td class="alL">템플릿 목록</td>
+          <td class="alL"><a href="html/mailmanage/list_admintemplate.html" target="_blank">list_admintemplate.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">이메일 템플릿 신규등록</td>
+          <td class="alL"><a href="html/mailmanage/enroll_emailtemplate.html" target="_blank">enroll_emailtemplate.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">이메일 템플릿 정보수정</td>
+          <td class="alL"><a href="html/mailmanage/edit_emailtemplate.html" target="_blank">edit_emailtemplate.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="2">메일발송결재</td>
+          <td class="alL">메일발송결재 목록</td>
+          <td class="alL"><a href="html/mailmanage/list_mailapproval.html" target="_blank">list_mailapproval.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-06 조회영역 항목 위치 및 텍스트 변경<br>
+            2021-09-10 *필수입력 항목 삭제
+            
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">메일발송결재</td>
+          <td class="alL"><a href="html/mailmanage/mailapproval.html" target="_blank">mailapproval.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-17 마케팅 수신 동의유형 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="15">발송통계</td>
+          <td class="alL" rowspan="3">단기메일발송통계</td>
+          <td class="alL">단기메일 발송목록</td>
+          <td class="alL"><a href="html/statistics/list_default.html" target="_blank">list_default.html</a></td>
+          <td>2021-09-06</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-06 사용자그룹 항목 추가<br>
+            2021-09-10 조회영역 수정, 목록의 '예약일 → 발송일시' 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL"><span class="color-blue">(Tab)</span> 단기메일 통계분석</td>
+          <td class="alL"><a href="html/statistics/tab_stats.html" target="_blank">tab_stats.html</a></td>
+          <td>2021-09-06</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-10 메일분석영역 수정, 엑셀다운로드 버튼 삭제, (Tab)고객별 > 엑셀다운로드 버튼추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">단기메일병합 통계분석</td>
+          <td class="alL"><a href="html/statistics/default_mergestatistics.html" target="_blank">default_mergestatistics.html</a></td>
+          <td>2021-09-15</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">정기메일발송통계</td>
+          <td class="alL">정기메일 발송목록</td>
+          <td class="alL"><a href="html/statistics/list_enroll_regular.html" target="_blank">list_enroll_regular.html</a></td>
+          <td>2021-09-06</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-10 조회영역 수정, 목록의 th 텍스트 수정<br>
+            2021-09-15 발송일시 -> 등록일시 텍스트 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL"><span class="color-blue">(Tab)</span> 정기메일 통합 통계분석</td>
+          <td class="alL"><a href="html/statistics/tab_stats_regular.html" target="_blank">tab_stats_regular.html</a></td>
+          <td>2021-09-06</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-10 메일분석영역 수정, 엑셀다운로드 버튼 삭제
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">정기메일 병합분석</td>
+          <td class="alL"><a href="html/statistics/regular_mergestatistics.html" target="_blank">regular_mergestatistics.html</a></td>
+          <td>2021-09-15</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">정기메일 차수별 통계분석</td>
+          <td class="alL"><a href="html/statistics/list_regular_statsorder.html" target="_blank">list_regular_statsorder.html</a></td>
+          <td>2021-09-06</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-10 조회영역 수정, 목록의 th 텍스트 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL"><span class="color-blue">(Tab)</span> 정기메일 차수별 통계분석</td>
+          <td class="alL"><a href="html/statistics/tab_stats_regular_order.html" target="_blank">tab_stats_regular_order.html</a></td>
+          <td>2021-09-06</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-10 메일분석영역 수정, 엑셀다운로드 버튼 삭제, (Tab)고객별 > 엑셀다운로드 버튼추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">정기메일 차수별 병합분석</td>
+          <td class="alL"><a href="html/statistics/regular_order_mergestatistics.html" target="_blank">regular_order_mergestatistics.html</a></td>
+          <td>2021-09-15</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">캠페인별통계</td>
+          <td class="alL">캠페인 목록</td>
+          <td class="alL"><a href="html/statistics/list_campainanalysis.html" target="_blank">list_campainanalysis.html</a></td>
+          <td>2021-09-06</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-10 조회 및 목록 영역 수정, 병합분석 버튼 추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 통계분석</td>
+          <td class="alL"><a href="html/statistics/campain_statistics.html" target="_blank">campain_statistics.html</a></td>
+          <td>2021-09-06</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-06 캠페인 정의 사용자 -> 사용자명 변경<br>
+            2021-09-10 캠페인 정의영역 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 병합분석</td>
+          <td class="alL"><a href="html/statistics/campaign_mergestatistics.html" target="_blank">campaign_mergestatistics.html</a></td>
+          <td>2021-09-15</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="2">기간별누적통계</td>
+          <td class="alL"><span class="color-blue">(Tab)</span> 기간별누적통계</td>
+          <td class="alL"><a href="html/statistics/tab_accruedstatistics.html" target="_blank">tab_accruedstatistics.html</a></td>
+          <td>2021-09-06</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-06 엑셀다운로드 버튼 삭제<br>
+            2021-09-10 조회영역 추가, 기간별분석영역 수정, 목록버튼 삭제
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row"></th>
+          <td class="alL">기간별누적분석 목록</td>
+          <td class="alL"><a href="html/statistics/list_periodanalysis.html" target="_blank">list_periodanalysis.html</a></td>
+          <td>2021-09-06</td>
+          <td>이제하</td>
+          <td class="caution">2021-09-10 페이지 삭제</td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">상세로그</td>
+          <td class="alL">대량메일 상세로그</td>
+          <td class="alL"><a href="html/statistics/list_detaillog.html" target="_blank">list_detaillog.html</a></td>
+          <td>2021-09-06</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-10 '발송일자 → 발송일시' 문구 수정<br>
+            2021-10-12 용어수정 : 단기/정기 -> 메일유형
+          </td>
+          <tr style="background:#fffaf4;border-top:2px solid #555;">
+            <th scope="row" class="num"></th>
+            <td class="alL" rowspan="30">팝업</td>
+            <td class="alL">전체서비스</td>
+            <td class="alL">AXon PUSH</td>
+            <td class="alL"><a href="html/common/pop_service.html" target="_blank">pop_service.html</a></td>
+            <td>2021-08-17</td>
+            <td>이제하</td>
+            <td class="caution">2021-08-19 상담하기 버튼 경로 추가</td>
+          </tr>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">개인 정보수정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_edituserinfo.html" target="_blank">pop_edituserinfo.html</a></td>
+          <td>2021-09-16</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-16 현재비밀번호 추가 및 새 -> 신규 로 텍스트 변경<br>
+            2021-09-17 비밀번호 영역 수정 및 보이기/안 보이기 기능 추가<br>
+            2021-11-01 list-area 인라인 스타일 추가 :: style="display:none;"<br>
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">테스트메일 발송정보</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_testsendinfo.html" target="_blank">pop_testsendinfo.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-18 팝업 아이디 수정 / 테이블 col width 수정<br>
+            2021-09-06 고객 ID 부분 제외<br>
+            2021-10-12 용어수정 : 단기/정기 -> 메일유형
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">발송결재라인 등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_sendenroll.html" target="_blank">pop_sendenroll.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-25 전체 수정<br>
+            2021-09-16 토글메뉴 마지막 요소 하이픈 추가용 클래스 지정(class="last")<br>
+            2021-10-28 HTML 수정 : 사용자 박스 인라인스타일 추가(스크롤) <div class="content-area" style="height:430px;overflow:auto;">
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">웹에이전트 등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_registeragent.html" target="_blank">pop_registeragent.html</a></td>
+          <td>2021-08-11</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-11 '첨부파일로 지정' 체크박스 추가<br>
+            2021-08-20 문구 비노출일 경우 주석 추가
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">메일발송 환경설정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_setting.html" target="_blank">pop_setting.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-18 select에 인라인스타일 추가<br>
+            2021-08-20 테이블 col width 수정
+          </td>
+        </tr>
+
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">템플릿 미리보기</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_previewtemplate.html" target="_blank">pop_previewtemplate.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">반려 사유등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_checkreturn.html" target="_blank">pop_checkreturn.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">반려 사유</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_returnreason.html" target="_blank">pop_returnreason.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">메일명 검색</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_mailsearch.html" target="_blank">pop_mailsearch.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-12 용어수정 : 단기/정기 -> 메일유형
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">HTML 등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_htmlenroll.html" target="_blank">pop_htmlenroll.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-09 fileReset 함수 추가
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">파일 등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_fileenroll.html" target="_blank">pop_fileenroll.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-18 팝업 클래스 수정<br>
+            2021-08-20 경고 문구 삭제<br>
+            2021-12-09 fileReset 함수 추가
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 미리보기</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_previewreceiver.html" target="_blank">pop_previewreceiver.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-18 목록옆에 total 추가 / 테이블 col width 수정 / table tr에 pdtb-small 클래스 추가<br>
+            2021-08-25 테이블에 layout-fixed클래스 추가 / 질의문 말줄임 추가
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 조회 사유등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_checkreceiver.html" target="_blank">pop_checkreceiver.html</a></td>
+          <td>2021-08-17</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">테스트메일 발송</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_testsend.html" target="_blank">pop_testsend.html</a></td>
+          <td>2021-08-17</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-08-18 버튼영역 수정<br>
+            2021-09-06 고객 ID 부분 제외
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">캠페인 선택</td>
+          <td class="alL">목록</td>
+          <td class="alL"><a href="html/common/pop_selectcampaign.html" target="_blank">pop_selectcampaign.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">신규등록</td>
+          <td class="alL"><a href="html/common/pop_enrollcampaign.html" target="_blank">pop_enrollcampaign.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-10-15 type-short 클래스 삭제, 캠페인목적 br태그 삭제
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">정보수정</td>
+          <td class="alL"><a href="html/common/pop_editcampaign.html" target="_blank">pop_editcampaign.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-10-15 type-short 클래스 삭제, 캠페인목적 br태그 삭제
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">템플릿 선택</td>
+          <td class="alL">목록</td>
+          <td class="alL"><a href="html/common/pop_selectemplate.html" target="_blank">pop_selectemplate.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">신규등록</td>
+          <td class="alL"><a href="html/common/pop_enrolltemplate.html" target="_blank">pop_enrolltemplate.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-10-15 type-short 클래스 삭제
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">정보수정</td>
+          <td class="alL"><a href="html/common/pop_editemplate.html" target="_blank">pop_editemplate.html</a></td>
+          <td>2021-10-13</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-10-15 type-short 클래스 삭제
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="5">수신자그룹 선택</td>
+          <td class="alL">목록</td>
+          <td class="alL"><a href="html/common/pop_listreceiver.html" target="_blank">pop_listreceiver.html</a></td>
+          <td>2021-10-13</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">신규등록(파일등록)</td>
+          <td class="alL"><a href="html/common/pop_enrollfilelinked.html" target="_blank">pop_enrollfilelinked.html</a></td>
+          <td>2021-10-13</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">신규등록(직접SQL)</td>
+          <td class="alL"><a href="html/common/pop_enrollsql.html" target="_blank">pop_enrollsql.html</a></td>
+          <td>2021-10-13</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-15 type-short 클래스 삭제, 수신자그룹 br태그 삭제
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">정보수정(파일등록)</td>
+          <td class="alL"><a href="html/common/pop_editfilelinked.html" target="_blank">pop_editfilelinked.html</a></td>
+          <td>2021-10-13</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">정보수정(직접SQL)</td>
+          <td class="alL"><a href="html/common/pop_editsql.html" target="_blank">pop_editsql.html</a></td>
+          <td>2021-10-13</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-15 type-short 클래스 삭제, 수신자그룹 br태그 삭제
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">결재라인 정보</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html/common/pop_paymentinfo.html" target="_blank">pop_paymentinfo.html</a></td>
+          <td>2021-10-19</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">캠페인 서비스 관리</td>
+          <td class="alL">캠페인 서비스 발송메일 등록</td>
+          <td class="alL"><a href="html/common/pop_enroll_servicemailsend.html" target="_blank">pop_enroll_servicemailsend.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 서비스 발송메일 정보수정</td>
+          <td class="alL"><a href="html/common/pop_edit_servicemailsend.html" target="_blank">pop_edit_servicemailsend.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">웹에이전트 선택</td>
+          <td class="alL"><a href="html/common/pop_listwebagent.html" target="_blank">pop_listwebagent.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+
+      </tbody>
+    </table>
+    
+    <div id="btnArea" class="btn_area">
+      <button class="btn_up"></button>
+      <button class="btn_down"></button>
+    </div>
+  </div>
+</body>
+</html>

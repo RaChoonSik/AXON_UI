@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>개인 정보수정 팝업 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+		$(document).ready(function(){
+			fn.popupOpen('#popup_edituserinfo');
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+		<div style="padding:30px;">
+
+			<!-- 팝업 확인용 버튼// -->
+			<button type="button" class="btn big fullblue
+			" onclick="fn.popupOpen('#popup_edituserinfo');">팝업 열기</button>
+			<!-- //팝업 확인용 버튼 -->
+
+		</div>
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_edituserinfo" class="poplayer popedituserinfo"><!-- id값 수정 가능 -->
+		<div class="inner">
+			<header>
+				<h2>개인 정보수정</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+					
+					<!-- 기본정보// -->
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">기본정보</h3>
+							<span class="required">*필수입력 항목</span>
+						</div>
+						
+						<div class="list-area">
+							<ul>
+								<li>
+									<label>ID</label>
+									<div class="list-item">
+										<p class="inline-txt line-height40">admin</p>
+									</div>
+								</li>
+								<li>
+									<label class="required">사용자명</label>
+									<div class="list-item">
+										<input type="text" placeholder="사용자명을 입력해주세요.">
+									</div>
+								</li>
+								<li>
+									<label>사용자그룹</label>
+									<div class="list-item">
+										<p class="inline-txt line-height40">영업관리부</p>
+									</div>
+								</li>
+								<li>
+									<label class="required">발송자명</label>
+									<div class="list-item">
+										<input type="text" placeholder="발송자명을 입력해주세요.">
+									</div>
+								</li>
+								<li>
+									<label class="required">연락처</label>
+									<div class="list-item">
+										<input type="text" placeholder="연락처를 입력해주세요.">
+									</div>
+								</li>
+								<li>
+									<label class="required">이메일</label>
+									<div class="list-item">
+										<input type="text" placeholder="이메일을 입력해주세요.">
+									</div>
+								</li>
+								<li>
+									<label class="required">최신 이메일</label>
+									<div class="list-item">
+										<input type="text" placeholder="최신 이메일을 입력해주세요.">
+									</div>
+								</li>
+								<li>
+									<label class="required">리턴 이메일</label>
+									<div class="list-item">
+										<input type="text" placeholder="리턴 이메일을 입력해주세요.">
+									</div>
+								</li>
+								<li>
+									<label>메일문자셋</label>
+									<div class="list-item">
+										<div class="select">
+											<select title="옵션 선택">
+												<option>선택</option>
+												<option>옵션1</option>
+												<option>옵션2</option>
+											</select>
+										</div>
+									</div>
+								</li>
+								<li>
+									<label>타임존</label>
+									<div class="list-item">
+										<div class="select">
+											<select title="옵션 선택">
+												<option>선택</option>
+												<option>옵션1</option>
+												<option>옵션2</option>
+											</select>
+										</div>
+									</div>
+								</li>
+								<li>
+									<label>언어</label>
+									<div class="list-item">
+										<div class="select">
+											<select title="옵션 선택">
+												<option>선택</option>
+												<option>옵션1</option>
+												<option>옵션2</option>
+											</select>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- //기본정보 -->
+
+					<!-- 비밀번호 변경// -->
+					<div class="graybox editpw">
+						<div class="title-area">
+							<h3 class="h3-title">비밀번호 변경</h3>
+							<button type="button"><span class="hidden">여닫기버튼</span></button>
+						</div>
+						
+						<div class="list-area" style="display:none;">
+							<ul>
+								<li class="col-full">
+									<label>현재 비밀번호</label>
+									<div class="list-item">
+										<div class="pw-area fl">
+											<input type="password" placeholder="비밀번호를 입력해주세요." style="width:248px;padding-right:38px;">
+											<button type="button" class="btn-pwshow"><span class="hidden">비밀번호 보이기버튼</span></button>
+										</div>
+										<p class="inline-txt color-red">*영문, 숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.</p>
+									</div>
+								</li>
+								<li class="col-full">
+									<label>신규 비밀번호</label>
+									<div class="list-item">
+										<div class="pw-area fl">
+											<input type="password" placeholder="비밀번호를 입력해주세요." style="width:248px;padding-right:38px;">
+											<button type="button" class="btn-pwshow"><span class="hidden">비밀번호 보이기버튼</span></button>
+										</div>
+										<p class="inline-txt color-red">*영문, 숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.</p>
+									</div>
+								</li>
+								<li class="col-full">
+									<label>비밀번호 확인</label>
+									<div class="list-item clear">
+										<div class="pw-area fl">
+											<input type="password" placeholder="비밀번호를 한번 더 입력해주세요." style="width:248px;padding-right:38px;">
+											<button type="button" class="btn-pwshow"><span class="hidden">비밀번호 보이기버튼</span></button>
+										</div>
+										<button type="button" class="btn fullblue" style="margin-right:10px;">변경</button>
+										<!-- <p class="inline-txt color-red">*비밀번호가 일치합니다.</p> -->
+										<!-- 비밀번호 일치한 경우 노출 -->
+										<p class="inline-txt color-red">*비밀번호가 일치하지 않습니다.</p>
+										<!-- 비밀번호 일치하지 않은 경우 노출 -->
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- //비밀번호 변경 -->
+
+					<!-- 버튼// -->
+					<div class="btn-wrap">
+						<button type="button" class="btn big fullblue">저장</button>
+					</div>
+					<!-- //버튼 -->
+
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_edituserinfo');"><span class="hidden">팝업닫기</span></button>
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_edituserinfo');"></span>
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=800">
+    <title>신탁 운용 보고서(장부가)</title>
+    <style>
+        /******** reset css ********/
+        html,body,div,p,h1,h2,h3,h4,h5,h6,strong,span,label,legend, ul,ol,li,dl,dt,dd,table,thead,tbody,tr,th,td,tfoot,img,a,button,footer,section{padding:0;margin:0;}
+        ul,ol,li{list-style:none;}
+        button{background:transparent;cursor:pointer;}
+        img{max-width:100%;vertical-align:top;}
+        img,button,fieldset,table, tfoot{border:0;}
+        address{font-style:normal;}
+        label,a{display:inline-block;}
+        h2,h3,strong,em{font-weight:600;}
+        input,select,label,button,textarea{border-radius:0;-webkit-border-radius:0;background-color:transparent;color:#111;font-size:14px;line-height:normal;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;vertical-align:middle;}
+        table{width:100%;border-spacing:0;}
+        a{border:0;color:#444;text-decoration:none;}
+        a:hover{color:#0070D2;text-decoration:none;}
+        *, *:before, *:after{box-sizing:border-box;}
+        *:focus{outline:0;}
+        html,body{height:100%;}
+        legend, .hidden, .hide{position:absolute !important;top:0 !important;left:0 !important;padding:0 !important;border:0 !important;overflow:hidden !important;width:0 !important;height:0 !important;line-height:0 !important;}
+        body{width:800px;margin:0 auto;padding:30px 16px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;font-weight:400;color:#3a3a3a;line-height:normal;box-sizing:border-box;letter-spacing:-0.07em; }
+        html, table, th, td{
+            /* Prevent font scaling in landscape */
+            -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+            -moz-text-size-adjust: none; /*Firefox*/
+            -ms-text-size-adjust: none;  /*Ie*/
+            -o-text-size-adjust: none; /*old versions of Opera*/
+        }
+
+        /******** common css ********/
+        /* section */
+        .tal{text-align:left !important;}
+        .tac{text-align:center !important;}
+        .tar{text-align:right !important;}
+        .clear:after{content:'';display:block;clear:both;}
+        .txt-black{color:#111111 !important;margin:0 !important}
+        .txt-gray{font-size:14px;color:#999999;}
+        .bold-blue{color:#0070D2 !important;font-weight:600 !important;font-size:20px !important;}
+        .title-desc{margin-bottom:50px;font-size:16px;}
+        .cont-head h1{width:173px;height:34px;text-indent:-9999px;background:url('../img/pc_logo.png') no-repeat;background-position: 0 0;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            .cont-head h1{width:173px;height:34px;background:url('../img/mb_logo.png') no-repeat cover;background-position: 0 0;}
+        }
+        .cont-head h2{margin-top:26px;font-size:33px;color:#1F1A60;}
+        .cont-body h3{position:relative;margin-bottom:20px;padding-bottom:10px;font-size:20px;color:#111; border-bottom:1px solid #CCCCCC;}
+        .cont-body h3 ~ h3{margin-top:30px;}
+        .cont-body h3:after{content:'';display:block;position:absolute;top:12px;right:10px;width:12px;height:8px; background:url('../img/arrow.png') no-repeat 0 0;}
+        .cont-body h3 .info-unit{position:absolute;top:3px;right:36px;font-size:14px;font-weight:400;color:#999;}
+        .cont-body h3 .bold-blue{top:0px;}
+        .cont-body h4{margin-bottom:10px;color:#111;font-size:16px;}
+        .cont-body h4 ~ h4{margin-top:20px;}
+        .cont-body h4 + ul {margin-bottom:20px;}
+        .cont-body ul{font-size:14px;}
+        .cont-body ol{font-size:14px;}
+        .cont-body .list-dot{margin-bottom:20px;}
+        .cont-body .list-dot li{position:relative;padding-left:10px;list-style-position:inside;font-size:14px;}
+        .cont-body .list-dot li:before{content:'•';display: inline-block;position:absolute;top:0;left:0;}
+        .cont-body .bluebox{width:100%;height:auto;margin-bottom:20px;padding:15px;background:#EFF8FF;font-size:14px;box-sizing:border-box;}
+        .cont-body .bluebox h4{position:relative;margin-bottom:10px;padding-left:20px;font-size:16px;font-weight:600;color:#111;}
+        .cont-body .bluebox h4:before{content:'';display:block;position:absolute;top:5px;left:0px; width:16px;height:16px;padding-right:5px;background:url('../img/ico_info.png') no-repeat;}
+        .cont-body .bluebox strong{font-size:16px;color:#4D4D4D;}
+        .cont-body .bluebox strong.dot{display:inline-block;margin-bottom:10px;color:#111;}
+        .cont-body .bluebox strong.dot:before{content:'•';display:inline-block;padding-right:6px;}
+        .cont-body .bluebox strong.check{position:relative;font-weight:600;color:#0070D2;}
+        .cont-body .bluebox strong.check:before{content:'';display: inline-block;}
+
+        .tab-menu{height:40px;margin-top:30px;margin-bottom:50px;}
+        .tab-menu > button{display:block;float:left;min-width:160px;height:40px;margin-left:4px;background:#EFEFEF;font-size:16px;color:#4d4d4d;text-align:center;line-height:40px;}
+        .tab-menu > button:first-child{margin-left:0;}
+        .tab-menu > button.active,
+        .tab-menu > button:hover{background:#0070D2;color:#fff;font-weight:600;}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;}
+
+        table{margin-bottom:30px;}
+        table tr:first-child th, table tr:first-child td{border-top:1px solid #DADADA;}
+        table tr > th:first-child{border-left:0}
+        table th{padding:5px;background:#CCE9FF;font-size:12px;font-weight:600;border-bottom:1px solid #DADADA;border-left:1px solid #DADADA;}
+        table td{padding:5px 10px;background:#fff;font-size: 12px;text-align:center;border-bottom: 1px solid #DADADA;border-left:1px solid #DADADA;}
+        .tab ul + table{margin-bottom:20px;}
+        .tab .table-title{margin-bottom:10px;font-size:14px;}
+        .tab .total-bold{font-weight:600;color:#4d4d4d;}
+        .tab .image-box {overflow:hidden;}
+        .tab .image-box img{width:100%;}
+
+        /* 파란배경이 없는 테이블의 경우 .table-white 클래스 사용*/
+        .table-white th{background:#fff;text-align:left;border:0;}
+        .table-white td{background:#fff;text-align:left;border:0;}
+        .table-white tr:first-child th, .tab .table-white tr:first-child td{border-top:0;}
+        .tab .caution ul {color:#999; list-style:none !important;text-indent:0;margin-bottom:0;padding-left:14px;}
+        .tab .caution ul li:before {content:"\2022";color:#dadada !important;font-weight:bold;display:inline-block;width:1em;margin-left:-1em;}
+        .tab .caution p{color:#999;font-size:14px;}
+
+        /* 푸터 */
+        footer{padding-top:80px;padding-bottom:30px;color:#9A9A9A;}
+        footer dl{display: table;}
+        footer dt,footer dd{display: table-cell;}
+        footer .footer-logo{width:126px;height:26px;text-indent:-9999px;background:url('../img/pc_logogray.png') no-repeat;background-size:contain;background-position: 0 0;}
+        footer dd{padding-left:36px;}
+        footer p{padding-top:10px;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            footer .footer-logo{background:url('../img/mb_logogray.png') no-repeat cover; background-position: 0 0;}
+        }
+    </style>
+    <script>
+            'use strict';
+
+            window.onload = function(){
+            // IE11 support
+            if (window.NodeList && !NodeList.prototype.forEach) {
+                NodeList.prototype.forEach = Array.prototype.forEach;
+            }
+
+            function findParent(el, className){
+                var check = el.parentNode.classList.contains(className);
+            
+                if(check === true){
+                    return el.parentNode;
+                }else{
+                    return findParent(el.parentNode, className);
+                }
+            }
+
+            function bindingTabEvent(wrap){
+                var wrapEl = document.querySelectorAll(wrap);
+            
+                wrapEl.forEach(function(tabArea){
+                    var btn = tabArea.querySelectorAll('.tab-link');
+                    
+                    btn.forEach(function(item){
+                        item.addEventListener('click', function(){
+                            var parent = findParent(this, 'tab');
+                            var idx = this.dataset['idx'];
+                            var depth = this.dataset['depth'];
+                            var btnArr = parent.querySelectorAll('.tab-link[data-depth="'+ depth +'"]');
+                            var contentArr = parent.querySelectorAll('.tab-content[data-depth="'+ depth +'"]');
+                            
+                            btnArr.forEach(function(btn){ btn.classList.remove('active'); });
+                            this.classList.add('active');
+                            contentArr.forEach(function(content){ content.classList.remove('active'); });
+                            parent.querySelector('.tab-content[data-idx="'+ idx +'"][data-depth="'+ depth +'"]').classList.add('active');
+                        });
+                    });
+                });
+            }
+
+            bindingTabEvent('.tab-wrap');
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">
+            <section class="cont-head">
+                <h1>광주은행</h1>
+                <h2>신탁 운용 보고서(장부가)</h2>
+                <p class="title-desc">
+                    금융투자업규정 개정으로 동 '신탁운용보고서'는 서면으로 [수령거절]을 요청하지 아니한 모든 고객을 대상으로 발송되었습니다.<br>
+                    [수령거절]을 원하시는 고객께서는 가까운 광주은행 영업점을 방문하시어 신청하여 주시기 바랍니다.
+                </p>
+            </section>
+            <section class="cont-body">
+
+                <h3>신탁계약현황 <span class="info-unit">작성기준일 2021년 08월 31일</span></h3>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">고객명</th>
+                            <td>홍길동</td>
+                            <th scope="row">신규일</th>
+                            <td>2002.12.23</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">상품명</th>
+                            <td>든든카드 이벤트</td>
+                            <th scope="row">종류</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">수탁원본(원)</th>
+                            <td>1,234,567원</td>
+                            <th scope="row">최종거래일자</th>
+                            <td>2012.11.23</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>투자자의 투자성향</h3>
+                <div class="bluebox">&nbsp;</div>
+                <h3>운용실적 및 신탁재산 구성 현황<span class="info-unit">기준일자 2021년 08월 31일</span></h3>
+                <h4 style="font-size:14px;">신탁재산 구성 현황</h4>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:64px;">
+                        <col style="width:192px;">
+                        <col style="width:255px;">
+                        <col style="width:255px;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col" colspan="2">항목</th>
+                            <th scope="col">금액(백만원)</th>
+                            <th scope="col">비율(%)</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">대출</th>
+                            <td>0원</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="4">채권</th>
+                            <th scope="row" style="border-left:1px solid #dadada;">국채, 지방채, 특수채</th>
+                            <td>0원</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="border-left:1px solid #dadada;">금융채, 통안증권</th>
+                            <td>210원</td>
+                            <td>10.28%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="border-left:1px solid #dadada;">회사채</th>
+                            <td>20원</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="border-left:1px solid #dadada;">기타채권</th>
+                            <td>1,592원</td>
+                            <td>38.96%</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" colspan="2">주식</th>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">CP 및 어음</th>
+                            <td>1700원</td>
+                            <td>41.59%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">수익증권, 뮤추얼펀드</th>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">RP, CD, 정기예금</th>
+                            <td>400원</td>
+                            <td>9.78%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">파생상품</th>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">고유계정대</th>
+                            <td>40원</td>
+                            <td>1.59%</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" colspan="2">기타</th>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row"  colspan="2">&nbsp;</th>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4 style="font-size:14px;">신탁재산 구성 현황</h4>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">최근 3개월</th>
+                            <th scope="col">최근 6개월</th>
+                            <th scope="col">최근 9개월</th>
+                            <th scope="col">최근 12개월</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">구분</th>
+                            <td>0.8</td>
+                            <td>0.5</td>
+                            <td>-0.25</td>
+                            <td>-0.04</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h4 style="font-size:14px;">종목별 보유현황</h4>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">종목명</th>
+                            <th scope="col">평가액(백만원)</th>
+                            <th scope="col">비중(%)</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="3">채권</th>
+                            <td>발행어음</td>
+                            <td>1,123원</td>
+                            <td>47.5%</td>
+                        </tr>
+                        <tr>
+                            <td>전자단기사채</td>
+                            <td>1,123원</td>
+                            <td>47.5%</td>
+                        </tr>
+                        <tr>
+                            <td>기타금융채</td>
+                            <td>1,123원</td>
+                            <td>47.5%</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">종목명</th>
+                            <th scope="col">&nbsp;</th>
+                            <th scope="col">비중(%)</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="3">주식</th>
+                            <td>&nbsp;</td>
+                            <td>0원</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>0원</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>0원</td>
+                            <td>0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>신탁재산 운용현황</h3>
+                <h4 style="font-size:14px;">투자전략</h4>
+                <div class="bluebox">&nbsp;</div>
+
+                <h4 style="font-size:14px;">매매 회전율</h4>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col" rowspan="2">매수금액</th>
+                            <th scope="col" rowspan="2">매도금액</th>
+                            <th scope="col" colspan="2">매매회전율(%)</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" style="border-left: 1px solid #dadada;">해당기간</th>
+                            <th scope="col">기간누적</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="margin-bottom:20px;">
+                    ※매매회전율=(매수금액＋매도금액)÷2/(수탁고의 전체 일평균 평가금액)×100
+                </p>
+                <h4 style="font-size:14px;">고유재산과 거래여부</h4>
+                <div class="bluebox">&nbsp;</div>
+
+                <h3>비용발생내역</h3>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">보수율</th>
+                            <th scope="col">위탁매매수수료</th>
+                            <th scope="col">각종세금</th>
+                            <th scope="col">기타비용</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">최근 3개월</td>
+                            <td>0.3%</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>투자운용전문인력현황</h3>
+                <table style="margin-bottom:0px;">
+                    <colgroup>
+                        <col style="width:13%;">
+                        <col style="width:13%;">
+                        <col style="width:13%;">
+                        <col style="width:13%;">
+                        <col style="width:13%;">
+                        <col style="width:35%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col" rowspan="2">직위</th>
+                            <th scope="col" rowspan="2">성명</th>
+                            <th scope="col" rowspan="2">운용개시일</th>
+                            <th scope="col" colspan="2">운용중인 신탁상품 현황</th>
+                            <th scope="col" rowspan="2">주요경력</th>
+                        </tr> 
+                        <tr>
+                            <th scope="col" style="border-left:1px solid #dadada;">신탁상품(개)</th>
+                            <th scope="col">운용규모(백만원)</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">과장</td>
+                            <td>홍길동</td>
+                            <td>19.02.25</td>
+                            <td>12</td>
+                            <td>123,456원</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                
+               
+            </section>
+
+            <footer>
+                <dl >
+                    <dt class="footer-logo">광주</dt>
+                    <dd>
+                        <address>㈜광주은행, 광주광역시 동구 제봉로 225</address>
+                        대표전화 <a href="tel:062-239-5000" style="color:#0070D2;text-decoration:underline;">062-239-5000</a> | 고객센터 <a href="tel:1600-4000" style="color:#0070D2;text-decoration:underline;">1600-4000</a>, <a href="tel:1588-3388" style="color:#0070D2;text-decoration:underline;">1588-3388</a> 
+                    </dd>
+                </dl>
+                <p>Copyright 2021 KWANGJU BANK</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

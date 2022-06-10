@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>UMS공통설정 INDEX</title>
+    <style>
+      body{margin:0;padding:0;font-family:Malgun Gothic, "맑은 고딕", Dotum, "돋움", sans-serif;}
+      .guideindex{padding:20px 10px 40px;background:#fff;color:#000;}
+      .guideindex .guideh1{margin:0;font-size:26px;font-weight:600;text-align:center;}
+      .guideindex .guideh2{margin:30px 0 10px;font-size:16px;font-weight:600;}
+      .guideindex .guidedesc{margin-left:10px;color:#f00;font-size:13px;}
+      .guideindex .guide_tbl {width:100%;margin:0;text-align:center;border-top:2px #D4373C solid;border-collapse:collapse;border-right:1px #dedede solid;}
+      .guideindex .guide_tbl tr > th,
+      .guideindex .guide_tbl tr > td {padding:10px 8px;border-left:1px #dedede solid;border-top:1px #dedede solid;vertical-align:top;}
+      .guideindex .guide_tbl thead tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > td {border-top:none;}
+      .guideindex .guide_tbl thead tr > th {background:#eee;font-size:13px;vertical-align:middle;}
+      .guideindex .guide_tbl tbody tr > td {vertical-align:top;}
+      .guideindex .guide_tbl thead tr > th {color:#000;font-weight:bold;}
+      .guideindex .guide_tbl tbody {font-size:13px;border-bottom:1px #ccc solid;border-top:1px #ccc solid;}
+      .guideindex .guide_tbl .alC {text-align:center !important;}
+      .guideindex .guide_tbl .alL {text-align:left !important;}
+      .guideindex .guide_tbl .alR {text-align:right !important;}
+      .guideindex .guide_tbl{min-width:980px;margin:0 auto;box-sizing: border-box;}
+      .guideindex .guide_tbl a{color:#222;text-decoration:none;}
+      .guideindex .guide_tbl a:hover{color:#D4373C;}
+      .guideindex .guide_tbl .chk th,
+      .guideindex .guide_tbl .chk td{color: blue !important;}
+      .guideindex .guide_tbl tbody.add th,
+      .guideindex .guide_tbl tbody.add td{color:#00a383 !important;}
+      .guideindex .guide_tbl tbody.add2 th,
+      .guideindex .guide_tbl tbody.add2 td{color:#a38300 !important;}
+      .guideindex .guide_tbl .caution{color:#f00;font-size:12px;text-align:left;}
+      .guideindex .guide_tbl .complete{background-color:#ccc;}
+      .guideindex .guide_tbl .remove{background-color:#fdeaea;}
+      .guideindex .guide_tbl .graytxt{color:#888;font-size:12px;}
+      .guideindex .guide_tbl .color-blue{color:#5668F0;}
+      .guideindex .guide_tbl .del {background:#ddd !important;}
+      .guideindex .guide_tbl .del * {text-decoration:line-through;}
+      .guideindex .guide_tbl .del .caution {text-decoration:none;}
+      .guideindex .btn_top{margin-bottom:20px;}
+      .guideindex .btn_top a{display:inline-block;height:32px;line-height:30px;padding:0 10px;background:#444;color:#fff;font-size:13px;font-weight:500;text-align:center;vertical-align:middle;border-radius:6px;border:1px solid #E1E1E1;text-decoration:none;}
+  </style>
+  
+	<script src="js/jquery_2.1.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".num").each(function(index){
+        index+=1;
+        $(this).text(index);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="guideindex">
+    <div class="btn_top">
+      <a href="index.html">EMS INDEX 바로가기</a>
+      <a href="index_rns.html">RNS INDEX 바로가기</a>
+      <a href="index_sms.html">SMS INDEX 바로가기</a>
+      <a href="index_push.html">PUSH INDEX 바로가기</a>
+      <a href="index_sys.html">공통설정 INDEX 바로가기</a>
+    </div>
+    <h1 class="guideh1" style="color:#D4373C;">UMS 공통설정 INDEX</h1>
+    <h2 class="guideh2">폴더구조</h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">시스템</th>
+          <th scope="col">분류</th>
+          <th scope="col" colspan="2">폴더명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="alL" rowspan="13">publish/</td>
+          <td class="alL" rowspan="8">/html_sys</td>
+          <td class="alL">/common</td>
+          <td class="alL">sys 공통, sys 팝업</td>
+        </tr>
+
+        <tr>
+          <td class="alL">/account</td>
+          <td class="alL">계정관리</td>
+        </tr>
+        <tr>
+          <td class="alL">/authority</td>
+          <td class="alL">권한관리</td>
+        </tr>
+        <tr>
+          <td class="alL">/code</td>
+          <td class="alL">코드관리</td>
+        </tr>
+
+        <tr>
+          <td class="alL">/database</td>
+          <td class="alL">데이터베이스연계</td>
+        </tr>
+        <tr>
+          <td class="alL">/rnsinfo</td>
+          <td class="alL">RNS기준정보</td>
+        </tr>
+        <tr>
+          <td class="alL">/systemlog</td>
+          <td class="alL">시스템로그관리</td>
+        </tr>
+        <tr>
+          <td class="alL">/content</td>
+          <td class="alL">콘텐츠관리</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/css</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/js</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/font</td>
+        </tr>
+        <tr>
+          <td class="alL" rowspan="2">/img</td>
+          <td class="alL">/common</td>
+          <td class="alL">공통 이미지</td>
+        </tr>
+        <tr>
+          <td class="alL">/sys</td>
+          <td class="alL">공통설정 이미지</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="guideh2">공통설정 <span class="guidedesc">(개발에 공유할 경우, 완료일에 공유한 날짜를 기입한다.)</span></h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:5%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:9%" />
+        <col style="width:7%" />
+        <col style="width:auto" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">1Depth</th>
+          <th scope="col">2Depth</th>
+          <th scope="col">3Depth</th>
+          <th scope="col">파일명</th>
+          <th scope="col">완료일</th>
+          <th scope="col">작업자</th>
+          <th scope="col">비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff4f4;">
+          <th scope="row">※</th>
+          <td class="alL">공통</td>
+          <td class="alL">레이아웃 샘플</span></td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sys/common/layout_sample.html" target="_blank">layout_sample.html</a></td>
+          <td>2021-08-18</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-16 상단헤더:: 알림버튼 삭제 > 발송결재버튼 추가<br>
+            2021-09-17 상단헤더:: 전체서비스 툴팁박스 추가
+          </td>
+        </tr>
+
+        <!-- 계정관리// -->
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="9">계정관리</td>
+          <td class="alL" rowspan="3">조직도 관리</td>
+          <td class="alL">조직도 목록</td>
+          <td class="alL"><a href="html_sys/account/list_groupchart.html" target="_blank">list_groupchart.html</a></td>
+          <td>2021-08-31</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-16 토글-마지막요소 하이픈 추가용 클래스 지정(class="last")<br>
+            2021-10-20 html 테이블목록 영역 class="col-box" 위치 ul -> li 변경<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">조직도 신규등록</td>
+          <td class="alL"><a href="html_sys/account/enroll_groupchart.html" target="_blank">enroll_groupchart.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-01 내용항목 상위부서명 -> 부서조회로 변경/ 콤보박스 -> input, button추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">조직도 정보수정</td>
+          <td class="alL"><a href="html_sys/account/edit_groupchart.html" target="_blank">edit_groupchart.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-01 내용항목 상위부서명 -> 부서조회로 변경/ 콤보박스 -> input, button추가
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">사용자그룹 관리</td>
+          <td class="alL">사용자그룹 목록</td>
+          <td class="alL"><a href="html_sys/account/list_usergroup.html" target="_blank">list_usergroup.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">사용자그룹 신규등록</td>
+          <td class="alL"><a href="html_sys/account/enroll_usergroup.html" target="_blank">enroll_usergroup.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">사용자그룹 정보수정</td>
+          <td class="alL"><a href="html_sys/account/edit_usergroup.html" target="_blank">edit_usergroup.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-26 번호영역 인라인스타일 추가 hidden처리
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">사용자 관리</td>
+          <td class="alL">사용자 목록</td>
+          <td class="alL"><a href="html_sys/account/list_user.html" target="_blank">list_user.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">사용자 신규등록</td>
+          <td class="alL"><a href="html_sys/account/enroll_user.html" target="_blank">enroll_user.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-25 발송자명 input 추가<br>
+            2021-08-26 서비스권한에서 공통설정 제외
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">사용자 정보수정</td>
+          <td class="alL"><a href="html_sys/account/edit_user.html" target="_blank">edit_user.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-25 발송자명 input 추가<br>
+            2021-08-26 사용자ID input -> p변경 및 서비스권한에서 공통설정 제외<br>
+            2021-08-31 비밀번호확인 변경버튼 추가<br>
+            2021-09-16 내용영역 비밀번호, 비밀번호확인 항목 삭제 / 하단 비밀변호 변경 박스 추가 / 새->신규 텍스트수정<br>
+            2021-09-17 비밀번호 영역 수정 및 보이기/안 보이기 기능 추가<br>
+            2021-11-01 list-area 인라인 스타일 추가 :: style="display:none;"<br>
+          </td>
+        </tr>
+        <!-- //계정관리 -->
+
+        <!-- 권한관리// -->
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">권한관리</td>
+          <td class="alL">메뉴권한관리</td>
+          <td class="alL">메뉴권한목록</td>
+          <td class="alL"><a href="html_sys/authority/list_menu_authority.html" target="_blank">list_menu_authority.html</a></td>
+          <td>2021-08-31</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-06 form onsubmit 속성추가(enter키 새로고침 방지) 및 content-area에 outcome클래스 추가<br>
+            2021-09-08 메뉴목록 디자인 가로배열 변경 및 조직도 소제목 그룹목록->조직목록으로 변경<br>
+            2021-09-09 5글자 이상 메뉴 title 속성 추가<br>
+            2021-09-16 사용자 우측 체크박스 추가 및 토글메뉴 마지막 요소 하이픈 추가용 클래스 지정(class="last")<br>
+            2021-09-17 사용자 html 구조 수정<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="2">사용자권한관리</td>
+          <td class="alL">사용자권한목록</td>
+          <td class="alL"><a href="html_sys/authority/list_user_authority.html" target="_blank">list_user_authority.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">사용자권한 정보수정</td>
+          <td class="alL"><a href="html_sys/authority/edit_user_authority.html" target="_blank">edit_user_authority.html</a></td>
+          <td>2021-08-24</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <!-- //권한관리 -->
+
+        <!-- 코드관리// -->
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">코드관리</td>
+          <td class="alL" rowspan="3">공통코드 분류관리</td>
+          <td class="alL">공통코드 분류관리 목록</td>
+          <td class="alL"><a href="html_sys/code/list_codecategory.html" target="_blank">list_codecategory.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">공통코드 분류관리 신규등록</td>
+          <td class="alL"><a href="html_sys/code/enroll_codecategory.html" target="_blank">enroll_codecategory.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">공통코드 분류관리 정보수정</td>
+          <td class="alL"><a href="html_sys/code/edit_codecategory.html" target="_blank">edit_codecategory.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">공통코드 관리</td>
+          <td class="alL">공통코드 목록</td>
+          <td class="alL"><a href="html_sys/code/list_commoncode.html" target="_blank">list_commoncode.html</a></td>
+          <td>2021-08-25</td>
+          <td>이제하</td>
+          <td class="caution">
+            2022-02-21 디자인 및 html 구조 변경(신규등록, 정보수정 영역 추가)
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">공통코드 신규등록</td>
+          <td class="alL"><a href="html_sys/code/enroll_commoncode.html" target="_blank">enroll_commoncode.html</a></td>
+          <td>2021-08-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2022-02-21 페이지 삭제->목록페이지에 병합
+          </td>
+        </tr>
+        <tr class="del">
+          <th scope="row" class="num"></th>
+          <td class="alL">공통코드 정보수정</td>
+          <td class="alL"><a href="html_sys/code/edit_commoncode.html" target="_blank">edit_commoncode.html</a></td>
+          <td>2021-08-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2022-02-21 페이지 삭제->목록페이지에 병합
+          </td>
+        </tr>
+        <!-- //코드관리 -->
+
+        <!-- 데이터베이스// -->
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">데이터베이스 연계</td>
+          <td class="alL" rowspan="6"></td>
+          <td class="alL">데이터베이스 목록</td>
+          <td class="alL"><a href="html_sys/database/list_database.html" target="_blank">list_database.html</a></td>
+          <td>2021-08-18</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-23 CONNECTION명 -> Connection 용어 일괄수정<br>
+            2021-12-13 테이블 col 추가 및 th, td추가 / 주석추가 / td.no_data의 colspan값 10 -> 11 변경
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">데이터베이스 신규등록</td>
+          <td class="alL"><a href="html_sys/database/enroll_database.html" target="_blank">enroll_database.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">데이터베이스 정보수정</td>
+          <td class="alL"><a href="html_sys/database/edit_database.html" target="_blank">edit_database.html</a></td>
+          <td>2021-08-20</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">데이터베이스 권한관리</td>
+          <td class="alL"><a href="html_sys/database/admin_dbauthority.html" target="_blank">admin_dbauthority.html</a></td>
+          <td>2021-08-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-06 form onsubmit 속성추가(enter키 새로고침 방지) 및 content-area에 outcome클래스 추가<br>
+            2021-09-16 사용자 우측 체크박스 추가<br>
+            2021-09-17 사용자 html 구조 수정<br>
+            2021-11-01 그룹권한관리 영역 추가 및 토글기능 추가(html 변경)<br>
+            2021-11-02 그룹권한관리 그룹목록 박스 삭제 및 html 인라인스타일 추가<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">데이터베이스 메타정보관리</td>
+          <td class="alL"><a href="html_sys/database/admin_metainfo.html" target="_blank">admin_metainfo.html</a></td>
+          <td>2021-08-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-12-16 메타정보관리 영역 전체수정(html 구조변경) 및 재발송 메타정보 관리 영역 추가 / 내용박스 col(205라인) 12% -> 15%로 변경
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">데이터베이스 조인정보관리</td>
+          <td class="alL"><a href="html_sys/database/admin_joininfo.html" target="_blank">admin_joininfo.html</a></td>
+          <td>2021-08-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-08 조인정보등록 내부 디자인 변경/제목영역에 저장,목록버튼 추가 및 하단 등록,취소버튼 삭제<br>
+            2021-12-16 조인정보관리 영역 및 재발송 조인정보 관리 영역 추가
+          </td>
+        </tr>
+        <!-- //데이터베이스 -->
+
+        <!-- RNS기준정보// -->
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">실시간이메일관리</td>
+          <td class="alL" rowspan="3"></td>
+          <td class="alL">실시간이메일관리 도메인 목록</td>
+          <td class="alL"><a href="html_sys/rnsinfo/list_admindomain.html" target="_blank">list_admindomain.html</a></td>
+          <td>2021-08-18</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">도메인 신규등록</td>
+          <td class="alL"><a href="html_sys/rnsinfo/enroll_admindomain.html" target="_blank">enroll_admindomain.html</a></td>
+          <td>2021-08-18</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">도메인 정보수정</td>
+          <td class="alL"><a href="html_sys/rnsinfo/edit_admindomain.html" target="_blank">edit_admindomain.html</a></td>
+          <td>2021-08-18</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <!-- //RNS기준정보 -->
+
+        <!-- 시스템로그 -->
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">시스템로그 관리</td>
+          <td class="alL">시스템로그 목록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sys/systemlog/list_systemlog.html" target="_blank">list_systemlog.html</a></td>
+          <td>2021-08-18</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-08-23 부서명 셀렉트 박스 -> 인풋 변경(제플린기준)<br>
+            2021-08-25 서비스유형 -> 로그 종별 용어변경
+          </td>
+        </tr>
+        <!-- 시스템로그 -->
+
+        <!-- 콘텐츠관리// -->
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="12">콘텐츠관리</td>
+          <td class="alL" rowspan="3">알림톡 템플릿 관리</td>
+          <td class="alL">알림톡 템플릿 목록</td>
+          <td class="alL"><a href="html_sys/content/list_default.html" target="_blank">list_default.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">알림톡 템플릿 신규등록</td>
+          <td class="alL"><a href="html_sys/content/enroll_default.html" target="_blank">enroll_default.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-20 템플릿 코드: '중복확인' 버튼추가
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">알림톡 템플릿 정보수정</td>
+          <td class="alL"><a href="html_sys/content/edit_default.html" target="_blank">edit_default.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-09 템플릿 내용 함수 항목 추가<br>
+            2021-12-20 템플릿 코드: input에서 텍스트로 변경
+          </td>
+        </tr>
+        
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">수신자그룹관리</td>
+          <td class="alL">수신자그룹 목록</td>
+          <td class="alL"><a href="html_sys/content/list_receivergroup.html" target="_blank">list_receivergroup.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL"><span class="color-blue">(Tab)</span> 수신자그룹 신규등록</td>
+          <td class="alL"><a href="html_sys/content/tab_groupenroll.html" target="_blank">tab_groupenroll.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-11-25 쿼리등록 영역 수정, 상태정보 영역 삭제<br>
+            2021-12-29 추출조건 :: 추출조건 등록, 미리보기 구조 변경 및 재발송, 실시간 추출조건 미리보기 영역 추가<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(파일연동)</td>
+          <td class="alL"><a href="html_sys/content/editreceiver_filelinked.html" target="_blank">editreceiver_filelinked.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(추출조건)</td>
+          <td class="alL"><a href="html_sys/content/editreceiver_extraction.html" target="_blank">editreceiver_extraction.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-29 추출조건 :: 추출조건 등록, 미리보기 구조 변경 및 재발송, 실시간 추출조건 미리보기 영역 추가<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(직접SQL)</td>
+          <td class="alL"><a href="html_sys/content/editreceiver_sql.html" target="_blank">editreceiver_sql.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-11-25 쿼리등록 영역 수정, 상태정보 영역 삭제
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 정보수정(리타게팅)</td>
+          <td class="alL"><a href="html_sys/content/editreceiver_retargeting.html" target="_blank">editreceiver_retargeting.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+          </td>
+        </tr>
+
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">웹에이전트 관리</td>
+          <td class="alL">웹에이전트 목록</td>
+          <td class="alL"><a href="html_sys/content/list_webagent.html" target="_blank">list_webagent.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">웹에이전트 신규등록</td>
+          <td class="alL"><a href="html_sys/content/enroll_webagent.html" target="_blank">enroll_webagent.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">웹에이전트 정보수정</td>
+          <td class="alL"><a href="html_sys/content/edit_webagent.html" target="_blank">edit_webagent.html</a></td>
+          <td>2022-03-21</td>
+          <td>이제하</td>
+          <td class="caution">
+          </td>
+        </tr>
+        <!-- //콘텐츠관리 -->
+
+        <!-- 팝업// -->
+        <tr style="background:#fffaf4;border-top:2px solid #555;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="4">팝업</td>
+          <td class="alL">조직도</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sys/common/pop_searchgroup.html" target="_blank">pop_searchgroup.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution">2021-08-24 조직검색 -> 조직도로 변경(기획서기준)<br>
+            2021-08-26 그룹목록 -> 부서목록으로 변경
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">추출조건</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sys/common/pop_extractcondition.html" target="_blank">pop_extractcondition.html</a></td>
+          <td>2021-08-23</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">접근메뉴</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sys/common/pop_accessiblemenu.html" target="_blank">pop_accessiblemenu.html</a></td>
+          <td>2021-08-24</td>
+          <td>이제하</td>
+          <td class="caution">
+            2021-09-01 체크박스, 취소버튼 삭제
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">템플릿 미리보기</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_sys/common/pop_previewtemplate.html" target="_blank">pop_previewtemplate.html</a></td>
+          <td>2021-11-23</td>
+          <td>조우빈</td>
+          <td class="caution">
+          </td>
+        </tr>
+
+        
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

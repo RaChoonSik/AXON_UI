@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMS 퍼블리싱 가이드</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/jquery_library.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/style_ems.css">
+	<script src="js/jquery_2.1.1.min.js"></script>
+	<script src="js/jquery_library.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/ems.js"></script>
+	<!-- //EMS source -->
+    <style>
+        .guideindex {padding:10px 20px 50px;background:#fff;color:#000;font-family:sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";}
+        .guideindex h1 {padding:30px;background:#194174;color:#fff;font-size:28px;text-align:center;}
+        .guideindex .guideh1 {margin-bottom:30px;font-size:26px;font-weight:600;text-align:center;}
+        .guideindex .guideh2 {margin-top:25px;padding-top:25px;font-size:20px;font-weight:600;border-top:2px solid #194174;}
+        .guideindex .guideh3 {margin-top:25px;padding-left:10px;font-size:16px;font-weight:600;border-left:4px solid #399aed;}
+        .guideindex .guidetxt {margin-top:10px;font-size:14px;line-height:1.6;}
+        .guideindex .guidetxt .guideindent {margin-left:15px;}
+        .guideindex .guidetbl {margin-top:10px;}
+        .guideindex .guidetbl th {padding:5px 10px;background:#f4f4f4;text-align:left;border:1px solid #ccc;}
+        .guideindex .guidetbl td {padding:5px 10px;border:1px solid #ccc;}
+        .guideindex .guidewrap {margin-top:10px;max-width:1500px;background:#000;padding:20px;overflow:hidden;}
+        .guideindex .red {color:#f00 !important;}
+    </style>
+   
+</head>
+<body>
+    <div class="guideindex">
+        <h1>UMS 퍼블리싱 가이드</h1>
+
+        <h2 class="guideh2" style="margin-top:0;">※ Page</h2>
+        <h3 class="guideh3">파일명 네이밍</h3>
+        <div class="guidetxt">
+            - 소문자만 사용하며, 대문자는 사용하지 않는다.<br>
+            - 네이밍이 길경우에는 언더바("_")를 사용한다.<br>
+            - 팝업페이지는 "pop_팝업명"으로 네이밍한다.
+        </div>
+
+        <h3 class="guideh3">CSS 클래스와 변수 네이밍</h3>
+        <div class="guidetxt">
+        - 소문자만 사용하며, 대문자는 사용하지 않는다.<br>
+        - 네이밍이 길경우에는 하이픈("-")을 사용한다.<br>
+        </div>
+
+        <h3 class="guideh3">이미지 네이밍</h3>
+        <div class="guidetxt">
+        - 소문자만 사용하며, 대문자는 사용하지 않는다.<br>
+        - 네이밍이 길경우에는 언더바("_")를 사용한다.<br>
+        <div class="guideindent">
+            로고 : logo_<br>
+            폼 : form_<br>
+            아이콘 : icon_<br>
+            버튼 : btn_<br>
+            화살표 : arrow_<br>
+            플러그인 : 플러그인명_<br>
+            공통 헤더에 있는 이미지 : conthead_<br>
+            공통 메뉴에 있는 이미지 : lnb_
+        </div>
+
+        <h3 class="guideh3">공통 head</h3>
+        <div class="guidetxt">
+            - ../common/layout_sample.html 참고<br><br>
+
+            공통 Source<br>
+            &lt;link rel="stylesheet" href="../../css/reset.css"&gt;<br>
+            &lt;link rel="stylesheet" href="../../css/jquery_library.css"&gt;<br>
+            &lt;link rel="stylesheet" href="../../css/common.css"&gt;<br>
+            &lt;link rel="stylesheet" href="../../css/<span class="red">해당서비스.css</span>"&gt;<br>
+            &lt;script src="../../js/jquery_2.1.1.min.js"&gt;&lt;/script&gt;<br>
+            &lt;script src="../../js/jquery_library.js"&gt;&lt;/script&gt;<br>
+            &lt;script src="../../js/common.js"&gt;&lt;/script&gt;
+            &lt;script src="../../js/<span class="red">해당서비스.js</span>"&gt;&lt;/script&gt;
+            <br><br>
+                
+            1. ENS Source인 경우<br>
+            &lt;link rel="stylesheet" href="../../css/<span class="red">style_ems.css</span>"&gt;<br>
+            &lt;script src="../../js/<span class="red">ems.js</span>"&gt;&lt;/script&gt;
+            <br><br>
+                
+            2. RNS Source인 경우<br>
+            &lt;link rel="stylesheet" href="../../css/<span class="red">style_rns.css</span>"&gt;<br>
+            &lt;script src="../../js/<span class="red">rns.js</span>"&gt;&lt;/script&gt;
+            <br><br>
+                
+            3. SMS Source인 경우<br>
+            &lt;link rel="stylesheet" href="../../css/<span class="red">style_sms.css</span>"&gt;<br>
+            &lt;script src="../../js/<span class="red">sms.js</span>"&gt;&lt;/script&gt;
+            <br><br>
+                
+            4. PUSH Source인 경우<br>
+            &lt;link rel="stylesheet" href="../../css/<span class="red">style_push.css</span>"&gt;<br>
+            &lt;script src="../../js/<span class="red">push.js</span>"&gt;&lt;/script&gt;
+            <br><br>
+                
+            5. 공통설정 Source인 경우<br>
+            &lt;link rel="stylesheet" href="../../css/<span class="red">style_sys.css</span>"&gt;<br>
+            &lt;script src="../../js/<span class="red">sys.js</span>"&gt;&lt;/script&gt;
+        </div>
+
+        <h3 class="guideh3">Page 작업</h3>
+        <div class="guidetxt">
+            - #wrap에 서비스별 해당 페이지에 맞는 클래스를 선언한다.<br><br>
+
+            1. ENS인 경우<br>
+            &lt;div id="wrap" class="<span class="red">ems</span>"&gt;
+            <br><br>
+
+            2. RNS인 경우<br>
+            &lt;div id="wrap" class="<span class="red">rns</span>"&gt;
+            <br><br>
+            
+            3. SMS인 경우<br>
+            &lt;div id="wrap" class="<span class="red">sms</span>"&gt;
+            <br><br>
+
+            4. PUSH인 경우<br>
+            &lt;div id="wrap" class="<span class="red">push</span>"&gt;
+            <br><br>
+
+            5. 공통설정인 경우<br>
+            &lt;div id="wrap" class="<span class="red">sys</span>"&gt;
+        </div>
+
+        <h2 class="guideh2">※ 폴더구조</h2>
+        <h3 class="guideh3">폴더구조 및 경로</h3>
+        <div class="guidetxt">
+            - 경로위치 : ums/<br>
+            <div class="guideindent">
+                <table class="guidetbl">
+                    <colgroup>
+                        <col style="width:150px;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>html</th>
+                            <td>ems 페이지</td>
+                        </tr>
+                        <tr>
+                            <th>html_rns</th>
+                            <td>rns 페이지</td>
+                        </tr>
+                        <tr>
+                            <th>html_sms</th>
+                            <td>sms 페이지</td>
+                        </tr>
+                        <tr>
+                            <th>html_push</th>
+                            <td>push 페이지</td>
+                        </tr>
+                        <tr>
+                            <th>html_sys</th>
+                            <td>sys 페이지</td>
+                        </tr>
+                        <tr>
+                            <th>font</th>
+                            <td>공통 font</td>
+                        </tr>
+                        <tr>
+                            <th>css</th>
+                            <td>공통 css, 각 서비스별 css</td>
+                        </tr>
+                        <tr>
+                            <th>js</th>
+                            <td>공통 js, 각 서비스별 js</td>
+                        </tr>
+                        <tr>
+                            <th>img</th>
+                            <td>공통 img, 각 서비스별 img</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3 class="guideh3">css</h3>
+        <div class="guidetxt">
+            - 경로위치 : ums/css/<br>
+            <div class="guideindent">
+                <table class="guidetbl">
+                    <colgroup>
+                        <col style="width:150px;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>reset.css</th>
+                            <td>초기화</td>
+                        </tr>
+                        <tr>
+                            <th>jquery_library.css</th>
+                            <td>라이브러리모음</td>
+                        </tr>
+                        <tr>
+                            <th>common.css</th>
+                            <td>공통 모듈, 반복적으로 쓰이는 팝업, 로그인, 전체서비스 등 공통</td>
+                        </tr>
+                        <tr>
+                            <th>style_ems.css<br>
+                                style_push.css<br>
+                                style_sms.css<br>
+                                style_push.css<br>
+                                style_sys.css
+                            </th>
+                            <td>각 서비스</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3 class="guideh3">img</h3>
+        <div class="guidetxt">
+            - 경로위치 : ums/img/<br>
+            <div class="guideindent">
+                <table class="guidetbl">
+                    <colgroup>
+                        <col style="width:150px;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>common</th>
+                            <td>공통 이미지</td>
+                        </tr>
+                        <tr>
+                            <th>ems<br>
+                                push<br>
+                                sms<br>
+                                push<br>
+                                sys
+                            </th>
+                            <td>각 서비스</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h3 class="guideh3">js</h3>
+        <div class="guidetxt">
+            - 경로위치 : ums/js/<br>
+            <div class="guideindent">
+                <table class="guidetbl">
+                    <colgroup>
+                        <col style="width:150px;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>jquery_2.1.1.min.js</th>
+                            <td>jquery 플러그인</td>
+                        </tr>
+                        <tr>
+                            <th>jquery_library.js</th>
+                            <td>라이브러리모음</td>
+                        </tr>
+                        <tr>
+                            <th>common.js</th>
+                            <td>공통 레이아웃 및 공통 모듈</td>
+                        </tr>
+                        <tr>
+                            <th>style_ems<br>
+                                style_push<br>
+                                style_sms<br>
+                                style_push<br>
+                                style_sys
+                            </th>
+                            <td>각 서비스</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <h2 class="guideh2">※ style</h2>
+        <h3 class="guideh3">style guide</h3>
+        <div class="guidetxt">
+            <div class="guideindent">
+                <table class="guidetbl">
+                    <colgroup>
+                        <col style="width:200px;">
+                        <col style="width:200px;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>타이틀, 텍스트, 리스트</th>
+                            <td>title.html</td>
+                            <td class="alC"><a href="guide/html/title.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th>form</th>
+                            <td>form.html</td>
+                            <td class="alC"><a href="guide/html/form.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th>버튼</th>
+                            <td>button.html</td>
+                            <td class="alC"><a href="guide/html/button.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <h3 class="guideh3">layout 대표예제 참고</h3>
+        <div class="guidetxt">
+            <div class="guideindent">
+                <table class="guidetbl">
+                    <colgroup>
+                        <col style="width:200px;">
+                        <col style="width:200px;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th>공통 레이아웃</th>
+                            <td>layout_sample.html</td>
+                            <td class="alC"><a href="html/common/layout_sample.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th>목록</th>
+                            <td>list_autoservice.html</td>
+                            <td class="alC"><a href="html_rns/mailmanage/list_autoservice.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th>신규등록</th>
+                            <td>enroll_mailsend.html</td>
+                            <td class="alC"><a href="html/mailsend/enroll_mailsend.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">정보수정</th>
+                            <td>edit_autoservice.html</td>
+                            <td class="alC"><a href="html_rns/mailmanage/edit_autoservice.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <td>editreceiver_extraction.html</td>
+                            <td class="alC"><a href="html_sms/smsmanage/editreceiver_extraction.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th>차트</th>
+                            <td>stats.html</td>
+                            <td class="alC"><a href="html_push/statistics/stats.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th>탭 & 차트</th>
+                            <td>tab_stats.html</td>
+                            <td class="alC"><a href="html/statistics/tab_stats.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th>sortable</th>
+                            <td>list_commoncode.html</td>
+                            <td class="alC"><a href="html_sys/code/list_commoncode.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="3">토글</th>
+                            <td>list_groupchart.html</td>
+                            <td class="alC"><a href="html_sys/account/list_groupchart.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <td>edit_user_authority.html</td>
+                            <td class="alC"><a href="html_sys/authority/edit_user_authority.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <td>admin_dbauthority.html</td>
+                            <td class="alC"><a href="html_sys/database/admin_dbauthority.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="3">팝업</th>
+                            <td>pop_previewreceiver.html</td>
+                            <td class="alC"><a href="html/common/pop_previewreceiver.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <td>pop_checkreceiver.html</td>
+                            <td class="alC"><a href="html/common/pop_checkreceiver.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <td>pop_sendenroll.html</td>
+                            <td class="alC"><a href="html/common/pop_sendenroll.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="3">기타</th>
+                            <td>mailapproval.html</td>
+                            <td class="alC"><a href="html/mailmanage/mailapproval.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                        <tr>
+                            <td>campain_statistics.html</td>
+                            <td class="alC"><a href="html/statistics/campain_statistics.html" target="_blank">페이지이동</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

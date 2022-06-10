@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>테스트메일 발송 팝업 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+		$(document).ready(function(){
+			fn.popupOpen('#popup_testsend');
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+		<div style="padding:30px;">
+
+			<!-- 팝업 확인용 버튼// -->
+			<button type="button" class="btn big fullblue
+			" onclick="fn.popupOpen('#popup_testsend');">팝업 열기</button>
+			<!-- //팝업 확인용 버튼 -->
+
+		</div>
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_testsend" class="poplayer poptestsend"><!-- id값 수정 가능 -->
+		<div class="inner">
+			<header>
+				<h2>테스트메일 발송</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">추가</h3>
+						</div>
+						
+						<div class="list-area">
+							<ul>
+								<li>
+									<label>수신자</label>
+									<div class="list-item">
+										<input type="text" placeholder="수신자를 입력해주세요.">
+									</div>
+								</li>
+								<li>
+									<label>이메일</label>
+									<div class="list-item">
+										<input type="text" placeholder="이메일을 입력해주세요.">
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div> 
+
+					<!-- 버튼// -->
+					<div class="btn-wrap tar" style="margin-top:10px;"><!-- 2021-08-18 인라인 스타일 수정 -->
+						<button type="button" class="btn fullblue">추가</button>
+					</div>
+					<!-- //버튼 -->
+
+					<!-- 목록// -->
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">수신대상자 조회</h3>
+
+							<!-- 버튼// -->
+							<div class="btn-wrap"><!-- 2021-08-18 btn-wrap 추가 -->
+								<button type="button" class="btn">삭제</button>
+							</div>
+							<!-- //버튼 -->
+						</div>
+						
+						<div class="grid-area">
+							<table class="grid">
+								<caption>그리드 정보</caption>
+								<colgroup>
+									<col style="width:10%;">
+									<col style="width:25%;">
+									<col style="width:auto;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">
+											<label><input type="checkbox"><span></span></label>
+										</th>
+										<th scope="col">수신자</th>
+										<th scope="col">이메일</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- 데이터가 있을 경우// -->
+									<tr>                
+										<td><label><input type="checkbox" ><span></span></label></td>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+									</tr>
+									<tr>                
+										<td><label><input type="checkbox" ><span></span></label></td>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+									</tr>
+									<tr>                
+										<td><label><input type="checkbox" ><span></span></label></td>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+									</tr>
+									<tr>                
+										<td><label><input type="checkbox" ><span></span></label></td>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+									</tr>
+									<tr>                
+										<td><label><input type="checkbox" ><span></span></label></td>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+									</tr>
+									<!-- //데이터가 있을 경우 -->
+				
+									<!-- 데이터가 없을 경우// -->
+									<tr>
+										<td colspan="3" class="no_data">등록된 내용이 없습니다.</td>
+									</tr>
+									<!-- //데이터가 없을 경우 -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- //목록 -->
+
+					<!-- btn-wrap// -->
+					<div class="btn-wrap">
+						<button type="button" class="btn big fullblue">테스트발송</button>
+						<button type="button" class="btn big">취소</button>
+					</div>
+					<!-- //btn-wrap -->
+				</div>
+
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_testsend');"><span class="hidden">팝업닫기</span></button>
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_testsend');"></span>
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

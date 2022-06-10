@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=800">
+    <title>전자어음 보증승인 통지</title>
+    <style>
+        /******** reset css ********/
+        html,body,div,p,h1,h2,h3,h4,h5,h6,strong,span,label,legend, ul,ol,li,dl,dt,dd,table,thead,tbody,tr,th,td,tfoot,img,a,button,footer,section{padding:0;margin:0;}
+        ul,ol,li{list-style:none;}
+        button{background:transparent;cursor:pointer;}
+        img{max-width:100%;vertical-align:top;}
+        img,button,fieldset,table, tfoot{border:0;}
+        address{font-style:normal;}
+        label,a{display:inline-block;}
+        h2,h3,strong,em{font-weight:600;}
+        input,select,label,button,textarea{border-radius:0;-webkit-border-radius:0;background-color:transparent;color:#111;font-size:14px;line-height:normal;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;vertical-align:middle;}
+        table{width:100%;border-spacing:0;}
+        a{border:0;color:#444;text-decoration:none;}
+        a:hover{color:#0070D2;text-decoration:none;}
+        *, *:before, *:after{box-sizing:border-box;}
+        *:focus{outline:0;}
+        html,body{height:100%;}
+        legend, .hidden, .hide{position:absolute !important;top:0 !important;left:0 !important;padding:0 !important;border:0 !important;overflow:hidden !important;width:0 !important;height:0 !important;line-height:0 !important;}
+        body{width:800px;margin:0 auto;padding:30px 16px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;font-weight:400;color:#3a3a3a;line-height:normal;box-sizing:border-box;letter-spacing:-0.07em; }
+        html, table, th, td{
+            /* Prevent font scaling in landscape */
+            -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+            -moz-text-size-adjust: none; /*Firefox*/
+            -ms-text-size-adjust: none;  /*Ie*/
+            -o-text-size-adjust: none; /*old versions of Opera*/
+        }
+
+        /******** common css ********/
+        /* section */
+        .tal{text-align:left !important;}
+        .tac{text-align:center !important;}
+        .tar{text-align:right !important;}
+        .clear:after{content:'';display:block;clear:both;}
+        .txt-black{color:#111111 !important;margin:0 !important}
+        .txt-gray{font-size:14px;color:#999999;}
+        .bold-blue{color:#0070D2 !important;font-weight:600 !important;font-size:20px !important;}
+        .title-desc{margin-bottom:50px;font-size:16px;}
+        .cont-head h1{width:173px;height:34px;text-indent:-9999px;background:url('../img/pc_logo.png') no-repeat;background-position: 0 0;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            .cont-head h1{width:173px;height:34px;background:url('../img/mb_logo.png') no-repeat cover;background-position: 0 0;}
+        }
+        .cont-head h2{margin-top:26px;font-size:33px;color:#1F1A60;}
+        .cont-body h3{position:relative;margin-bottom:20px;padding-bottom:10px;font-size:20px;color:#111; border-bottom:1px solid #CCCCCC;}
+        .cont-body h3 ~ h3{margin-top:30px;}
+        .cont-body h3:after{content:'';display:block;position:absolute;top:12px;right:10px;width:12px;height:8px; background:url('../img/arrow.png') no-repeat 0 0;}
+        .cont-body h3 .info-unit{position:absolute;top:3px;right:36px;font-size:14px;font-weight:400;color:#999;}
+        .cont-body h3 .bold-blue{top:0px;}
+        .cont-body h4{margin-bottom:10px;color:#111;font-size:16px;}
+        .cont-body h4 ~ h4{margin-top:20px;}
+        .cont-body h4 + ul {margin-bottom:20px;}
+        .cont-body ul{font-size:14px;}
+        .cont-body ol{font-size:14px;}
+        .cont-body .list-dot{margin-bottom:20px;}
+        .cont-body .list-dot li{position:relative;padding-left:10px;list-style-position:inside;font-size:14px;}
+        .cont-body .list-dot li:before{content:'•';display: inline-block;position:absolute;top:0;left:0;}
+        .cont-body .bluebox{width:100%;height:auto;margin-bottom:20px;padding:15px;background:#EFF8FF;font-size:14px;box-sizing:border-box;}
+        .cont-body .bluebox h4{position:relative;margin-bottom:10px;padding-left:20px;font-size:16px;font-weight:600;color:#111;}
+        .cont-body .bluebox h4:before{content:'';display:block;position:absolute;top:5px;left:0px; width:16px;height:16px;padding-right:5px;background:url('../img/ico_info.png') no-repeat;}
+        .cont-body .bluebox strong{font-size:16px;color:#4D4D4D;}
+        .cont-body .bluebox strong.dot{display:inline-block;margin-bottom:10px;color:#111;}
+        .cont-body .bluebox strong.dot:before{content:'•';display:inline-block;padding-right:6px;}
+        .cont-body .bluebox strong.check{position:relative;font-weight:600;color:#0070D2;}
+        .cont-body .bluebox strong.check:before{content:'';display: inline-block;}
+
+        .tab-menu{height:40px;margin-top:30px;margin-bottom:50px;}
+        .tab-menu > button{display:block;float:left;min-width:160px;height:40px;margin-left:4px;background:#EFEFEF;font-size:16px;color:#4d4d4d;text-align:center;line-height:40px;}
+        .tab-menu > button:first-child{margin-left:0;}
+        .tab-menu > button.active,
+        .tab-menu > button:hover{background:#0070D2;color:#fff;font-weight:600;}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;}
+
+        table{margin-bottom:30px;}
+        table tr:first-child th, table tr:first-child td{border-top:1px solid #DADADA;}
+        table tr > th:first-child{border-left:0}
+        table th{padding:5px;background:#CCE9FF;font-size:12px;font-weight:600;border-bottom:1px solid #DADADA;border-left:1px solid #DADADA;}
+        table td{padding:5px 10px;background:#fff;font-size: 12px;text-align:center;border-bottom: 1px solid #DADADA;border-left:1px solid #DADADA;}
+        .tab ul + table{margin-bottom:20px;}
+        .tab .table-title{margin-bottom:10px;font-size:14px;}
+        .tab .total-bold{font-weight:600;color:#4d4d4d;}
+        .tab .image-box {overflow:hidden;}
+        .tab .image-box img{width:100%;}
+
+        /* 파란배경이 없는 테이블의 경우 .table-white 클래스 사용*/
+        .table-white th{background:#fff;text-align:left;border:0;}
+        .table-white td{background:#fff;text-align:left;border:0;}
+        .table-white tr:first-child th, .tab .table-white tr:first-child td{border-top:0;}
+        .tab .caution ul {color:#999; list-style:none !important;text-indent:0;margin-bottom:0;padding-left:14px;}
+        .tab .caution ul li:before {content:"\2022";color:#dadada !important;font-weight:bold;display:inline-block;width:1em;margin-left:-1em;}
+        .tab .caution p{color:#999;font-size:14px;}
+
+        /* 푸터 */
+        footer{padding-top:80px;padding-bottom:30px;color:#9A9A9A;}
+        footer dl{display: table;}
+        footer dt,footer dd{display: table-cell;}
+        footer .footer-logo{width:126px;height:26px;text-indent:-9999px;background:url('../img/pc_logogray.png') no-repeat;background-size:contain;background-position: 0 0;}
+        footer dd{padding-left:36px;}
+        footer p{padding-top:10px;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            footer .footer-logo{background:url('../img/mb_logogray.png') no-repeat cover; background-position: 0 0;}
+        }
+    </style>
+    <script>
+        'use strict';
+        window.onload = function(){
+
+            /* Function :: tab - inside tab */
+            // IE11 forEach support
+            if (window.NodeList && !NodeList.prototype.forEach) {
+                NodeList.prototype.forEach = Array.prototype.forEach;
+            }
+
+            function findParent(el, className){
+                var check = el.parentNode.classList.contains(className);
+            
+                if(check == true){
+                    return el.parentNode;
+                }else{
+                    return findParent(el.parentNode, className);
+                }
+            }
+
+            function bindingTab(container){
+                var containEl = document.querySelectorAll(container);
+            
+                containEl.forEach(function(tabArea){
+                    var tabLink = tabArea.querySelectorAll('.tab-link');
+                    
+                    tabLink.forEach(function(item){
+
+                        item.addEventListener('click', function(){
+                            // 변수설정
+                            var parent = findParent(this, 'tab');
+                            var idx = this.dataset['idx'];
+                            var depth = this.dataset['depth'];
+                            var tabLinkArr = parent.querySelectorAll('.tab-link[data-depth="'+ depth +'"]');
+                            var contentArr = parent.querySelectorAll('.tab-content[data-depth="'+ depth +'"]');
+                            
+                            // 활성화
+                            tabLinkArr.forEach(function(tabLink){ tabLink.classList.remove('active'); });
+                            this.classList.add('active');
+                            contentArr.forEach(function(content){ content.classList.remove('active'); });
+                            parent.querySelector('.tab-content[data-idx="'+ idx +'"][data-depth="'+ depth +'"]').classList.add('active');
+
+                        });
+                    });
+                });
+            }
+            bindingTab('.tab-wrap');
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">
+            <section class="cont-head">
+                <h1>광주은행</h1>
+                <h2>전자어음 보증승인 통지</h2>
+                <p class="title-desc" style="margin-top:30px;margin-bottom:30px;">
+                    홍길동 님께<br>
+                    다음과 같이 전자어음이 보증승인되었음을 통지하니 확인하시기 바랍니다.
+                </p>
+            </section>
+            <section class="cont-body">
+                <table style="margin-bottom:20px;">
+                    <colgroup> 
+                        <col style="width:128px;">
+                        <col style="width:256px;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col" colspan="2">구분</th>
+                            <th scope="col">발행내용</th>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" rowspan="4">어음정보</th>
+                            <td class="tal">전자어음 번호</td>
+                            <td class="tal">01012345627890074049</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">전자어음 발행자</td>
+                            <td class="tal">의료법인오성의료재단동군산병원</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">전자어음 금액</td>
+                            <td class="tal">111,111,111원</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">전자어음 만기일자</td>
+                            <td class="tal">2021년 12월 29일</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" rowspan="3">발행인 정보</th>
+                            <td class="tal">법인명</td>
+                            <td class="tal">의료법인오성의료재단동군산병원</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">성명(대표자)</td>
+                            <td class="tal">홍길동</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">주소</td>
+                            <td class="tal">전북 군산시조촌로149 671-13(조춘동)</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" rowspan="3">수취인 정보</th>
+                            <td class="tal">수취인명</td>
+                            <td class="tal">홍길동</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">대표자성명</td>
+                            <td class="tal">홍길동</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">주소</td>
+                            <td class="tal">광주광역시 서구 매월1로 57번길 30</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" rowspan="7">보증인정보</th>
+                            <td class="tal">보증인명</td>
+                            <td class="tal">광주은행</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">성명(대표자)</td>
+                            <td class="tal">홍길동</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">보증번호</td>
+                            <td class="tal">1</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">보증구분</td>
+                            <td class="tal">발행전보증</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">보증요청일</td>
+                            <td class="tal">2018년 10월 11일</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">보증처리일</td>
+                            <td class="tal">2018년 10월 11일</td>
+                        </tr>
+                        <tr>
+                            <td class="tal">보증처리구분</td>
+                            <td class="tal">(보증)발행</td>
+                        </tr>
+
+                        <tr>
+                            <th colspan="2" style="background:#fff;">부가내용</th>
+                            <td class="tac">지시금지 및 보증내용[]</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+
+                <p style="margin-bottom:20px;font-size:16px;text-align:center;">
+                    2021년 02월 28일<br>
+                    <strong style="display:block;margin-top:5px;font-size:20px;">주식회사 광주은행</strong>
+                </p>
+                <div style="height:50px;text-align:center;">
+                    <a href="#" style="display:inline-block;width:auto;height:50px;padding:0 20px; background:#0070D2;
+                    color:#fff;font-size:14px;font-weight:600;text-align:center;line-height:52px;border-radius:5px;">
+                        보증승인내역 확인하러 가기
+                    </a>
+                </div>
+
+            </section>
+
+            <footer>
+                <dl >
+                    <dt class="footer-logo">광주</dt>
+                    <dd>
+                        <address>㈜광주은행, 광주광역시 동구 제봉로 225</address>
+                        대표전화 <a href="tel:062-239-5000" style="color:#0070D2;text-decoration:underline;">062-239-5000</a> | 고객센터 <a href="tel:1600-4000" style="color:#0070D2;text-decoration:underline;">1600-4000</a>, <a href="tel:1588-3388" style="color:#0070D2;text-decoration:underline;">1588-3388</a> 
+                    </dd>
+                </dl>
+                <p>Copyright 2021 KWANGJU BANK</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

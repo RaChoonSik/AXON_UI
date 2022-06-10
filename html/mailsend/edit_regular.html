@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>정기메일발송 정보수정 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>정기메일발송 정보수정</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+
+				<div class="editregular-wrap">
+					<form>
+						<fieldset>
+							<legend>조건 및 메일 내용</legend>
+	
+							<!-- 조건// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">조건</h3>
+									<span class="required">*필수입력 항목</span>
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label class="required">예약일시</label>
+											<div class="list-item">
+												<div class="datepickertimebox">
+													<div class="datepicker">
+														<label>
+															<input type="text" readonly>
+														</label>
+													</div>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option selected>15시</option>
+														</select>
+													</div>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option selected>00분</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label class="required">정기발송 주기</label>
+											<div class="list-item">
+												<div class="multibox">
+													<input type="text" placeholder="7" style="width:43px;">
+													<div class="select" style="display:inline-block;width:56px;">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>분</option>
+															<option>시</option>
+															<option>일</option>
+															<option>주</option>
+															<option>월</option>
+															<option>년</option>
+														</select>
+													</div>
+													<label for="chk_01"><input type="checkbox" id="chk_01"><span></span></label>
+													<div class="datepicker">
+														<label>
+															<input type="text" readonly>
+														</label>
+													</div>
+													<p class="inline-txt">종료</p>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>수신확인<br>추적기간</label>
+											<div class="list-item">
+												<p class="inline-txt">발송일 기준</p>
+												<div class="select" style="display:inline-block;width:72px;">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>1</option>
+														<option>31</option>
+													</select>
+												</div>
+												<p class="inline-txt">일까지 추적</p>
+											</div>
+										</li>
+										<li>
+											<label class="required">캠페인명</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>템플릿명</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label class="required">수신자그룹</label>
+											<div class="list-item">
+												<div class="select" style="width:calc(100% - 75px);">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+												<button type="button" class="btn fullblue">미리보기</button>
+											</div>
+										</li>
+										<li>
+											<label class="required">사용자그룹</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label class="required">사용자명</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>발송자명</label>
+											<div class="list-item">
+												<p class="inline-txt line-height40" style="line-height:85px;">관리자A</p>
+											</div>
+										</li>
+										<li>
+											<label>옵션</label>
+											<div class="list-item">
+												<label for="chk_02"><input type="checkbox" id="chk_02"><span>수신확인</span></label>
+												<button type="button" class="btn fullblue" style="margin-right:10px;">환경설정</button>
+												<div class="marketingbox">
+													<label for="chk_03"><input type="checkbox" id="chk_03"><span>마케팅 수신 동의유형</span></label>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>웹에이전트</label>
+											<div class="list-item">
+												<div class="filebox">
+													<p class="label">URL(첨부파일) 형식이 지정되었습니다.</p>
+													<button type="button" class="btn fullblue">등록</button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>머지입력</label>
+											<div class="list-item">
+												<div class="select" style="width:calc(100% - 96px);">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+												<button type="button" class="btn fullblue">제목</button>
+												<button type="button" class="btn fullblue">본문</button>
+											</div>
+										</li>
+										<li>
+											<label>발송결재라인</label>
+											<div class="list-item">
+												<div class="filebox">
+													<p class="label"  style="width:calc(100% - 96px);">발송결재라인이 등록되었습니다.</p>
+													<button type="button" class="btn fullblue">수정</button>
+													<button type="button" class="btn">상신</button>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>발송결과 종별</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li class="col-full">
+											<label class="required">메일명</label>
+											<div class="list-item">
+												<input type="text" placeholder="[광고]테스트 광고입니다. 이벤트혜택">
+											</div>
+										</li>
+										<li class="col-full">
+											<label class="vt">파일첨부</label>
+											<div class="list-item">
+												<button type="button" class="btn plusgray mgl0">파일선택</button>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //조건 -->
+	
+							<!-- 메일 내용// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">메일 내용</h3>
+	
+									<!-- 버튼// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn">테스트발송</button>
+										<button type="button" class="btn">발송승인</button>
+										<button type="button" class="btn">HTML등록</button>
+										<button type="button" class="btn">복사</button>
+	
+										<button type="button" class="btn">사용중지</button>
+										
+										<!-- 복구 버튼 노출시 사용중지 버튼 비노출  -->
+										<!-- <button type="button" class="btn">복구</button> -->
+	
+										<button type="button" class="btn">삭제</button>
+									</div>
+									<!-- //버튼 -->
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li class="col-full">
+											<label class="required">메일 제목</label>
+											<div class="list-item">
+												<input type="text" placeholder="[광고] 든든카드 행운이벤트~! 선물발송☆">
+											</div>
+										</li>
+										<li class="col-full">
+											<!-- 에디터 영역// -->
+											<div class="editbox"></div>
+											<!-- //에디터 영역 -->
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //메일 내용 -->
+	
+							<!-- btn-wrap// -->
+							<div class="btn-wrap">
+								<button type="button" class="btn big fullblue">수정</button>
+								<button type="button" class="btn big">취소</button>
+							</div>
+							<!-- //btn-wrap -->
+								
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

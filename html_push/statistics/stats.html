@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PUSH알림 통계분석 | AXon PUSH</title>
+	<!-- PUSH source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_push.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/push.js"></script>
+	<!-- //PUSH source -->
+
+	<script>
+	$(document).ready(function(){
+		
+		/* 발송결과 파이차트 */
+		var circleChartDom = document.getElementById('circleChart');
+		var circleChart = echarts.init(circleChartDom);
+		var circleChartoption;
+		var piecolor = ['#5660F0', '#F9984E'];
+		circleChartoption = {
+			tooltip: {
+				trigger: 'item'
+			},
+			legend: {
+				bottom: '2%',
+				right: 'right',
+				icon:'circle',
+				itemGap: 15,
+				textStyle: {
+					color: "#444",
+					fontFamily: 'NotoSansKR',
+					fontSize: 14,
+					fontWeight: '500'
+				},
+			},
+			series: [
+				{
+					type: 'pie',
+					top: '30px',
+					color: piecolor,
+					radius: ['60%', '93%'],
+					avoidLabelOverlap: false,
+					label: {
+						show: false,
+						position: 'center'
+					},
+					emphasis: {
+						label: {
+							show: true,
+							fontFamily: 'NotoSansKR',
+							fontSize: '13',
+							fontWeight: '600'
+						}
+					},
+					labelLine: {
+						show: false
+					},
+					data: [
+						{value: 845, name: '성공 : 845'},
+						{value: 10, name: '실패 : 10'},
+					]
+				}
+			],
+		};
+		circleChartoption && circleChart.setOption(circleChartoption);
+
+
+		/* PUSH 확인결과 막대그래프 */
+		var barChart  = echarts.init(document.querySelector('#barChart'), null);
+		var barChartoption = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					type: 'shadow'
+				}
+			},
+			legend: {
+    			top: 'bottom',
+				bottom: '0',
+				icon:'circle',
+				itemGap: 30,
+				textStyle: {
+					color: "#444",
+					fontFamily: 'NotoSansKR',
+					fontSize: 14,
+					fontWeight: '500'
+				},
+				data: ['발송건수', '확인건수']
+			},
+			grid: {
+				left: '0',
+				right: '4%',
+				bottom: '40px',
+				y: '30px',
+				containLabel: true,
+			},
+			xAxis: {
+				type: 'category',
+				axisLabel:{
+					color: '#444',
+					fontFamily: 'NotoSansKR',
+					fontSize: '14',
+					fontWeight: '600',
+				},
+				axisTick: {
+					show: false
+				},
+				data: ['Android', 'IOS', 'Total']
+			},
+			yAxis: {
+				type: 'value',
+				boundaryGap: [0, 0.01],
+				axisLabel:{
+					color: '#666',
+					fontFamily: 'NotoSansKR',
+					fontSize: '13'
+				}
+			},
+			series: [
+				{
+					name: '발송건수',
+					type: 'bar',
+					itemStyle:{
+						color: '#5668F0',
+					},
+					data: [4, 2, 3]
+				},
+				{
+					name: '확인건수',
+					type: 'bar',
+					itemStyle:{
+						color: '#F05656',
+					},
+					data: [2, 4, 1]
+				}
+			]
+		};
+		barChart.setOption(barChartoption);
+		
+
+		/* APP 접속여부 막대그래프 */
+		var barChart2  = echarts.init(document.querySelector('#barChart2'), null);
+		var barChart2option = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					type: 'shadow'
+				}
+			},
+			legend: {
+    			top: 'bottom',
+				bottom: '0',
+				icon:'circle',
+				itemGap: 30,
+				textStyle: {
+					color: "#444",
+					fontFamily: 'NotoSansKR',
+					fontSize: 14,
+					fontWeight: '500'
+				},
+				data: ['발송건수', '확인건수']
+			},
+			grid: {
+				left: '0',
+				right: '4%',
+				bottom: '40px',
+				y: '30px',
+				containLabel: true,
+			},
+			xAxis: {
+				type: 'category',
+				axisLabel:{
+					color: '#444',
+					fontFamily: 'NotoSansKR',
+					fontSize: '14',
+					fontWeight: '600',
+				},
+				axisTick: {
+					show: false
+				},
+				data: ['Android', 'IOS', 'Total']
+			},
+			yAxis: {
+				type: 'value',
+				boundaryGap: [0, 0.01],
+				axisLabel:{
+					color: '#666',
+					fontFamily: 'NotoSansKR',
+					fontSize: '13'
+				}
+			},
+			series: [
+				{
+					name: '발송건수',
+					type: 'bar',
+					itemStyle:{
+						color: '#5668F0',
+					},
+					data: [4, 2, 3]
+				},
+				{
+					name: '확인건수',
+					type: 'bar',
+					itemStyle:{
+						color: '#F05656',
+					},
+					data: [2, 4, 1]
+				}
+			]
+		};
+		barChart2.setOption(barChart2option);
+
+		//그래프 반응형
+		window.addEventListener('resize',function(){
+			barChart.resize();
+			barChart2.resize();
+		});
+		
+
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="push">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>PUSH알림 통계분석</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<form>
+					<fieldset>
+						<legend>PUSH분석 및 결과</legend>
+					
+						<!-- PUSH분석// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">PUSH분석</h3>
+							</div>
+
+							<div class="table-area">
+								<table>
+									<caption>PUSH분석</caption>
+									<colgroup>
+										<col style="width:15%">
+										<col style="width:35%">
+										<col style="width:15%">
+										<col style="width:35%">
+									</colgroup> 
+									<tbody>
+										<tr>
+											<th>발송일시</th>
+											<td>2021-06-28 16:09 ~ 2021-06-28 16:09</td>
+											<th>PUSH명</th>
+											<td>(광고) 테스트 광고입니다. 이벤트</td>
+										</tr>
+										<tr>
+											<th>발송유형</th>
+											<td>단문</td>
+											<th>캠페인명</th>
+											<td>가 캠페인</td>
+										</tr>
+										<tr>
+											<th>사용자그룹</th>
+											<td>영업관리부</td>
+											<th>사용자명</th>
+											<td>관리자A</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- //PUSH분석 -->
+						
+						<!-- 발송 소요시간// -->
+						<div class="graybox mgt30">
+							<div class="title-area">
+								<h3 class="h3-title">발송 소요시간</h3>
+							</div>
+							<div class="grid-area">
+								<table class="grid">
+									<caption>그리드 정보</caption>
+									<colgroup>
+										<col style="width:auto;">
+										<col style="width:33%;">
+										<col style="width:33%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">시작일시</th>
+											<th scope="col">종료일시</th>
+											<th scope="col">소요시간</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>2021.07.15  16:04:03</td>
+											<td>2021.07.15 16:04:19</td>
+											<td>00:00:16</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- //발송 소요시간 -->
+						
+						<!-- 발송결과// -->
+						<div class="graybox mgt30">
+							<div class="title-area">
+								<h3 class="h3-title">발송결과</h3>
+							</div>
+							<div class="grid-area piegraph-wrap">
+								<div class="piegraph">
+									<canvas id="circleChart" width="390" height="220"></canvas>
+								</div>
+								
+								<table class="grid type-border">
+									<caption>그리드 정보</caption>
+									<colgroup>
+										<col style="width:auto;">
+										<col style="width:18%;">
+										<col style="width:18%;">
+										<col style="width:18%;">
+										<col style="width:18%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col" rowspan="2">대상수</th>
+											<th scope="col" colspan="2">성공수</th>
+											<th scope="col" colspan="2">실패수</th>
+										</tr>
+										<tr>
+											<th scope="col">Android</th>
+											<th scope="col">IOS</th>
+											<th scope="col">Android</th>
+											<th scope="col">IOS</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td rowspan="2">855</td>
+											<td>855</td>
+											<td>0</td>
+											<td class="color-red">0</td>
+											<td class="color-red">10</td>
+										</tr>
+										<tr>
+											<td>0%</td>
+											<td>0%</td>
+											<td class="color-red">0%</td>
+											<td class="color-red">0%</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- //발송결과 -->
+						
+						<div class="clear mgt30">
+							<!-- PUSH 확인결과// -->
+							<div class="graybox" style="float:left;width:48.8%;">
+								<div class="title-area">
+									<h3 class="h3-title">PUSH 확인결과</h3>
+								</div>
+								<div class="grid-area pt0 pb20">
+									<table class="grid type-border">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:auto;">
+											<col style="width:24%;">
+											<col style="width:24%;">
+											<col style="width:24%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">&nbsp;</th>
+												<th scope="col">Android</th>
+												<th scope="col">IOS</th>
+												<th scope="col">Total</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">발송건수</th>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+											</tr>
+											<tr>
+												<th scope="row">확인건수</th>
+												<td>0</td>
+												<td>0%</td>
+												<td>0%</td>
+											</tr>
+											<tr>
+												<th scope="row">발송대비</th>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+											</tr>
+										</tbody>
+									</table>
+									
+									<div class="bar-chartwrap" style="height:290px;"><!-- 그래프 영역 높이 잡아줘야함 -->
+										<div id="barChart"></div>
+									</div>
+								</div>
+							</div>
+							<!-- //PUSH 확인결과 -->
+
+							<!-- APP 접속여부// -->
+							<div class="graybox" style="float:right;width:48.8%;margin-top:0;">
+								<div class="title-area">
+									<h3 class="h3-title">APP 접속여부</h3>
+								</div>
+								<div class="grid-area pt0 pb20">
+									<table class="grid type-border">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:auto;">
+											<col style="width:24%;">
+											<col style="width:24%;">
+											<col style="width:24%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">&nbsp;</th>
+												<th scope="col">Android</th>
+												<th scope="col">IOS</th>
+												<th scope="col">Total</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<th scope="row">발송건수</th>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+											</tr>
+											<tr>
+												<th scope="row">확인건수</th>
+												<td>0</td>
+												<td>0%</td>
+												<td>0%</td>
+											</tr>
+											<tr>
+												<th scope="row">발송대비</th>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+											</tr>
+										</tbody>
+									</table>
+									
+									<div class="bar-chartwrap" style="height:290px;"><!-- 그래프 영역 높이 잡아줘야함 -->
+										<div id="barChart2"></div>
+									</div>
+								</div>
+							</div>
+							<!-- //APP 접속여부 -->
+						</div>
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big">목록</button>
+						</div>
+						<!-- //btn-wrap -->
+
+					</fieldset>
+				</form>
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

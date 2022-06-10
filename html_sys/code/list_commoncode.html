@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>공통코드 목록 | AXon UMS</title>
+	<!-- SYS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sys.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sys.js"></script>
+	<!-- //SYS source -->
+
+	<script>
+	$(document).ready(function(){
+		//드래그앤드롭
+		$('#code_sortable').sortable(function() {
+			items: 'tr:not(.ui-state-disabled)'
+    	});
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sys">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>공통코드 목록</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body commoncode">
+				<form>
+					<fieldset>
+						<legend>조회 및 목록</legend>
+
+						<!-- 조회// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조회</h3>
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label>분류코드</label>
+										<div class="list-item">
+											<div class="select" style="width:calc(100% - 48px);"><!-- 3월 28일 수정 -->
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+											<button type="button" class="btn fullred">검색</button>
+										</div>
+									</li>
+									<li><!-- 2022년 3월 14일 추가 -->
+										<label>현재 분류코드</label>
+										<div class="list-item">
+											<p id="viewGrp" class="inline-txt">[CNP120]guswo qnsfb</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조회 -->
+
+						<div class="graybox-wrap">
+							<!-- 목록// -->
+							<div class="graybox no-paging">
+								<div class="title-area">
+									<h3 class="h3-title">목록</h3>
+									<span class="total">Total: <em>48</em></span>
+
+									<!-- 버튼// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn fullred">저장</button>
+										<button type="button" class="btn">삭제</button>
+									</div>
+									<!-- //버튼 -->
+								</div>
+
+								<div class="grid-area">
+									<table class="grid">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:3%;">
+											<col style="width:5%;">
+											<col style="width:5%;">
+											<col style="width:20%;">
+											<col style="width:20%;">
+											<col style="width:10%;">
+											<col style="width:10%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">순서</th>
+												<th scope="col">NO</th>
+												<th scope="col">
+													<label><input type="checkbox"><span></span></label>
+												</th>
+												<th scope="col">공통코드</th>
+												<th scope="col">공통코드명</th>
+												<th scope="col">상위코드</th>
+												<th scope="col">사용여부</th>
+											</tr>
+										</thead>
+
+										<tbody id="code_sortable" class="sortable">
+											<!-- 데이터가 있을 경우// -->
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>10</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>9</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>8</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>7</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>6</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>5</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>4</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>3</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>2</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>
+													<button type="button" class="list-btn btn-up"></button>
+													<button type="button" class="list-btn btn-down"></button>
+												</td>
+												<td>1</td>
+												<td><label><input type="checkbox"><span></span></label></td>
+												<td>0000001</td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td><a href="javascript:;" class="bold">코드01</a></td>
+												<td>N</td>
+											</tr>
+											<!-- //데이터가 있을 경우 -->
+						
+											<!-- 데이터가 없을 경우// -->
+											<tr class="ui-state-disabled">
+												<td colspan="7" class="no_data">등록된 내용이 없습니다.</td>
+											</tr>
+											<!-- //데이터가 없을 경우 -->
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- //목록 -->
+
+							<!-- 신규등록, 정보수정 데이터 입력 목록// -->
+							<div class="graybox col-single">
+								<div class="title-area">
+									<h3 class="h3-title">데이터 입력</h3>
+
+									<!-- 버튼 영역// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn fullred plus">신규등록</button>
+										<button type="button" class="btn">저장</button>
+									</div>
+									<!-- //버튼 영역 -->
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label>공통코드</label>
+											<div class="list-item">
+												<input type="text" placeholder="공통 코드는 자동 발번 됩니다" disabled>
+											</div>
+										</li>
+										<li>
+											<label>공통코드명</label>
+											<div class="list-item">
+												<input type="text" placeholder="코드명을 입력하세요.">
+											</div>
+										</li>
+										<li>
+											<label>상위코드</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li>
+											<label>사용여부</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+										<li class="col-full"><!-- 3월 28일 클래스 추가 -->
+											<label>설명</label>
+											<div class="list-item">
+												<textarea placeholder="설명을 입력하세요."></textarea>
+											</div>
+										</li>
+									</ul>
+
+									<ul style="margin-top:27px;">
+										<li>
+											<label>수정일시</label>
+											<div class="list-item">
+												<p class="inline-txt">2021.07.20 00:00</p>
+											</div>
+										</li>
+										<li>
+											<label>수정자</label>
+											<div class="list-item">
+												<p class="inline-txt">관리자A</p>
+											</div>
+										</li>
+										<li>
+											<label>등록일시</label>
+											<div class="list-item">
+												<p class="inline-txt">2021.07.15 00:00</p>
+											</div>
+										</li>
+										<li>
+											<label>등록자</label>
+											<div class="list-item">
+												<p class="inline-txt">관리자B</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //신규등록, 정보수정 데이터 입력 목록 -->
+						</div>
+							
+					</fieldset>
+				</form>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

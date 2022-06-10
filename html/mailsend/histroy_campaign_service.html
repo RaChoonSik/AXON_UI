@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>서비스 메일 발송 이력 통계분석 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+		//발송일시 : datePicker
+		var date = new Date();
+		var firstday = new Date(date.getFullYear(), date.getMonth(), "01");
+  		$(".datepickerrange.fromDate input").datepicker('setDate', firstday);
+		$(".datepickerrange.toDate input").datepicker('setDate', new Date());
+
+
+		/* 반응결과 막대그래프 */
+		var barChart  = echarts.init(document.querySelector('#barChart'), null);
+		barChartoption = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+				type: 'shadow'
+				}
+			},
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			xAxis: {
+				type: 'value',
+				boundaryGap: [0, 0.01],
+				axisLabel:{
+					color: '#333', // 3월 28일 수정
+					fontFamily: 'NotoSansKR',
+					fontSize: '13',
+					fontWeight:'600',	
+				}
+			},
+			yAxis: {
+				type: 'category',
+				data: ['정기메일', '단기메일', '실시간메일'],
+				axisLabel:{
+					color: '#333', // 3월 28일 수정
+					fontFamily: 'NotoSansKR',
+					fontSize: '13', // 3월 28일 수정
+					fontWeight: '600',
+				},
+			},
+			series: [
+				{
+					type: 'bar',
+					name: '발송이력',
+					data: [
+						{//각 막대별 색상 다를 경우
+							value: 25,
+							itemStyle: {color: '#5668F0'},
+						},
+						{
+							value: 80,
+							itemStyle: {color: '#1EC89A'},
+						},
+						{
+							value: 60,
+							itemStyle: {color: '#F9984E'},
+						}
+					]
+				},
+			]
+		};
+		barChart.setOption(barChartoption);
+
+		//그래프 반응형
+		window.addEventListener('resize',function(){
+			barChart.resize();
+		});
+		
+
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>서비스 메일 발송 이력</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body camp-service">
+				<form>
+					<fieldset>
+						<legend>조회 및 결과</legend>
+					
+						<!-- 조회// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조회</h3>
+							</div>
+							<div class="list-area">
+								<ul>
+									<li>
+										<label class="required">발송일시</label>
+										<div class="list-item">
+											<!-- datepickerrange// -->
+											<div class="datepickerrange fromDate">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<span class="hyppen date"></span>
+											<div class="datepickerrange toDate">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<!-- //datepickerrange -->
+										</div>
+									</li>
+									<li>
+										<label class="required">서비스명</label>
+										<div class="list-item">
+											<p class="inline-txt">[광고]테스트 광고입니다. 이벤트</p>
+										</div>
+									</li>
+									<li>
+										<label class="required">메일유형</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">서비스상태</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									
+								</ul>
+							</div>
+						</div>
+						<!-- //조회 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big fullblue">검색</button>
+							<button type="button" class="btn big">초기화</button>
+						</div>
+						<!-- //btn-wrap -->
+
+						<!-- bar chart// -->
+						<div class="graybox pb20">
+							<div class="bar-chartwrap" style="height:230px;"><!-- 그래프 영역 높이 잡아줘야함 -->
+								<div id="barChart"></div>
+							</div>
+						</div>
+						<!-- //bar chart -->
+
+						<!-- 목록// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">목록</h3>
+								<span class="total">Total: <em>48</em></span>
+							</div>
+
+							<!-- gridtoggle-area// -->
+							<div class="gridtoggle-area">
+								<div class="grid">
+									<ul class="gridhead">
+										<li class="col num">NO</li>
+										<li class="col togglebtn"><img src="../../img/ems/bg_plus_toggle.png" alt="토글버튼"></li>
+										<li class="col mailtitle">메일명</li>
+										<li class="col campaign">캠페인</li>
+										<li class="col sendingdate">발송일시</li>
+										<li class="col requiredtime">소요시간</li>
+										<li class="col sendingcase">발송건수</li>
+										<li class="col mailtype">메일유형</li>
+										<li class="col svcstate">서비스상태</li>
+										<li class="col option">옵션</li>
+									</ul>
+
+									<ul class="gridbody">
+										<li>
+											<ul class="toggle-unfold">
+												<!-- depth1// -->
+												<li class="depth1">
+													<ul>
+														<li class="col-box">
+															<span class="col num">12</span>
+															<span class="col togglebtn">
+																<button type="button" class="btn-toggle">토글</button>
+															</span>
+															<span class="col mailtitle">
+																<a href="" class="bold">[광고]테스트 광고입니다. 이벤트성 메일확인</a>
+															</span>
+															<span class="col campaign">든든카드 캠페인</span>
+															<span class="col sendingdate">2021.07.15 00:00</span>
+															<span class="col requiredtime">20분</span>
+															<span class="col sendingcase">99</span>
+															<span class="col mailtype">정기메일</span>
+															<span class="col svcstate">발송승인</span>
+															<span class="col option">
+																<button type="button" class="btn">사용중지</button>
+																<button type="button" class="btn">설정</button>
+															</span>
+														</li>
+													</ul>
+
+													<!-- 2depth// -->
+													<ul class="depth2">
+														<!-- 10차// -->
+														<li>
+															<ul>
+																<li class="col-box">
+																	<span class="col num"></span>
+																	<span class="col togglebtn"></span>
+																	<span class="col mailtitle">
+																		<a href="" class="medium">[10차]테스트 광고입니다. 이벤트성 메일</a>
+																	</span>
+																	<span class="col campaign">든든카드 캠페인</span>
+																	<span class="col sendingdate">2021.07.15 00:00</span>
+																	<span class="col requiredtime"></span>
+																	<span class="col sendingcase"></span>
+																	<span class="col mailtype">실시간</span>
+																	<span class="col svcstate">발송승인</span>
+																	<span class="col option">
+																		<button type="button" class="btn">사용중지</button>
+																	</span>
+																</li>
+															</ul>
+														</li>
+														<!-- //10차 -->
+
+														<!-- 9차// -->
+														<li>
+															<ul>
+																<li class="col-box">
+																	<span class="col num"></span>
+																	<span class="col togglebtn"></span>
+																	<span class="col mailtitle">
+																		<a href="" class="medium">[9차]테스트 광고입니다. 이벤트성 메일</a>
+																	</span>
+																	<span class="col campaign">든든카드 캠페인</span>
+																	<span class="col sendingdate">2021.07.15 00:00</span>
+																	<span class="col requiredtime"></span>
+																	<span class="col sendingcase"></span>
+																	<span class="col mailtype">실시간</span>
+																	<span class="col svcstate">
+																		<a href="" class="medium">발송실패</a>
+																	</span>
+																	<span class="col option">
+																		<button type="button" class="btn">복구</button>
+																		<button type="button" class="btn">설정</button>
+																	</span>
+																</li>
+															</ul>
+														</li>
+														<!-- //9차 -->
+
+														<!-- 8차// -->
+														<li>
+															<ul>
+																<li class="col-box">
+																	<span class="col num"></span>
+																	<span class="col togglebtn"></span>
+																	<span class="col mailtitle">
+																		<a href="" class="medium">[8차]테스트 광고입니다. 이벤트성 메일</a>
+																	</span>
+																	<span class="col campaign">든든카드 캠페인</span>
+																	<span class="col sendingdate">2021.07.15 00:00</span>
+																	<span class="col requiredtime"></span>
+																	<span class="col sendingcase"></span>
+																	<span class="col mailtype">실시간</span>
+																	<span class="col svcstate">발송승인</span>
+																	<span class="col option">
+																		<button type="button" class="btn">분석</button>
+																	</span>
+																</li>
+															</ul>
+														</li>
+														<!-- //8차 -->
+													</ul>
+													<!-- //2depth -->
+												</li>
+												<!-- //depth1 -->
+
+												<!-- depth1// -->
+												<li class="depth1">
+													<ul>
+														<li class="col-box">
+															<span class="col num">11</span>
+															<span class="col togglebtn">
+																<button type="button" class="btn-toggle">토글</button>
+															</span>
+															<span class="col mailtitle">
+																<a href="" class="bold">[광고]테스트 광고입니다. 이벤트성 메일확인</a>
+															</span>
+															<span class="col campaign">자동입력 캠페인</span>
+															<span class="col sendingdate">2021.07.15 00:00</span>
+															<span class="col requiredtime">20분</span>
+															<span class="col sendingcase">99</span>
+															<span class="col mailtype">단기메일</span>
+															<span class="col svcstate">발송완료</span>
+															<span class="col option">
+																<button type="button" class="btn">사용중지</button>
+																<button type="button" class="btn">설정</button>
+															</span>
+														</li>
+													</ul>
+
+													<!-- 2depth// -->
+													<ul class="depth2">
+														<!-- 10차// -->
+														<li>
+															<ul>
+																<li class="col-box">
+																	<span class="col num"></span>
+																	<span class="col togglebtn"></span>
+																	<span class="col mailtitle">
+																		<a href="" class="medium">[10차]테스트 광고입니다. 이벤트성 메일</a>
+																	</span>
+																	<span class="col campaign">든든카드 캠페인</span>
+																	<span class="col sendingdate">2021.07.15 00:00</span>
+																	<span class="col requiredtime"></span>
+																	<span class="col sendingcase"></span>
+																	<span class="col mailtype">실시간</span>
+																	<span class="col svcstate">
+																		<a href="" class="medium">발송실패</a>
+																	</span>
+																	<span class="col option">
+																		<button type="button" class="btn">분석</button>
+																	</span>
+																</li>
+															</ul>
+														</li>
+														<!-- //10차 -->
+
+														<!-- 9차// -->
+														<li>
+															<ul>
+																<li class="col-box">
+																	<span class="col num"></span>
+																	<span class="col togglebtn"></span>
+																	<span class="col mailtitle">
+																		<a href="" class="medium">[9차]테스트 광고입니다. 이벤트성 메일</a>
+																	</span>
+																	<span class="col campaign">든든카드 캠페인</span>
+																	<span class="col sendingdate">2021.07.15 00:00</span>
+																	<span class="col requiredtime"></span>
+																	<span class="col sendingcase"></span>
+																	<span class="col mailtype">실시간</span>
+																	<span class="col svcstate">발송승인</span>
+																	<span class="col option">
+																		<button type="button" class="btn">사용중지</button>
+																	</span>
+																</li>
+															</ul>
+														</li>
+														<!-- //9차 -->
+
+														<!-- 8차// -->
+														<li>
+															<ul>
+																<li class="col-box">
+																	<span class="col num"></span>
+																	<span class="col togglebtn"></span>
+																	<span class="col mailtitle">
+																		<a href="" class="medium">[8차]테스트 광고입니다. 이벤트성 메일</a>
+																	</span>
+																	<span class="col campaign">든든카드 캠페인</span>
+																	<span class="col sendingdate">2021.07.15 00:00</span>
+																	<span class="col requiredtime"></span>
+																	<span class="col sendingcase"></span>
+																	<span class="col mailtype">실시간</span>
+																	<span class="col svcstate">발송승인</span>
+																	<span class="col option">
+																		<button type="button" class="btn">사용중지</button>
+																	</span>
+																</li>
+															</ul>
+														</li>
+														<!-- //8차 -->
+													</ul>
+													<!-- //2depth -->
+												</li>
+												<!-- //depth1 -->
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //gridtoggle-area -->
+						</div>
+						<!-- //목록 -->
+					
+						<!-- 페이징// -->
+						<div class="paging">
+							<button type="button" class="prev" disabled>이전</button><!-- 비활성시 disabled 속성 추가 -->
+							<button type="button" class="active">1</button><!-- 현재페이지 : li class="active" 추가 -->
+							<button type="button">2</button>
+							<button type="button">3</button>
+							<button type="button">4</button>
+							<button type="button">5</button>
+							<button type="button" class="next">다음</button><!-- 비활성시 disabled 속성 추가 -->
+						</div>
+						<!-- //페이징 --> 
+						
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big">목록</button>
+						</div>
+						<!-- //btn-wrap -->
+
+					</fieldset>
+				</form>
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

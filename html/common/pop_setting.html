@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>메일발송 환경설정 팝업 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+		$(document).ready(function(){
+			fn.popupOpen('#popup_setting');
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+		<div style="padding:30px;">
+
+			<!-- 팝업 확인용 버튼// -->
+			<button type="button" class="btn big fullblue
+			" onclick="fn.popupOpen('#popup_setting');">팝업 열기</button>
+			<!-- //팝업 확인용 버튼 -->
+
+		</div>
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_setting" class="poplayer popsetting"><!-- id값 수정 가능 -->
+		<div class="inner">
+			<header>
+				<h2>환경설정</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">메일헤더 정보</h3>
+						</div>
+						
+						<div class="table-area">
+							<table>
+								<caption>메일헤더 정보</caption>
+								<colgroup>
+									<col style="width:105px">
+									<col style="width:225px">
+									<col style="width:105px">
+									<col style="width:225px">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">발송자명</th>
+										<td>
+											<input type="text" placeholder="발송자명">
+										</td>
+										<th scope="row">발송자 이메일</th>
+										<td>
+											<input type="text" placeholder="test@test.co.kr">
+										</td>
+									</tr>
+									<tr>
+										<th scope="row">반송 이메일</th>
+										<td>
+											<input type="text" placeholder="test@test.co.kr">
+										</td>
+										<th scope="row">리턴 이메일</th>
+										<td>
+											<input type="text" placeholder="test@test.co.kr">
+										</td> 
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+	
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">인코딩 환경</h3>
+						</div>
+	
+						<div class="table-area">
+							<table>
+								<caption>그리드 정보</caption>
+								<colgroup>
+									<col style="width:115px">
+									<col style="width:225px">
+									<col style="width:115px">
+									<col style="width:auto">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">헤더 인코딩</th>
+										<td>8bit</td>
+										<th scope="row">수신자</th>
+										<td>8bit</td>
+									</tr>
+									<tr>
+										<th scope="row">문자셋</th>
+										<td colspan="3">euc-kr</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+	
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">발송 환경</h3>
+						</div>
+						
+						<div class="table-area">
+							<table>
+								<caption>발송 환경</caption>
+								<colgroup>
+									<col style="width:90px">
+									<col style="width:205px">
+									<col style="width:90px">
+									<col style="width:205px">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">
+											Socket<br>
+											timeout
+										</th>
+										<td>80</td>
+										<th scope="row">
+											Connection당<br>
+											발송 횟수
+										</th>
+										<td>0</td>
+									</tr>
+									<tr>
+										<th scope="row">재발송 횟수</th>
+										<td>0</td>
+										<th scope="row">발송모드</th>
+										<td>
+											<div class="select" style="width:205px;">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</td> 
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					
+					<!-- btn-wrap// -->
+					<div class="btn-wrap">
+						<button type="button" class="btn big fullblue">등록</button>
+						<button type="button" class="btn big">취소</button>
+					</div>
+					<!-- //btn-wrap -->
+					
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_setting');"><span class="hidden">팝업닫기</span></button>
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_setting');"></span>
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

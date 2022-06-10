@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>캠페인서비스 조회 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>캠페인서비스 조회</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body camp-service">
+				
+				<form>
+					<fieldset>
+						<legend>조건 및 메일 내용</legend>
+
+						<!-- 조건// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조건</h3>
+								<span class="required">*필수입력 항목</span>
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label class="required">캠페인명</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label">신규 고객유치 캠페인</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">수신자그룹</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label" style="width:calc(100% - 68px);">신규 고객유치 그룹</p><!-- 3월 28일 수정 -->
+												<button type="button" class="btn fullblue">미리보기</button>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">사용자그룹</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label">영업관리부</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">사용자명</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label">관리자A</p>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>보안메일</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label" style="width:calc(100% - 68px);">보안메일이 지정되었습니다.(HTML)</p><!-- 3월 28일 수정 -->
+												<button type="button" class="btn fullblue">미리보기</button>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>결재라인</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label">관리자 외 1명</p>
+											</div>
+										</div>
+									</li>
+									<li class="col-full">
+										<label class="required">서비스명</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label">캠페인 서비스명</p>
+											</div>
+										</div>
+									</li>
+									<li class="col-full">
+										<label class="vt">파일첨부</label>
+										<div class="list-item">
+											<ul class="filelist">
+												<li>
+													<span>이벤트 이미지.png</span>
+													<em>9MB</em>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>이벤트 이미지22.png</span>
+													<em>9MB</em>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조건 -->
+
+						<!-- 서비스 템플릿  내용// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">서비스 템플릿 내용</h3>
+
+								<!-- 버튼// -->
+								<div class="btn-wrap">
+									<button type="button" class="btn fullblue">발송 승인</button>
+									<button type="button" class="btn">테스트 발송</button>
+									<button type="button" class="btn">사용중지</button>
+									<button type="button" class="btn">삭제</button>
+									<button type="button" class="btn">복사</button>
+								</div>
+								<!-- //버튼 -->
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label class="required">메일 제목</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label">신규 고객유치 캠페인 발송</p>
+											</div>
+										</div>
+									</li>
+									<li class="col-full">
+										<!-- 에디터 영역// -->
+										<div class="editbox"></div>
+										<!-- //에디터 영역 -->
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //서비스 템플릿  내용 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big">목록</button>
+						</div>
+						<!-- //btn-wrap -->
+							
+					</fieldset>
+				</form>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>기간별누적통계 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+		//등록일 : datePicker 
+		var date = new Date();
+		var firstday = new Date(date.getFullYear(), date.getMonth(), "01");
+  		$(".datepickerrange.fromDate input").datepicker('setDate', firstday);
+		$(".datepickerrange.toDate input").datepicker('setDate', new Date());
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>기간별누적통계</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<form>
+					<fieldset>
+						<legend>조회 및 기간별분석 및 결과</legend>
+
+						<!-- 조회// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조회</h3>
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label>캠페인명</label>
+										<div class="list-item">
+											<input type="text" placeholder="캠페인명을 입력해주세요.">
+										</div>
+									</li>
+									<li>
+										<label>사용자그룹</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>사용자명</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>발송일시</label>
+										<div class="list-item">
+											<!-- datepickerrange// -->
+											<div class="datepickerrange fromDate">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<span class="hyppen date"></span>
+											<div class="datepickerrange toDate">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<!-- //datepickerrange -->
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조회 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big fullblue">검색</button>
+							<button type="button" class="btn big">초기화</button>
+						</div>
+						<!-- //btn-wrap -->
+
+						<!-- 기간별분석// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">기간별분석</h3>
+							</div>
+
+							<div class="table-area">
+								<table>
+									<caption>기간별분석</caption>
+									<colgroup>
+										<col style="width:15%">
+										<col style="width:35%">
+										<col style="width:15%">   
+										<col style="width:35%">
+									</colgroup> 
+									<tbody>
+										<tr>
+											<th>발송일시</th>
+											<td>2021-07-01 ~ 2021-09-23</td>
+											<th>캠페인명</th>
+											<td>모든 캠페인</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- //기간별분석 -->
+						
+						<!-- tab// -->
+						<div class="tab">
+							<div class="tab-menu col7">
+								<a href="javascript:;" class="active">월별</a>
+								<a href="javascript:;">요일별</a>
+								<a href="javascript:;">일자별</a>
+								<a href="javascript:;">도메인별</a>
+								<a href="javascript:;">사용자그룹별</a>
+								<a href="javascript:;">사용자별</a>
+								<a href="javascript:;">캠페인별</a>
+							</div>
+							<div class="tab-cont">
+								<!-- tab-cont : 월별// -->
+								<div class="active">
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">년월</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>2021-07</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="8" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td>합계</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+								</div>
+								<!-- //tab-cont : 월별 -->
+
+								<!-- tab-cont : 요일별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">요일</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>일요일</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>월요일</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>화요일</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>수요일</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>목요일</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>금요일</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>토요일</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="8" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td>합계</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+								</div>
+								<!-- //tab-cont : 요일별 -->
+
+								<!-- tab-cont : 일자별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">일자</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>2021-07-06</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>2021-07-06</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>2021-07-06</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>2021-07-06</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="8" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td>합계</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+								</div>
+								<!-- //tab-cont : 일자별 -->
+
+								<!-- tab-cont : 도메인별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:5%;">
+													<col style="width:auto;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">NO</th>
+														<th scope="col">도메인명</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">발송단계에러</th>
+														<th scope="col">성공률</th>
+														<th scope="col">실패율</th>
+														<th scope="col">발송단계에러율</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>1</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<tr>
+														<td>4</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="9" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2">합계</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+								</div>
+								<!-- //tab-cont : 도메인별 -->
+
+								<!-- tab-cont : 사용자그룹별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">사용자그룹</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>ADMIN</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="8" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td>합계</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+								</div>
+								<!-- //tab-cont : 사용자그룹별 -->
+
+								<!-- tab-cont : 사용자별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">사용자</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>슈퍼관리자</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="8" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td>합계</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+								</div>
+								<!-- //tab-cont : 사용자별 -->
+
+								<!-- tab-cont : 캠페인별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">캠페인</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>발송테스트</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>마케팅부</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="8" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td>합계</td>
+														<td>656</td>
+														<td>0</td>
+														<td>165</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+								</div>
+								<!-- //tab-cont : 캠페인별 -->
+
+
+							</div>
+						</div>
+						<!-- //tab -->
+
+					</fieldset>
+				</form>
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

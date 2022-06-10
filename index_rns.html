@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>UMS RNS INDEX</title>
+    <style>
+      body{margin:0;padding:0;font-family:Malgun Gothic, "맑은 고딕", Dotum, "돋움", sans-serif;}
+      .guideindex{padding:20px 10px 40px;background:#fff;color:#000;}
+      .guideindex .guideh1{margin:0;color:#AF00EE;font-size:26px;font-weight:600;text-align:center;}
+      .guideindex .guideh2{margin:30px 0 10px;font-size:16px;font-weight:600;}
+      .guideindex .guidedesc{margin-left:10px;color:#f00;font-size:13px;}
+      .guideindex .guide_tbl {width:100%;margin:0;text-align:center;border-top:2px #AF00EE solid;border-collapse:collapse;border-right:1px #dedede solid;}
+      .guideindex .guide_tbl tr > th,
+      .guideindex .guide_tbl tr > td {padding:10px 8px;border-left:1px #dedede solid;border-top:1px #dedede solid;vertical-align:top;}
+      .guideindex .guide_tbl thead tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > td {border-top:none;}
+      .guideindex .guide_tbl thead tr > th {background:#eee;font-size:13px;vertical-align:middle;}
+      .guideindex .guide_tbl tbody tr > td {vertical-align:top;}
+      .guideindex .guide_tbl thead tr > th {color:#000;font-weight:bold;}
+      .guideindex .guide_tbl tbody {font-size:13px;border-bottom:1px #ccc solid;border-top:1px #ccc solid;}
+      .guideindex .guide_tbl .alC {text-align:center !important;}
+      .guideindex .guide_tbl .alL {text-align:left !important;}
+      .guideindex .guide_tbl .alR {text-align:right !important;}
+      .guideindex .guide_tbl{min-width:980px;margin:0 auto;box-sizing: border-box;}
+      .guideindex .guide_tbl a{color:#222;text-decoration:none;}
+      .guideindex .guide_tbl a:hover{color:#AF00EE;}
+      .guideindex .guide_tbl .chk th,
+      .guideindex .guide_tbl .chk td{color: blue !important;}
+      .guideindex .guide_tbl tbody.add th,
+      .guideindex .guide_tbl tbody.add td{color:#00a383 !important;}
+      .guideindex .guide_tbl tbody.add2 th,
+      .guideindex .guide_tbl tbody.add2 td{color:#a38300 !important;}
+      .guideindex .guide_tbl .caution{color:#f00;font-size:12px;text-align:left;}
+      .guideindex .guide_tbl .complete{background-color:#ccc;}
+      .guideindex .guide_tbl .remove{background-color:#fdeaea;}
+      .guideindex .guide_tbl .graytxt{color:#888;font-size:12px;}
+      .guideindex .guide_tbl .color-blue{color:#5668F0;}
+      .guideindex .btn_top{margin-bottom:20px;}
+      .guideindex .btn_top a{display:inline-block;height:32px;line-height:30px;padding:0 10px;background:#444;color:#fff;font-size:13px;font-weight:500;text-align:center;vertical-align:middle;border-radius:6px;border:1px solid #E1E1E1;text-decoration:none;}
+  </style>
+  
+	<script src="js/jquery_2.1.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".num").each(function(index){
+        index+=1;
+        $(this).text(index);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="guideindex">
+    <div class="btn_top">
+      <a href="index.html">EMS INDEX 바로가기</a>
+      <a href="index_rns.html">RNS INDEX 바로가기</a>
+      <a href="index_sms.html">SMS INDEX 바로가기</a>
+      <a href="index_push.html">PUSH INDEX 바로가기</a>
+      <a href="index_sys.html">공통설정 INDEX 바로가기</a>
+    </div>
+    <h1 class="guideh1">UMS RNS INDEX</h1>
+    <h2 class="guideh2">폴더구조</h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">시스템</th>
+          <th scope="col">분류</th>
+          <th scope="col" colspan="2">폴더명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="alL" rowspan="8">publish/</td>
+          <td class="alL" rowspan="3">/html_rns</td>
+          <td class="alL">/common</td>
+          <td class="alL">RNS 공통, RNS 팝업</td>
+        </tr>
+        <tr>
+          <td class="alL">/mailmanage</td>
+          <td class="alL">실시간메일관리</td>
+        </tr>
+        <tr>
+          <td class="alL">/statistics</td>
+          <td class="alL">발송통계</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/css</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/js</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/font</td>
+        </tr>
+        <tr>
+          <td class="alL" rowspan="2">/img</td>
+          <td class="alL">/common</td>
+          <td class="alL">공통 이미지</td>
+        </tr>
+        <tr>
+          <td class="alL">/rns</td>
+          <td class="alL">rns 이미지</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="guideh2">RNS <span class="guidedesc">(개발에 공유할 경우, 완료일에 공유한 날짜를 기입한다.)</span></h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:5%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:9%" />
+        <col style="width:7%" />
+        <col style="width:auto" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">1Depth</th>
+          <th scope="col">2Depth</th>
+          <th scope="col">3Depth</th>
+          <th scope="col">파일명</th>
+          <th scope="col">완료일</th>
+          <th scope="col">작업자</th>
+          <th scope="col">비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff4f4;">
+          <th scope="row">※</th>
+          <td class="alL">공통</td>
+          <td class="alL">레이아웃 샘플</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_rns/common/layout_sample.html" target="_blank">layout_sample.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-17 상단 헤더의 전체서비스 툴팁박스 추가, 발송결재 알림 영역 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="7">실시간메일관리</td>
+          <td class="alL" rowspan="3">템플릿관리</td>
+          <td class="alL">템플릿 목록</td>
+          <td class="alL"><a href="html_rns/mailmanage/list_template.html" target="_blank">list_template.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">템플릿 신규등록</td>
+          <td class="alL"><a href="html_rns/mailmanage/enroll_template.html" target="_blank">enroll_template.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">템플릿 정보수정</td>
+          <td class="alL"><a href="html_rns/mailmanage/edit_template.html" target="_blank">edit_template.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="3">서비스관리</td>
+          <td class="alL">서비스목록</td>
+          <td class="alL"><a href="html_rns/mailmanage/list_autoservice.html" target="_blank">list_autoservice.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">서비스 신규등록</td>
+          <td class="alL"><a href="html_rns/mailmanage/enroll_autoservice.html" target="_blank">enroll_autoservice.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-02 조건영역 항목 수정<br>
+            2021-09-06 파일첨부 영역 수정<br>
+            2021-10-12 '머지입력 → 함수입력' 텍스트 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">서비스 정보수정</td>
+          <td class="alL"><a href="html_rns/mailmanage/edit_autoservice.html" target="_blank">edit_autoservice.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-02 조건영역 항목 수정<br>
+            2021-09-06 파일첨부 영역 수정<br>
+            2021-10-12 '머지입력 → 함수입력' 텍스트 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">테스트메일</td>
+          <td class="alL">테스트메일 발송목록</td>
+          <td class="alL"><a href="html_rns/mailmanage/list_test.html" target="_blank">list_test.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-10-07 '메일명 → 서비스명' 텍스트 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">발송통계</td>
+          <td class="alL">월별통계</td>
+          <td class="alL">자동메일 월별 발송통계</td>
+          <td class="alL"><a href="html_rns/statistics/list_auto_month.html" target="_blank">list_auto_month.html</a></td>
+          <td>2021-08-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-06 '사용자명 → 발송자명' 문구 수정<br>
+            2021-09-10 datepicekr 월로 나오도록 변경, '발송기간 → 발송일자' 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">서비스별통계</td>
+          <td class="alL">자동메일 서비스별 발송통계</td>
+          <td class="alL"><a href="html_rns/statistics/list_auto_service.html" target="_blank">list_auto_service.html</a></td>
+          <td>2021-08-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-06 '사용자명 → 발송자명' 문구 수정<br>
+            2021-09-10 '발송기간 → 발송일시' 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">도메인별통계</td>
+          <td class="alL">자동메일 도메인별 발송통계</td>
+          <td class="alL"><a href="html_rns/statistics/list_auto_domain.html" target="_blank">list_auto_domain.html</a></td>
+          <td>2021-08-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-10 '발송기간 → 발송일시' 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자별통계</td>
+          <td class="alL">자동메일 수신자별 발송통계</td>
+          <td class="alL"><a href="html_rns/statistics/list_auto_receiver.html" target="_blank">list_auto_receiver.html</a></td>
+          <td>2021-08-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-17 '발송기간 → 발송일시' 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">메일별통계</td>
+          <td class="alL">자동메일 메일별 발송결과</td>
+          <td class="alL"><a href="html_rns/statistics/list_auto_mail.html" target="_blank">list_auto_mail.html</a></td>
+          <td>2021-08-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-17 '발송기간 → 발송일시', '등록일 → 등록일시' 문구 수정
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">상세로그</td>
+          <td class="alL">자동메일 상세로그</td>
+          <td class="alL"><a href="html_rns/statistics/list_auto_log.html" target="_blank">list_auto_log.html</a></td>
+          <td>2021-08-24</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-06 테이블 th 항목 수정<br>
+            2021-09-10 '발송기간 → 발송일시' 문구 수정
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;border-top:2px solid #555;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">팝업</td>
+          <td class="alL">HTML 등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_rns/common/pop_htmlenroll.html" target="_blank">pop_htmlenroll.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-09 fileReset 함수 추가
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">웹에이전트 등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_rns/common/pop_registeragent.html" target="_blank">pop_registeragent.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">환경설정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_rns/common/pop_setting.html" target="_blank">pop_setting.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">테스트메일 발송</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_rns/common/pop_testsend.html" target="_blank">pop_testsend.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">테스트메일 발송정보</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_rns/common/pop_testsendinfo.html" target="_blank">pop_testsendinfo.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">메일 상세 정보</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_rns/common/pop_maildetail.html" target="_blank">pop_maildetail.html</a></td>
+          <td>2021-08-20</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-09-10 '등록일자 → 등록일시', '발송일자 → 발송일시' 문구 수정
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

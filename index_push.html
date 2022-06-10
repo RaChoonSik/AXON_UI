@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>UMS PUSH INDEX</title>
+    <style>
+      body{margin:0;padding:0;font-family:Malgun Gothic, "맑은 고딕", Dotum, "돋움", sans-serif;}
+      .guideindex{padding:20px 10px 40px;background:#fff;color:#000;}
+      .guideindex .guideh1{margin:0;color:#F9984E;font-size:26px;font-weight:600;text-align:center;}
+      .guideindex .guideh2{margin:30px 0 10px;font-size:16px;font-weight:600;}
+      .guideindex .guidedesc{margin-left:10px;color:#f00;font-size:13px;}
+      .guideindex .guide_tbl {width:100%;margin:0;text-align:center;border-top:2px #F9984E solid;border-collapse:collapse;border-right:1px #dedede solid;}
+      .guideindex .guide_tbl tr > th,
+      .guideindex .guide_tbl tr > td {padding:10px 8px;border-left:1px #dedede solid;border-top:1px #dedede solid;vertical-align:top;}
+      .guideindex .guide_tbl thead tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > th,
+      .guideindex .guide_tbl tbody tr:first-child > td {border-top:none;}
+      .guideindex .guide_tbl thead tr > th {background:#eee;font-size:13px;vertical-align:middle;}
+      .guideindex .guide_tbl tbody tr > td {vertical-align:top;}
+      .guideindex .guide_tbl thead tr > th {color:#000;font-weight:bold;}
+      .guideindex .guide_tbl tbody {font-size:13px;border-bottom:1px #ccc solid;border-top:1px #ccc solid;}
+      .guideindex .guide_tbl .alC {text-align:center !important;}
+      .guideindex .guide_tbl .alL {text-align:left !important;}
+      .guideindex .guide_tbl .alR {text-align:right !important;}
+      .guideindex .guide_tbl{min-width:980px;margin:0 auto;box-sizing: border-box;}
+      .guideindex .guide_tbl a{color:#222;text-decoration:none;}
+      .guideindex .guide_tbl a:hover{color:#F9984E;}
+      .guideindex .guide_tbl .chk th,
+      .guideindex .guide_tbl .chk td{color: blue !important;}
+      .guideindex .guide_tbl tbody.add th,
+      .guideindex .guide_tbl tbody.add td{color:#00a383 !important;}
+      .guideindex .guide_tbl tbody.add2 th,
+      .guideindex .guide_tbl tbody.add2 td{color:#a38300 !important;}
+      .guideindex .guide_tbl .caution{color:#f00;font-size:12px;text-align:left;}
+      .guideindex .guide_tbl .complete{background-color:#ccc;}
+      .guideindex .guide_tbl .remove{background-color:#fdeaea;}
+      .guideindex .guide_tbl .graytxt{color:#888;font-size:12px;}
+      .guideindex .guide_tbl .color-blue{color:#5668F0;}
+      .guideindex .btn_top{margin-bottom:20px;}
+      .guideindex .btn_top a{display:inline-block;height:32px;line-height:30px;padding:0 10px;background:#444;color:#fff;font-size:13px;font-weight:500;text-align:center;vertical-align:middle;border-radius:6px;border:1px solid #E1E1E1;text-decoration:none;}
+  </style>
+  
+	<script src="js/jquery_2.1.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $(".num").each(function(index){
+        index+=1;
+        $(this).text(index);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="guideindex">
+    <div class="btn_top">
+      <a href="index.html">EMS INDEX 바로가기</a>
+      <a href="index_rns.html">RNS INDEX 바로가기</a>
+      <a href="index_sms.html">SMS INDEX 바로가기</a>
+      <a href="index_push.html">PUSH INDEX 바로가기</a>
+      <a href="index_sys.html">공통설정 INDEX 바로가기</a>
+    </div>
+    <h1 class="guideh1">UMS PUSH INDEX</h1>
+    <h2 class="guideh2">폴더구조</h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+        <col style="width:25%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">시스템</th>
+          <th scope="col">분류</th>
+          <th scope="col" colspan="2">폴더명</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="alL" rowspan="10">publish/</td>
+          <td class="alL" rowspan="5">/html_push</td>
+          <td class="alL">/common</td>
+          <td class="alL">PUSH 공통, PUSH 팝업</td>
+        </tr>
+        <tr>
+          <td class="alL">/pushistory</td>
+          <td class="alL">발송일정</td>
+        </tr>
+        <tr>
+          <td class="alL">/pushsend</td>
+          <td class="alL">PUSH알림발송</td>
+        </tr>
+        <tr>
+          <td class="alL">/pushmanage</td>
+          <td class="alL">PUSH알림관리</td>
+        </tr>
+        <tr>
+          <td class="alL">/statistics</td>
+          <td class="alL">발송통계</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/css</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/js</td>
+        </tr>
+        <tr>
+          <td class="alL" colspan="3">/font</td>
+        </tr>
+        <tr>
+          <td class="alL" rowspan="2">/img</td>
+          <td class="alL">/common</td>
+          <td class="alL">공통 이미지</td>
+        </tr>
+        <tr>
+          <td class="alL">/push</td>
+          <td class="alL">push 이미지</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="guideh2">PUSH <span class="guidedesc">(개발에 공유할 경우, 완료일에 공유한 날짜를 기입한다.)</span></h2>
+    <table class="guide_tbl">
+      <colgroup>
+        <col style="width:5%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:13%" />
+        <col style="width:9%" />
+        <col style="width:7%" />
+        <col style="width:auto" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">번호</th>
+          <th scope="col">1Depth</th>
+          <th scope="col">2Depth</th>
+          <th scope="col">3Depth</th>
+          <th scope="col">파일명</th>
+          <th scope="col">완료일</th>
+          <th scope="col">작업자</th>
+          <th scope="col">비고</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#fff4f4;">
+          <th scope="row">※</th>
+          <td class="alL">공통</td>
+          <td class="alL">레이아웃 샘플</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/common/layout_sample.html" target="_blank">layout_sample.html</a></td>
+          <td>/2021-10-01</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1">발송일정</td>
+          <td class="alL" rowspan="1">주간일정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushistory/pushistory_week.html" target="_blank">pushistory_week.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1"></td>
+          <td class="alL" rowspan="1">월간일정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushistory/pushistory_month.html" target="_blank">pushistory_month.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1">PUSH알림발송</td>
+          <td class="alL" rowspan="1">PUSH알림발송목록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushsend/list_sending.html" target="_blank">list_sending.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1"></td>
+          <td class="alL" rowspan="1">PUSH알림발송 신규등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushsend/enroll_default.html" target="_blank">enroll_default.html</a></td>
+          <td>2021-11-09</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-21 툴팁박스 내 문구 수정<br>
+            2021-12-30 조회조건 수정 및 발송정보, 이동경로 영역 분리 및 수정<br>
+            2022-04-07 글자수 span 태그 guidetxt p태그 위치 변경<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1"></td>
+          <td class="alL" rowspan="1">PUSH알림발송 정보수정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushsend/edit_default.html" target="_blank">edit_default.html</a></td>
+          <td>2021-11-09</td>
+          <td>조우빈</td>
+          <td class="caution">
+            2021-12-21 툴팁박스 내 문구 수정<br>
+            2021-12-30 조회조건 수정 및 발송정보, 이동경로 영역 분리 및 수정<br>
+            2022-04-07 글자수 span 태그 guidetxt p태그 위치 변경<br>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1">PUSH알림관리</td>
+          <td class="alL" rowspan="1">캠페인 목록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushmanage/list_campaign.html" target="_blank">list_campaign.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1"></td>
+          <td class="alL" rowspan="1">캠페인 신규등록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushmanage/enroll_campaign.html" target="_blank">enroll_campaign.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1"></td>
+          <td class="alL" rowspan="1">캠페인 정보수정</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushmanage/edit_campaign.html" target="_blank">edit_campaign.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="1"></td>
+          <td class="alL" rowspan="1">캠페인별 PUSH알림 목록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/pushmanage/list_campaign_pushalert.html" target="_blank">list_campaign_pushalert.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="2">발송통계</td>
+          <td class="alL">PUSH알림 발송목록</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/statistics/list_send_pushalert.html" target="_blank">list_send_pushalert.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr>
+          <th scope="row" class="num"></th>
+          <td class="alL">PUSH알림 통계분석</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/statistics/stats.html" target="_blank">stats.html</a></td>
+          <td>2021-11-09</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+
+        <tr style="background:#fffaf4;border-top:2px solid #555;">
+          <th scope="row" class="num"></th>
+          <td class="alL" rowspan="6">팝업</td>
+          <td class="alL" rowspan="2">PUSH발송</td>
+          <td class="alL">수신자그룹 미리보기</td>
+          <td class="alL"><a href="html_push/common/pop_previewreceiver.html" target="_blank">pop_previewreceiver.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background-color:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">이동경로 미리보기</td>
+          <td class="alL"><a href="html_push/common/pop_previewlog.html" target="_blank">pop_previewlog.html</a></td>
+          <td>2021-11-09</td>
+          <td>이제하</td>
+          <td class="caution">
+            2022-04-14 탭버튼 추가 및 관련 태그 추가, 변경<br>
+          </td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">캠페인 선택</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/common/pop_selectcampaign.html" target="_blank">pop_selectcampaign.html</a></td>
+          <td>2021-12-21</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+        <tr style="background:#fffaf4;">
+          <th scope="row" class="num"></th>
+          <td class="alL">수신자그룹 선택</td>
+          <td class="alL"></td>
+          <td class="alL"><a href="html_push/common/pop_listreceiver.html" target="_blank">pop_listreceiver.html</a></td>
+          <td>2021-12-21</td>
+          <td>조우빈</td>
+          <td class="caution"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

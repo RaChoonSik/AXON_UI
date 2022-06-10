@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>데이터베이스 조인정보관리 | AXon UMS</title>
+	<!-- SYS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sys.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sys.js"></script>
+	<!-- //SYS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sys">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>데이터베이스 조인정보관리</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<div class="connectdb-wrap">
+					<form>
+						<fieldset>
+							<legend>데이터베이스 정보, 조인정보관리 및 조인정보 등록</legend>
+	
+							<!-- 데이터베이스 정보// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">데이터베이스 정보</h3>
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label>Connection</label>
+											<div class="list-item">
+												<p class="inline-txt">WORK DB CONNECTION</p>
+											</div>
+										</li>
+										<li>
+											<label>DB종류</label>
+											<div class="list-item">
+												<p class="inline-txt">ORACLE</p>
+											</div>
+										</li>
+										<li class="col-full"><!-- 디자인 확인 완료 -->
+											<label>설명</label>
+											<div class="list-item">
+												<p class="inline-txt">
+													설명텍스트 길경우 두줄 세줄 밑으로 내려옴
+													설명텍스트 길경우 두줄 세줄 밑으로 내려옴
+													설명텍스트 길경우 두줄 세줄 밑으로 내려옴
+													설명텍스트 길경우 두줄 세줄 밑으로 내려옴
+													설명텍스트 길경우 두줄 세줄 밑으로 내려옴
+													설명텍스트 길경우 두줄 세줄 밑으로 내려옴
+												</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //데이터베이스 정보 -->
+
+							<!-- 조인정보관리// -->
+							<div class="graybox editpw active">
+								<div class="title-area">
+									<h3 class="h3-title">조인정보관리</h3>
+									<button type="button"><span class="hidden">여닫기버튼</span></button>
+								</div>
+								
+								<div class="grid-area">
+									<table class="grid">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:22%;">
+											<col style="width:auto;">
+											<col style="width:18%;">
+											<col style="width:18%;">
+											<col style="width:14%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">마스터키정보</th>
+												<th scope="col">포린키정보</th>
+												<th scope="col">조인유형</th>
+												<th scope="col">관계유형</th>
+												<th scope="col">처리</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>
+													[T] 등록data<br>
+													[C] 등록data
+												</td>
+												<td>
+													[T] 등록data<br>
+													[C] 등록data
+												</td>
+												<td>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>INNER_JOIN</option>
+															<option>OUTER_JOIN</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<button type="button" class="btn">수정</button>
+													<button type="button" class="btn">삭제</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+							<!-- //조인정보관리 -->
+
+							<!-- 조인정보등록// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">조인정보 등록</h3>
+									<!-- 버튼// -->
+									<div class="btn-wrap">
+
+										<button type="button" class="btn fullred">저장</button>
+
+										<button type="button" class="btn">목록</button>
+									</div>
+									<!-- //버튼 -->
+								</div>
+
+								<!-- 등록내용// -->
+								<div class="enroll-info clear">
+									<!-- 마스터키 정보// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">마스터키 정보</h3>
+										</div>
+
+										<div class="list-area">
+											<ul>
+												<li class="col-full">
+													<label>테이블</label>
+													<div class="list-item">
+														<div class="select">
+															<select title="옵션 선택">
+																<option>선택</option>
+																<option>옵션1</option>
+																<option>옵션2</option>
+															</select>
+														</div>
+													</div>
+												</li>
+												<li class="col-full">
+													<label>컬럼</label>
+													<div class="list-item">
+														<div class="select">
+															<select title="옵션 선택">
+																<option>선택</option>
+																<option>옵션1</option>
+																<option>옵션2</option>
+															</select>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //마스터키 정보 -->
+
+									<!-- 조인유형,관계유형// -->
+									<div class="graybox">
+										<ul>
+											<li class="col-full">
+												<label>조인유형</label>
+												<div class="list-item">
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</div>
+											</li>
+											<li class="col-full">
+												<label>관계유형</label>
+												<div class="list-item">
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!-- //조인유형,관계유형 -->
+
+									<!-- 포린 키 정보// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">포린 키 정보</h3>
+										</div>
+
+										<div class="list-area">
+											<ul>
+												<li class="col-full">
+													<label>테이블</label>
+													<div class="list-item">
+														<div class="select">
+															<select title="옵션 선택">
+																<option>선택</option>
+																<option>옵션1</option>
+																<option>옵션2</option>
+															</select>
+														</div>
+													</div>
+												</li>
+												<li class="col-full">
+													<label>컬럼</label>
+													<div class="list-item">
+														<div class="select">
+															<select title="옵션 선택">
+																<option>선택</option>
+																<option>옵션1</option>
+																<option>옵션2</option>
+															</select>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //포린 키 정보 -->
+								</div>
+								<!-- //등록내용 -->
+							</div>
+							<!-- //조인정보등록 -->
+
+							<!-- 재발송 조인정보관리// -->
+							<div class="graybox editpw">
+								<div class="title-area">
+									<h3 class="h3-title">재발송 조인정보관리</h3>
+									<button type="button"><span class="hidden">여닫기버튼</span></button>
+								</div>
+								
+								<div class="grid-area" style="display: none;">
+									<table class="grid">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:auto;">
+											<col style="width:24%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:14%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">마스터키정보</th>
+												<th scope="col">포린키정보</th>
+												<th scope="col">조인유형</th>
+												<th scope="col">관계유형</th>
+												<th scope="col">처리</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="tal">
+													<div>
+														<label>테이블</label>
+														<div class="list-item" style="margin-bottom:15px;">
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</div>	
+													</div>
+													<div>
+														<label>컬럼</label>
+														<div class="list-item">
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td>
+													[T] 등록data<br>
+													[C] 등록data
+												</td>
+												<td>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<button type="button" class="btn">수정</button>
+													<button type="button" class="btn">삭제</button>
+												</td>
+											</tr>
+											<tr>
+												<td class="tal">
+													<div>
+														<label>테이블</label>
+														<div class="list-item" style="margin-bottom:15px;">
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</div>	
+													</div>
+													<div>
+														<label>컬럼</label>
+														<div class="list-item">
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td>
+													[T] 등록data<br>
+													[C] 등록data
+												</td>
+												<td>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<div class="select">
+														<select title="옵션 선택">
+															<option>선택</option>
+															<option>옵션1</option>
+															<option>옵션2</option>
+														</select>
+													</div>
+												</td>
+												<td>
+													<button type="button" class="btn">등록</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- //재발송 조인정보관리 -->
+
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

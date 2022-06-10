@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>자동메일 월별 발송통계 | AXon RMS</title>
+	<!-- RNS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_rns.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/rns.js"></script>
+	<!-- //RNS source -->
+
+	<script>
+	$(document).ready(function(){
+		/* month picker */
+		var today = getTodayType();
+		var options = {
+			pattern: 'yyyy.mm',
+			//selectedYear: 2021,       // 선택할 연도
+			//startYear: 2010,         // 시작연도
+			//finalYear: 2022,          // 마지막연도
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+			//openOnFocus: true,       // focus시에 달력이 보일지 유무
+			//disableMonths : [ ]     // 월 비활성화
+		};
+		$("#monthPicker").monthpicker(options);
+		
+		//초기값
+		function getTodayType(){
+			var date = new Date();
+			return date.getFullYear() + "." + ("0"+(date.getMonth()+1)).slice(-2);
+		}
+		$('#monthPicker').val(today);
+		
+		//달력버튼
+		$('.btn-calendar').on('click', function(){
+			$('#monthPicker').focus();
+			//$('#monthPicker').monthpicker('show');
+		});
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="rns">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>자동메일 월별 발송통계</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				
+				<form>
+					<fieldset>
+						<legend>조회 및 목록</legend>
+
+						<!-- 조회// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조회</h3>
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label>발송일자</label>
+										<div class="list-item">
+											<div class="datepicker">
+												<label>
+													<input type="text" id="monthPicker" name="monthPicker" class="input-date" dateformat="" readonly />
+												</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>상태</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>서비스</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>발송자명</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조회 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big fullpurple">검색</button>
+							<button type="button" class="btn big">초기화</button>
+						</div>
+						<!-- //btn-wrap -->
+
+						<!-- 2021년 8월 발송결과// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">2021년 8월 발송결과</h3>
+							</div>
+
+							<div class="grid-area">
+								<table class="grid">
+									<caption>그리드 정보</caption>
+									<colgroup>
+										<col style="width:20%;">
+										<col style="width:20%;">
+										<col style="width:20%;">
+										<col style="width:20%;">
+										<col style="width:20%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">일자</th>
+											<th scope="col">발송건수</th>
+											<th scope="col">성공수(%)</th>
+											<th scope="col">실패수(%)</th>
+											<th scope="col">오픈건수(%)</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- 데이터가 있을 경우// -->
+										<tr>
+											<td>1일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>2일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>3일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>4일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>5일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>6일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>7일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>8일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>9일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>10일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>11일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>12일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>13일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>14일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>15일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>16일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>17일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>18일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>19일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>20일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>21일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>22일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>23일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>24일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>25일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>26일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>27일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>28일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>29일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>30일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<tr>
+											<td>31일</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+											<td>0</td>
+										</tr>
+										<!-- //데이터가 있을 경우 -->
+					
+										<!-- 데이터가 없을 경우// -->
+										<tr>
+											<td colspan="6" class="no_data">등록된 내용이 없습니다.</td>
+										</tr>
+										<!-- //데이터가 없을 경우 -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- //2021년 8월 발송결과 -->
+							
+					</fieldset>
+				</form>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>정기메일 병합분석 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>정기메일 병합분석</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<div>
+					<form>
+						<fieldset>
+							<legend>정기메일목록, 발송결과 및 세부에러</legend>
+						
+							<!-- 목록// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">정기메일 목록</h3>
+								</div>
+
+								<div class="grid-area pb20">
+									<table class="grid">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:9%;">
+											<col style="width:auto;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">NO</th>
+												<th scope="col">메일명</th>
+												<th scope="col">수신자그룹</th>
+												<th scope="col">캠페인명</th>
+												<th scope="col">대상수</th>
+												<th scope="col">성공수</th>
+												<th scope="col">실패수</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- 데이터가 있을 경우// -->
+											<tr>
+												<td>15</td>
+												<td class="tal">테스트 메일입니다.</td>
+												<td>수신자 등록</td>
+												<td>든든카드 캠페인</td>
+												<td>208</td>
+												<td>0</td>
+												<td>208</td>
+											</tr>
+											<tr>
+												<td>10</td>
+												<td class="tal">테스트 메일입니다.</td>
+												<td>수신자 등록</td>
+												<td>행복카드 캠페인</td>
+												<td>200</td>
+												<td>200</td>
+												<td>0</td>
+											</tr>
+											<tr>
+												<td>2</td>
+												<td class="tal">테스트 메일입니다.</td>
+												<td>수신자 등록</td>
+												<td>가나카드 캠페인</td>
+												<td>200</td>
+												<td>100</td>
+												<td>100</td>
+											</tr>
+											<!-- //데이터가 있을 경우 -->
+						
+											<!-- 데이터가 없을 경우// -->
+											<tr>
+												<td colspan="7" class="no_data">등록된 내용이 없습니다.</td>
+											</tr>
+											<!-- //데이터가 없을 경우 -->
+										</tbody>
+										<tfoot>
+											<tr>
+												<td colspan="4">합계</td>
+												<td>408</td>
+												<td>300</td>
+												<td>308</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+							<!-- //목록 -->
+	
+							<!-- 발송결과// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">발송결과</h3>
+								</div>
+
+								<div class="grid-area pb20">
+									<table class="grid">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">총 대상수</th>
+												<th scope="col">총 성공수(%)</th>
+												<th scope="col">총 실패수(%)</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- 데이터가 있을 경우// -->
+											<tr>
+												<td>408</td>
+												<td>300</td>
+												<td>308</td>
+											</tr>
+											<!-- //데이터가 있을 경우 -->
+										</tbody>
+										<tfoot>
+											<tr>
+												<td>비율(%)</td>
+												<td>49%</td>
+												<td>51%</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+							<!-- //발송결과 -->
+
+							<!-- 세부에러 - 메일전송 전단계// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">세부에러 - 메일전송 전단계</h3>
+								</div>
+								<div class="grid-area pt0 pb20">
+									<table class="grid type-border">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">Syntax</th>
+												<th scope="col">Web Agent</th>
+												<th scope="col">DB Agent</th>
+												<th scope="col">Mail Body</th>
+												<th scope="col">Domain</th>
+												<th scope="col">Network</th>
+												<th scope="col">합계</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td class="color-red">0</td>
+											</tr>
+											<tr>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td class="color-red">0%</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- //세부에러 - 메일전송 전단계 -->
+
+							<!-- 세부에러 - 메일발송 단계// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">세부에러 - 메일발송 단계</h3>
+								</div>
+								<div class="grid-area pt0 pb20">
+									<table class="grid type-border">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+											<col style="width:12%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">CONNECT</th>
+												<th scope="col">HELO</th>
+												<th scope="col">MAIL FROM</th>
+												<th scope="col">RCPT TO</th>
+												<th scope="col">RESET</th>
+												<th scope="col">DATA</th>
+												<th scope="col">DOT</th>
+												<th scope="col">QUIT</th>
+												<th scope="col">합계</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td>0</td>
+												<td class="color-red">0</td>
+											</tr>
+											<tr>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td>0%</td>
+												<td class="color-red">0%</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- //세부에러 - 메일발송 단계 -->
+	
+							<!-- btn-wrap// -->
+							<div class="btn-wrap">
+								<button type="button" class="btn fullblue big">엑셀 다운로드</button>
+								<button type="button" class="btn big">목록</button>
+							</div>
+							<!-- //btn-wrap -->
+
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

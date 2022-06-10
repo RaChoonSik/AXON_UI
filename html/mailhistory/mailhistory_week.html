@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>주간일정 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+
+		/* weeek picker */
+		var startDate;
+		var endDate;
+		
+		$('#weekpicker').datepicker({
+			showOtherMonths: true,
+			selectOtherMonths: true,
+			selectWeek:true,
+			closeText: '닫기', // 닫기 버튼 텍스트 변경
+			monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	//한글 캘린더중 월 표시를 위한 부분
+			monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],	//한글 캘린더 중 월 표시를 위한 부분
+			dayNames: ['일', '월', '화', '수', '목', '금', '토'],	//한글 캘린더 요일 표시 부분
+			dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],	//한글 요일 표시 부분
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],	// 한글 요일 표시 부분
+			showMonthAfterYear: true,	// true : 년 월	false : 월 년 순으로 보여줌
+			yearSuffix: '년',
+			showButtonPanel: true,	// 오늘로 가는 버튼과 달력 닫기 버튼 보기 옵션
+
+			onSelect: function(dateText, inst){ 
+				var date = $(this).datepicker('getDate');
+				startDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay());
+				endDate = new Date(date.getFullYear(), date.getMonth(), date.getDate() - date.getDay() + 6);
+
+				var dateFormat = 'yy.mm.dd'
+				startDate = $.datepicker.formatDate( dateFormat, startDate, inst.settings );
+				endDate = $.datepicker.formatDate( dateFormat, endDate, inst.settings );
+
+				$('#weekpicker').val(startDate + ' - ' + endDate);
+				setTimeout("applyWeeklyHighlight()", 100);
+			},
+			beforeShow : function() {
+				setTimeout("applyWeeklyHighlight()", 100);
+			}
+		}).datepicker('setDate',new Date());
+
+		//초기값
+		$('.ui-datepicker td.ui-datepicker-today a').click();
+			
+		//달력버튼
+		$('.btn-calendar').on('click', function(){
+			console.log("AA");
+			$('#weekpicker').focus();
+		});
+	});
+
+	//week hover
+	function applyWeeklyHighlight(){
+		$('.ui-datepicker-calendar tr').each(function() {
+			if ($(this).parent().get(0).tagName == 'TBODY') {
+				$(this).mouseover(function() {
+					$(this).find('a').css({
+						'background' : '#eee',
+					});
+					$(this).css('background', '#eee');
+				});
+				
+				$(this).mouseout(function() {
+					$(this).css('background', '#ffffff');
+					$(this).find('a').css('background', '');
+				});
+			}
+		});
+	}
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>주간일정</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				
+				<!-- 주간일정// -->
+				<div class="week-wrap">
+					<h3 class="hide">주간일정 스케줄</h3>
+
+					<!-- calendar-date// -->
+					<div class="calendar-date">
+						<!-- 별도 컨트롤이 필요하여 input 2개로 수정 -->
+						<button type="button" class="btn-prev">저번 주</button>
+						<input type="text" id ="weekpicker" class="input-date" readonly>
+						<input type="text" id="weekInfo" class="input-date" style="display:none;" readonly>
+						<button type="button" class="btn-next">다음 주</button>
+						<button type="button" class="btn-calendar">달력</button>
+					</div>
+					<!-- //calendar-date -->
+
+					<!-- calendar state// -->
+					<ul class="calendar-state">
+						<li class="payment">결재</li>
+						<li class="wait">예약</li>
+						<li class="ing">진행</li>
+						<li class="end">완료</li>
+					</ul>
+					<!-- //calendar state -->
+
+					<!-- calendar-week// -->
+					<div class="calendar-week">
+						<ul>
+							<li>
+								<div class="color-red">일 7/18</div>
+								<div class="date-list"></div>
+							</li>
+							<li>
+								<div>월 7/19</div>
+								<div class="date-list"></div>
+							</li>
+							<li>
+								<div>화 7/20</div>
+								<div class="date-list"></div>
+							</li>
+							<li>
+								<div>
+									<span class="today">Today</span>
+									수 7/21
+								</div>
+								<div class="date-list"></div>
+							</li>
+							<li>
+								<div>목 7/22</div>
+								<div class="date-list">
+									<!--
+										아래 4가지 케이스에 따라 클래스 부여해주세요.
+										결재 : payment
+										예약 : wait
+										진행 : ing
+										완료 : end
+									-->
+									<div class="payment">
+										<span class="time">10:00 [단기]</span>
+										<p>
+											<a href="javascript:;">[광고]테스트 광고입니다.</a>
+											<span>이벤트혜택  [A이벤트대상자] (관리자A) <em>발송완료</em></span>
+										</p>
+									</div>
+									<div class="wait">
+										<span class="time">10:00 [단기]</span>
+										<p>
+											<a href="javascript:;">[광고]테스트 광고입니다.</a>
+											<span>이벤트혜택  [A이벤트대상자] (관리자A) <em>발송완료</em></span>
+										</p>
+									</div>
+									<div class="wait">
+										<span class="time">10:30 [단기]</span>
+										<p>
+											<a href="javascript:;">[광고]테스트 광고입니다.</a>
+											<span>이벤트혜택  [A이벤트대상자] (관리자A) <em class="color-red">발송실패</em></span>
+										</p>
+									</div>
+									<div class="ing">
+										<span class="time">12:00 [정기]</span>
+										<p>
+											<a href="javascript:;">[1차][광고]테스트 광고입니다.</a>
+											<span>이벤트혜택  [수신자그룹] (발송자명) <em>발송승인</em></span>
+										</p>
+									</div>
+									<div class="end">
+										<span class="time">15:00 [정기]</span>
+										<p>
+											<a href="javascript:;">[1차][광고]테스트 광고입니다.</a>
+											<span>이벤트혜택  [수신자그룹] (발송자명) <em>발송대기</em></span>
+										</p>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div>금 7/23</div>
+								<div class="date-list"></div>
+							</li>
+							<li>
+								<div class="color-blue">토 7/24</div>
+								<div class="date-list"></div>
+							</li>
+						</ul>
+					</div>
+					<!-- //calendar-week -->
+
+				</div>
+				<!-- //주간일정 -->
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

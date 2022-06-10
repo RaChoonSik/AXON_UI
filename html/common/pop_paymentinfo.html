@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>결재라인 정보 팝업 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+		$(document).ready(function(){
+			fn.popupOpen('#popup_paymentinfo');
+		});
+		</script>
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+		<div style="padding:30px;">
+
+			<!-- 팝업 확인용 버튼// -->
+			<button type="button" class="btn big fullblue
+			" onclick="fn.popupOpen('#popup_paymentinfo');">팝업 열기</button>
+			<!-- //팝업 확인용 버튼 -->
+
+		</div>
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_paymentinfo" class="poplayer poppaymentinfo"><!-- id값 수정 가능 -->
+		<div class="inner small">
+			<header>
+				<h2>결재라인 정보</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+	
+					<!-- 결재라인 정보// -->
+					<h3>요청자</h3>
+
+					<div class="requester">
+						<span>슈퍼관리자</span>
+						<span>UMS_시스템</span>
+						<span>시스템관리자</span>
+					</div>
+
+					<h3>결재라인</h3>
+					<table class="grid type-border">
+						<caption>그리드 정보</caption>
+						<colgroup>
+							<col style="width:20%;">
+							<col style="width:30%;">
+							<col style="width:20%;">
+							<col style="width:30%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col">결재순서</th>
+								<th scope="col">사용자명</th>
+								<th scope="col">조직명</th>
+								<th scope="col">직책</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>1</td>
+								<td>관리자B</td>
+								<td>임원</td>
+								<td>상무</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>관리자B</td>
+								<td>감사부</td>
+								<td>시스템관리자</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>관리자B</td>
+								<td>임원</td>
+								<td>시스템관리자</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>관리자B</td>
+								<td>임원</td>
+								<td>시스템관리자</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- //결재라인 정보 -->
+	
+					<!-- btn-wrap// -->
+					<div class="btn-wrap">
+						<button type="button" class="btn big fullblue">결재상신</button>
+					</div>
+					<!-- //btn-wrap -->
+	
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_paymentinfo');"><span class="hidden">팝업닫기</span></button>
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_paymentinfo');"></span>
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

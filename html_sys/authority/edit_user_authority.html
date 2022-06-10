@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>사용자권한 정보수정 | AXon UMS</title>
+	<!-- SYS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sys.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sys.js"></script>
+	<!-- //SYS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sys">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>사용자권한 정보수정</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+
+				<div class="userauthority-wrap">
+					<form>
+						<fieldset>
+							<legend>내용</legend>
+	
+							<!-- 내용// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">내용</h3>
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label>사용자ID</label>
+											<div class="list-item">
+												<p class="inline-txt">Guest1</p>
+											</div>
+										</li>
+										<li>
+											<label>사용자명</label>
+											<div class="list-item">
+												<p class="inline-txt">홍길동1</p>
+											</div>
+										</li>
+										<li>
+											<label>사용자상태</label>
+											<div class="list-item">
+												<p class="inline-txt">정상</p>
+											</div>
+										</li>
+										<li>
+											<label>사용자그롭</label>
+											<div class="list-item">
+												<p class="inline-txt">Admin1</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+	
+								<!-- 접근대상 메뉴 및 접근 메뉴// -->
+								<div class="adminauthority clear">
+									<!-- 접근대상메뉴// -->
+									<div class="graybox fl">
+										<div class="title-area">
+											<h3 class="h3-title">접근 대상 메뉴</h3>
+										</div>
+	
+										<!-- content-area// -->
+										<div class="content-area" style="height: 370px;">
+											<ul class="toggle">
+												<li><!-- 활성화 : li class="open" -->
+													<button type="button" class="btn-toggle">EMS 메뉴</button>
+													<label><input type="checkbox"><span></span></label>
+			
+													<ul class="depth2">
+														<li><!-- 활성화 : li class="active" -->
+															<button type="button" class="btn-toggle">발송일정</button>
+															<label><input type="checkbox"><span></span></label>
+															<ul class="depth3">
+																<li>
+																	<button type="button">주간일정</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">월간일정</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">메일발송</button>
+															<label><input type="checkbox"><span></span></label>
+															<ul class="depth3">
+																<li>
+																	<button type="button">단기메일</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">정기메일</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">테스트메일</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">메일관리</button>
+															<label><input type="checkbox"><span></span></label>
+															<ul class="depth3">
+																<li>
+																	<button type="button">캠페인관리</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">수신자그룹관리</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">템플릿관리</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">메일발송결재</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">통계분석</button>
+															<label><input type="checkbox"><span></span></label>
+															<ul class="depth3">
+																<li>
+																	<button type="button">단기메일분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">정기메일분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">캠페인별분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">기간별누적분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">상세로그</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+			
+												<li><!-- 활성화 : li class="open" -->
+													<button type="button" class="btn-toggle">RNS 메뉴</button>
+													<label><input type="checkbox"><span></span></label>
+			
+													<ul class="depth2">
+														<li><!-- 활성화 : li class="active" -->
+															<button type="button" class="btn-toggle">자동메일관리</button>
+															<label><input type="checkbox"><span></span></label>
+															<ul class="depth3">
+																<li>
+																	<button type="button">템플릿관리</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">서비스관리</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">테스트메일</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">통계분석</button>
+															<label><input type="checkbox"><span></span></label>
+															<ul class="depth3">
+																<li>
+																	<button type="button">월별분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">서비스별분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">도메인별분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">수신자별분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">메일별분석</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+																<li>
+																	<button type="button">상세로그</button>
+																	<label><input type="checkbox"><span></span></label>
+																</li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+										<!-- //content-area -->
+									</div>
+									<!-- //접근대상메뉴 -->
+
+									<!-- btn-area// -->
+									<div class="btn-area">
+										<button type="button" class="btn-remove"><span class="hide">삭제</span></button>
+										<button type="button" class="btn-add"><span class="hide">추가</span></button>
+									</div>
+									<!-- //btn-area -->
+	
+									<!-- 접근 메뉴// -->
+									<div class="graybox fr">
+										<div class="title-area">
+											<h3 class="h3-title">접근 메뉴</h3>
+										</div>
+										<div class="content-area" style="height: 370px;">
+											<ul class="toggle">
+												<li><!-- 활성화 : li class="open" -->
+													<button type="button" class="btn-toggle">EMS 메뉴</button>
+													<ul class="depth2">
+														<li><!-- 활성화 : li class="active" -->
+															<button type="button" class="btn-toggle">발송일정</button>
+															<ul class="depth3">
+																<li><button type="button">주간일정</button></li>
+																<li><button type="button">월간일정</button></li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">메일발송</button>
+															<ul class="depth3">
+																<li><button type="button">단기메일</button></li>
+																<li><button type="button">정기메일</button></li>
+																<li><button type="button">테스트메일</button></li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">메일관리</button>
+															<ul class="depth3">
+																<li><button type="button">캠페인관리</button></li>
+																<li><button type="button">수신자그룹관리</button></li>
+																<li><button type="button">템플릿관리</button></li>
+																<li><button type="button">메일발송결재</button></li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">통계분석</button>
+															<ul class="depth3">
+																<li><button type="button">단기메일분석</button></li>
+																<li><button type="button">정기메일분석</button></li>
+																<li><button type="button">캠페인별분석</button></li>
+																<li><button type="button">기간별누적분석</button></li>
+																<li><button type="button">상세로그</button></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+			
+												<li><!-- 활성화 : li class="open" -->
+													<button type="button" class="btn-toggle">RNS 메뉴</button>
+			
+													<ul class="depth2">
+														<li><!-- 활성화 : li class="active" -->
+															<button type="button" class="btn-toggle">자동메일관리</button>
+															<ul class="depth3">
+																<li><button type="button">템플릿관리</button></li>
+																<li><button type="button">서비스관리</button></li>
+																<li><button type="button">테스트메일</button></li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">통계분석</button>
+															<ul class="depth3">
+																<li><button type="button">월별분석</button></li>
+																<li><button type="button">서비스별분석</button></li>
+																<li><button type="button">도메인별분석</button></li>
+																<li><button type="button">수신자별분석</button></li>
+																<li><button type="button">메일별분석</button></li>
+																<li><button type="button">상세로그</button></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+
+												<li><!-- 활성화 : li class="open" -->
+													<button type="button" class="btn-toggle">EMS 메뉴</button>
+													<ul class="depth2">
+														<li><!-- 활성화 : li class="active" -->
+															<button type="button" class="btn-toggle">발송일정</button>
+															<ul class="depth3">
+																<li><button type="button">주간일정</button></li>
+																<li><button type="button">월간일정</button></li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">메일발송</button>
+															<ul class="depth3">
+																<li><button type="button">단기메일</button></li>
+																<li><button type="button">정기메일</button></li>
+																<li><button type="button">테스트메일</button></li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">메일관리</button>
+															<ul class="depth3">
+																<li><button type="button">캠페인관리</button></li>
+																<li><button type="button">수신자그룹관리</button></li>
+																<li><button type="button">템플릿관리</button></li>
+																<li><button type="button">메일발송결재</button></li>
+															</ul>
+														</li>
+														<li>
+															<button type="button" class="btn-toggle">통계분석</button>
+															<ul class="depth3">
+																<li><button type="button">단기메일분석</button></li>
+																<li><button type="button">정기메일분석</button></li>
+																<li><button type="button">캠페인별분석</button></li>
+																<li><button type="button">기간별누적분석</button></li>
+																<li><button type="button">상세로그</button></li>
+															</ul>
+														</li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //접근 메뉴 -->
+	
+								</div>
+								<!-- //접근대상 메뉴 및 접근 메뉴 -->
+							</div>
+							<!-- //내용 -->
+	
+							<!-- btn-wrap// -->
+							<div class="btn-wrap">
+								<button type="button" class="btn big fullred">수정</button>
+								<button type="button" class="btn big">취소</button>
+							</div>
+							<!-- //btn-wrap -->
+	
+								
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

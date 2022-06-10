@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=800">
+    <title>확정급여형 퇴직연금제도의 재정검증결과 안내</title>
+    <style>
+        /******** reset css ********/
+        html,body,div,p,h1,h2,h3,h4,h5,h6,strong,span,label,legend, ul,ol,li,dl,dt,dd,table,thead,tbody,tr,th,td,tfoot,img,a,button,footer,section{padding:0;margin:0;}
+        ul,ol,li{list-style:none;}
+        button{background:transparent;cursor:pointer;}
+        img{max-width:100%;vertical-align:top;}
+        img,button,fieldset,table, tfoot{border:0;}
+        address{font-style:normal;}
+        label,a{display:inline-block;}
+        h2,h3,strong,em{font-weight:600;}
+        input,select,label,button,textarea{border-radius:0;-webkit-border-radius:0;background-color:transparent;color:#111;font-size:14px;line-height:normal;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;vertical-align:middle;}
+        table{width:100%;border-spacing:0;}
+        a{border:0;color:#444;text-decoration:none;}
+        a:hover{color:#0070D2;text-decoration:none;}
+        *, *:before, *:after{box-sizing:border-box;}
+        *:focus{outline:0;}
+        html,body{height:100%;}
+        legend, .hidden, .hide{position:absolute !important;top:0 !important;left:0 !important;padding:0 !important;border:0 !important;overflow:hidden !important;width:0 !important;height:0 !important;line-height:0 !important;}
+        body{width:800px;margin:0 auto;padding:30px 16px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;font-weight:400;color:#3a3a3a;line-height:normal;box-sizing:border-box;letter-spacing:-0.07em; }
+        html, table, th, td{
+            /* Prevent font scaling in landscape */
+            -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+            -moz-text-size-adjust: none; /*Firefox*/
+            -ms-text-size-adjust: none;  /*Ie*/
+            -o-text-size-adjust: none; /*old versions of Opera*/
+        }
+
+        /******** common css ********/
+        /* section */
+        .tal{text-align:left !important;}
+        .tac{text-align:center !important;}
+        .tar{text-align:right !important;}
+        .clear:after{content:'';display:block;clear:both;}
+        .txt-black{color:#111111 !important;margin:0 !important}
+        .txt-gray{font-size:14px;color:#999999;}
+        .bold-blue{color:#0070D2 !important;font-weight:600 !important;font-size:20px !important;}
+        .title-desc{margin-bottom:50px;font-size:16px;}
+        .cont-head h1{width:173px;height:34px;text-indent:-9999px;background:url('../img/pc_logo.png') no-repeat;background-position: 0 0;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            .cont-head h1{width:173px;height:34px;background:url('../img/mb_logo.png') no-repeat cover;background-position: 0 0;}
+        }
+        .cont-head h2{margin-top:26px;font-size:33px;color:#1F1A60;}
+        .cont-body h3{position:relative;margin-bottom:20px;padding-bottom:10px;font-size:20px;color:#111; border-bottom:1px solid #CCCCCC;}
+        .cont-body h3 ~ h3{margin-top:30px;}
+        .cont-body h3:after{content:'';display:block;position:absolute;top:12px;right:10px;width:12px;height:8px; background:url('../img/arrow.png') no-repeat 0 0;}
+        .cont-body h3 .info-unit{position:absolute;top:3px;right:36px;font-size:14px;font-weight:400;color:#999;}
+        .cont-body h3 .bold-blue{top:0px;}
+        .cont-body h4{margin-bottom:10px;color:#111;font-size:16px;}
+        .cont-body h4 ~ h4{margin-top:20px;}
+        .cont-body h4 + ul {margin-bottom:20px;}
+        .cont-body ul{font-size:14px;}
+        .cont-body ol{font-size:14px;}
+        .cont-body .list-dot{margin-bottom:20px;}
+        .cont-body .list-dot li{position:relative;padding-left:10px;list-style-position:inside;font-size:14px;}
+        .cont-body .list-dot li:before{content:'•';display: inline-block;position:absolute;top:0;left:0;}
+        .cont-body .bluebox{width:100%;height:auto;margin-bottom:20px;padding:15px;background:#EFF8FF;font-size:14px;box-sizing:border-box;}
+        .cont-body .bluebox h4{position:relative;margin-bottom:10px;padding-left:20px;font-size:16px;font-weight:600;color:#111;}
+        .cont-body .bluebox h4:before{content:'';display:block;position:absolute;top:5px;left:0px; width:16px;height:16px;padding-right:5px;background:url('../img/ico_info.png') no-repeat;}
+        .cont-body .bluebox strong{font-size:16px;color:#4D4D4D;}
+        .cont-body .bluebox strong.dot{display:inline-block;margin-bottom:10px;color:#111;}
+        .cont-body .bluebox strong.dot:before{content:'•';display:inline-block;padding-right:6px;}
+        .cont-body .bluebox strong.check{position:relative;font-weight:600;color:#0070D2;}
+        .cont-body .bluebox strong.check:before{content:'';display: inline-block;}
+
+        .tab-menu{height:40px;margin-top:30px;margin-bottom:50px;}
+        .tab-menu > button{display:block;float:left;min-width:160px;height:40px;margin-left:4px;background:#EFEFEF;font-size:16px;color:#4d4d4d;text-align:center;line-height:40px;}
+        .tab-menu > button:first-child{margin-left:0;}
+        .tab-menu > button.active,
+        .tab-menu > button:hover{background:#0070D2;color:#fff;font-weight:600;}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;}
+
+        table{margin-bottom:30px;}
+        table tr:first-child th, table tr:first-child td{border-top:1px solid #DADADA;}
+        table tr > th:first-child{border-left:0}
+        table th{padding:5px;background:#CCE9FF;font-size:12px;font-weight:600;border-bottom:1px solid #DADADA;border-left:1px solid #DADADA;}
+        table td{padding:5px 10px;background:#fff;font-size: 12px;text-align:center;border-bottom: 1px solid #DADADA;border-left:1px solid #DADADA;}
+        .tab ul + table{margin-bottom:20px;}
+        .tab .table-title{margin-bottom:10px;font-size:14px;}
+        .tab .total-bold{font-weight:600;color:#4d4d4d;}
+        .tab .image-box {overflow:hidden;}
+        .tab .image-box img{width:100%;}
+
+        /* 파란배경이 없는 테이블의 경우 .table-white 클래스 사용*/
+        .table-white th{background:#fff;text-align:left;border:0;}
+        .table-white td{background:#fff;text-align:left;border:0;}
+        .table-white tr:first-child th, .tab .table-white tr:first-child td{border-top:0;}
+        .tab .caution ul {color:#999; list-style:none !important;text-indent:0;margin-bottom:0;padding-left:14px;}
+        .tab .caution ul li:before {content:"\2022";color:#dadada !important;font-weight:bold;display:inline-block;width:1em;margin-left:-1em;}
+        .tab .caution p{color:#999;font-size:14px;}
+
+        /* 푸터 */
+        footer{padding-top:80px;padding-bottom:30px;color:#9A9A9A;}
+        footer dl{display: table;}
+        footer dt,footer dd{display: table-cell;}
+        footer .footer-logo{width:126px;height:26px;text-indent:-9999px;background:url('../img/pc_logogray.png') no-repeat;background-size:contain;background-position: 0 0;}
+        footer dd{padding-left:36px;}
+        footer p{padding-top:10px;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            footer .footer-logo{background:url('../img/mb_logogray.png') no-repeat cover; background-position: 0 0;}
+        }
+    </style>
+    <script>
+            'use strict';
+
+            window.onload = function(){
+            // IE11 support
+            if (window.NodeList && !NodeList.prototype.forEach) {
+                NodeList.prototype.forEach = Array.prototype.forEach;
+            }
+
+            function findParent(el, className){
+                var check = el.parentNode.classList.contains(className);
+            
+                if(check === true){
+                    return el.parentNode;
+                }else{
+                    return findParent(el.parentNode, className);
+                }
+            }
+
+            function bindingTabEvent(wrap){
+                var wrapEl = document.querySelectorAll(wrap);
+            
+                wrapEl.forEach(function(tabArea){
+                    var btn = tabArea.querySelectorAll('.tab-link');
+                    
+                    btn.forEach(function(item){
+                        item.addEventListener('click', function(){
+                            var parent = findParent(this, 'tab');
+                            var idx = this.dataset['idx'];
+                            var depth = this.dataset['depth'];
+                            var btnArr = parent.querySelectorAll('.tab-link[data-depth="'+ depth +'"]');
+                            var contentArr = parent.querySelectorAll('.tab-content[data-depth="'+ depth +'"]');
+                            
+                            btnArr.forEach(function(btn){ btn.classList.remove('active'); });
+                            this.classList.add('active');
+                            contentArr.forEach(function(content){ content.classList.remove('active'); });
+                            parent.querySelector('.tab-content[data-idx="'+ idx +'"][data-depth="'+ depth +'"]').classList.add('active');
+                        });
+                    });
+                });
+            }
+
+            bindingTabEvent('.tab-wrap');
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">
+            <section class="cont-head"> 
+                <h1>광주은행</h1>
+                <h2 style="margin-bottom:30px;">확정급여형 퇴직연금제도의<br> 재정검증결과 안내</h2>
+            </section>
+            <section class="cont-body">
+
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">수신처</th>
+                            <td colspan="3">전남대학교산학협력단</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">기준일자</th>
+                            <td>2021.02.28</td>
+                            <th scope="row">통보일자</th>
+                            <td>2021.08.25</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3 style="margin-top:50px;">일반현황</h3>
+                <table style="margin-bottom:0;">
+                    <colgroup>
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col" rowspan="2">제도설정일</th>
+                            <th scope="col" rowspan="2">납입주기</th>
+                            <th scope="col" colspan="3">법정 최소적립비율</th>
+                            <th scope="col" rowspan="2">결산연월</th>
+                            <th scope="col" rowspan="2">가입자수</th>
+                            <th scope="col" rowspan="2">30일분<br>평균임금 합계</th>
+                        </tr>
+                        <tr>
+                            <th scope="col" style="border-left:1px solid #DADADA;">설정전 <sup style="font-size:6px;font-weight:400;">1)</sup></th>
+                            <th scope="col">설정후 <sup style="font-size:6px;font-weight:400;">2)</sup></th>
+                            <th scope="col">전체 <sup style="font-size:6px;font-weight:400;">3)</sup></th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">2019.03.18</td>
+                            <td>년납</td>
+                            <td>30%</td>
+                            <td>90</td>
+                            <td>44.1</td>
+                            <td>2021.02</td>
+                            <td>61</td>
+                            <td>226,860원</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top:10px;">
+                    <li>1)「근로자퇴직급여보장법」 (이하 "법" 이라 한다) 제14조 제2항에 따라 퇴직연금제도의 설정 전에 해당 사업에서 제공한 근로기간을 가입기간에 포함시키는 경우, 법 제16조 제1항에 따라 과거근로기간에 대하여 해당 사업연도(연차)에 적립하여야 하는 최소적립비율을 말합니다.</li>
+                    <li>2) 법 제16조 제1항에 따라 제도 설정 이후 가입기간에 대하여 해당 사업연도에 적립하여야 하는 최소적립비율을 말합니다.</li>
+                    <li>3) 퇴직연금제도 설정 전 과거근로기간과 설정 후 가입기간 전체에 대하여 법 제 16조 제1항에 따라 퇴직급여 지급을 위한 비용 예상액 (이하 "기준책임준비금" 이라 한다)에 대비하여 해당 사업연도에 적립하여야 하는 최소적립비율을 말합니다.</li>
+                </ul>
+                <div class="bluebox" style="margin-top:10px;margin-bottom:10px;font-size:12px;text-align:center;">
+                    <div style="display:inline-block;vertical-align:middle;">
+                        <span>산출식 =</span>
+                    </div>
+                    <div style="display:inline-block;margin-left:10px;vertical-align:middle;">
+                        <p style="margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid #707070;">(평균 과거근로기간 x 고시에 따른 해당 기간의 최소적립비율) + (퇴직연금 설정 이후의 평균 가입기간 x 해당 사업연도의 최소적립비율)</p>
+                        <p>가입기간 전체</p>
+                    </div>
+                </div>
+                
+                <h3>납입 현황
+                    <span class="info-unit">2020.03.01 ~ 2021.02.28</span>
+                </h3>
+                <table style="margin-bottom:0;">
+                    <colgroup>
+                        <col style="width:auto;">
+                        <col style="width:33%;">
+                        <col style="width:33%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">부담금 산정액</th>
+                            <th scope="col">부담금 납입액</th>
+                            <th scope="col">차액 <sup style="font-size:6px;font-weight:200;">4)</sup></th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">1,234,567,890원</td>
+                            <td>0원</td>
+                            <td>1,234,567,890원</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top:10px;">
+                    <li>4) 해당기간에 적립하여야 하는 부담금 산정액과 해당 기간에 납입된 금액을 비교하여 부족액 또는 초과액을 차액으로 표시하였습니다.</li>
+                </ul>
+                
+                <h3>기초율<sup style="font-size:6px;font-weight:200;">5)</sup> 현황
+                    <span class="info-unit">2020.03.01 ~ 2021.02.28</span>
+                </h3>
+                <table style="margin-bottom:0;">
+                    <colgroup>
+                        <col style="width:auto;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">예상이율</th>
+                            <th scope="col">예상임금상승률(+Baseup)</th>
+                            <th scope="col">예상퇴직률</th>
+                            <th scope="col">예상사망률</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">1.75%</td>
+                            <td>3.703%<br>표준승급률</td>
+                            <td>8.842%<br>표준퇴직률</td>
+                            <td>0.028%<br>보험개발원 퇴직연금 생존사망</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top:10px;">
+                    <li>5) 기초율은 예상이율. 예상임금상승률, 예상퇴직률, 예상사망률을 말하며, 「근로자퇴직급여보장법 시행규칙」<br>
+                        (이하 시행규칙 이라 한다) 제3조에 따른 기준 및 경험통계를 기초로 하였습니다.</li>
+                </ul>
+                
+                <h3>검증 결과
+                    <span class="info-unit">확인 기준일 2021.02.28</span>
+                </h3>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:auto;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col" colspan="2">최소적립금 산출</th>
+                            <th scope="col" colspan="2">적립금 평가액 산출</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="background:#fff;border-left:0;">계속기준 금액<sup style="font-size:6px;font-weight:200;">6)</sup></th>
+                            <td>1,111,111,111원</td>
+                            <th scope="row" style="background:#fff;">원리금보장<sup style="font-size:6px;font-weight:200;">9)</sup> 평가액</th>
+                            <td>1,111,111,111원</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="background:#fff;border-left:0;">비계속기준 금액<sup style="font-size:6px;font-weight:200;">7)</sup></th>
+                            <td>1,111,111,111원</td>
+                            <th scope="row" style="background:#fff;">실적배당<sup style="font-size:6px;font-weight:200;">10)</sup> 평가액</th>
+                            <td>0원</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" style="background:#fff;border-left:0;">최소적립금<sup style="font-size:6px;font-weight:200;">8)</sup></th>
+                            <td>1,111,111,111원</td>
+                            <th scope="row" style="background:#fff;">평가적립금<sup style="font-size:6px;font-weight:200;">11)</sup> 합계</th>
+                            <td>1,111,111,111원</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table style="margin-bottom:0;">
+                    <colgroup>
+                        <col style="width:auto;">
+                        <col style="width:50%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">검증결과<sup style="font-size:6px;font-weight:200;">12)</sup></th>
+                            <td>정상</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top:10px;">
+                    <li>6) 법 제16조 제1항 제1호 및 같은 법 시행규칙 제5조 제1항에 따라 급여지급을 위하여 수리적으로 계산한 금액입니다.<br>
+                        (가입자의 예상 퇴직시점까지의 가입기간에 대한 급여에 드는 비용 예상액의 현재가치에서 장래 근무기간분에 대하여 발생하는 부담금 수입 예상액의 현재가치를 뺀 금액으로서 국제회계기준에 부합하는 재정방식인 예측단위 적립방식으로 산정)</li>
+                    <li>7) 법 제16조 제1항 제2호 및 같은 법 시행규칙 제5조 제2항에 따라 급여지급을 위하여 계산한 퇴직급여추계액입니다.<br>
+                        (가입자와 가입자였던 사람의 해당 사업연도 말일까지의 가입기간에 대한 급여에 드는 비용 예상액을 산정, 가입기간에 급여수준을 곱하여 산출한 가입자별 예상급여를 합하는 방식으로 산정)</li>
+                    <li>8) 법 제16조 제1항에 따라 산출한 계속기준 금액과 비계속기준 금액 중 더 큰 금액 (기준책임준비금이라 한다)에 시행령 제5조에 따른 의무적립비율(일반현황의 전체 법정 의무적립비율 값)을 곱하여 산출한 금액을 말합니다.</li>
+                    <li>9) 법 제16조 제2항 및 같은 법 시행규칙 제6조 제2호에 따른 평가금액입니다.</li>
+                    <li>10) 법 제16조 제2항 및 시행규칙 제6조 제1호에 따라 평가된 금액입니다. 다만, 시행규칙 제6조 제1호 후단에 따라 평가된 금액이 사업연도 말 현재 시가에 따른 금액의 100분의 90이하 또는 100분의 110 이상인 경우에는 100분의 90 또는 100분의 110으로 평가한 금액입니다.</li>
+                </ul>
+                <table style="margin-top:10px;margin-bottom:0;">
+                    <colgroup>
+                        <col style="width:auto;">
+                        <col style="width:33%;">
+                        <col style="width:33%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">12개월간의 시가평균에 따른 평가금액</th>
+                            <th scope="col">사업연도 말 시가에 따른 금액</th>
+                            <th scope="col">실적배당 최종 평가금액</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">0 원</td>
+                            <td>0 원</td>
+                            <td>0 원</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul style="margin-top:10px;">
+                    <li>11) 원리금보장 운용방식의 평가액과 실적배당 운용방식의 평가액의 합계액을 말합니다.</li>
+                    <li>12) 최소적립금과 평가적립금의 합계액을 비교하여 과부족 여부를 표시하였습니다.</li>
+                </ul>
+                
+                <h3>조치사항</h3>
+                <h4 style="margin-bottom:10px;font-size:14px;">최소적립금 <sup style="font-size:6px;font-weight:200;">②</sup>  ≤ 평가적립금 &lt; 기준책임준비금 × 해당 사업연도의 최소적립비율 <sup style="font-size:6px;font-weight:200;">①</sup></h4>
+                <table style="margin-bottom:0;">
+                    <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">결과구분</th>
+                            <th scope="col">해당금액</th>
+                            <th scope="col">조치사항</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">적정</td>
+                            <td>해당 없음</td>
+                            <td class="tal">시행령 제8조제4호에 해당. 다음 재정검증결과 통보시까지 사외(퇴직연금사업자) 적립금의 범위에서는 법 제16조제1항제2호에 따른 금액에 대한 적립금의 비율에 따라 급여 지급됨</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="bluebox" style="margin-top:10px;margin-bottom:10px;">
+                    <strong style="color:#3A3A3A;font-size:14px;">※ 기초율에 표준율을 적용한 근거</strong>
+                </div>
+                <div class="bluebox" style="font-size:14px;text-align:center;">
+                    <strong style="color:#3A3A3A;">과거 통계 부적합</strong>
+                    <p style="margin-top:5px;">「근로자퇴직급여 보장법」제16조 제2항 및 같은 법 시행령 제6조에 따라 2021.02.28 기준으로 확정급여형 퇴직연금제도<br>설정에 따른 급여지급능력 확보를 위해 재정검증을 실시하고 그 결과를 위와 같이 알려드립니다.</p>
+                </div>
+                <div style="margin-top:50px;margin-bottom:100px;text-align:center;">
+                    <strong style="font-size:20px;">전남대학교산학협력단</strong>
+                    <span style="display:block;margin-top:5px;font-size:16px;">2021년 02월 28일</span>
+                    <p style="margin-top:5px;font-size:20px;">확정급여형퇴직연금제도 설정 사업장 대표(또는 근로자대표) 귀하</p>
+                </div>
+                
+                <h3>검증결과에 따른 조치사항 안내(예시)</h3>
+                <h4 style="margin-bottom:10px;font-size:14px;">[사례 1] 기준책임준비금 × 해당 사업연도의 최소적립비율<sup style="font-size:6px;font-weight:200;">①</sup>  ≤ 평가적립금 ≤ 기준책임준비금 × 100%</h4>
+                <table style="margin-bottom:20px;">
+                    <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">결과구분</th>
+                            <th scope="col">해당금액</th>
+                            <th scope="col">조치사항</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">적정</td>
+                            <td>해당 없음</td>
+                            <td class="tal">급여 전액지급(시행령 제8조제4호에 따른 전액 지급의 예외 사유가 아님)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4 style="margin-bottom:10px;font-size:14px;">[사례 2] 최소적립금<sup style="font-size:6px;font-weight:200;">②</sup>  ≤ 평가적립금 &lt; 기준책임준비금 × 해당 사업연도의 최소적립비율<sup style="font-size:6px;font-weight:200;">①</sup></h4>
+                <table style="margin-bottom:20px;">
+                    <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">결과구분</th>
+                            <th scope="col">해당금액</th>
+                            <th scope="col">조치사항</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">적정</td>
+                            <td>해당 없음</td>
+                            <td class="tal">시행령 제8조제4호에 해당. 다음 재정검증결과 통보시까지 사외(퇴직연금사업자)<br>
+                                적립금의 범위에서는 법 제16조제1항제2호에 따른 금액에 대한 적립금의 비율에 따라 급여 지급됨</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4 style="margin-bottom:10px;font-size:14px;">[사례 3] 기준책임준비금 × 100% &lt; 평가적립금 ≤ 기준책임준비금 × 150%</h4>
+                <table style="margin-bottom:20px;">
+                    <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">결과구분</th>
+                            <th scope="col">해당금액</th>
+                            <th scope="col">조치사항</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">적립초과</td>
+                            <td></td>
+                            <td class="tal">시행령 제8조제4호에 해당. 다음 재정검증결과 통보시까지 사외(퇴직연금사업자)<br>
+                                적립금의 범위에서는 법 제16조제1항제2호에 따른 금액에 대한 적립금의 비율에 따라 급여 지급됨</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4 style="margin-bottom:10px;font-size:14px;">[사례 4] 기준책임준비금 × 150% &lt; 평가적립금</h4>
+                <table style="margin-bottom:20px;">
+                    <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:15%;">
+                        <col style="width:45%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">결과구분</th>
+                            <th scope="col">해당금액</th>
+                            <th scope="col">조치사항</th>
+                            <th scope="col">조치사항</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" style="border-left:0;">적립초과</td>
+                            <td></td>
+                            <td>초과분은 향후 납입할 부담금에서 상계할 수 있음</td>
+                            <td rowspan="2" class="tal">법 제17조제2항에 따라 사외 (퇴직연금사업자)적립금의 범위에서 급여 전액 지급됨</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>사용자의 반환 요구 시 초과분을 반환할 수 있음</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4 style="margin-bottom:10px;font-size:14px;">[사례 5] 최소적립금<sup style="font-size:6px;font-weight:200;">②</sup> × 95% ≤ 평가적립금 &lt; 최소적립금<sup style="font-size:6px;font-weight:200;">②</sup></h4>
+                <table style="margin-bottom:20px;">
+                    <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">결과구분</th>
+                            <th scope="col">해당금액</th>
+                            <th scope="col">조치사항</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">적립부족</td>
+                            <td>최소적립금에 미달하나 재정안정화계획서 작성대상은 아님</td>
+                            <td class="tal">법 제16조제2항에 따라 이 안내서는 근로자대표에게도 통보되며, 시행령 제8조제4호에 해당됨.<br>
+                                다음 재정검증결과 통보 시까지 사외(퇴직연금사업자) 적립금의 범위에서 급여지급은 법제16조 제1항제2호에 따른 금액에 대한 적립금의 비율에 해당하는 금액이 지급됨</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h4 style="margin-bottom:10px;font-size:14px;">[사례 6] 평가적립금 &lt; 최소적립금<sup style="font-size:6px;font-weight:200;">②</sup>  × 95%</h4>
+                <table style="margin-bottom:20px;">
+                    <colgroup>
+                        <col style="width:15%;">
+                        <col style="width:15%;">
+                        <col style="width:45%;">
+                        <col style="width:auto;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">결과구분</th>
+                            <th scope="col">해당금액</th>
+                            <th scope="col">조치사항</th>
+                            <th scope="col">조치사항</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:0;">적립부족</td>
+                            <td></td>
+                            <td class="tal">○ 법 제16조제3항 및 같은 법 시행령 제7조에 따른 재정안정화 계획서의 작성 대상임<br>
+                                - 재정안정화계획서는 3년 이내에 적립금 부족을 균등하게 해소할 수 있도록 부족 금액에 대한 자금조달 방안, 납입 계획등을 포함하여 작성하고, 3년간 보존하여야 함
+                                <br><br>
+                                ○ 동 통보서를 받은 날부터 60일 이내에 근로자대표와 당 사업자에게 재정안정화계획서를 통보하여야 하며, 재정
+                                안정화계획서에 따라 적립금 부족을 성실하게 해소하여야 함</td>
+                                <td class="tal">법 제16조제2항에 따라 이 안내서는 근로자대표에게도 통보되며, 시행령 제8조제4호에 해당됨. 다음 재정검증 결과 통보시까지 사외(퇴직연금사업자) 적립금의 범위에서 급여지급은법 제16조 제1항제2호에 따른금액에 대한 적립금의 비율에해당하는 금액이 지급됨</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ol style="margin-top:10px;">
+                    <li>① 전체 가입기간(과거근로기간 소급 가입한 경우 그 기간도 포함)에 대하여 해당 연도별 최소적립비율을 적용<br>
+                        (13년까지는 60%0, 14년~15년은 70%, 16년~18년은 80%, 19년~20년은 90%, 21년 이후 100%)<br>
+                        ※ 과거근로기간에 대하여도 고시에 따른 최소적립비율을 적용하지 아니함</li>
+                    <li style="margin-top:10px;">② 아래 산출식에 따른 가입기간 전체에 대한 최소적립비율에 기준책임준비금을 곱하여 산출한 금액
+                        <div class="bluebox" style="margin-top:10px;margin-bottom:10px;font-size:12px;text-align:center;">
+                            <div style="display:inline-block;vertical-align:middle;">
+                                <span>산출식 =</span>
+                            </div>
+                            <div style="display:inline-block;margin-left:10px;vertical-align:middle;">
+                                <p style="margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid #707070;">(평균 과거근로기간 x 고시에 따른 해당 기간의 최소적립비율) + (퇴직연금 설정 이후의 평균 가입기간 x 해당 사업연도의 최소적립비율)</p>
+                                <p>가입기간 전체</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>③ 부족금액은 최소적립금의 95% 금액에서 평가적립금을 뺀 금액</li>
+                </ol>
+
+            </section>
+
+            <footer>
+                <dl >
+                    <dt class="footer-logo">광주</dt>
+                    <dd>
+                        <address>㈜광주은행, 광주광역시 동구 제봉로 225</address>
+                        대표전화 <a href="tel:062-239-5000" style="color:#0070D2;text-decoration:underline;">062-239-5000</a> | 고객센터 <a href="tel:1600-4000" style="color:#0070D2;text-decoration:underline;">1600-4000</a>, <a href="tel:1588-3388" style="color:#0070D2;text-decoration:underline;">1588-3388</a> 
+                    </dd>
+                </dl>
+                <p>Copyright 2021 KWANGJU BANK</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>데이터베이스 권한관리 | AXon UMS</title>
+	<!-- SYS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sys.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sys.js"></script>
+	<!-- //SYS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sys">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>데이터베이스 권한관리</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<div class="connectdb-wrap">
+					<form onsubmit="return false">
+						<fieldset>
+							<legend>데이터베이스 정보 및 권한관리</legend>
+	
+							<!-- 데이터베이스 정보// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">데이터베이스 정보</h3>
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label>Connection</label>
+											<div class="list-item">
+												<p class="inline-txt">WORK DB CONNECTION</p>
+											</div>
+										</li>
+										<li>
+											<label>DB종류</label>
+											<div class="list-item">
+												<p class="inline-txt">ORACLE</p>
+											</div>
+										</li>
+										<li class="col-full">
+											<label>설명</label>
+											<div class="list-item">
+												<p class="inline-txt">설명텍스트 길경우 두줄 세줄 밑으로 내려옴설명텍스트 길경우 두줄 세줄 밑으로 내려옴설명텍스트 길경우 두줄 세줄 밑으로 내려옴설명텍스트 길경우 두줄 세줄 밑으로 내려옴</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //데이터베이스 정보 -->
+
+							<!-- 사용자 권한관리// -->
+							<div class="graybox editpw active">
+								<div class="title-area">
+									<h3 class="h3-title">사용자 권한관리</h3>
+									<button type="button"><span class="hidden">여닫기버튼</span></button>
+								</div>
+								
+								<div class="adminauthority clear">
+									<!-- 조직도// -->
+									<div class="graybox fl">
+										<div class="title-area">
+											<h3 class="h3-title">조직 목록</h3>
+										</div>
+										
+										<div class="content-area" style="height:340px;">
+											<ul class="toggle">
+												<li><!-- 활성화 : li class="open" -->
+													<button type="button" class="btn-toggle">임원</button>
+													<ul class="depth2">
+														<li><button type="button">임원 1</button></li><!-- 활성화 : li class="active" -->
+														<li><button type="button">임원 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">영업관리부</button>
+													<ul class="depth2">
+														<li><button type="button">영업팀</button></li>
+														<li><button type="button">사업관리팀</button></li>
+													</ul>
+												</li>
+												<li>
+													<button type="button" class="btn-toggle">마케팅부</button>
+													<ul class="depth2">
+														<li><button type="button">마케팅부 1</button></li>
+														<li><button type="button">마케팅부 2</button></li>
+													</ul>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //조직도 -->
+
+									<!-- 사용자// -->
+									<div class="graybox fl">
+										<div class="title-area">
+											<h3 class="h3-title">사용자 검색</h3>
+										</div>
+										
+										<div class="content-area" style="height:340px;">
+											<div class="item"><!-- 2021-08-17 클래스 수정 -->
+												<input type="text" placeholder="사용자명 검색">
+												<button type="button" class="btn fullred">검색</button>
+											</div>
+
+											<ul class="user">
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li class="clear"><!-- 활성화 : li class="active" -->
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //사용자 -->
+
+									<!-- btn-area// -->
+									<div class="btn-area">
+										<button type="button" class="btn-remove"><span class="hide">삭제</span></button>
+										<button type="button" class="btn-add"><span class="hide">추가</span></button>
+									</div>
+									<!-- //btn-area -->
+
+									<!-- 권한 사용자// -->
+									<div class="graybox fr">
+										<div class="title-area">
+											<h3 class="h3-title">권한 사용자</h3>
+										</div>
+										
+										<div class="content-area outcome" style="height:340px;">
+											<ul class="user">
+												<!--
+													21-09-06 
+													활성화(클릭 시 추가됨) : li.active
+													비활성화(클릭 및 저장x 용도로 사용) : li.disabled
+													숨기기 : li.hidden
+												 -->
+												 <!-- 21-09-17 비활성화 시 li.disabled 및 input에 disabled 속성 추가필수  -->
+												<li class="disabled">
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox" disabled><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">
+															<strong>사용자명</strong>
+															<span>조직명</span>
+															<span>과장</span>
+														</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //권한 사용자 -->
+										
+								</div>
+							</div>
+
+							<!-- //사용자 권한관리 -->
+
+							<!-- 그룹 권한관리// -->
+							<div class="graybox editpw active">
+								<div class="title-area">
+									<h3 class="h3-title">그룹 권한관리</h3>
+									<button type="button"><span class="hidden">여닫기버튼</span></button>
+								</div>
+								<div class="adminauthority clear">
+
+									<!-- 사용자// -->
+									<div class="graybox fl" style="width:62%;">
+										<div class="title-area">
+											<h3 class="h3-title">그룹 검색</h3>
+										</div>
+										
+										<div class="content-area" style="height:340px;">
+											<div class="item"><!-- 2021-08-17 클래스 수정 -->
+												<input type="text" placeholder="사용자명 검색">
+												<button type="button" class="btn fullred">검색</button>
+											</div>
+
+											<ul class="user">
+												<li class="clear">
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //사용자 -->
+
+									<!-- btn-area// -->
+									<div class="btn-area">
+										<button type="button" class="btn-remove"><span class="hide">삭제</span></button>
+										<button type="button" class="btn-add"><span class="hide">추가</span></button>
+									</div>
+									<!-- //btn-area -->
+
+									<!-- 권한 사용자// -->
+									<div class="graybox fr">
+										<div class="title-area">
+											<h3 class="h3-title">권한 그룹</h3>
+										</div>
+										
+										<div class="content-area outcome" style="height:340px;">
+											<ul class="user">
+												<!--
+													21-09-06 
+													활성화(클릭 시 추가됨) : li.active
+													비활성화(클릭 및 저장x 용도로 사용) : li.disabled
+													숨기기 : li.hidden
+												 -->
+												 <!-- 21-09-17 비활성화 시 li.disabled 및 input에 disabled 속성 추가필수  -->
+												<li class="disabled">
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox" disabled><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+												<li>
+													<label class="clear">
+														<span class="fl">영업관리부</span>
+														<span class="fr">
+															<input type="checkbox"><span></span>
+														</span>
+													</label>
+												</li>
+
+												
+											</ul>
+										</div>
+									</div>
+									<!-- //권한 사용자 -->
+										
+								</div>
+							</div>
+
+							<!-- //그룹 권한관리 -->
+
+							<!-- 버튼// -->
+							<div class="btn-wrap">
+								<button type="button" class="btn big fullred">저장</button>
+								<button type="button" class="btn big">취소</button>
+							</div>
+							<!-- //버튼 -->
+	 
+								
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

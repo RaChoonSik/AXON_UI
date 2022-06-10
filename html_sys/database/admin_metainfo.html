@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>데이터베이스 메타정보관리 | AXon UMS</title>
+	<!-- SYS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sys.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sys.js"></script>
+	<!-- //SYS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sys">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>데이터베이스 메타정보관리</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<div class="connectdb-wrap">
+					<form>
+						<fieldset>
+							<legend>데이터베이스 정보, 메타정보관리 및 내용</legend> 
+	
+							<!-- 데이터베이스 정보// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">데이터베이스 정보</h3>
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label>Connection</label>
+											<div class="list-item">
+												<p class="inline-txt">WORK DB CONNECTION</p>
+											</div>
+										</li>
+										<li>
+											<label>DB종류</label>
+											<div class="list-item">
+												<p class="inline-txt">ORACLE</p>
+											</div>
+										</li>
+										<li class="col-full">
+											<label>설명</label>
+											<div class="list-item">
+												<p class="inline-txt">설명텍스트</p>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //데이터베이스 정보 -->
+
+
+							<!-- 메타정보관리// -->
+							<div class="graybox editpw active">
+
+								<div class="title-area">
+									<h3 class="h3-title">메타정보관리</h3>
+									<button type="button"><span class="hidden">여닫기버튼</span></button>
+								</div>
+
+								<div class="table-wrap clear">
+									<!-- 메타테이블// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">메타테이블</h3>
+										</div>
+
+										<div class="grid-area grid-btn">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<tbody>
+													<tr>
+														<td>TS_CHARSET  [문자셋]</td>
+													</tr>
+													<tr>
+														<td>TS_COPY</td>
+													</tr>
+													<tr>
+														<td>TS_DBCONINFO</td>
+													</tr>
+													<tr>
+														<td>TS_DOMAIN_INFO</td>
+													</tr>
+													<tr>
+														<td>TS_CHARSET  [문자셋]</td>
+													</tr>
+													<tr>
+														<td>TS_COPY</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- //메타테이블 -->
+
+									<!-- 메타테이블정보// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">메타테이블정보</h3>
+
+											<!-- 버튼// -->
+											<div class="btn-wrap" style="margin-top:0;">
+
+												<!-- 등록된 별칭값이 없을 경우 미노출// -->
+												<button type="button" class="btn">삭제</button>
+												<!-- 등록된 별칭값이 없을 경우 미노출// -->
+												<button type="button" class="btn">재입력</button>
+											</div>
+											<!-- //버튼 -->
+										</div>
+										
+										<!-- 메타테이블 목록(tr) 클릭시 값 노출// -->
+										<div class="list-area">
+											<ul>
+												<li class="col-full">
+													<label>테이블명</label>
+													<div class="list-item">
+														<p class="inline-txt">메타테이블 클릭했을 때 들어올 값 영역</p>
+													</div>
+												</li>
+												<li class="col-full">
+													<label>별칭</label>
+													<div class="list-item">
+														<input type="text" placeholder="등록data">
+													</div>
+												</li>
+												<li class="col-full">
+													<label>설명</label>
+													<div class="list-item">
+														<input type="text" placeholder="등록data">
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!-- //메타테이블 목록(tr) 클릭시 값 노출 -->
+
+										<!-- 버튼// -->
+										<div class="btn-wrap" style="margin-top:40px;"><!-- 3월 28일 수정 -->
+
+											<button type="button" class="btn big fullred">수정</button>
+
+											<!-- 등록된 별칭값이 없을 경우 노출// -->
+											<!-- <button type="button" class="btn big fullred">등록</button> -->
+											<!-- 등록된 별칭값이 없을 경우 노출// -->
+
+											<button type="button" class="btn big">취소</button>
+										</div>
+										<!-- //버튼 -->
+									</div>
+									<!-- //메타테이블정보 -->
+								</div>
+
+							</div>
+							<!-- //메타정보관리 -->
+
+							<!-- 내용// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">내용</h3>
+								</div>
+	
+								<div class="grid-area">
+									<table class="grid">
+										<caption>그리드 정보</caption>
+										<colgroup>
+											<col style="width:10%;">
+											<col style="width:15%;">
+											<col style="width:10%;">
+											<col style="width:auto;">
+											<col style="width:15%;">
+											<col style="width:15%;">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">컬럼명</th>
+												<th scope="col">별칭</th>
+												<th scope="col">타입</th>
+												<th scope="col">설명</th>
+												<th scope="col">처리</th>
+												<th scope="col">옵션</th> 
+											</tr>
+										</thead>
+										<tbody>
+											<!-- 데이터가 있을 경우// -->
+											<tr>
+												<td>등록data</td>
+												<td><input type="text" placeholder="등록data"></td>
+												<td>등록data</td>
+												<td>
+													<textarea placeholder="등록data"></textarea>
+												</td>
+												<td>
+													<button type="button" class="btn">수정</button>
+													<button type="button" class="btn">추출조건</button>
+													<button type="button" class="btn">삭제</button>
+												</td>
+												<td class="tal">
+													<label><input type="checkbox"><span>숨김</span></label>
+													<label><input type="checkbox"><span>보안처리</span></label>
+												</td>
+											</tr>
+											<tr>
+												<td>등록data</td>
+												<td><input type="text" placeholder="등록data"></td>
+												<td>등록data</td>
+												<td>
+													<textarea placeholder="등록data"></textarea>
+												</td>
+												<td>
+													<button type="button" class="btn">수정</button>
+													<button type="button" class="btn">추출조건</button>
+													<button type="button" class="btn">삭제</button>
+												</td>
+												<td class="tal">
+													<label><input type="checkbox"><span>숨김</span></label>
+													<label><input type="checkbox"><span>보안처리</span></label>
+												</td>
+											</tr>
+
+											<!-- //데이터가 있을 경우 -->
+						
+											<!-- 데이터가 없을 경우// -->
+											<!-- <tr>
+												<td colspan="10" class="no_data">등록된 내용이 없습니다.</td>
+											</tr> -->
+											<!-- //데이터가 없을 경우 -->
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<!-- //내용 -->
+
+							<!-- 재발송 메타정보 관리// -->
+							<div class="graybox editpw">
+								<div class="title-area">
+									<h3 class="h3-title">재발송 메타정보 관리</h3>
+									<button type="button"><span class="hidden">여닫기버튼</span></button>
+								</div>
+								
+								<div class="admin-resending" style="display:none;padding:15px 20px;">
+									<div class="table-area" style="margin-bottom:10px;">
+										<table style="display:inline-block;width:calc(100% - 68px);"><!-- 3월 28일 수정 -->
+											<caption>적용 테이블 정보</caption>
+											<colgroup>
+												<col style="width:120px">
+												<col style="width:auto">
+											</colgroup>
+											<tbody>
+												<tr>
+													<th scope="row">적용 테이블</th>
+													<td><label><input type="checkbox"><span>NEO_SENDLOG</span></label></td>
+												</tr>
+											</tbody>
+										</table>
+										<button type="button" class="btn fullred">등록</button>
+									</div>
+
+									<div class="list-area">
+										<ul>
+											<li class="col-full">
+												<table class="grid">
+													<caption>그리드 정보</caption>
+													<colgroup>
+														<col style="width:12%;">
+														<col style="width:15%;">
+														<col style="width:12%;">
+														<col style="width:20%;">
+														<col style="width:15%;">
+														<col style="width:auto;">
+													</colgroup>
+													<thead>
+														<tr>
+															<th scope="col">컬럼명</th>
+															<th scope="col">CUST_EM</th>
+															<th scope="col">타입</th>
+															<th scope="col">설명</th>
+															<th scope="col">추출조건</th>
+															<th scope="col">옵션</th> 
+														</tr>
+													</thead>
+													<tbody>
+														<!-- 데이터가 있을 경우// -->
+														<tr>
+															<td>CUST_ID</td>
+															<td>ID</td>
+															<td>VARCHAR</td>
+															<td>고객ID</td>
+															<td>동등</td>
+															<td>
+																<label><input type="checkbox"><span>숨김</span></label>
+																<label><input type="checkbox"><span>보안처리</span></label>
+															</td>
+														</tr>
+														<tr>
+															<td>CUST_NM</td>
+															<td>NAME</td>
+															<td>VARCHAR</td>
+															<td>고객명</td>
+															<td>$:BIZKET:$</td>
+															<td>
+																<label><input type="checkbox"><span>숨김</span></label>
+																<label><input type="checkbox"><span>보안처리</span></label>
+															</td>
+														</tr>
+														<tr>
+															<td>CUST_EM</td>
+															<td>EMAIL</td>
+															<td>VARCHAR</td>
+															<td>이메일</td>
+															<td>동등</td>
+															<td>
+																<label><input type="checkbox"><span>숨김</span></label>
+																<label><input type="checkbox"><span>보안처리</span></label>
+															</td>
+														</tr>
+														<tr>
+															<td>BIZKEY</td>
+															<td>BIZKEY</td>
+															<td>VARCHAR</td>
+															<td>EAI연계 KEY</td>
+															<td>$:BIZKET:$</td>
+															<td>
+																<label><input type="checkbox"><span>숨김</span></label>
+																<label><input type="checkbox"><span>보안처리</span></label>
+															</td>
+														</tr>
+														<tr>
+															<td>TASK_NO</td>
+															<td>TASK_NO</td>
+															<td>VARCHAR</td>
+															<td>캠페인 등록번호</td>
+															<td>동등</td>
+															<td>
+																<label><input type="checkbox"><span>숨김</span></label>
+																<label><input type="checkbox"><span>보안처리</span></label>
+															</td>
+														</tr>
+														<tr>
+															<td>SUB_TASK_NO</td>
+															<td>SUB_TASK_NO</td>
+															<td>VARCHAR</td>
+															<td>캠페인 보조등록번호</td>
+															<td>$:BIZKET:$</td>
+															<td>
+																<label><input type="checkbox"><span>숨김</span></label>
+																<label><input type="checkbox"><span>보안처리</span></label>
+															</td>
+														</tr>
+			
+														<!-- //데이터가 있을 경우 -->
+									
+														<!-- 데이터가 없을 경우// -->
+														<tr>
+															<td colspan="6" class="no_data">등록된 내용이 없습니다.</td>
+														</tr>
+														<!-- //데이터가 없을 경우 -->
+													</tbody>
+												</table>
+											</li>
+										</ul>
+									</div>
+								</div>
+								
+							</div>
+
+							
+							<!-- //재발송 메타정보관리 -->
+	 
+								
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

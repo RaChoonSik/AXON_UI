@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>메일발송 신규등록 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+		//메일유형
+		$(document).on("click", "input[name='mail']", function(){
+			var index = $(this).closest("label").index();
+			if(index == 0){ //단기메일
+				$(".attr_disabled").attr("disabled",true);
+			}else{	//정기메일
+				$(".attr_disabled").removeAttr("disabled");
+			}
+		});
+		//예약일시 : datePicker
+		var date = new Date();
+		var firstday = new Date(date.getFullYear(), date.getMonth(), "01");
+  		$(".datepickerrange.fromDate input").datepicker('setDate', firstday);
+		$(".datepickerrange.toDate input").datepicker('setDate', new Date());
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>메일발송 신규등록</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				
+				<form>
+					<fieldset>
+						<legend>조건 및 메일 내용</legend>
+
+						<!-- 조건// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조건</h3>
+								<!-- 버튼// -->
+								<div class="btn-wrap">
+									<span class="required" style="margin-right:0;">*필수입력 항목</span>
+									<button type="button" class="btn">환경설정</button>
+								</div>
+								<!-- //버튼 -->
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label class="required">메일유형</label>
+										<div class="list-item">
+											<label for="rdo_01" name="rdo_01"><input type="radio" id="rdo_01" name="mail"><span>단기메일</span></label>
+											<label for="rdo_02" name="rdo_02"><input type="radio" id="rdo_02" name="mail" checked><span>정기메일</span></label>
+										</div>
+									</li>
+									<li>
+										<label class="required">캠페인명</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label bg-gray" style="width:calc(100% - 38px);">선택된 캠페인이 없습니다.</p>
+												<button type="button" class="btn btn-search"><span class="hidden">선택</span></button>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">예약일시</label>
+										<div class="list-item">
+											<div class="datepickertimebox">
+												<div class="datepicker">
+													<label>
+														<input type="text" readonly>
+													</label>
+												</div>
+												<div class="select">
+													<select title="옵션 선택">
+														<option>15시</option>
+														<option>15시</option>
+													</select>
+												</div>
+												<div class="select">
+													<select title="옵션 선택">
+														<option>00분</option>
+														<option>00분</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<!-- 정기메일의 경우 노출// -->
+									<li class="rdo_onoff">
+										<label class="required">정기발송 주기</label>
+										<div class="list-item">
+											<div class="multibox">
+												<input type="text" placeholder="7" style="width:13%;" class="attr_disabled">
+												<div class="select" style="display:inline-block;width:23%;">
+													<select title="옵션 선택" class="attr_disabled">
+														<option>선택</option>
+														<option>분</option>
+														<option>시</option>
+														<option>일</option>
+														<option>주</option>
+														<option>월</option>
+														<option>년</option>
+													</select>
+												</div>
+												<div class="datepicker">
+													<label>
+														<input type="text" readonly class="attr_disabled">
+													</label>
+												</div>
+												<label for="chk_01"><input type="checkbox" id="chk_01" class="attr_disabled"><span>무기한</span></label>
+											</div>
+										</div>
+									</li>
+									<!-- //정기메일의 경우 노출 -->
+
+									<li>
+										<label class="required">발송결과 종별</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<label>템플릿명</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label bg-gray" style="width:calc(100% - 38px);">선택된 템플릿이 없습니다.</p>
+												<button type="button" class="btn btn-search"><span class="hidden">선택</span></button>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">수신자그룹</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label bg-gray" style="width:calc(100% - 106px);">선택된 수신자그룹이 없습니다.</p><!-- 3월 28일 수정 -->
+												<button type="button" class="btn btn-search"><span class="hidden">선택</span></button>
+												<button type="button" class="btn fullblue">미리보기</button>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>웹에이전트</label>
+										<div class="list-item">
+											<div class="filebox" style="width:100%;">
+												<p class="label" style="width:232px;">형식이 지정되지 않았습니다.</p>
+												<button type="button" class="btn fullblue">등록</button>
+
+												<div class="select" style="display:none;">
+													<select title="옵션 선택">
+														<option>첨부파일</option>
+														<option>본문삽입</option>
+													</select>
+												</div>
+												<div class="select"style="width:100px;">
+													<select title="옵션 선택">
+														<option>HTML</option>
+														<option>PDF</option>
+														<option>EXCEL</option>
+													</select>
+												</div>
+												<button type="button" class="btn fullblue">미리보기</button>
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<label class="required">사용자그룹</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">사용자명</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>옵션</label>
+										<div class="list-item">
+											<label for="chk_02"><input type="checkbox" id="chk_02"><span>수신확인</span></label>
+
+											<button type="button" class="btn fullblue" style="margin-right:10px;">환경설정</button>
+
+											<div class="marketingbox">
+												<label for="chk_03"><input type="checkbox" id="chk_03"><span>마케팅 수신 동의유형</span></label>
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>발송결재라인</label>
+										<div class="list-item">
+											<div class="filebox">
+												<p class="label bg-gray" style="width: calc(100% - 68px);">발송결재라인이 등록되지 않았습니다.</p>
+												<button type="button" class="btn fullblue">결재등록</button>
+											</div>
+										</div>
+									</li>
+									
+									<li class="col-full">
+										<label class="required">메일명</label>
+										<div class="list-item">
+											<input type="text" placeholder="메일명을 입력해주세요.">
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조건 -->
+
+						<!-- 메일 내용// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">메일 내용</h3>
+
+								<!-- 버튼// -->
+								<div class="btn-wrap">
+									<button type="button" class="btn">HTML등록</button>
+								</div>
+								<!-- //버튼 -->
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label class="required">메일 제목</label>
+										<div class="list-item">
+											<input type="text" placeholder="메일 제목을 입력해주세요.">
+										</div>
+									</li>
+									<li>
+										<label>함수입력</label>
+										<div class="list-item">
+											<div class="select" style="width:calc(100% - 96px);">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+											<button type="button" class="btn fullblue">제목</button>
+											<button type="button" class="btn fullblue">본문</button>
+										</div>
+									</li>
+									
+									<li class="col-full">
+										<!-- 에디터 영역// -->
+										<div class="editbox"></div>
+										<!-- //에디터 영역 -->
+									</li>
+									<li class="col-full">
+										<label class="vt">파일첨부</label>
+										<div class="list-item">
+											<button type="button" class="btn plusgray mgl0">파일선택</button>
+
+											<ul class="filelist">
+												<li>
+													<span>이벤트 이미지.png</span>
+													<em>9MB</em>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>이벤트 이미지22.png</span>
+													<em>9MB</em>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //메일 내용 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big fullblue">등록</button>
+							<button type="button" class="btn big">목록</button>
+						</div>
+						<!-- //btn-wrap -->
+							
+					</fieldset>
+				</form>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

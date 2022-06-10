@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>알림톡 신규등록 | AXon SMS</title>
+	<!-- SMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sms.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sms.js"></script>
+	<!-- //SMS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sms">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>알림톡 신규등록</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				
+				<form>
+					<fieldset>
+						<legend>조건, 알림톡, 템플릿함수등록 및 추가 수신자 목록</legend>
+
+						<!-- 조건// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조건</h3>
+								<span class="required">*필수입력 항목</span>
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li class="col-full">
+										<label class="required">예약일시</label>
+										<div class="list-item">
+											<div class="radiobox" style="display:inline-block;">
+												<label for="rdo_01"><input type="radio" id="rdo_01" name="send_condition" checked><span>즉시발송</span></label>
+												<label for="rdo_02"><input type="radio" id="rdo_02" name="send_condition"><span>예약발송</span></label>
+											</div>
+											
+											<div class="datepickertimebox" style="display:inline-block;"><!-- 3월 28일 수정 -->
+												<div class="datepickerrange fromDate" style="width:40%;">
+													<label>
+														<input type="text" readonly>
+													</label>
+												</div>
+												<div class="select" style="width:25%;">
+													<select title="옵션 선택">
+														<option>15시</option>
+														<option>15시</option>
+													</select>
+												</div>
+												<div class="select" style="width:25%;">
+													<select title="옵션 선택">
+														<option>00분</option>
+														<option>00분</option>
+													</select>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<ul>
+									<li>
+										<label class="required">캠페인명</label>
+										<div class="list-item">
+											<div class="select" style="width:calc(100% - 48px);"><!-- 3월 28일 수정 -->
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+											<button type="button" class="btn fullgreen">선택</button>
+										</div>
+									</li>
+									<li>
+										<label class="required">수신자그룹</label>
+										<div class="list-item">
+											<div class="select" style="width:calc(100% - 116px);"><!-- 3월 28일 수정 -->
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+											<button type="button" class="btn fullgreen">선택</button>
+											<button type="button" class="btn fullgreen">미리보기</button>
+										</div>
+									</li>
+									<li>
+										<label class="required">사용자그룹</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">사용자명</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">발송자명</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label class="required">발신번호</label>
+										<div class="list-item">
+											<input type="text" placeholder="02-2222-2222">
+										</div>
+									</li>
+									<li class="col-full">
+										<label class="required">알림톡명</label>
+										<div class="list-item">
+											<input type="text" placeholder="알림톡명을 입력해주세요.">
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조건 -->
+
+						<!-- 알림톡, 템플릿함수등록 및 추가 수신자 목록// -->
+						<div class="smsinfobox">
+							<div class="box">
+								<div class="title-area">
+									<h3 class="h3-title">템플릿 함수등록</h3>
+								</div>
+
+								<div class="kakao-area">
+									<!-- 미리보기 영역// -->
+									<div>
+										<div class="previewbox">
+											<span class="name">카카오 채널명</span>
+											<div class="messagebox">
+												<span class="tit">알림톡 도착</span>
+												<textarea class="message" readonly>템플릿을 선택하면 내용이 들어오면서 함수입력은 #{1번 함수} 그리고 두번째 함수는 #{2번 함수} 함수입력에서 내용을 선택하면 #{NAME} 님으로 바뀝니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.템플릿을 선택하면 내용이 들어오면서 함수입력은 #{1번 함수} 그리고 두번째 함수는 #{2번 함수} 함수입력에서 내용을 선택하면 #{NAME} 님으로 바뀝니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.템플릿을 선택하면 내용이 들어오면서 함수입력은 #{1번 함수} 그리고 두번째 함수는 #{2번 함수} 함수입력에서 내용을 선택하면 #{NAME} 님으로 바뀝니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.템플릿을 선택하면 내용이 들어오면서 함수입력은 #{1번 함수} 그리고 두번째 함수는 #{2번 함수} 함수입력에서 내용을 선택하면 #{NAME} 님으로 바뀝니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.테스트 알림톡입니다. 테스트 알림톡입니다.</textarea>
+											</div>
+										</div>
+										<!-- //미리보기 영역 -->
+										<p class="infotxt">※ 줄바꿈은 해상도에 따라 상이합니다.</p>
+									</div>
+
+									<div class="function-form">
+										<label class="bold">템플릿 선택</label>
+										<div class="select" style="margin-top:5px;margin-bottom:20px;">
+											<select title="옵션 선택">
+												<option>선택</option>
+												<option>옵션1</option>
+												<option>옵션2</option>
+											</select>
+										</div>
+										<div class="grid-area">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:10%;">
+													<col style="width:auto;">
+													<col style="width:36%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">NO</th>
+														<th scope="col">함수명칭</th>
+														<th scope="col" style="opacity:1;">함수입력</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>                
+														<td>1</td>
+														<td>#{1번 함수} </td>
+														<td>
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</td>
+													</tr>
+													<tr>                
+														<td>2</td>
+														<td>#{2번 함수} </td>
+														<td>
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</td>
+													</tr>
+													<tr>                
+														<td>3</td>
+														<td>#{3번 함수} </td>
+														<td>
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</td>
+													</tr>
+													<tr>                
+														<td>4</td>
+														<td>#{4번 함수} </td>
+														<td>
+															<div class="select">
+																<select title="옵션 선택">
+																	<option>선택</option>
+																	<option>옵션1</option>
+																	<option>옵션2</option>
+																</select>
+															</div>
+														</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+
+													<!-- 데이터가 없을 경우// -->
+													<tr>                
+														<td colspan="3" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+											</table>
+										</div>
+
+										<div class="validity-area clear">
+											<!-- <p class="infotxt color-red">* 템플릿과 유효하지 않아 SMS로 발송됩니다.</p> --><!-- 유효성 불일치 시 노출 -->
+											<button type="button" class="btn">테스트발송</button>
+											<button type="button" class="btn btn-validity">유효성 확인</button><!-- 유효성 일치 시 .fullgreen 클래스 추가 or 유효성 불일치 시 .error 클래스 추가 -->
+
+											<div class="tooltip" style="display:inline-block;">
+												<button type="button" class="tooltip-btn"><span class="hide">툴팁박스</span></button>
+
+												<div class="tooltip-cont tal" style="z-index:999;">
+													<strong class="title">템플릿 유효성 확인이란?</strong>
+													<ul>
+														<li style="margin-bottom:10px;">카카오 승인을 받은 알림톡 템플릿 형식과 내용이 유효한지 검토하는 기능입니다.</li>
+														<li>유효성 확인이 실패된 카카오 알림톡은 SMS 또는 LMS로 전송됩니다.</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="box">
+								<div class="title-area">
+									<h3 class="h3-title">추가 수신자 목록</h3>
+									<button type="button" class="btn-refresh"><span class="hide">새로고침</span></button>
+								</div>
+
+								<div class="list-area">
+									<ul>
+										
+										<li>
+											<label>직접입력</label>
+											<div class="list-item">
+												<input type="text" placeholder="연락처를 입력해주세요." style="width:calc(100% - 48px);"><!-- 3월 28일 수정 -->
+												<button type="button" class="btn fullgreen">추가</button>
+											</div>
+										</li>
+									</ul>
+
+									<div class="recipient">
+										<div class="add-num" style="height:291px;">
+											<p style="padding:0;border-top:0;">등록된 수신자가 없습니다.</p>
+											<!-- <ul class="numlist">
+												<li>
+													<span>010-1234-5678</span>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>010-1234-5678</span>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>010-1234-5678</span>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>010-1234-5678</span>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>010-1234-5678</span>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>010-1234-5678</span>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+												<li>
+													<span>010-1234-5678</span>
+													<button type="button" class="btn-del"><span class="hide">삭제</span></button>
+												</li>
+											</ul> -->
+										</div>
+										<p>
+											<span>Total</span>
+											<strong>
+												<input type="text" placeholder="1" readonly class="num-read tar">
+												명
+											</strong>
+										</p>
+									</div>
+
+									<p class="txt">*중복된 연락처는 1건만 발송됩니다. </p>
+								</div>
+							</div>
+						</div>
+						<!-- //SMS (단문메시지), 추가 수신자 목록 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big fullgreen">등록</button>
+							<button type="button" class="btn big">목록</button>
+						</div>
+						<!-- //btn-wrap -->
+							
+					</fieldset>
+				</form>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

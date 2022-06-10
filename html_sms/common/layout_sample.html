@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SMS 공통 레이아웃 | AXon SMS</title>
+	<!-- SMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sms.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sms.js"></script>
+	<!-- //SMS source -->
+
+</head>
+
+<body>
+	<div id="wrap" class="sms"><!-- sms 페이지는 sms 클래스를 붙여주세요 -->
+
+		<!-- lnb// -->
+		<div id="lnb">
+			<span class="logo-ums"><img src="../../img/sms/logo_ums.png" alt="UMS"></span>
+			<h1>AXon SMS</h1>
+			
+			<div class="btn-mail">
+				<button type="button" class="btn fullgreen" onclick="fn.popupOpen('#popup_mailsend');">신규발송</button>
+			</div>
+
+			<!-- 메뉴// -->
+			<nav>
+				<ul>
+					<li><!-- 현재페이지 : li class="active" 추가 -->
+						<a href="javascript:;" class="depth1"><span class="item01">발송일정</span></a>
+						<div class="inner-menu">
+							<ul>
+								<li><a href="javascript:;">주간일정</a></li><!-- 현재페이지 : li class="active" 추가 -->
+								<li><a href="javascript:;">월간일정</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;" class="depth1"><span class="item02">발송</span></a>
+						<div class="inner-menu">
+							<ul>
+								<li><a href="javascript:;">메시지발송</a></li>
+								<li><a href="javascript:;">카카오알림톡발송</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;" class="depth1"><span class="item03">SMS관리</span></a>
+						<div class="inner-menu">
+							<ul>
+								<li><a href="javascript:;">캠페인관리</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;" class="depth1"><span class="item04">발송통계</span></a>
+						<div class="inner-menu">
+							<ul>
+								<li><a href="javascript:;">메시지통계</a></li>
+								<li><a href="javascript:;">카카오알림톡통계</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<!-- //메뉴 -->
+		</div>
+		<!-- //lnb -->
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>대제목 영역</h2>
+				</div>
+
+				<div class="util">
+					<button type="button" class="btn-util item01">전체 서비스</button>
+					<!-- 전체서비스 툴팁// -->
+					<div class="service">
+						<a href="javascript:;">AXon EMS</a>
+						<a href="javascript:;">AXon RNS</a>
+						<a href="javascript:;">AXon SMS</a>
+						<a href="javascript:;">AXon PUSH</a>
+					</div>
+					<!-- //전체서비스 툴팁 -->
+
+					<a href="javascript:;" class="btn-util item02">공통 설정</a>
+					
+					<div class="user">
+						<div class="info">
+							<em>박명수</em>
+							<span>영업관리부</span>
+							<button type="button">열기</button>
+						</div>
+						<div class="link">
+							<a href="javascript:;">사용자 정보수정</a>
+							<a href="javascript:;">로그아웃</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				컨텐츠 영역
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_mailsend" class="poplayer popmailsend"><!-- id값 수정 가능 -->
+		<div class="inner">
+			<header>
+				<h2>신규 발송</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+					<!-- 팝업내용 -->
+					<ul class="list-wrap">
+						<li>
+							<strong>메시지발송</strong>
+							<p>
+								SMS/LMS/MMS 다양한 메시지<br>
+								발송이 필요한 경우
+							</p>
+							<a href="javascript:;">바로가기</a>
+						</li>
+						<li>
+							<strong>알림톡발송</strong>
+							<p>
+								카카오 알림톡 발송이<br>
+								필요한 경우
+							</p>
+							<a href="javascript:;">바로가기</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_mailsend');"><span class="hidden">팝업닫기</span></button><!-- onclick에 팝업 id값 통일해주세요 -->
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_mailsend');"></span><!-- onclick에 팝업 id값 통일해주세요 -->
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

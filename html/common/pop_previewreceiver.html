@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>수신자그룹 미리보기 팝업 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+		$(document).ready(function(){
+			fn.popupOpen('#popup_previewreceiver');
+		});
+	</script>
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+		<div style="padding:30px;">
+
+			<!-- 팝업 확인용 버튼// -->
+			<button type="button" class="btn big fullblue
+			" onclick="fn.popupOpen('#popup_previewreceiver');">팝업 열기</button>
+			<!-- //팝업 확인용 버튼 -->
+
+		</div>
+	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_previewreceiver" class="poplayer poppreviewreceiver"><!-- id값 수정 가능 -->
+		<div class="inner">
+			<header>
+				<h2>수신자그룹 미리보기</h2>
+			</header>
+			<div class="popcont">
+				<div class="cont">
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">조회</h3>
+						</div>
+						
+						<div class="table-area">
+							<table class="layout-fixed">
+								<caption>조회</caption>
+								<colgroup>
+									<col style="width:130px">
+									<col style="width:220px">
+									<col style="width:220px">
+									<col style="width:auto">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th scope="row">수신자그룹</th>
+										<td colspan="3">이벤트동의자</td>
+									</tr>
+									<tr>
+										<th scope="row">질의문</th>
+										<td colspan="3">
+											<span class="ellipsis">C:경로/파일명.csv C:경로/파일명.csv C:경로/파일명.csv C:경로/파일명.csv C:경로/파일명.csv C:경로/파일명.csv</span>
+										</td>
+									</tr>
+	
+									<!-- 파일연동/직접SQL인 경우 노출// -->
+									<tr class="pdtb-small">
+										<th scope="row">파일정보</th>
+										<td colspan="2">
+											파일연동/직접SQL로 등록된 수신자그룹은 일괄조회만 가능합니다.
+										</td>
+										<td><button type="button" class="btn fullblue">조회</button></td>
+									</tr>
+									<!-- //파일연동,직접SQL인 경우 노출 -->
+									
+									<!-- 추출조건,리타게팅인 경우 노출// -->
+									<tr class="pdtb-small">
+										<th scope="row">파일정보</th>
+										<td>
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</td>
+										<td><input type="text" placeholder="정보입력"></td>
+										<td>
+											<button type="button" class="btn fullblue">조회</button>
+										</td>
+									</tr>
+									<!-- //파일연동,리타게팅인 경우 노출 -->
+	
+								</tbody>
+							</table>
+						</div>
+					</div>
+	
+					<!-- 목록// -->
+					<div class="graybox">
+						<div class="title-area">
+							<h3 class="h3-title">목록</h3>
+							<span class="total">Total: <em>48</em></span>
+						</div>
+	
+						<div class="grid-area">
+							<table class="grid">
+								<caption>그리드 정보</caption>
+								<colgroup>
+									<col style="width:15%;">
+									<col style="width:15%;">
+									<col style="width:auto;">
+									<col style="width:15%;">
+									<col style="width:15%;">
+									<col style="width:15%;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col">NAME</th>
+										<th scope="col">EMAIL</th>
+										<th scope="col">ID</th>
+										<th scope="col">AGE</th>
+										<th scope="col">GENDER</th>
+										<th scope="col">BIZ</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- 데이터가 있을 경우// -->
+									<tr>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+										<td>test1</td>
+										<td>50</td>
+										<td>Female</td>
+										<td>service</td>
+									</tr>
+									<tr>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+										<td>test2</td>
+										<td>50</td>
+										<td>Female</td>
+										<td>service</td>
+									</tr>
+									<tr>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+										<td>test3</td>
+										<td>50</td>
+										<td>Female</td>
+										<td>service</td>
+									</tr>
+									<tr>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+										<td>test4</td>
+										<td>50</td>
+										<td>Female</td>
+										<td>service</td>
+									</tr>
+									<tr>
+										<td>홍길동</td>
+										<td>fehoehf@naver.com</td>
+										<td>test5</td>
+										<td>50</td>
+										<td>Female</td>
+										<td>service</td>
+									</tr>
+									<!-- //데이터가 있을 경우 -->
+				
+									<!-- 데이터가 없을 경우// -->
+									<tr>
+										<td colspan="6" class="no_data">등록된 내용이 없습니다.</td>
+									</tr>
+									<!-- //데이터가 없을 경우 -->
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- //목록 -->
+				
+					<!-- 페이징// -->
+					<div class="paging">
+						<button type="button" class="prev" disabled>이전</button><!-- 비활성시 disabled 속성 추가 -->
+						<button type="button" class="active">1</button><!-- 현재페이지 : li class="active" 추가 -->
+						<button type="button">2</button>
+						<button type="button">3</button>
+						<button type="button">4</button>
+						<button type="button">5</button>
+						<button type="button" class="next">다음</button><!-- 비활성시 disabled 속성 추가 -->
+					</div>
+					<!-- //페이징 --> 
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_previewreceiver');"><span class="hidden">팝업닫기</span></button>
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_previewreceiver');"></span>
+	</div>
+	<!-- //팝업 -->
+</body>
+</html>

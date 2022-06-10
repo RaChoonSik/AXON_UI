@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>캠페인별 메일발송목록 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+		//발송일시 : datePicker
+		var date = new Date();
+		var firstday = new Date(date.getFullYear(), date.getMonth(), "01");
+  		$(".datepickerrange.fromDate input").datepicker('setDate', firstday);
+		$(".datepickerrange.toDate input").datepicker('setDate', new Date());
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>캠페인별 메일발송목록</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				
+				<form>
+					<fieldset>
+						<legend>조회 및 목록</legend>
+
+						<!-- 조회// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">조회</h3>
+							</div>
+							
+							<div class="list-area">
+								<ul>
+									<li>
+										<label>발송일시</label>
+										<div class="list-item">
+											<!-- datepickerrange// -->
+											<div class="datepickerrange fromDate">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<span class="hyppen date"></span>
+											<div class="datepickerrange toDate">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<!-- //datepickerrange -->
+										</div>
+									</li>
+									<li>
+										<label>메일명</label>
+										<div class="list-item">
+											<input type="text" placeholder="메일명을 입력해주세요.">
+										</div>
+									</li>
+									<li>
+										<label>캠페인명</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>사용자그룹</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>사용자명</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>메일유형</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>상태</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<li>
+										<label>발송상태</label>
+										<div class="list-item">
+											<div class="select">
+												<select title="옵션 선택">
+													<option>선택</option>
+													<option>옵션1</option>
+													<option>옵션2</option>
+												</select>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //조회 -->
+
+						<!-- btn-wrap// -->
+						<div class="btn-wrap">
+							<button type="button" class="btn big fullblue">검색</button>
+							<button type="button" class="btn big">초기화</button>
+						</div>
+						<!-- //btn-wrap -->
+
+						<!-- 목록// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">목록</h3>
+								<span class="total">Total: <em>48</em></span>
+
+								<!-- 버튼// -->
+								<div class="btn-wrap">
+									<button type="button" class="btn">테스트발송</button>
+									<button type="button" class="btn">복사</button>
+									<button type="button" class="btn">사용중지</button>
+									<button type="button" class="btn">삭제</button>
+								</div>
+								<!-- //버튼 -->
+							</div>
+
+							<div class="grid-area">
+								<table class="grid">
+									<caption>그리드 정보</caption>
+									<colgroup>
+										<col style="width:5%;">
+										<col style="width:5%;">
+										<col style="width:10%;">
+										<col style="width:auto;">
+										<col style="width:8%;">
+										<col style="width:8%;">
+										<col style="width:8%;">
+										<col style="width:10%;">
+										<col style="width:8%;">
+										<col style="width:8%;">
+										<col style="width:5%;">
+									</colgroup>
+									<thead>
+										<tr>
+											<th scope="col">NO</th>
+											<th scope="col">
+												<label><input type="checkbox"><span></span></label>
+											</th>
+											<th scope="col">발송일시</th>
+											<th scope="col">메일명</th>
+											<th scope="col">캠페인명</th>
+											<th scope="col">수신자그룹</th>
+											<th scope="col">사용자명</th>
+											<th scope="col">메일유형</th>
+											<th scope="col">상태</th>
+											<th scope="col">빌송상태</th>
+											<th scope="col">보안결제</th>
+										</tr>
+									</thead>
+									<tbody>
+										<!-- 데이터가 있을 경우// -->
+										<tr>
+											<td>12</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td><a href="javascript:;" class="medium">발송대기</a></td>
+											<td>해당</td>
+										</tr>
+										<tr>
+											<td>11</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>정기</td>
+											<td>삭제</td>
+											<td class="txt-black">발송승인</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>10</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>9</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>정상</td>
+											<td class="txt-black">발송승인</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>1</td>
+											<td><label><input type="checkbox"><span></span></label></td>
+											<td>2020.07.15 00:00</td>
+											<td><a href="javascript:;" class="bold">[광고]테스트 광고입니다. 이벤트</a></td>
+											<td>든든카드 캠페인</td>
+											<td><a href="javascript:;" class="bold">이벤트동의자</a></td>
+											<td>관리자A</td>
+											<td>단기</td>
+											<td>사용중지</td>
+											<td class="txt-black">발송완료</td>
+											<td>&nbsp;</td>
+										</tr>
+										<!-- //데이터가 있을 경우 -->
+					
+										<!-- 데이터가 없을 경우// -->
+										<tr>
+											<td colspan="11" class="no_data">등록된 내용이 없습니다.</td>
+										</tr>
+										<!-- //데이터가 없을 경우 -->
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- //목록 -->
+					
+						<!-- 페이징// -->
+						<div class="paging">
+							<button type="button" class="prev" disabled>이전</button><!-- 비활성시 disabled 속성 추가 -->
+							<button type="button" class="active">1</button><!-- 현재페이지 : li class="active" 추가 -->
+							<button type="button">2</button>
+							<button type="button">3</button>
+							<button type="button">4</button>
+							<button type="button">5</button>
+							<button type="button" class="next">다음</button><!-- 비활성시 disabled 속성 추가 -->
+						</div>
+						<!-- //페이징 --> 
+							
+					</fieldset>
+				</form>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=800">
+    <title>퇴직연금 포괄적 상품 운용지시에 따른 상품매수 안내</title>
+    <style>
+        /******** reset css ********/
+        html,body,div,p,h1,h2,h3,h4,h5,h6,strong,span,label,legend, ul,ol,li,dl,dt,dd,table,thead,tbody,tr,th,td,tfoot,img,a,button,footer,section{padding:0;margin:0;}
+        ul,ol,li{list-style:none;}
+        button{background:transparent;cursor:pointer;}
+        img{max-width:100%;vertical-align:top;}
+        img,button,fieldset,table, tfoot{border:0;}
+        address{font-style:normal;}
+        label,a{display:inline-block;}
+        h2,h3,strong,em{font-weight:600;}
+        input,select,label,button,textarea{border-radius:0;-webkit-border-radius:0;background-color:transparent;color:#111;font-size:14px;line-height:normal;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;vertical-align:middle;}
+        table{width:100%;border-spacing:0;}
+        a{border:0;color:#444;text-decoration:none;}
+        a:hover{color:#0070D2;text-decoration:none;}
+        *, *:before, *:after{box-sizing:border-box;}
+        *:focus{outline:0;}
+        html,body{height:100%;}
+        legend, .hidden, .hide{position:absolute !important;top:0 !important;left:0 !important;padding:0 !important;border:0 !important;overflow:hidden !important;width:0 !important;height:0 !important;line-height:0 !important;}
+        body{width:800px;margin:0 auto;padding:30px 16px;font-family:'Noto Sans KR','맑은고딕',Malgun Gothic,'돋움', Dotum, Helvetica,'Apple SD Gothic Neo',Sans-serif;font-size:13px;font-weight:400;color:#3a3a3a;line-height:normal;box-sizing:border-box;letter-spacing:-0.07em; }
+        html, table, th, td{
+            /* Prevent font scaling in landscape */
+            -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+            -moz-text-size-adjust: none; /*Firefox*/
+            -ms-text-size-adjust: none;  /*Ie*/
+            -o-text-size-adjust: none; /*old versions of Opera*/
+        }
+
+        /******** common css ********/
+        /* section */
+        .tal{text-align:left !important;}
+        .tac{text-align:center !important;}
+        .tar{text-align:right !important;}
+        .clear:after{content:'';display:block;clear:both;}
+        .txt-black{color:#111111 !important;margin:0 !important}
+        .txt-gray{font-size:14px;color:#999999;}
+        .bold-blue{color:#0070D2 !important;font-weight:600 !important;font-size:20px !important;}
+        .title-desc{margin-bottom:50px;font-size:16px;}
+        .cont-head h1{width:173px;height:34px;text-indent:-9999px;background:url('../img/pc_logo.png') no-repeat;background-position: 0 0;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            .cont-head h1{width:173px;height:34px;background:url('../img/mb_logo.png') no-repeat cover;background-position: 0 0;}
+        }
+        .cont-head h2{margin-top:26px;font-size:33px;color:#1F1A60;}
+        .cont-body h3{position:relative;margin-bottom:20px;padding-bottom:10px;font-size:20px;color:#111; border-bottom:1px solid #CCCCCC;}
+        .cont-body h3 ~ h3{margin-top:30px;}
+        .cont-body h3:after{content:'';display:block;position:absolute;top:12px;right:10px;width:12px;height:8px; background:url('../img/arrow.png') no-repeat 0 0;}
+        .cont-body h3 .info-unit{position:absolute;top:3px;right:36px;font-size:14px;font-weight:400;color:#999;}
+        .cont-body h3 .bold-blue{top:0px;}
+        .cont-body h4{margin-bottom:10px;color:#111;font-size:16px;}
+        .cont-body h4 ~ h4{margin-top:20px;}
+        .cont-body h4 + ul {margin-bottom:20px;}
+        .cont-body ul{font-size:14px;}
+        .cont-body ol{font-size:14px;}
+        .cont-body .list-dot{margin-bottom:20px;}
+        .cont-body .list-dot li{position:relative;padding-left:10px;list-style-position:inside;font-size:14px;}
+        .cont-body .list-dot li:before{content:'•';display: inline-block;position:absolute;top:0;left:0;}
+        .cont-body .bluebox{width:100%;height:auto;margin-bottom:20px;padding:15px;background:#EFF8FF;font-size:14px;box-sizing:border-box;}
+        .cont-body .bluebox h4{position:relative;margin-bottom:10px;padding-left:20px;font-size:16px;font-weight:600;color:#111;}
+        .cont-body .bluebox h4:before{content:'';display:block;position:absolute;top:5px;left:0px; width:16px;height:16px;padding-right:5px;background:url('../img/ico_info.png') no-repeat;}
+        .cont-body .bluebox strong{font-size:16px;color:#4D4D4D;}
+        .cont-body .bluebox strong.dot{display:inline-block;margin-bottom:10px;color:#111;}
+        .cont-body .bluebox strong.dot:before{content:'•';display:inline-block;padding-right:6px;}
+        .cont-body .bluebox strong.check{position:relative;font-weight:600;color:#0070D2;}
+        .cont-body .bluebox strong.check:before{content:'';display: inline-block;}
+
+        .tab-menu{height:40px;margin-top:30px;margin-bottom:50px;}
+        .tab-menu > button{display:block;float:left;min-width:160px;height:40px;margin-left:4px;background:#EFEFEF;font-size:16px;color:#4d4d4d;text-align:center;line-height:40px;}
+        .tab-menu > button:first-child{margin-left:0;}
+        .tab-menu > button.active,
+        .tab-menu > button:hover{background:#0070D2;color:#fff;font-weight:600;}
+        .tab-content{display:none;}
+        .tab-content.active{display:block;}
+
+        table{margin-bottom:30px;}
+        table tr:first-child th, table tr:first-child td{border-top:1px solid #DADADA;}
+        table tr > th:first-child{border-left:0}
+        table th{padding:5px;background:#CCE9FF;font-size:12px;font-weight:600;border-bottom:1px solid #DADADA;border-left:1px solid #DADADA;}
+        table td{padding:5px 10px;background:#fff;font-size: 12px;text-align:center;border-bottom: 1px solid #DADADA;border-left:1px solid #DADADA;}
+        .tab ul + table{margin-bottom:20px;}
+        .tab .table-title{margin-bottom:10px;font-size:14px;}
+        .tab .total-bold{font-weight:600;color:#4d4d4d;}
+        .tab .image-box {overflow:hidden;}
+        .tab .image-box img{width:100%;}
+
+        /* 파란배경이 없는 테이블의 경우 .table-white 클래스 사용*/
+        .table-white th{background:#fff;text-align:left;border:0;}
+        .table-white td{background:#fff;text-align:left;border:0;}
+        .table-white tr:first-child th, .tab .table-white tr:first-child td{border-top:0;}
+        .tab .caution ul {color:#999; list-style:none !important;text-indent:0;margin-bottom:0;padding-left:14px;}
+        .tab .caution ul li:before {content:"\2022";color:#dadada !important;font-weight:bold;display:inline-block;width:1em;margin-left:-1em;}
+        .tab .caution p{color:#999;font-size:14px;}
+
+        /* 푸터 */
+        footer{padding-top:80px;padding-bottom:30px;color:#9A9A9A;}
+        footer dl{display: table;}
+        footer dt,footer dd{display: table-cell;}
+        footer .footer-logo{width:126px;height:26px;text-indent:-9999px;background:url('../img/pc_logogray.png') no-repeat;background-size:contain;background-position: 0 0;}
+        footer dd{padding-left:36px;}
+        footer p{padding-top:10px;}
+        @media screen and (min-width:360px) and (max-width:720px){
+            footer .footer-logo{background:url('../img/mb_logogray.png') no-repeat cover; background-position: 0 0;}
+        }
+    </style>
+    <script>
+        'use strict';
+        window.onload = function(){
+
+            /* Function :: tab - inside tab */
+            // IE11 forEach support
+            if (window.NodeList && !NodeList.prototype.forEach) {
+                NodeList.prototype.forEach = Array.prototype.forEach;
+            }
+
+            function findParent(el, className){
+                var check = el.parentNode.classList.contains(className);
+            
+                if(check == true){
+                    return el.parentNode;
+                }else{
+                    return findParent(el.parentNode, className);
+                }
+            }
+
+            function bindingTab(container){
+                var containEl = document.querySelectorAll(container);
+            
+                containEl.forEach(function(tabArea){
+                    var tabLink = tabArea.querySelectorAll('.tab-link');
+                    
+                    tabLink.forEach(function(item){
+
+                        item.addEventListener('click', function(){
+                            // 변수설정
+                            var parent = findParent(this, 'tab');
+                            var idx = this.dataset['idx'];
+                            var depth = this.dataset['depth'];
+                            var tabLinkArr = parent.querySelectorAll('.tab-link[data-depth="'+ depth +'"]');
+                            var contentArr = parent.querySelectorAll('.tab-content[data-depth="'+ depth +'"]');
+                            
+                            // 활성화
+                            tabLinkArr.forEach(function(tabLink){ tabLink.classList.remove('active'); });
+                            this.classList.add('active');
+                            contentArr.forEach(function(content){ content.classList.remove('active'); });
+                            parent.querySelector('.tab-content[data-idx="'+ idx +'"][data-depth="'+ depth +'"]').classList.add('active');
+
+                        });
+                    });
+                });
+            }
+            bindingTab('.tab-wrap');
+        }
+    </script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="content">
+            <section class="cont-head">
+                <h1>광주은행</h1>
+                <h2>
+                    퇴직연금 포괄적 상품<br>
+                    운용지시에 따른 상품매수 안내
+                </h2>
+                <p class="title-desc" style="margin-top:30px;margin-bottom:50px;">
+                    안녕하십니까? 홍길동 고객님<br>
+                    언제나 변함없는 관심과 사랑으로 광주은행을 이용해주셔서 진심으로 감사드립니다.<br>
+                    고객님이 가입하신 퇴직연금의 보유상품변경 신청 내역을 아래와 같이 안내해드립니다.
+                </p>
+            </section>
+            <section class="cont-body">
+                <h3>퇴직연금 가입정보</h3>
+                <table>
+                    <colgroup>
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                        <col style="width:25%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="row">기업명</th>
+                            <td>&nbsp;</td>
+                            <th scope="row">사업자번호</th>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">제도</th>
+                            <td>개인IRP</td>
+                            <th scope="row">계좌번호</th>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">가입자명</th>
+                            <td>홍길동</td>
+                            <th scope="row">생년월일</th>
+                            <td>1965.12.23</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">신규일자</th>
+                            <td>2005.12.23</td>
+                            <th scope="row">가입자계좌번호</th>
+                            <td>1234-000-***890</td>
+                        </tr>
+                    </tbody> 
+                </table>
+                <h3>매수상품정보 <span class="info-unit">기준일자 2021.02.28</span></h3>
+                <h4>포괄적 상품운용지시 내용 : 저축은행 1년 정기예금</h4>
+                <table style="margin-bottom:10px;">
+                    <colgroup>
+                        <col style="width:8%;">
+                        <col style="width:15%;">
+                        <col style="width:auto;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                        <col style="width:12%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">상품제공기관</th>
+                            <th scope="col">상품명</th>
+                            <th scope="col">매수금액</th>
+                            <th scope="col">적용이율</th>
+                            <th scope="col">매수일</th>
+                            <th scope="col">만기일</th>
+                        </tr>
+                        <tr>
+                            <td style="border-left:none;">신규</td>
+                            <td>스마트저축은행</td>
+                            <td>(스마트저축은행) 개인형 IRP<br>정기예금 1년</td>
+                            <td>12,000,000원</td>
+                            <td>1.25%</td>
+                            <td>2021.02.27</td>
+                            <td>2022.02.27</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="txt-gray">* 상품에 대한 약관 및 상품설명서는 아래의 은행별 약관/상품설명서를 다운로드하여 확인해주시기 바랍니다.</p>
+                <div class="bluebox" style="margin-top:30px;margin-bottom:50px;">
+                    <ul>
+                        <li>※ 확정급여형(DB) 금융상품은 예금자보호법에 따라 예금보험공사가 보호하지 않습니다.</li>
+                        <li>
+                            ※ 확정기여형(DC) 또는 개인형IRP의 퇴직연금은 예금자보호법에 따라 예금보험공사가 보호하되, 보호한도는 귀하의 다른 예금보호상품과는 별도로 1인당 '최고 5천만원'이며 
+                            5천만원을 초과하는 나머지 금액은 보호하지 않습니다. 단, 2개 이상 퇴직연금에 가입한 경우 합하여 5천만원까지 보호합니다.
+                        </li>
+                        <li>※ 원리금보장상품(펀드 등)으로 운용되는 적립금은 예금자보호법에 따라 예금보험공사가 보호하지 않으며, 원금손실이 발생할 수 있고, 그 손실은 투자자에게 귀속됩니다.</li>
+                    </ul>
+                </div>
+                <table style="margin-bottom:20px;padding-bottom:50px;border-bottom:1px solid #CCCCCC;">
+                    <colgroup>
+                        <col style="width:16%;">
+                        <col style="width:28%;">
+                        <col style="width:28%;">
+                        <col style="width:28%;">
+                    </colgroup>
+                    <tbody>
+                        <tr>
+                            <th scope="col">구분</th>
+                            <th scope="col">은행명</th>
+                            <th scope="col">약관</th>
+                            <th scope="col">상품설명서</th>
+                        </tr>
+                        <tr>
+                            <th scope="row" rowspan="8" style="background:#fff;font-weight:400;">시중은행</th>
+                            <td>국민은행</td>
+                            <td class="color-red"><!-- 다운로드 텍스트 - a태그 추가 2022.02.11 -->
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>우리은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>농협은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>산업은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>대구은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>경남은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>전북은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>제주은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" rowspan="4" style="background:#fff;font-weight:400;">저축은행</th>
+                            <td>SBI저축은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OK저축은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>페퍼저축은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>유진저축은행</td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                            <td class="color-red">
+                                <a href="">[다운로드]</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="txt-gray tar">
+                    2021년 09월 27일<br>
+                    ㈜광주은행 영업부점 (TEL : 062-239-5000)
+                </p>
+                
+            </section>
+
+            <footer>
+                <dl >
+                    <dt class="footer-logo">광주</dt>
+                    <dd>
+                        <address>㈜광주은행, 광주광역시 동구 제봉로 225</address>
+                        대표전화 <a href="tel:062-239-5000" style="color:#0070D2;text-decoration:underline;">062-239-5000</a> | 고객센터 <a href="tel:1600-4000" style="color:#0070D2;text-decoration:underline;">1600-4000</a>, <a href="tel:1588-3388" style="color:#0070D2;text-decoration:underline;">1588-3388</a> 
+                    </dd>
+                </dl>
+                <p>Copyright 2021 KWANGJU BANK</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

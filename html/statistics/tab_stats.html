@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>단기메일 통계분석 | AXon EMS</title>
+	<!-- EMS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_ems.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
+	<!-- //EMS source -->
+
+	<script>
+	$(document).ready(function(){
+		
+		/* 발송결과 파이차트 */
+		var circleChartDom = document.getElementById('circleChart');
+		var circleChart = echarts.init(circleChartDom);
+		var circleChartoption;
+		var piecolor = ['#5660F0', '#F9984E'];
+		circleChartoption = {
+			tooltip: {
+				trigger: 'item'
+			},
+			legend: {
+				bottom: '2%',
+				right: 'right',
+				icon:'circle',
+				itemGap: 15,
+				textStyle: {
+					color: "#444",
+					fontFamily: 'NotoSansKR',
+					fontSize: 14,
+					fontWeight: '500'
+				},
+			},
+			series: [
+				{
+					type: 'pie',
+					top: '30px',
+					color: piecolor,
+					radius: ['60%', '93%'],
+					avoidLabelOverlap: false,
+					label: {
+						show: false,
+						position: 'center'
+					},
+					emphasis: {
+						label: {
+							show: true,
+							fontFamily: 'NotoSansKR',
+							fontSize: '13',
+							fontWeight: '600'
+						}
+					},
+					labelLine: {
+						show: false
+					},
+					data: [
+						{value: 90, name: '성공 : 90'},
+						{value: 10, name: '실패 : 10'},
+					]
+				}
+			],
+		};
+		circleChartoption && circleChart.setOption(circleChartoption);
+
+
+		/* 반응결과 막대그래프 */
+		var barChart  = echarts.init(document.querySelector('#barChart'), null);
+		var barChartoption = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					type: 'shadow'
+				}
+			},
+			grid: {
+				left: '0',
+				right: '4%',
+				bottom: '0',
+				y: '30px',
+				containLabel: true,
+			},
+			xAxis: {
+				type: 'value',
+				boundaryGap: [0, 0.01],
+				axisLabel:{
+					color: '#666',
+					fontFamily: 'NotoSansKR',
+					fontSize: '13'
+				}
+			},
+			yAxis: {
+				type: 'category',
+				axisLabel:{
+					color: '#444',
+					fontFamily: 'NotoSansKR',
+					fontSize: '14',
+					fontWeight: '600',
+				},
+				axisTick: {
+					show: false
+				},
+				data: ['수신거부', '링크클릭수', '유효오픈', '오픈수', '성공수']
+			},
+			series: [
+				{
+					name: '반응결과',
+					type: 'bar',
+					itemStyle:{
+						color: '#5668F0',
+					},
+					data: [25, 40, 60, 80, 180]
+				}
+			]
+		};
+		barChart.setOption(barChartoption);
+		
+		/* 메일발송단계 막대그래프 */
+		var barStepChart  = echarts.init(document.querySelector('#barStepChart'), null);
+		var barStepChartoption = {
+			tooltip: {
+				trigger: 'axis',
+				axisPointer: {
+					type: 'shadow'
+				}
+			},
+			grid: {
+				left: '0',
+				right: '4%',
+				bottom: '0',
+				y: '30px',
+				containLabel: true,
+			},
+			xAxis: {
+				type: 'value',
+				boundaryGap: [0, 0.01],
+				axisLabel:{
+					color: '#666',
+					fontFamily: 'NotoSansKR',
+					fontSize: '13'
+				}
+			},
+			yAxis: {
+				type: 'category',
+				axisLabel:{
+					color: '#444',
+					fontFamily: 'NotoSansKR',
+					fontSize: '14',
+					fontWeight: '600',
+				},
+				axisTick: {
+					show: false
+				},
+				data: ['QUIT', 'DOT', 'DATA', 'RESET', 'RCPTTO', 'MAILFROM', 'HELO', 'Connent', 'Network', 'Domain', 'Mail Body', 'DB Agent', 'Web Agent', 'Syntax']
+			},
+			series: [
+				{
+					name: '메일발송단계',
+					type: 'bar',
+					itemStyle:{
+						color: '#5668F0',
+					},
+					data: [2, 4, 6, 8, 18, 14, 5, 1, 2, 13, 18, 5, 12, 7]
+				}
+			]
+		};
+		barStepChart.setOption(barStepChartoption);
+
+
+		//그래프 반응형
+		window.addEventListener('resize',function(){
+			barChart.resize();
+			barStepChart.resize();
+		});
+		
+
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="ems">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>단기메일 통계분석</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				<form>
+					<fieldset>
+						<legend>메일분석 및 결과</legend>
+					
+						<!-- 메일분석// -->
+						<div class="graybox">
+							<div class="title-area">
+								<h3 class="h3-title">메일분석</h3>
+							</div>
+
+							<div class="table-area">
+								<table>
+									<caption>메일분석</caption>
+									<colgroup>
+										<col style="width:15%">
+										<col style="width:35%">
+										<col style="width:15%">
+										<col style="width:35%">
+									</colgroup> 
+									<tbody>
+										<tr>
+											<th>발송일시</th>
+											<td>2021-06-28 16:09 ~ 2021-06-28 16:09</td>
+											<th>수신자그룹</th>
+											<td>수신자 등록</td>
+										</tr>
+										<tr>
+											<th>캠페인명</th>
+											<td>발송테스트</td>
+											<th>캠페인목적</th>
+											<td>관리자 테스트용</td>
+										</tr>
+										<tr>
+											<th>메일명</th>
+											<td colspan="3">정기발송 - [test]</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- //메일분석 -->
+						
+						<!-- tab// -->
+						<div class="tab">
+							<div class="tab-menu col6">
+								<a href="javascript:;" class="active">결과요약</a>
+								<a href="javascript:;">세부에러</a>
+								<a href="javascript:;">도메인별</a>
+								<a href="javascript:;">발송시간별</a>
+								<a href="javascript:;">응답시간별</a>
+								<a href="javascript:;">고객별</a>
+							</div>
+							<div class="tab-cont">
+
+								<!-- tab-cont : 결과요약// -->
+								<div class="active">
+									<!-- 발송결과// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">발송결과</h3>
+										</div>
+										<div class="grid-area piegraph-wrap">
+											<div class="piegraph">
+												<canvas id="circleChart" width="390" height="220"></canvas>
+											</div>
+											
+											<table class="grid type-border">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:34%;">
+													<col style="width:33%;">
+													<col style="width:33%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">대상수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td rowspan="2">0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>0%</td>
+														<td>0%</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- //발송결과 -->
+									
+									<!-- 반응결과// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">반응결과</h3>
+										</div>
+										<div class="grid-area pt0 pb20">
+											<table class="grid type-border">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:auto;">
+													<col style="width:18%;">
+													<col style="width:18%;">
+													<col style="width:18%;">
+													<col style="width:18%;">
+													<col style="width:18%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">&nbsp;</th>
+														<th scope="col">성공수</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">링크클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<th scope="row">발송수</th>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<th scope="row">성공대비</th>
+														<td>0</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+													</tr>
+													<tr>
+														<th scope="row">전체대비</th>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+													</tr>
+												</tbody>
+											</table>
+											
+											<div class="bar-chartwrap" style="height:230px;"><!-- 그래프 영역 높이 잡아줘야함 -->
+												<div id="barChart"></div>
+											</div>
+										</div>
+									</div>
+									<!-- //반응결과 -->
+									
+									<!-- 세부에러 - 메일전송 전단계// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">세부에러 - 메일전송 전단계</h3>
+										</div>
+										<div class="grid-area pt0 pb20">
+											<table class="grid type-border">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:auto;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">Syntax</th>
+														<th scope="col">Web Agent</th>
+														<th scope="col">DB Agent</th>
+														<th scope="col">Mail Body</th>
+														<th scope="col">Domain</th>
+														<th scope="col">Network</th>
+														<th scope="col">합계</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- //세부에러 - 메일전송 전단계 -->
+
+									<!-- 메일발송단계// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">메일발송단계</h3>
+										</div>
+										<div class="grid-area pt0 pb20">
+											<table class="grid type-border">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:auto;">
+													<col style="width:11%;">
+													<col style="width:13%;">
+													<col style="width:11%;">
+													<col style="width:11%;">
+													<col style="width:10%;">
+													<col style="width:10%;">
+													<col style="width:10%;">
+													<col style="width:11%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">CONNECT</th>
+														<th scope="col">HELO</th>
+														<th scope="col">MAIL FROM</th>
+														<th scope="col">RCPT TO</th>
+														<th scope="col">RESET</th>
+														<th scope="col">DATA</th>
+														<th scope="col">DOT</th>
+														<th scope="col">QUIT</th>
+														<th scope="col">합계</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<tr>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+														<td>0%</td>
+													</tr>
+												</tbody>
+											</table>
+											
+											<div class="barstep-chartwrap" style="height:460px;"><!-- 그래프 영역 높이 잡아줘야함 -->
+												<div id="barStepChart"></div>
+											</div>
+										</div>
+									</div>
+									<!-- //메일발송단계 -->
+			
+									<!-- btn-wrap// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn big">목록</button>
+									</div>
+									<!-- //btn-wrap -->
+								</div>
+								<!-- //tab-cont : 결과요약 -->
+
+								<!-- tab-cont : 세부에러// -->
+								<div>
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">메일 에러 종류별 건수 <span class="mgl40">총에러건수 : 4</span></h3>
+										</div>
+										
+										<div class="grid-area pb20">
+											<table class="grid type-border type-pdlarge">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:34%;">
+													<col style="width:33%;">
+													<col style="width:33%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">대분류건수</th>
+														<th scope="col">중분류건수</th>
+														<th scope="col">소분류건수</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td rowspan="6">메일발송 전 단계 : 4</td>
+														<td class="tar">Syntax : 0</td>
+														<td class="tar">Syntax : 0</td>
+													</tr>
+													<tr>
+														<td class="tar">WebAgent : 0</td>
+														<td class="tar">WebAgent : 0</td>
+													</tr>
+													<tr>
+														<td class="tar">DBAgent : 0</td>
+														<td class="tar">DBAgent : 0</td>
+													</tr>
+													<tr>
+														<td class="tar">Mailbody: 0</td>
+														<td class="tar">Mailbody: 0</td>
+													</tr>
+													<tr>
+														<td class="tar">Domain: 0</td>
+														<td class="tar">Domain: 0</td>
+													</tr>
+													<tr>
+														<td class="tar">Network: 4</td>
+														<td class="tar">Network: 4</td>
+													</tr>
+													<tr>
+														<td rowspan="6">메일발송 단계 : 0</td>
+														<td class="tar">Syntax : 0</td>
+														<td class="tar">Syntax : 0</td>
+													</tr>
+													<tr>
+														<td class="tar">WebAgent : 0</td>
+														<td class="tar">WebAgent : 0</td>
+													</tr>
+													<tr>
+														<td class="tar">DBAgent : 0</td>
+														<td class="tar">DBAgent : 0</td>
+													</tr>
+													<tr>
+														<td class="tar">Mailbody: 0</td>
+														<td class="tar">Mailbody: 0</td>
+													</tr>
+													<tr>
+														<td class="tar">Domain: 0</td>
+														<td class="tar">Domain: 0</td>
+													</tr>
+													<tr>
+														<td class="tar">Network: 4</td>
+														<td class="tar">Network: 4</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- //발송결과 -->
+			
+									<!-- btn-wrap// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn big">목록</button>
+									</div>
+									<!-- //btn-wrap -->
+								</div>
+								<!-- //tab-cont : 세부에러 -->
+
+								<!-- tab-cont : 도메인별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:9%;">
+													<col style="width:auto;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">NO</th>
+														<th scope="col">도메인명</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">발송단계에러</th>
+														<th scope="col">성공률</th>
+														<th scope="col">실패율</th>
+														<th scope="col">발송단계에러율</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>1</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<tr>
+														<td>4</td>
+														<td class="tal">hanmail.net</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="9" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2">합계</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0%</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+			
+									<!-- btn-wrap// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn big">목록</button>
+									</div>
+									<!-- //btn-wrap -->
+								</div>
+								<!-- //tab-cont : 도메인별 -->
+
+								<!-- tab-cont : 발송시간별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:9%;">
+													<col style="width:auto;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+													<col style="width:15%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">NO</th>
+														<th scope="col">시간</th>
+														<th scope="col">발송수</th>
+														<th scope="col">성공수</th>
+														<th scope="col">실패수</th>
+														<th scope="col">성공률</th>
+														<th scope="col">실패율</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>1</td>
+														<td>2021-07-29 17시</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="7" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2">합계</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+														<td>100%</td>
+														<td>0%</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+			
+									<!-- btn-wrap// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn big">목록</button>
+									</div>
+									<!-- //btn-wrap -->
+								</div>
+								<!-- //tab-cont : 발송시간별 -->
+
+								<!-- tab-cont : 응답시간별// -->
+								<div>
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+										</div>
+
+										<div class="grid-area pb20">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:9%;">
+													<col style="width:auto;">
+													<col style="width:17%;">
+													<col style="width:17%;">
+													<col style="width:17%;">
+													<col style="width:17%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">NO</th>
+														<th scope="col">시간</th>
+														<th scope="col">오픈수</th>
+														<th scope="col">유효오픈수</th>
+														<th scope="col">클릭수</th>
+														<th scope="col">수신거부</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>1</td>
+														<td>2021-07-29 17시</td>
+														<td>2</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="6" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+												<tfoot>
+													<tr>
+														<td colspan="2">합계</td>
+														<td>2</td>
+														<td>0</td>
+														<td>0</td>
+														<td>0</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+			
+									<!-- btn-wrap// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn big">목록</button>
+									</div>
+									<!-- //btn-wrap -->
+								</div>
+								<!-- //tab-cont : 응답시간별 -->
+
+								<!-- tab-cont : 고객별// -->
+								<div>
+									<!-- 조회// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">조회</h3>
+										</div>
+										
+										<div class="list-area">
+											<ul>
+												<li>
+													<label>ID</label>
+													<div class="list-item">
+														<input type="text" placeholder="ID를 입력해주세요.">
+													</div>
+												</li>
+												<li>
+													<label>이메일</label>
+													<div class="list-item">
+														<input type="text" placeholder="이메일을 입력해주세요.">
+													</div>
+												</li>
+												<li>
+													<label>고객명</label>
+													<div class="list-item">
+														<input type="text" placeholder="고객명을 입력해주세요.">
+													</div>
+												</li>
+												<li>
+													<label>검색유형</label>
+													<div class="list-item">
+														<div class="select">
+															<select title="옵션 선택">
+																<option>선택</option>
+																<option>옵션1</option>
+																<option>옵션2</option>
+															</select>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<!-- //조회 -->
+
+									<!-- btn-wrap// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn big fullblue">검색</button>
+										<button type="button" class="btn big">초기화</button>
+									</div>
+									<!-- //btn-wrap -->
+
+									<!-- 목록// -->
+									<div class="graybox">
+										<div class="title-area">
+											<h3 class="h3-title">목록</h3>
+											<span class="total">Total: <em>48</em></span>
+
+											<!-- 버튼// -->
+											<div class="btn-wrap">
+												<button type="button" class="btn fullblue">엑셀 다운로드</button>
+											</div>
+											<!-- //버튼 -->
+										</div>
+
+										<div class="grid-area">
+											<table class="grid">
+												<caption>그리드 정보</caption>
+												<colgroup>
+													<col style="width:5%;">
+													<col style="width:9%;">
+													<col style="width:auto;">
+													<col style="width:7%;">
+													<col style="width:10%;">
+													<col style="width:10%;">
+													<col style="width:10%;">
+													<col style="width:9%;">
+													<col style="width:10%;">
+													<col style="width:10%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col">NO</th>
+														<th scope="col">ID</th>
+														<th scope="col">이메일</th>
+														<th scope="col">고객명</th>
+														<th scope="col">발송여부</th>
+														<th scope="col">발송시간</th>
+														<th scope="col">수신여부</th>
+														<th scope="col">수신거부</th>
+														<th scope="col">수신시간</th>
+														<th scope="col">Message</th>
+													</tr>
+												</thead>
+												<tbody>
+													<!-- 데이터가 있을 경우// -->
+													<tr>
+														<td>10</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>9</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>8</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>7</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>6</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>5</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>4</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>3</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>2</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<tr>
+														<td>1</td>
+														<td>test1</td>
+														<td>hoesgh@naver.com</td>
+														<td>홍길동</td>
+														<td>발송실패</td>
+														<td>2020.07.15 00:00</td>
+														<td>미확인</td>
+														<td>수신허용</td>
+														<td></td>
+														<td>003 오류메세지 세줄에서 네줄정도</td>
+													</tr>
+													<!-- //데이터가 있을 경우 -->
+								
+													<!-- 데이터가 없을 경우// -->
+													<tr>
+														<td colspan="10" class="no_data">등록된 내용이 없습니다.</td>
+													</tr>
+													<!-- //데이터가 없을 경우 -->
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<!-- //목록 -->
+			
+									<!-- btn-wrap// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn big">목록</button>
+									</div>
+									<!-- //btn-wrap -->
+								</div>
+								<!-- //tab-cont : 고객별 -->
+							</div>
+						</div>
+						<!-- //tab -->
+
+					</fieldset>
+				</form>
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

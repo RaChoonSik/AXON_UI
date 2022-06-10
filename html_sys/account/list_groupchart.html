@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>조직도 목록 | AXon UMS</title>
+	<!-- SYS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_sys.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/sys.js"></script>
+	<!-- //SYS source -->
+
+	<script>
+	$(document).ready(function(){
+	});
+	</script>
+
+</head>
+
+<body>
+	<div id="wrap" class="sys">
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>조직도 목록</h2>
+				</div>
+
+				<!-- 공통 레이아웃 참조(layout_sample.html)
+				<div class="util">
+				</div>
+				 -->
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+
+				<div class="groupchart-box">
+					<form>
+						<fieldset>
+							<legend>조회 및 목록</legend>
+	
+							<!-- 조회// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">조회</h3>
+								</div>
+								
+								<div class="list-area">
+									<ul>
+										<li>
+											<label>부서코드</label>
+											<div class="list-item">
+												<input type="text" placeholder="부서코드을 입력해주세요.">
+											</div>
+										</li>
+										<li>
+											<label>부서명</label>
+											<div class="list-item">
+												<input type="text" placeholder="부서명을 입력해주세요.">
+											</div>
+										</li>
+										<li>
+											<label>상위부서명</label>
+											<div class="list-item">
+												<div class="select">
+													<select title="옵션 선택">
+														<option>선택</option>
+														<option>옵션1</option>
+														<option>옵션2</option>
+													</select>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- //조회 -->
+	
+							<!-- btn-wrap// -->
+							<div class="btn-wrap">
+								<button type="button" class="btn big fullred">검색</button>
+								<button type="button" class="btn big">초기화</button>
+							</div>
+							<!-- //btn-wrap -->
+	
+	
+							<!-- 목록// -->
+							<div class="graybox">
+								<div class="title-area">
+									<h3 class="h3-title">목록</h3>
+									<span class="total">Total: <em>48</em></span>
+	
+									<!-- 버튼// -->
+									<div class="btn-wrap">
+										<button type="button" class="btn fullred plus">신규등록</button>
+										<button type="button" class="btn">삭제</button>
+									</div>
+									<!-- //버튼 -->
+								</div>
+	
+								<!-- gridtoggle-area// -->
+								<div class="gridtoggle-area">
+									<div class="grid">
+										<ul class="gridhead">
+											<li class="col checkbox">
+												<label><input type="checkbox"><span></span></label>
+											</li>
+											<li class="col departmentcode">부서코드</li>
+											<li class="col departmentname">부서명</li>
+											<li class="col registrant">등록자</li>
+											<li class="col enrolldate">등록일</li>
+										</ul>
+	
+										<ul class="gridbody">
+											<li>
+												<ul class="toggle-unfold">
+													<!-- H0001// -->
+													<li class="depth1">
+														<ul>
+															<li class="col-box">
+																<span class="col checkbox">
+																	<label><input type="checkbox"><span></span></label>
+																</span>
+																<span class="col departmentcode">
+																	<button type="button" class="btn-toggle">H0001</button>
+																</span>
+																<span class="col departmentname">
+																	<a href="javascript:;" class="bold">영업관리심사시스템본부</a>
+																</span>
+																<span class="col registrant">슈퍼관리자</span>
+																<span class="col enrolldate">2021.07.26</span>
+															</li>
+														</ul>
+	
+														<!-- 2depth// -->
+														<ul class="depth2">
+															<!-- D0001// -->
+															<li>
+																<ul>
+																	<li class="col-box">
+																		<span class="col checkbox">
+																			<label><input type="checkbox"><span></span></label>
+																		</span>
+																		<span class="col departmentcode">
+																			<span class="last">D0001</span>
+																		</span>
+																		<span class="col departmentname">
+																			<a href="javascript:;" class="bold">서울영업부1</a>
+																		</span>
+																		<span class="col registrant">슈퍼관리자</span>
+																		<span class="col enrolldate">2021.07.26</span>
+																	</li>
+																</ul>
+															</li>
+															<!-- //D0001 -->
+
+															<!-- D0002// -->
+															<li>
+																<ul>
+																	<li class="col-box">
+																		<span class="col checkbox">
+																			<label><input type="checkbox"><span></span></label>
+																		</span>
+																		<span class="col departmentcode">
+																			<span class="last">D0002</span>
+																		</span>
+																		<span class="col departmentname">
+																			<a href="javascript:;" class="bold">호남영업부</a>
+																		</span>
+																		<span class="col registrant">SYSTEM</span>
+																		<span class="col enrolldate">2021.07.26</span>
+																	</li>
+																</ul>
+															</li>
+															<!-- //D0002 -->
+														</ul>
+														<!-- //2depth -->
+													</li>
+													<!-- //H0001 -->
+
+													<!-- H0002// -->
+													<li class="depth1">
+														<ul>
+															<li class="col-box">
+																<span class="col checkbox">
+																	<label><input type="checkbox"><span></span></label>
+																</span>
+																<span class="col departmentcode">
+																	<button type="button" class="btn-toggle">H0002</button>
+																</span>
+																<span class="col departmentname">
+																	<a href="javascript:;" class="bold">기획본부</a>
+																</span>
+																<span class="col registrant">SYSTEM</span>
+																<span class="col enrolldate">2021.07.26</span>
+															</li>
+														</ul>
+
+														<!-- 2depth// -->
+														<ul class="depth2">
+															<!-- D0011// -->
+															<li>
+																<ul>
+																	<li class="col-box">
+																		<span class="col checkbox">
+																			<label><input type="checkbox"><span></span></label>
+																		</span>
+																		<span class="col departmentcode">
+																			<button type="button" class="btn-toggle">D0011</button>
+																		</span>
+																		<span class="col departmentname">
+																			<a href="javascript:;" class="bold">해외기획부</a>
+																		</span>
+																		<span class="col registrant">SYSTEM</span>
+																		<span class="col enrolldate">2021.07.26</span>
+																	</li>
+																</ul>
+
+																<!-- 3depth// -->
+																<ul class="depth3">
+																	<li>
+																		<ul>
+																			<li class="col-box">
+																				<span class="col checkbox">
+																					<label><input type="checkbox"><span></span></label>
+																				</span>
+																				<span class="col departmentcode">
+																					<button type="button" class="btn-toggle">T0021</button>
+																				</span>
+																				<span class="col departmentname">
+																					<a href="javascript:;" class="bold">해외기획 1팀</a>
+																				</span>
+																				<span class="col registrant">SYSTEM</span>
+																				<span class="col enrolldate">2021.07.26</span>
+																			</li>
+																		</ul>
+																		<ul class="depth4">
+																			<li class="col-box">
+																				<span class="col checkbox">
+																					<label><input type="checkbox"><span></span></label>
+																				</span>
+																				<span class="col departmentcode">
+																					<span class="last">T0022</span>
+																				</span>
+																				<span class="col departmentname">
+																					<a href="javascript:;" class="bold">기획총괄팀</a>
+																				</span>
+																				<span class="col registrant">SYSTEM</span>
+																				<span class="col enrolldate">2021.07.26</span>
+																			</li>
+																		</ul>
+																	</li>
+																	<li class="col-box">
+																		<span class="col checkbox">
+																			<label><input type="checkbox"><span></span></label>
+																		</span>
+																		<span class="col departmentcode">
+																			<span class="last">T0021</span>
+																		</span>
+																		<span class="col departmentname">
+																			<a href="javascript:;" class="bold">국내지사광고마케팅관리팀</a>
+																		</span>
+																		<span class="col registrant">SYSTEM</span>
+																		<span class="col enrolldate">2021.07.26</span>
+																	</li>
+																</ul>
+																<!-- //3depth -->
+															</li>
+															<!-- //D0011 -->
+														</ul>
+														<!-- //2depth -->
+													</li>
+													<!-- //H0002 -->
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- //gridtoggle-area -->
+							</div>
+							<!-- //목록 -->
+						
+							<!-- 페이징// -->
+							<div class="paging">
+								<button type="button" class="prev" disabled>이전</button><!-- 비활성시 disabled 속성 추가 -->
+								<button type="button" class="active">1</button><!-- 현재페이지 : li class="active" 추가 -->
+								<button type="button">2</button>
+								<button type="button">3</button>
+								<button type="button">4</button>
+								<button type="button">5</button>
+								<button type="button" class="next">다음</button><!-- 비활성시 disabled 속성 추가 -->
+							</div>
+							<!-- //페이징 --> 
+								
+						</fieldset>
+					</form>
+				</div>
+
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+
+	</div>
+
+</body>
+</html>

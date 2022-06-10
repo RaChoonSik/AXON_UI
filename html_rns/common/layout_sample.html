@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
+	<meta name="Author" content="enders">
+	<meta name="keywords" content="UMS">
+	<meta name="description" content="UMS 광주은행 사이트">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>RNS 공통 레이아웃 | AXon RNS</title>
+	<!-- RNS source// -->
+	<link rel="stylesheet" href="../../css/reset.css">
+	<link rel="stylesheet" href="../../css/jquery_library.css">
+	<link rel="stylesheet" href="../../css/common.css">
+	<link rel="stylesheet" href="../../css/style_rns.css">
+	<script src="../../js/jquery_2.1.1.min.js"></script>
+	<script src="../../js/jquery_library.js"></script>
+	<script src="../../js/common.js"></script>
+	<script src="../../js/rns.js"></script>
+	<!-- //RNS source -->
+
+</head>
+
+<body>
+	<div id="wrap" class="rns"><!-- rns 페이지는 rns 클래스를 붙여주세요 -->
+
+		<!-- lnb// -->
+		<div id="lnb">
+			<span class="logo-ums"><img src="../../img/rns/logo_ums.png" alt="UMS"></span>
+			<h1>AXon RNS</h1>
+
+			<!-- 메뉴// -->
+			<nav>
+				<ul>
+					<li><!-- 현재페이지 : li class="active" 추가 -->
+						<a href="javascript:;" class="depth1"><span class="item01">실시간메일관리</span></a>
+						<div class="inner-menu">
+							<ul>
+								<li><a href="javascript:;">템플릿관리</a></li><!-- 현재페이지 : li class="active" 추가 -->
+								<li><a href="javascript:;">서비스관리</a></li>
+								<li><a href="javascript:;">테스트메일</a></li>
+							</ul>
+						</div>
+					</li>
+					<li>
+						<a href="javascript:;" class="depth1"><span class="item02">발송통계</span></a>
+						<div class="inner-menu">
+							<ul>
+								<li><a href="javascript:;">월별통계</a></li>
+								<li><a href="javascript:;">서비스별통계</a></li>
+								<li><a href="javascript:;">도메인별통계</a></li>
+								<li><a href="javascript:;">수신자별통계</a></li>
+								<li><a href="javascript:;">메일별통계</a></li>
+								<li><a href="javascript:;">상세로그</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</nav>
+			<!-- //메뉴 -->
+		</div>
+		<!-- //lnb -->
+
+		<!-- content// -->
+		<div id="content">
+
+			<!-- cont-head// -->
+			<section class="cont-head">
+				<div class="title">
+					<h2>대제목 영역</h2>
+				</div>
+
+				<div class="util">
+					<a href="javascript:;" class="btn-util item01">전체 서비스</a>
+					<!-- 전체서비스 툴팁// -->
+					<div class="service">
+						<a href="javascript:;">AXon EMS</a>
+						<a href="javascript:;">AXon RNS</a>
+						<a href="javascript:;">AXon SMS</a>
+						<a href="javascript:;">AXon PUSH</a>
+					</div>
+					<!-- //전체서비스 툴팁 -->
+
+					<a href="javascript:;" class="btn-util item02">공통 설정</a>
+
+					<a href="javascript:;" class="btn-util item03 active"><!-- 알림없을 경우 active 클래스 제거 --><!-- 2021-08-17 알림 추가 -->
+						발송결재
+						<span class="alertnum">99+</span><!-- a active일 때 display block / 숫자 : 99 초과일 경우 99+로 처리 -->
+					</a>
+					
+					<div class="user">
+						<div class="info">
+							<em>박명수</em>
+							<span>영업관리부</span>
+							<button type="button">열기</button>
+						</div>
+						<div class="link">
+							<a href="javascript:;">사용자 정보수정</a>
+							<a href="javascript:;">로그아웃</a>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- //cont-head -->
+
+			<!-- cont-body// -->
+			<section class="cont-body">
+				컨텐츠 영역
+			</section>
+			<!-- //cont-body -->
+			
+		</div>
+		<!-- // content -->
+	</div>
+	
+</body>
+</html>
