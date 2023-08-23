@@ -240,6 +240,10 @@ select.ui-datepicker-month {width:45px !important;margin:-4px 0 0 0 !important;p
 /* layout */
 #wrap {position:relative;width:100%;min-width:1180px;max-width:1920px;height:100%;}
 #wrap:after {content:"";display:block;clear:both;}
+/* 2023.08.23 추가 */
+@media screen and (min-width:360px) and (max-width:1179px){
+    #wrap {min-width:360px;max-width:100%;}
+}
 #content {position:relative;padding-left:260px;width:100%;}
 #content:before {content:"";position:fixed;top:0;left:0;width:260px;height:100%;background:#242424;} /* 작업을 위해 테스트 추가, 추후 제거 */
 .cont-head {padding:30px 40px 20px;}

@@ -1,0 +1,47 @@
+@charset "utf-8";
+/**
+ * --------------------------------
+ * Survey CSS
+ * creator : leejeha
+ * --------------------------------
+**/
+
+/*
+    UMS common.css에 맞춰 해당 서비스 또한 font를 px로 통일.
+    추후 모바일 기기 호환되지 않을 시 rem, em 등으로 변경 필요할 수 있음.
+*/
+
+
+/* common */
+.survey {position: relative;min-width: 360px;max-width: 414px;min-height: 100vh;height: 100%;margin: auto;box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);}
+.survey .btn.fullblue {background-color:#3A98FF;border-color:#3A98FF;}
+.survey .btn.big {width:100%;min-width:unset;height:52px;line-height:50px;font-size:18px;}
+
+/* component */
+input[type="checkbox"] + span {margin-right:0px;padding-left:26px;}
+input[type="checkbox"] + span:before {background-image:url("../img/surv/form_chk.png");background-size:100%;}
+
+input[type="radio"] + span {margin-right:0px;padding-left:26px;}
+input[type="radio"] + span:before {background-image:url("../img/surv/form_rdo.png");background-size:100%;}
+.mob-inner{position:relative;padding:0 16px;}
+.banner {position:relative;width:100%;height:105px;}
+.banner.top {margin-bottom:20px;}
+.banner.bottom {margin-top:20px;}
+.banner .banner-wrap{position:absolute;top:0;left:0;width:100%;height:105px;background:url('../img/surv/survey_banner.png') no-repeat center / 100%;}
+
+
+/* header */
+.surv-header{position:relative;width:100%;height:60px;margin-bottom:10px;}
+.surv-header:empty:before{content:"header";display:block;height:60px;margin-bottom:10px;background:#dde1e6;color:#999;font-size:16px;text-align:center;line-height:58px;}
+.surv-header .mob-inner{display: flex;justify-content:space-between;align-items:center;width:100%;height:60px;}
+.surv-header .logo{width:75px;height:25px;overflow:hidden;}
+.surv-header .logo img{max-width:100%;}
+.surv-header .user-info{color:#555;font-size:14px;}
+.surv-header .user-info strong{font-weight:400;text-decoration:underline;}
+
+/* login */
+.login-box {padding-top:20px;}
+.login-box .title-text{margin-bottom:8px;color:#555;font-size:13px;}
+.login-box .caution-bottom{width:260px;margin:32px auto 15px;color:#555;font-size:14px;}
+.form-box input {height:52px;line-height:50px;margin-bottom:10px;font-size:15px;border-color:#d5d5d5;}
+.form-box .btn {margin-top:10px;}

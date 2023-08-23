@@ -5,7 +5,7 @@
 	<meta http-equiv="x-ua-compatible" content="IE=EDGE">
 	<meta name="Author" content="enders">
 	<meta name="keywords" content="UMS">
-	<meta name="description" content="UMS">
+	<meta name="description" content="UMS Survey System">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Survey 공통 레이아웃</title>
 	<!-- Survey source// -->
@@ -17,23 +17,38 @@
 	<script src="../../js/jquery_library.js"></script>
 	<script src="../../js/common.js"></script>
 	<!-- //Survey source -->
-
 </head>
 
 <body>
-	<div id="wrap" class="survey"><!-- survey 페이지는 survey 클래스를 붙여주세요 -->
-		<header class="surv-header">
-			<div class="mob-inner">
-				<h2 class="logo">
-					<img src="../../img/" alt="Amway">
-				</h2>
-				<div class="user-info">
-					<p>
-						<strong>홍길동</strong>님 환영합니다.
-					</p>
+	<div id="wrap">
+		<div class="survey">
+			<!-- surv-header// -->
+			<header class="surv-header">
+				<div class="mob-inner">
+					<h2 class="logo">
+						<a href="javascript:;">
+							<img src="../../img/surv/amway_logo.png" alt="Amway">
+						</a>
+					</h2>
+					<div class="user-info">
+						<p>
+							<strong>홍길동</strong>님 환영합니다.
+						</p>
+					</div>
+				</div>
+			</header>
+			<!-- //surv-header -->
+
+			<!-- surv-content// -->
+			<div class="surv-content">
+				<div class="mob-inner">
+					<section>
+						<label for="chk_01"><input type="checkbox" id="chk_01"><span>컨텐츠 영역</span></label>
+					</section>
 				</div>
 			</div>
-		</header>
+			<!-- //surv-content -->
+		</div>
 	</div>
 		
 </body>
