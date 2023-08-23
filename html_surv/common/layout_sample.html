@@ -16,6 +16,7 @@
 	<script src="../../js/jquery_2.1.1.min.js"></script>
 	<script src="../../js/jquery_library.js"></script>
 	<script src="../../js/common.js"></script>
+	<script src="../../js/surv.js"></script>
 	<!-- //Survey source -->
 </head>
 
@@ -38,12 +39,59 @@
 				</div>
 			</header>
 			<!-- //surv-header -->
-
+ 
 			<!-- surv-content// -->
 			<div class="surv-content">
 				<div class="mob-inner">
 					<section>
 						<label for="chk_01"><input type="checkbox" id="chk_01"><span>컨텐츠 영역</span></label>
+
+						<!-- step progress bar// -->
+						<div class="step-box">
+							<div class="step-num">
+								<span class="current">1</span>
+								&#47;
+								<span class="total">4</span>
+							</div>
+							<div class="progress-bar">
+								<span class="state">
+									<span class="hidden">단계표시</span>
+								</span>
+							</div>
+							<div class="survey-form">
+								<ul>
+									<li>
+										<div>2023 서베이링크 패널 프로파일 조사(가형)</div>
+										<div class="btn-wrap tar">
+											<a href="javascript:;" class="btn medium next fr">다음</a>
+										</div>
+									</li>
+									<li>
+										<div>AQ4-1. 귀하께서 함께 거주하시는 가족은 몇명입니까? 본인을 포함하여 말씀해 주십시오.</div>
+										<div class="btn-wrap clear">
+											<a href="javascript:;" class="btn medium prev fl">이전</a>
+											<a href="javascript:;" class="btn medium next fr">다음</a>
+										</div>
+									</li>
+									<li>
+										<div>AQ2. 귀하의 주민등록상 생년을 기록해 주십시오.</div>
+										<div class="btn-wrap clear">
+											<a href="javascript:;" class="btn medium prev fl">이전</a>
+											<a href="javascript:;" class="btn medium next fr">다음</a>
+										</div>
+									</li>
+									<li>
+										<div>AQ3-2. 귀하는 23년도에 결혼 계획이 있으십니까?</div>
+										<div class="btn-wrap clear">
+											<a href="javascript:;" class="btn medium prev fl">이전</a>
+											<a href="javascript:;" class="btn medium next fr">다음</a>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<!-- //step progress bar -->
+
 					</section>
 				</div>
 			</div>
@@ -52,4 +100,18 @@
 	</div>
 		
 </body>
+<script>
+const btnPrev = document.querySelector(".btn.prev");
+const btnNext = document.querySelector(".btn.next");
+const progressBar = document.querySelector(".progress-bar");
+const currentProgress = document.querySelector(".progress-bar .state");
+const formSteps = document.querySelector(".survey-form");
+
+let progressState = document.querySelector(".progress-bar .state");
+
+function changeBarWidth () {
+    currentProgress.style.width = (width * progress) + '%';
+  }
+
+</script>
 </html>

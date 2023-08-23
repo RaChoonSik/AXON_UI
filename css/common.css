@@ -77,6 +77,8 @@
 .btn.fullorange {background:#F9984E;color:#fff;border:1px solid #F9984E;}
 .btn.fullpink {background:#F26674;color:#fff;border:1px solid #F26674;}
 .btn.fullblack {background:#444;color:#fff;border:1px solid #444;}
+.btn.medium{height:52px;line-height:50px;font-size:18px;}
+.btn.medium:disabled{background-color:#D5D5D5;font-size:#fff;}
 .btn.big {min-width:130px;color:#444;font-size:13px;border-color:#E5E5E5;}
 .btn.big:disabled {background:#fff;color:#E1E1E1;border-color:#E5E5E5;}
 .btn.big.fullblue {color:#fff;border-color:#5668F0;}

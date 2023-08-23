@@ -13,22 +13,25 @@
 
 
 /* common */
-.survey {position: relative;min-width: 360px;max-width: 414px;min-height: 100vh;height: 100%;margin: auto;box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);}
+.survey {position:relative;min-width:360px;max-width:414;min-height:100vh;height:100%;overflow-y:auto;margin:auto;background-color:#fff;box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);}
 .survey .btn.fullblue {background-color:#3A98FF;border-color:#3A98FF;}
 .survey .btn.big {width:100%;min-width:unset;height:52px;line-height:50px;font-size:18px;}
+.survey .btn-wrap{width:100%;margin-top:40px;padding-left:12px;padding-right:12px;}
+.survey .btn-wrap .btn.medium{width:147px;}
+.survey .btn-wrap .btn.next{background-color:#3A98FF;color:#fff;border-color:#3A98FF;}
+.survey .btn-wrap .btn:not(:first-child){margin-left:10px;}
 
 /* component */
 input[type="checkbox"] + span {margin-right:0px;padding-left:26px;}
 input[type="checkbox"] + span:before {background-image:url("../img/surv/form_chk.png");background-size:100%;}
-
 input[type="radio"] + span {margin-right:0px;padding-left:26px;}
 input[type="radio"] + span:before {background-image:url("../img/surv/form_rdo.png");background-size:100%;}
+
 .mob-inner{position:relative;padding:0 16px;}
 .banner {position:relative;width:100%;height:105px;}
 .banner.top {margin-bottom:20px;}
 .banner.bottom {margin-top:20px;}
 .banner .banner-wrap{position:absolute;top:0;left:0;width:100%;height:105px;background:url('../img/surv/survey_banner.png') no-repeat center / 100%;}
-
 
 /* header */
 .surv-header{position:relative;width:100%;height:60px;margin-bottom:10px;}
@@ -45,3 +48,29 @@ input[type="radio"] + span:before {background-image:url("../img/surv/form_rdo.pn
 .login-box .caution-bottom{width:260px;margin:32px auto 15px;color:#555;font-size:14px;}
 .form-box input {height:52px;line-height:50px;margin-bottom:10px;font-size:15px;border-color:#d5d5d5;}
 .form-box .btn {margin-top:10px;}
+
+
+/* result */
+.result-area {padding-top:90px;}
+.title {margin-bottom:40px;color:#2e2e2e;font-size:18px;font-weight:400;}
+.title strong{font-weight:500;}
+.title .ico-completed{display:block;width:60px;height:60px;margin:0 auto 16px;background:url('../img/surv/ico_complete.png') no-repeat 0 0 / 100%;}
+.text-content ul {display:flex;justify-content:flex-start;align-items:center;border-top:1px solid #CCC;border-bottom:1px solid #CCC;}
+.text-content ul li{display: flex;align-items:center;height:92px;padding-left:10px;padding-right:10px;color:#555;font-size:14px;}
+.text-content ul .list-title{background-color:#F5F5F5;text-align:center;}
+.text-content ul .list-cont{background-color:#fff;text-align:left;}
+
+/* answer */
+.my-answer {position:relative;padding-top:20px;padding-bottom:25px;}
+.my-answer .h2-title{margin-bottom:28px;padding-bottom:6px;color:#2e2e2e;font-size:18px;font-weight:500; border-bottom:1px solid #555;}
+.answer-area li {margin-bottom:20px;}
+.answer-area a{margin-bottom:12px;color:#009CD8;font-size:15px;}
+.answer-area .answer-box{}
+.answer-area .answer-box .gray-cont{display:block;width:100%;height:52px;padding:16px 12px;background-color:#F5F5F5;color:#555;font-size:14px;text-align:left;line-height:23px;}
+
+/* step-box */
+.step-box{padding-top:20px;}
+.step-num{width:100%;margin-bottom:4px;text-align:right;}
+.step-num span{color:#555;font-size:13px;}
+.progress-bar {position:relative;width:100%;height:6px;margin-bottom:32px;padding-left:12px;padding-right:12px;background-color:#D9D9D9;border-radius:3px;}
+.progress-bar .state{display:inline-block;width:0;height:100%;background-color:#3A98FF;border-radius:3px;transition:width 0.4s ease;}
