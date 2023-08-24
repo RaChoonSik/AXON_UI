@@ -13,7 +13,8 @@
 
 
 /* common */
-.survey {position:relative;min-width:360px;max-width:414;min-height:100vh;height:100%;overflow-y:auto;margin:auto;background-color:#fff;box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);}
+.survey {position:relative;min-width:360px;max-width:414px;min-height:100vh;height:100%;overflow-y:auto;margin:auto;background-color:#fff;box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);}
+.surv-content {padding-bottom:40px;}
 .survey .btn.fullblue {background-color:#3A98FF;border-color:#3A98FF;}
 .survey .btn.big {width:100%;min-width:unset;height:52px;line-height:50px;font-size:18px;}
 .survey .btn-wrap{width:100%;margin-top:40px;padding-left:12px;padding-right:12px;}
@@ -23,6 +24,8 @@
 
 /* component */
 input[type="checkbox"] + span {margin-right:0px;padding-left:26px;}
+input[type="checkbox"]:checked + span,
+input[type="radio"]:checked + span{color:#009CD8;}
 input[type="checkbox"] + span:before {background-image:url("../img/surv/form_chk.png");background-size:100%;}
 input[type="radio"] + span {margin-right:0px;padding-left:26px;}
 input[type="radio"] + span:before {background-image:url("../img/surv/form_rdo.png");background-size:100%;}
@@ -49,7 +52,6 @@ input[type="radio"] + span:before {background-image:url("../img/surv/form_rdo.pn
 .form-box input {height:52px;line-height:50px;margin-bottom:10px;font-size:15px;border-color:#d5d5d5;}
 .form-box .btn {margin-top:10px;}
 
-
 /* result */
 .result-area {padding-top:90px;}
 .title {margin-bottom:40px;color:#2e2e2e;font-size:18px;font-weight:400;}
@@ -64,13 +66,29 @@ input[type="radio"] + span:before {background-image:url("../img/surv/form_rdo.pn
 .my-answer {position:relative;padding-top:20px;padding-bottom:25px;}
 .my-answer .h2-title{margin-bottom:28px;padding-bottom:6px;color:#2e2e2e;font-size:18px;font-weight:500; border-bottom:1px solid #555;}
 .answer-area li {margin-bottom:20px;}
-.answer-area a{margin-bottom:12px;color:#009CD8;font-size:15px;}
-.answer-area .answer-box{}
-.answer-area .answer-box .gray-cont{display:block;width:100%;height:52px;padding:16px 12px;background-color:#F5F5F5;color:#555;font-size:14px;text-align:left;line-height:23px;}
+.answer-area a{margin-bottom:12px;color:#009CD8;font-size:15px;text-decoration:underline;}
+.answer-area .answer-box .gray-cont{display:block;width:100%;height:auto;padding:16px 12px;background-color:#F5F5F5;color:#555;font-size:14px;text-align:left;}
+.answer-box .img-uploaded{display:inline-block;width:100%;height:auto;margin-bottom:3px;overflow:hidden;}
+.answer-box .img-uploaded.small{width:60px;height:60px;margin-left:8px;}
+.answer-box .img-uploaded.small:first-child{margin-left:0;}
+.answer-box .img-uploaded img{width:100%;height:100%;}
 
 /* step-box */
-.step-box{padding-top:20px;}
+.step-box{padding:20px 12px;background-color:#fff;border:1px solid #E1E1E1;}
+.step-box .h3-title{margin-bottom:30px;}
+.step-box.bg-gray .h3-title{margin-bottom:8px;}
+.step-box.bg-gray{background-color:#f5f5f5;border:1px solid #F5F5F5;}
+.step-box.bg-gray .white-box{width:100%;height:376px;max-height:376px;padding:20px 16px;background-color:#fff;font-size:15px;box-shadow:0px 2px 6px rgba(0,0,0,12%);overflow-y:auto;}
+.step-box.bg-gray .white-box::-webkit-scrollbar {right:5px; width:5px;}
+.step-box.bg-gray .white-box::-webkit-scrollbar-thumb {background-color:#999;}
+.step-box.bg-gray .white-box::-webkit-scrollbar-track {background-color:#D9D9D9;}
 .step-num{width:100%;margin-bottom:4px;text-align:right;}
 .step-num span{color:#555;font-size:13px;}
-.progress-bar {position:relative;width:100%;height:6px;margin-bottom:32px;padding-left:12px;padding-right:12px;background-color:#D9D9D9;border-radius:3px;}
+.progress-bar {position:relative;width:100%;height:6px;margin-bottom:32px;background-color:#D9D9D9;border-radius:3px;}
 .progress-bar .state{display:inline-block;width:0;height:100%;background-color:#3A98FF;border-radius:3px;transition:width 0.4s ease;}
+.step-box .question-area{min-height:364px;}
+.step-box .question-area.yet{}
+
+.step-box .desc{width:100%;margin-bottom:30px;padding:8px 12px;background-color:#F5F5F5;color:#888;font-size:14px;}
+.step-box .banner {width:100%;height:56px;margin-bottom:30px;background:url('../img/surv/desc_banner.png') no-repeat center / 100%;}
+.step-box .rdo label{display:block;margin-bottom:16px;}
