@@ -7,6 +7,8 @@
 */
 $(window).on('load', function(){
 
-    $(".step-box.yet").on("click", function(){});
+    $(".step-box.yet").on("click", function(){
+        
+    });
 
 });

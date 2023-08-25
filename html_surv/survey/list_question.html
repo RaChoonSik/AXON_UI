@@ -7,7 +7,7 @@
 	<meta name="keywords" content="UMS">
 	<meta name="description" content="UMS Survey System">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Survey 공통 레이아웃</title>
+	<title>설문목록</title>
 	<!-- Survey source// -->
 	<link rel="stylesheet" href="../../css/reset.css">
 	<link rel="stylesheet" href="../../css/jquery_library.css">
@@ -16,6 +16,7 @@
 	<script src="../../js/jquery_2.1.1.min.js"></script>
 	<script src="../../js/jquery_library.js"></script>
 	<script src="../../js/common.js"></script>
+	<script src="../../js/ems.js"></script>
 	<script src="../../js/surv.js"></script>
 	<!-- //Survey source -->
 </head>
@@ -44,72 +45,8 @@
 			<div class="surv-content">
 				<div class="mob-inner">
 					<section>
-						<label for="chk_01" style="margin-bottom:10px;"><input type="checkbox" id="chk_01"><span>컨텐츠 영역</span></label>
-						<!-- step-box bg-gray// -->
-						<div class="step-box bg-gray" style="margin-bottom:20px;"><!-- 회색 배경 필요 시 추가 -->
-							<div class="step-num">
-								<span class="current">1</span>
-								&#47;
-								<span class="total">4</span>
-							</div>
-							<div class="progress-bar">
-								<span class="state">
-									<span class="hidden">단계표시</span>
-								</span>
-							</div>
-							<div class="survey-form">
-								<h3 class="h3-title">2023 서베이링크 패널 프로파일 조사(가형)</h3>
-								<p class=""></p>
-								<form>
-									<fieldset>
-										<legend>설문 목록</legend>
-									</fieldset>
-									<div class="white-box">
-										<span>서베이링크 패널 여러분 안녕하십니까?
-											서베이링크는 2023패널 프로파일 조사를 실시 하고 있습니다. 본 조사는 패널분들의 현황을 정확히 파악하여 향후 설문조사 참여자 선정을 위한 귀중한 자료로 활용할 예정이며, 본 조사에 참여하셔야 앞으로 조사에 참여하실 기회가 많아집니다. 귀하께서 응답하신 내용은 통계적인 분석 이외의 목적으로는 절대 사용하지 않을 것임을 약속 드립니다.
-											패널 프로파일 조사 가형은 인구통계학적인 사항 (가족구성/직업/소득) 과 여행, 취미, 건강 등과 관련된 사항입니다. 잠시 시간을 내어 응답해 주시기 바랍니다.
-											서베이링크 패널 여러분 안녕하십니까?
-											서베이링크는 2023패널 프로파일 조사를 실시 하고 있습니다.
-										</span>
-									</div>
-								</form>
-
-								<!-- <ul>
-									<li>
-										<div>2023 서베이링크 패널 프로파일 조사(가형)</div>
-										<div class="btn-wrap tar">
-											<a href="javascript:;" class="btn medium next fr">다음</a>
-										</div>
-									</li>
-									<li>
-										<div>AQ4-1. 귀하께서 함께 거주하시는 가족은 몇명입니까? 본인을 포함하여 말씀해 주십시오.</div>
-										<div class="btn-wrap clear">
-											<a href="javascript:;" class="btn medium prev fl">이전</a>
-											<a href="javascript:;" class="btn medium next fr">다음</a>
-										</div>
-									</li>
-									<li>
-										<div>AQ2. 귀하의 주민등록상 생년을 기록해 주십시오.</div>
-										<div class="btn-wrap clear">
-											<a href="javascript:;" class="btn medium prev fl">이전</a>
-											<a href="javascript:;" class="btn medium next fr">다음</a>
-										</div>
-									</li>
-									<li>
-										<div>AQ3-2. 귀하는 23년도에 결혼 계획이 있으십니까?</div>
-										<div class="btn-wrap clear">
-											<a href="javascript:;" class="btn medium prev fl">이전</a>
-											<a href="javascript:;" class="btn medium next fr">다음</a>
-										</div>
-									</li>
-								</ul> -->
-							</div>
-						</div>
-						<!-- //step-box bg-gray -->
-
-
 						<!-- step-box // -->
-						<div class="step-box"><!-- 회색 배경 필요 시 추가 -->
+						<div class="step-box">
 							<div class="step-num">
 								<span class="current">1</span>
 								&#47;
@@ -121,32 +58,307 @@
 								</span>
 							</div>
 							<div class="survey-form">
-								<h3 class="h3-title">2023 서베이링크 패널 프로파일 조사(가형)</h3>
-								<p class=""></p>
+								<h3 class="h3-title">AQ4-1. 귀하께서 함께 거주하시는 가족은 몇명입니까? 본인을 포함하여 말씀해 주십시오.</h3>
 								<form>
 									<fieldset>
 										<legend>설문 목록</legend>
 									</fieldset>
 									<div class="question-area">
-										<!-- <p class="desc">ABO 회원들에 엣모스피어 블루에 대한 고객 만족도 설문조사 입니다.</p>
-										<div class="banner">
-											<span class="hidden">설명 이미지</span>
-										</div> -->
 										<div class="rdo">
-											<label for="rdo_01" style="margin-bottom:10px;"><input type="radio" id="rdo_01" name="sex" checked><span>남자</span></label>
-											<label for="rdo_02" style="margin-bottom:10px;"><input type="radio" id="rdo_02" name="sex"><span>여자</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 1인 가구: 부모 혹은 다른 가족과의 동거없이 독립하여 홀로 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 2인 가구: 친구, 형제 자매와 함께 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 1인 가구: 부모 혹은 다른 가족과의 동거없이 독립하여 홀로 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 2인 가구: 친구, 형제 자매와 함께 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 1인 가구: 부모 혹은 다른 가족과의 동거없이 독립하여 홀로 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 2인 가구: 친구, 형제 자매와 함께 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 1인 가구: 부모 혹은 다른 가족과의 동거없이 독립하여 홀로 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 2인 가구: 친구, 형제 자매와 함께 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 1인 가구: 부모 혹은 다른 가족과의 동거없이 독립하여 홀로 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 2인 가구: 친구, 형제 자매와 함께 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 1인 가구: 부모 혹은 다른 가족과의 동거없이 독립하여 홀로 거주</span></label>
-											<label for="" style="margin-bottom:10px;"><input type="radio" id="" name=""><span>미혼 2인 가구: 친구, 형제 자매와 함께 거주</span></label>
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="sex" checked><span>남자</span></label>
+											<label for="rdo_02"><input type="radio" id="rdo_02" name="sex"><span>여자</span></label>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ2. 귀하의 주민등록상 생년을 기록해 주십시오.</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="input-box">
+											<input type="text" class="small" placeholder="생년 4자리">
+											<span class="unit">년</span>
+											<span>(예 : 1991년)</span>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ3-2. 귀하는 23년도에 결혼 계획이 있으십니까?</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="rdo">
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												23년 상반기 (1월~6월)에 결혼을 할 예정/계획이 있다.
+											</span></label>
+											<label for="rdo_02"><input type="radio" id="rdo_02" name="quest"><span>
+												23년 하반기 (7월~12월)에 결혼을 할 예정/계획이 있다.
+											</span></label>
+											<label for="rdo_03"><input type="radio" id="rdo_03" name="quest"><span>
+												23년에 결혼 예정/계획이 없다.
+											</span></label>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ4. 귀하의 가구형태에 가장 맞는 것을 선택해 주십시오.</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="rdo">
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												<strong>미혼 1인 가구:</strong> 부모 혹은 다른 가족과의 동거없이 독립하여 홀로 거주<!-- 굵은 글씨가 필요할 경우 strong 태그 추가 -->
+											</span></label>
+											<label for="rdo_02"><input type="radio" id="rdo_02" name="quest"><span>
+												<strong>미혼 2인 가구:</strong> 친구, 형제 자매와 함께 거주<!-- 굵은 글씨가 필요할 경우 strong 태그 추가 -->
+											</span></label>
+											<label for="rdo_03"><input type="radio" id="rdo_03" name="quest"><span>
+												<strong>부부 단독 가구:</strong> 결혼했으나 자녀가 없고, 부부만 거주<!-- 굵은 글씨가 필요할 경우 strong 태그 추가 -->
+											</span></label>
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												<strong>영유아 자녀 가구:</strong> 막내 자녀가 만 0~6세의 영유아<!-- 굵은 글씨가 필요할 경우 strong 태그 추가 -->
+											</span></label>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ4-1. 귀하께서 함께 거주하시는 가족은 몇 명입니까? 본인을 포함하여 말씀해 주십시오.</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="input-box">
+											<input type="text" class="small">
+											<span class="unit">명</span>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ9. 현재 귀하의 직업은 무엇입니까?</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="rdo">
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												학생 (초등학생, 중학생, 고등학생, 대학생, 대학원생 등)
+											</span></label>
+											<label for="rdo_02"><input type="radio" id="rdo_02" name="quest"><span>
+												전업주부
+											</span></label>
+											<label for="rdo_03"><input type="radio" id="rdo_03" name="quest"><span>
+												취업 준비생
+											</span></label>
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												은퇴
+											</span></label>
+
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												자발적 무직
+											</span></label>
+											<label for="rdo_02"><input type="radio" id="rdo_02" name="quest"><span>
+												파트타임/아르바이트
+											</span></label>
+											<label for="rdo_03"><input type="radio" id="rdo_03" name="quest"><span>
+												자영업 (도소매, 상점, 부동산, 학원, 놀이방, 개인택시/운송 등)
+											</span></label>
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												보건/의료직 (병원, 보건소, 약국 근무) : 의사/한의사/수의사/간호사/치료사/약사/영양사/보건행정 등)
+											</span></label>
+
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												국립/공립/사립 학교 교사 및 행정 (유치원/초등/중등/대학 등)
+											</span></label>
+											<label for="rdo_02"><input type="radio" id="rdo_02" name="quest"><span>
+												프리랜서
+											</span></label>
+											<label for="rdo_03"><input type="radio" id="rdo_03" name="quest"><span>
+												재수생 (N수생)
+											</span></label>
+											<label for="rdo_01"><input type="radio" id="rdo_01" name="quest" checked><span>
+												기타 
+												<input type="text" disabled><!-- 기타 항목 선택 시에 disabled 비활성화 -->
+											</span></label>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ16-1. 귀댁에서는 향후 1년 이내에 가정 내 인테리어를 할 의향이 있습니까? 인테리어를 하고 싶은 공간을 모두 선택해 주십시오.</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="chk-box">
+											<label for="chk_01"><input type="checkbox" id="chk_01"><span>현관 중문 설치</span></label>
+											<label for="chk_01"><input type="checkbox" id="chk_01"><span>화장실</span></label>
+											<label for="chk_01"><input type="checkbox" id="chk_01"><span>베란다 중문 설치</span></label>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ4-1. 귀하께서 함께 거주하시는 가족은 몇 명입니까? 본인을 포함하여 말씀해 주십시오.</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="select">
+											<select title="옵션 선택">
+												<option selected>1</option>
+												<option>2</option>
+												<option>3</option>
+											</select>
+										</div>
+										<span class="unit">명</span>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ4-2. 긴글 입력할 경우</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<textarea placeholder="자세한 답변 내용을 입력해주세요."></textarea>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ4-3. 날짜를 입력할 경우</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="datepickertimebox">
+											<div class="datepicker">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<div class="select">
+												<select title="옵션 선택">
+													<option>15시</option>
+													<option>15시</option>
+												</select>
+											</div>
+											<div class="select">
+												<select title="옵션 선택">
+													<option>00분</option>
+													<option>00분</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="btn-wrap">
+										<button type="button" class="btn medium">이전</button>
+										<button type="button" class="btn medium fullblue">다음</button>
+									</div>
+								</form>
+							</div>
+							<br />
+							<br />
+							<div class="survey-form">
+								<h3 class="h3-title">AQ4-3. 날짜를 입력할 경우</h3>
+								<form>
+									<fieldset>
+										<legend>설문 목록</legend>
+									</fieldset>
+									<div class="question-area">
+										<div class="datepickertimebox">
+											<div class="datepicker">
+												<label>
+													<input type="text" readonly>
+												</label>
+											</div>
+											<div class="select">
+												<select title="옵션 선택">
+													<option>15시</option>
+													<option>15시</option>
+												</select>
+											</div>
+											<div class="select">
+												<select title="옵션 선택">
+													<option>00분</option>
+													<option>00분</option>
+												</select>
+											</div>
 										</div>
 									</div>
 									<div class="btn-wrap">
