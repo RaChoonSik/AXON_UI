@@ -43,8 +43,7 @@
 .survey .banner.bottom {margin-top:20px;}
 .survey .banner .banner-wrap{position:absolute;top:0;left:0;width:100%;height:105px;background:url('../img/surv/survey_banner.png') no-repeat center / 100%;}
 .survey .datepicker label:after{top:5px;}
-.survey .fileupload input[type="file"]{e}
-.survey .fileupload .btn{width:76px;height:40px;line-height:38px;padding:0 8px;font-size:14px;}
+.survey .fileupload .btn{width:76px;height:40px;line-height:38px;padding:0px 8px;font-size:14px;}
 .survey .fileupload .inputfile .filesize{top:10px;}
 
 /* header */
