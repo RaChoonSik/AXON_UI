@@ -89,7 +89,7 @@
 										<legend>설문 목록</legend>
 									</fieldset>
 									<div class="question-area">
-										<div class="input-box">
+										<div class="input-area">
 											<input type="text" class="small tac" placeholder="생년 4자리">
 											<span class="unit">년</span>
 											<span class="txt-ex">(예 : 1991년)</span>
@@ -176,7 +176,7 @@
 										<legend>설문 목록</legend>
 									</fieldset>
 									<div class="question-area">
-										<div class="input-box">
+										<div class="input-area">
 											<input type="text" class="small tac">
 											<span class="unit">명</span>
 										</div>
@@ -381,8 +381,11 @@
 											</div>
 											<label for="file1" class="btn fullblue">찾아보기</label>
 											<button type="button" class="btn fullblack hide" onclick="fn.fileReset(this);">삭제</button>
-											<!-- onchange="fn.fileCheck( this.form.file1 )" -->
+											<!-- 에러메시지 출력 -->
+											<!-- <div class="toast-alert">에러메시지를 출력합니다.</div> -->
+											<!-- //에러메시지 출력 -->
 										</div>
+										<button type="button" class="preview" onclick="fn.popupOpen('#popup_file_preview');">이미지 미리보기</button>
 									</div>
 									<div class="btn-wrap">
 										<button type="button" class="btn medium">이전</button>
@@ -398,6 +401,20 @@
 			<!-- //surv-content -->
 		</div>
 	</div>
+
+	<!-- 팝업// -->
+	<div id="popup_file_preview" class="poplayer popsurvey"><!-- id값 수정 가능 -->
+		<div class="inner">
+			<div class="whitebox">
+				<div class="preview-area" style="background-color:#fff;">
+					<img src="../../img/surv/sample.png" alt="샘플이미지">
+				</div>
+			</div>
+			<button type="button" class="btn_popclose" onclick="fn.popupClose('#popup_file_preview');"><span class="hidden">팝업닫기</span></button><!-- onclick에 팝업 id값 통일해주세요 -->
+		</div>
+		<span class="poplayer-background" onclick="fn.popupClose('#popup_file_preview');"></span><!-- onclick에 팝업 id값 통일해주세요 -->
+	</div>
+	<!-- //팝업 -->
 
 	<!-- 토스트 얼럿// -->
 	<script>
